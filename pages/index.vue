@@ -3,7 +3,7 @@
     <div>
       <logo />
       <h1 class="title">
-        facing_dragons_main
+        This is just a test
       </h1>
       <h2 class="subtitle">
         Facing Dragons Website
