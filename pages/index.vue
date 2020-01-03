@@ -1,11 +1,13 @@
 <template>
   <b-container fluid class="main-container">
     <div
-      class="row"
+      class="row justify-content-center mr-0 video-row"
     >
-      <div class="col-12">
+      <div class="col-8">
         <b-embed
+          class="video-embed"
           type="video"
+          height="200px"
           autoplay
           aspect="16by9">
           <source src="~/assets/video/logo_video.mp4" type="video/mp4">
@@ -112,6 +114,20 @@ export default {
 </script>
 
 <style>
+  .video-embed {
+    height: 50vh;
+  }
+
+  .video-parent-container {
+    padding-right: 0;
+    padding-left: 0;
+    height: 90vh;
+  }
+
+  .video-row {
+    background-color: black;
+  }
+
   .main-container {
     background: url("~assets/img/main.png");
     height: 200vh;
@@ -120,11 +136,6 @@ export default {
     padding-left: 0;
   }
 
-  .video-parent-container {
-    padding-right: 0;
-    padding-left: 0;
-    height: 90vh;
-  }
 
   .mountain-image {
     width: 100%;
