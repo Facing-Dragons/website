@@ -1,37 +1,37 @@
 <template>
   <b-container fluid class="main-container">
-    <!-- <b-container
-      fluid
-      class="video-parent-container"
-    > -->
-      <!-- <b-embed
-        type="video"
-        autoplay
-        aspect="16by9">
-        <source src="~/assets/video/logo_video.mp4" type="video/mp4">
-      </b-embed> -->
-      <!-- <b-img
-        src="~/assets/img/mountain1_01.png"
-        class="parallaxing-image"
-        id="mountain-main"
-      ></b-img>
-    </b-container> -->
+    <div
+      class="row"
+    >
+      <div class="col-12">
+        <b-embed
+          type="video"
+          autoplay
+          aspect="16by9">
+          <source src="~/assets/video/logo_video.mp4" type="video/mp4">
+        </b-embed>
+      </div>
+    </div>
+
     <b-container
       class="center-container"
     >
-      <!-- <div
-        class="row"
-      >
-
-      </div> -->
-      <parallaxingImage
+      <div class="row">
+        <div class="col-12">
+          <b-img
+            class="mountain-image"
+            src="~/assets/img/mountain1_01.png"
+          ></b-img>
+        </div>
+      </div>
+      <!-- <parallaxingImage
         width = "100%"
         height = "300px"
         :currentWindowY = "currentWindowY"
         src = "~/assets/img/mountain1_01.png"
       >
 
-      </parallaxingImage>
+      </parallaxingImage> -->
     </b-container>
   </b-container>
 </template>
@@ -81,6 +81,11 @@ export default {
     padding-right: 0;
     padding-left: 0;
     height: 90vh;
+  }
+
+  .mountain-image {
+    width: 100%;
+    height: auto;
   }
 
   .parallaxing-image {
