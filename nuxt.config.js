@@ -51,7 +51,18 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
+      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
+      vueLoader.options.transformAssetUrls = {
+        video: ['src', 'poster'],
+        source: 'src',
+        img: 'src',
+        image: 'xlink:href',
+        'parallaxingImage': 'src',
+        'parallaxing-image': 'src',
+        'b-img': 'src',
+        'b-embed': 'src'
+      }
     }
   }
 }

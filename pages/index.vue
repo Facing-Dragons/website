@@ -27,6 +27,7 @@
       <parallaxingImage
         width = "100%"
         height = "300px"
+        src = "~/assets/img/mountain1_01.png"
       >
 
       </parallaxingImage>
@@ -41,6 +42,11 @@ export default {
   components: {
     parallaxingImage
   },  
+  data() {
+    return {
+      currentWindowY: 0
+    }
+  },
   created () {
     if (process.browser) {
         window.addEventListener('scroll', this.handleScroll)
@@ -54,6 +60,7 @@ export default {
   methods: {
     handleScroll () {
       console.log(window.scrollY)
+      this.currentWindowY = window.scrollY;
     }
   },
   

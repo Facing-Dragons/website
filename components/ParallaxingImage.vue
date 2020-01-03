@@ -4,7 +4,10 @@
         :style="styleObject"
         @click="clickHandler"
     >
-        Hi
+        <b-img
+            :src="src"
+            :style="[imageStyleObject, {bottom: String(currentVerticalPosition)}]"
+        ></b-img>
     </div>
 </template>
 
@@ -12,12 +15,13 @@
 export default {
     data() {
         return {
-            color: 'black'
+            color: 'black',
         }
     },
     props: {
         height: String, 
         width: String,
+        currentWindowY: Number,
         src: String,
         initialVerticalPostion: {
             type: String, 
@@ -42,14 +46,31 @@ export default {
     methods: {
         clickHandler() {
             this.color = 'white';
+        },
+        mapRange(num, in_min, in_max, out_min, out_max){
+           return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
         }
     },
     computed: {
         styleObject() {
             return {
+                position: "relative",
                 height: this.height,
                 width: this.width,
                 backgroundColor: this.color
+            }
+        },
+        currentVerticalPosition() {
+            /**
+             * This is going to map the values of the delta to the values of the window
+             */
+            return this.mapRange(this.currentWindowY, 0, window.innerHeight, 0, this.height/3);
+        },
+        imageStyleObject() {
+            return {
+                height: "100%",
+                width: "100%",
+                position: "absolute",
             }
         }
     }
@@ -57,5 +78,8 @@ export default {
 </script>
 
 <style scoped>
-
+    .container {
+        position: fixed;
+        top: 0;
+    }
 </style>
