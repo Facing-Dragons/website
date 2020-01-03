@@ -24,24 +24,67 @@
           ></b-img>
         </div>
       </div>
-      <!-- <parallaxingImage
+
+      <div class="row">
+        <div class="col-12">
+          <TeamSection
+            temp-text = "This is the intro section"
+            temp-bg = "FF6600"
+          ></TeamSection>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <TeamSection
+            temp-text = "This is the Text about game section"
+            temp-bg = "#78AD32"
+          ></TeamSection>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <TeamSection
+            temp-text = "This is the team members section"
+            temp-bg = "#0047AB"
+          ></TeamSection>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <TeamSection
+            temp-text = "This is the Sponsor's section"
+            temp-bg = "#60554F"
+          ></TeamSection>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <TeamSection
+            temp-text = "This is the Social Media section"
+            temp-bg = "#F6E67B"
+          ></TeamSection>
+        </div>
+      </div>
+      <!-- <ParallaxingImage
         width = "100%"
         height = "300px"
         :currentWindowY = "currentWindowY"
         src = "~/assets/img/mountain1_01.png"
       >
 
-      </parallaxingImage> -->
+      </ParallaxingImage> -->
     </b-container>
   </b-container>
 </template>
 
 <script>
-import parallaxingImage from '~/components/ParallaxingImage';
+import ParallaxingImage from '~/components/ParallaxingImage';
+import TeamSection from '~/components/TeamSection';
 
 export default {
   components: {
-    parallaxingImage
+    ParallaxingImage,
+    TeamSection
   },  
   data() {
     return {
