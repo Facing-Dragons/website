@@ -27,6 +27,7 @@
       <parallaxingImage
         width = "100%"
         height = "300px"
+        :currentWindowY = "currentWindowY"
         src = "~/assets/img/mountain1_01.png"
       >
 

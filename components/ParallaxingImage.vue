@@ -6,7 +6,7 @@
     >
         <b-img
             :src="src"
-            :style="[imageStyleObject, {bottom: String(currentVerticalPosition)}]"
+            :style="[imageStyleObject, {bottom: String(currentVerticalPosition) + 'px'}]"
         ></b-img>
     </div>
 </template>
@@ -54,7 +54,7 @@ export default {
     computed: {
         styleObject() {
             return {
-                position: "relative",
+                position: "fixed",
                 height: this.height,
                 width: this.width,
                 backgroundColor: this.color
@@ -64,7 +64,11 @@ export default {
             /**
              * This is going to map the values of the delta to the values of the window
              */
-            return this.mapRange(this.currentWindowY, 0, window.innerHeight, 0, this.height/3);
+            let vertPos = this.mapRange(this.currentWindowY, 0, window.innerHeight, 0, 100);
+            console.log('====================================');
+            console.log(vertPos);
+            console.log('====================================');
+            return vertPos;
         },
         imageStyleObject() {
             return {
