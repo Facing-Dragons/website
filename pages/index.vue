@@ -27,26 +27,19 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-12 d-flex justify-content-center align-items-center p-5 text-light">
-          <!-- <animating-image
-            backgroundImageSrc = "~/assets/img/mountain1_01.png"
-            foregroundImageSrc = "blah"
-            initialForegroundImageHeight = "100%"
-            stepSize = "1%"
-            currentHeight = "50%"
-            containerHeight = "300px"
-            containerWidth = "100%"
-          ></animating-image> -->
-          <!-- <TeamSection
-            temp-text = "Animating Image placeholder"
-            temp-bg = "#ebebeb"
-          ></TeamSection> -->
-          <h2 class="m-5">
-            Animating Image Placeholder
-          </h2>
-        </div>
-      </div>
+      <!-- <animating-image
+        backgroundImageSrc = "~/assets/img/mountain1_01.png"
+        foregroundImageSrc = "blah"
+        initialForegroundImageHeight = "100%"
+        stepSize = "1%"
+        currentHeight = "50%"
+        containerHeight = "300px"
+        containerWidth = "100%"
+      ></animating-image> -->
+      <!-- <TeamSection
+        temp-text = "Animating Image placeholder"
+        temp-bg = "#ebebeb"
+      ></TeamSection> -->
 
       <div class="row">
         <div class="col-12 d-flex justify-content-center align-items-center p-5">
@@ -68,14 +61,7 @@
           <TeamSection></TeamSection>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <Sponsors
-            temp-text = "This is the Sponsor's section"
-            temp-bg = "#60554F"
-          ></Sponsors>
-        </div>
-      </div>
+      <Sponsors></Sponsors>
       <div class="row">
         <div class="col-12">
           <Footer
