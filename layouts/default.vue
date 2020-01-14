@@ -26,6 +26,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background-color: black;
+}
+
 *,
 *:before,
 *:after {
