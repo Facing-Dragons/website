@@ -29,7 +29,7 @@
 
       <div class="row">
         <div class="col-12">
-          <animating-image
+          <!-- <animating-image
             backgroundImageSrc = "~/assets/img/mountain1_01.png"
             foregroundImageSrc = "blah"
             initialForegroundImageHeight = "100%"
@@ -37,7 +37,11 @@
             currentHeight = "50%"
             containerHeight = "300px"
             containerWidth = "100%"
-          ></animating-image>
+          ></animating-image> -->
+          <TeamSection
+            temp-text = "Animating Image placeholder"
+            temp-bg = "#ebebeb"
+          ></TeamSection>
         </div>
       </div>
 
@@ -45,16 +49,16 @@
         <div class="col-12">
           <TeamSection
             temp-text = "This is the intro section"
-            temp-bg = "FF6600"
+            temp-bg = "#FF6600"
           ></TeamSection>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <TeamSection
+          <AboutGame
             temp-text = "This is the Text about game section"
             temp-bg = "#78AD32"
-          ></TeamSection>
+          ></AboutGame>
         </div>
       </div>
       <div class="row">
@@ -67,18 +71,18 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <TeamSection
+          <Sponsors
             temp-text = "This is the Sponsor's section"
             temp-bg = "#60554F"
-          ></TeamSection>
+          ></Sponsors>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <TeamSection
+          <Footer
             temp-text = "This is the Social Media section"
             temp-bg = "#F6E67B"
-          ></TeamSection>
+          ></Footer>
         </div>
       </div>
       <!-- <ParallaxingImage
@@ -97,12 +101,18 @@
 import ParallaxingImage from '~/components/ParallaxingImage';
 import AnimatingImage from '~/components/AnimatingImage';
 import TeamSection from '~/components/TeamSection';
+import AboutGame from '~/components/AboutGame';
+import Sponsors from '~/components/Sponsors';
+import Footer from '~/components/Footer';
 
 export default {
   components: {
     ParallaxingImage,
     TeamSection,
-    AnimatingImage
+    AnimatingImage,
+    AboutGame,
+    Sponsors,
+    Footer
   },  
   data() {
     return {
