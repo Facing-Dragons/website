@@ -1,5 +1,5 @@
 <template>
-    <div class="row bg-white rounded d-flex flex-wrap justify-content-center align-items-center">
+    <div class="row bg-white rounded d-flex flex-wrap justify-content-center align-items-center p-5">
         <div class="col-12 d-flex justify-content-center align-items-center">
             <h2 class="my-4">
                 Sponsors
