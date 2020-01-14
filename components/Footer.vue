@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid footer-container py-5 d-flex justify-content-center align-items-center">
+    <div class="container-fluid footer-container py-5 d-flex flex-column justify-content-center align-items-center">
         <div 
             class="icon-set p-2 d-flex flex-wrap justify-content-center align-items-center"
         >
@@ -16,6 +16,13 @@
                     <font-awesome-icon :icon="info.icon.split(' ')"/>
                 </div>
             </a>
+        </div>
+        <div class="facing-dragons">
+            Facing Dragons
+        </div>
+        <div class="copyright text-center">
+            &copy 2019 Copyright Facing Dragons <br>
+            Website by <a href="https://rajabiseraji.github.io">MrOlaf</a> 
         </div>
     </div>    
 </template>
@@ -79,7 +86,7 @@ export default {
     .icon-container {
         width: 3rem;
         height: 3rem; 
-        background-color: black;
+        background-color: #2b2b2b;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -89,6 +96,16 @@ export default {
     }
 
     .footer-container {
-        background-color: gray;
+        background-color: black;
+    }
+
+    .facing-dragons {
+        color: #ebebeb;
+        font-size: 1.5rem;
+    }
+
+    .copyright {
+        color: #868686;
+        font-size: 0.6rem;
     }
 </style>
