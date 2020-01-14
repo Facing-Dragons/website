@@ -28,7 +28,7 @@
       </div>
 
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center align-items-center p-5 text-light">
           <!-- <animating-image
             backgroundImageSrc = "~/assets/img/mountain1_01.png"
             foregroundImageSrc = "blah"
@@ -38,19 +38,21 @@
             containerHeight = "300px"
             containerWidth = "100%"
           ></animating-image> -->
-          <TeamSection
+          <!-- <TeamSection
             temp-text = "Animating Image placeholder"
             temp-bg = "#ebebeb"
-          ></TeamSection>
+          ></TeamSection> -->
+          <h2 class="m-5">
+            Animating Image Placeholder
+          </h2>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-12">
-          <TeamSection
-            temp-text = "This is the intro section"
-            temp-bg = "#FF6600"
-          ></TeamSection>
+        <div class="col-12 d-flex justify-content-center align-items-center p-5">
+          <h2 class="m-5 text-white">
+            Intro Section
+          </h2>
         </div>
       </div>
       <div class="row">
@@ -61,12 +63,9 @@
           ></AboutGame>
         </div>
       </div>
-      <div class="row">
+      <div class="row py-5">
         <div class="col-12">
-          <TeamSection
-            temp-text = "This is the team members section"
-            temp-bg = "#0047AB"
-          ></TeamSection>
+          <TeamSection></TeamSection>
         </div>
       </div>
       <div class="row">
@@ -131,8 +130,8 @@ export default {
   },
   methods: {
     handleScroll () {
-      console.log(window.scrollY)
-      this.currentWindowY = window.scrollY;
+      // console.log(window.scrollY)
+      // this.currentWindowY = window.scrollY;
     }
   },
   
