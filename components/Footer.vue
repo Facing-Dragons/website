@@ -1,14 +1,22 @@
 <template>
-    <div class="team-section" :style="{background: tempBg}">
-        <div class="temp-text">{{tempText}}</div>
+    <div class="container-fluid">
+        
     </div>    
 </template>
 
 <script>
 export default {
-    props: {
-        tempText: String,
-        tempBg: String
+    data() {
+        const mediaInfo = [
+            {
+                title: "Facebook",
+                link: "https://www.facebook.com/FacingDragons/?fref=ts",
+                icon: 
+            }
+        ];
+        return {
+
+        }
     }
 }
 </script>
