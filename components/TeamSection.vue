@@ -7,7 +7,7 @@
             Team
         </h2>
         <hr>
-        <div class="team-text">
+        <div class="team-text my-4">
             This is about our team and the people! Lorem ipsum dolor sit, amet consectetur 
             adipisicing elit. Pariatur temporibus quibusdam accusantium ullam hic consectetur 
             iure excepturi at, earum dolorem! Odio praesentium, quibusdam aperiam saepe quia 
