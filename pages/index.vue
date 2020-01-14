@@ -29,6 +29,20 @@
 
       <div class="row">
         <div class="col-12">
+          <animating-image
+            backgroundImageSrc = "~/assets/img/mountain1_01.png"
+            foregroundImageSrc = "blah"
+            initialForegroundImageHeight = "100%"
+            stepSize = "1%"
+            currentHeight = "50%"
+            containerHeight = "300px"
+            containerWidth = "100%"
+          ></animating-image>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
           <TeamSection
             temp-text = "This is the intro section"
             temp-bg = "FF6600"
@@ -81,12 +95,14 @@
 
 <script>
 import ParallaxingImage from '~/components/ParallaxingImage';
+import AnimatingImage from '~/components/AnimatingImage';
 import TeamSection from '~/components/TeamSection';
 
 export default {
   components: {
     ParallaxingImage,
-    TeamSection
+    TeamSection,
+    AnimatingImage
   },  
   data() {
     return {
