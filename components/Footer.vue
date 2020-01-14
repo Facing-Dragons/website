@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid footer-container py-5 d-flex justify-content-center align-items-center">
         <div 
-            class="icon-set p-2 d-flex justify-content-center align-items-center"
+            class="icon-set p-2 d-flex flex-wrap justify-content-center align-items-center"
         >
             <a 
                 v-for="info in mediaInfo"
@@ -77,15 +77,15 @@ export default {
     }
 
     .icon-container {
-        width: 2rem;
-        height: 2rem; 
+        width: 3rem;
+        height: 3rem; 
         background-color: black;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .footer-container {
