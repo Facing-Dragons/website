@@ -1,20 +1,5 @@
 <template>
   <b-container fluid class="main-container">
-    <div
-      class="row justify-content-center mr-0 video-row"
-    >
-      <div class="col-8">
-        <b-embed
-          class="video-embed"
-          type="video"
-          height="200px"
-          autoplay
-          aspect="16by9">
-          <source src="~/assets/video/logo_video.mp4" type="video/mp4">
-        </b-embed>
-      </div>
-    </div>
-
     <b-container
       class="center-container"
     >
@@ -48,7 +33,7 @@
           </h2>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="game">
         <div class="col-12">
           <AboutGame
             temp-text = "This is the Text about game section"
@@ -56,7 +41,7 @@
           ></AboutGame>
         </div>
       </div>
-      <div class="row py-5">
+      <div class="row py-5" id="#team">
         <div class="col-12">
           <TeamSection></TeamSection>
         </div>
@@ -127,16 +112,6 @@ export default {
 <style>
   .video-embed {
     height: 50vh;
-  }
-
-  .video-parent-container {
-    padding-right: 0;
-    padding-left: 0;
-    height: 90vh;
-  }
-
-  .video-row {
-    background-color: black;
   }
 
   .main-container {

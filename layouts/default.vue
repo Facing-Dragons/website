@@ -1,14 +1,49 @@
 <template>
   <div>
+    <Header></Header>
+    <div class="video-container">
+      <video autoplay muted id="myVideo">
+        <source 
+          src="~/assets/video/logo_video.mp4"
+          type="video/mp4"
+        >
+      </video>
+    </div>
     <nuxt />
   </div>
 </template>
+
+<script>
+import Header from '~/components/Header';
+export default {
+  components: {
+    Header
+  }
+}
+</script>
 
 <style>
 
 @font-face {
   font-family: 'marcellus';
   src: url("~assets/fonts/marcellus.ttf");
+}
+
+.video-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+}
+
+#myVideo {
+  width: 98vw;
+  height: auto;
 }
 
 * {
