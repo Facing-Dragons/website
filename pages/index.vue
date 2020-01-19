@@ -5,10 +5,10 @@
     >
       <div class="row">
         <div class="col-12">
-          <b-img
+          <!-- <b-img
             class="mountain-image"
-            src="~/assets/img/mountain1_01.png"
-          ></b-img>
+            src="~/assets/img/mountain1.png"
+          ></b-img> -->
         </div>
       </div>
 

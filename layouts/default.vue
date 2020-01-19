@@ -2,10 +2,10 @@
   <div>
     <ParallaxBackground
       background-img = "main.png"
-      foreground-img = "~assets/img/torch_lights_01.png"
-      currentScrollValue = "0px"
+      foreground-img = "torch_lights_01.png"
+      :currentScrollValue = "currentWindowY"
       scrollDelayValue = "0px"
-      height = "100vh"
+      height = "200vh"
       width = "100vw"
     >
     </ParallaxBackground>
@@ -47,8 +47,8 @@ export default {
   },
   methods: {
     handleScroll () {
-      console.log(window.scrollY)
-      this.currentWindowY = window.scrollY;
+      // console.log(window.scrollY/window.innerHeight);
+      this.currentWindowY = 1 - (window.scrollY / window.innerHeight);
     }
   },
 }

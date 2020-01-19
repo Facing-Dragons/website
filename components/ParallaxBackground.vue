@@ -3,6 +3,18 @@
         :style="[backgroundStyleObject, {backgroundImage: `url(${backgroundComputed})`}]"
         class="main-parallax" 
     >
+        <img 
+            :src="firstForegroundComputed" 
+            alt="foregroundd" 
+            class="filler-image"
+        >
+        <img 
+            :src="foregroundComputed" 
+            :style="`clip-path: inset(${topSideOffset} 0 0 0)`"
+            alt="foreground" 
+            class="filler-image"
+            id="torches"
+        >
     </div>
 </template>
 
@@ -27,32 +39,47 @@ export default {
     computed: {
         backgroundStyleObject() {
             return {
-                position: "fixed",
+                // position: "fixed",
                 height: this.height,
                 width: this.width,
-                right: 0,
-                left: 0,
                 top: 0,
                 backgroundSize: 'contain'
-                // background: `url(${require('~/static/mountain1_01.png')})`,
-                //bottom: 0,
-                // backgroundColor: "white"  
             }
         },
         backgroundComputed() { 
             return require(`~/assets/img/${this.backgroundImg}`);
+        },
+        foregroundComputed() { 
+            return require(`~/assets/img/${this.foregroundImg}`);
+        },
+        firstForegroundComputed() { 
+            return require('~/assets/img/mountain1.png');
+        },
+        topSideOffset() {
+            if(this.currentScrollValue >= 1)
+                return "100%";
+            else if (this.currentScrollValue > 0)
+                return `${Number(this.currentScrollValue) * 100}%`;
+            else if (this.currentScrollValue <= 0)
+                return "0";
+                
         }
     }
 }
 </script>
 
 <style scoped>
-    background-image {
-        height: 100%;
-        width: 100%;
-        position: fixed; 
+    .filler-image {
+        position: absolute; 
+        height: auto;
+        width: 100vw;
         top: 0;
         right: 0;
         left: 0;
+    }
+
+    #torches {
+        top: 6vh;
+        left: 10.5vw;
     }
 </style>
