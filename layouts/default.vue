@@ -1,6 +1,13 @@
 <template>
   <div>
-    <ParallaxBackground>
+    <ParallaxBackground
+      background-img = "main.png"
+      foreground-img = "~assets/img/torch_lights_01.png"
+      currentScrollValue = "0px"
+      scrollDelayValue = "0px"
+      height = "100vh"
+      width = "100vw"
+    >
     </ParallaxBackground>
     <!-- <Header></Header> -->
     <!-- <div class="video-container">
