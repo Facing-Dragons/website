@@ -83,29 +83,7 @@ export default {
     AboutGame,
     Sponsors,
     Footer
-  },  
-  data() {
-    return {
-      currentWindowY: 0
-    }
-  },
-  created () {
-    if (process.browser) {
-        window.addEventListener('scroll', this.handleScroll)
-    }
-  },
-  destroyed () {
-    if (process.browser) { 
-        window.removeEventListener('scroll', this.handleScroll)
-    }
-  },
-  methods: {
-    handleScroll () {
-      // console.log(window.scrollY)
-      // this.currentWindowY = window.scrollY;
-    }
-  },
-  
+  }
 }
 </script>
 
