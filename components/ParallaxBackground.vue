@@ -73,13 +73,12 @@ export default {
         position: absolute; 
         height: auto;
         width: 100vw;
-        top: 0;
-        right: 0;
+        top: 40vh;
         left: 0;
     }
 
     #torches {
-        top: 6vh;
-        left: 10.5vw;
+        /* top: 46vh;
+        left: 10.5vw; */
     }
 </style>

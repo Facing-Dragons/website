@@ -2,7 +2,7 @@
   <div>
     <ParallaxBackground
       background-img = "main.png"
-      foreground-img = "torch_lights_01.png"
+      foreground-img = "layer2.png"
       :currentScrollValue = "currentWindowY"
       scrollDelayValue = "0px"
       height = "200vh"
