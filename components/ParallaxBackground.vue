@@ -7,10 +7,11 @@
             :src="firstForegroundComputed" 
             alt="foregroundd" 
             class="filler-image"
+            :style="`top: ${topValue}`"
         >
         <img 
             :src="foregroundComputed" 
-            :style="`clip-path: inset(${topSideOffset} 0 0 0)`"
+            :style="`clip-path: inset(${topSideOffset} 0 0 0); top: ${topValue}`"
             alt="foreground" 
             class="filler-image"
             id="torches"
@@ -35,6 +36,11 @@ export default {
         scrollDelayValue: [String, Number],
         height: [String, Number],
         width: [String, Number]
+    },
+    methods: {
+        mapRange(value, in_min, in_max, out_min, out_max) {
+            return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+        }
     },
     computed: {
         backgroundStyleObject() {
@@ -63,6 +69,14 @@ export default {
             else if (this.currentScrollValue <= 0)
                 return "0";
                 
+        },
+        topValue() {
+            if(this.currentScrollValue >= 1)
+                return "-20vh";
+            else if (this.currentScrollValue > 0)
+                return `${this.mapRange(this.currentScrollValue, 0, 1, -0.2, 0.4) * 100}vh`;
+            else if (this.currentScrollValue <= 0)
+                return "40vh";
         }
     }
 }
@@ -70,11 +84,11 @@ export default {
 
 <style scoped>
     .filler-image {
-        position: absolute; 
+        position: fixed; 
         height: auto;
         width: 100vw;
-        top: 40vh;
         left: 0;
+        top: -20vh;
     }
 
     #torches {
