@@ -48,6 +48,8 @@ export default {
   methods: {
     handleScroll () {
       // console.log(window.scrollY/window.innerHeight);
+      // this is basically how much of the window is remaining from 0 to 1 ... 1 is all remaining to scroll
+      // and 0 zero means we reached to the end of the page
       this.currentWindowY = 1 - (window.scrollY / window.innerHeight);
     }
   },

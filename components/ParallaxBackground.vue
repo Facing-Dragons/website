@@ -7,10 +7,11 @@
             :src="firstForegroundComputed" 
             alt="foregroundd" 
             class="filler-image"
+            :style ="`bottom: ${bottomValue}`"
         >
         <img 
             :src="foregroundComputed" 
-            :style="`clip-path: inset(${topSideOffset} 0 0 0)`"
+            :style="`clip-path: inset(${topSideOffset} 0 0 0); bottom: ${bottomValue}`"
             alt="foreground" 
             class="filler-image"
             id="torches"
@@ -48,7 +49,7 @@ export default {
                 height: this.height,
                 width: this.width,
                 top: 0,
-                backgroundSize: 'contain'
+                backgroundSize: 'cover'
             }
         },
         backgroundComputed() { 
@@ -69,14 +70,21 @@ export default {
                 return "0";
                 
         },
-        // topValue() {
-        //     if(this.currentScrollValue >= 1)
-        //         return "-20vh";
-        //     else if (this.currentScrollValue > 0)
-        //         return `${this.mapRange(this.currentScrollValue, 0, 1, -0.2, 0.4) * 100}vh`;
-        //     else if (this.currentScrollValue <= 0)
-        //         return "40vh";
-        // }
+        bottomValue() {
+            if (process.browser) {
+                if(window.innerWidth < 800) // mobile
+                {
+                    return "0"
+                } else {
+                    if(this.currentScrollValue >= 1)
+                        return "0";
+                    else if (this.currentScrollValue > 0)
+                        return `${this.mapRange(this.currentScrollValue, -0.1, 1.1, -0.6, 0) * 100}vh`;
+                    else if (this.currentScrollValue <= 0)
+                        return "-60vh";
+                }
+            }
+        }
     }
 }
 </script>
@@ -87,7 +95,13 @@ export default {
         height: auto;
         width: 100vw;
         left: 0;
-        top: -20vh;
+        bottom: 0;
+    }
+
+    @media screen and (max-width: 800px) {
+        .filler-image {
+            bottom: 0;
+        }
     }
 
     #torches {
