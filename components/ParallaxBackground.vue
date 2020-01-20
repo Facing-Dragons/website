@@ -7,7 +7,6 @@
             :src="firstForegroundComputed" 
             alt="foregroundd" 
             class="filler-image"
-            :style="`top: ${topValue}`"
         >
         <img 
             :src="foregroundComputed" 
