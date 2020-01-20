@@ -11,7 +11,7 @@
         >
         <img 
             :src="foregroundComputed" 
-            :style="`clip-path: inset(${topSideOffset} 0 0 0); top: ${topValue}`"
+            :style="`clip-path: inset(${topSideOffset} 0 0 0)`"
             alt="foreground" 
             class="filler-image"
             id="torches"
@@ -70,14 +70,14 @@ export default {
                 return "0";
                 
         },
-        topValue() {
-            if(this.currentScrollValue >= 1)
-                return "-20vh";
-            else if (this.currentScrollValue > 0)
-                return `${this.mapRange(this.currentScrollValue, 0, 1, -0.2, 0.4) * 100}vh`;
-            else if (this.currentScrollValue <= 0)
-                return "40vh";
-        }
+        // topValue() {
+        //     if(this.currentScrollValue >= 1)
+        //         return "-20vh";
+        //     else if (this.currentScrollValue > 0)
+        //         return `${this.mapRange(this.currentScrollValue, 0, 1, -0.2, 0.4) * 100}vh`;
+        //     else if (this.currentScrollValue <= 0)
+        //         return "40vh";
+        // }
     }
 }
 </script>
