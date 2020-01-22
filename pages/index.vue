@@ -36,6 +36,7 @@
           <div class="col-12">
             <TeamSection></TeamSection>
           </div>
+          <img src="~/assets/img/dragon_mountain.png" class="dragon-mountain">
         </div>
       </b-container>
     </b-container>
@@ -134,8 +135,21 @@ export default {
     position: absolute;
   }
 
-  @media screen and (max-width: 800px){
+  .dragon-mountain {
+    height: 30vh;
+    width: auto;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+  @media screen and (max-width: 650px){
       .helios-head {
+        height: auto;
+        width: 33vw;
+      }
+
+      .dragon-mountain {
         height: auto;
         width: 33vw;
       }

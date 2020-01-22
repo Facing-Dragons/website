@@ -1,5 +1,7 @@
 <template>
-  <div class="video-container">
+  <div class="video-container"
+    :class="{'black-background': isVideoShown}"
+  >
     <transition name="fade">
         <video 
             autoplay 
@@ -33,7 +35,7 @@
             type="video/webm"
             >
         </video>
-        <div class="triangle"></div>
+        <div class="triangle" :class="{'black-border': isVideoShown}"></div>
         <img 
           src="~/assets/img/logo_white.png"
           class="banner-image" 
@@ -82,6 +84,12 @@ export default {
   border-width: 100vh 23vh 0 0;
   border-color: #efefef transparent transparent transparent;
   z-index: 4;
+  transition: border-color 1s ease-in-out;
+}
+
+.black-border {
+  border-color: black;
+  transition: background-color 1s ease-in-out;
 }
 
 .video-container {
@@ -96,6 +104,12 @@ export default {
   left: 0;
   height: 100vh;
   overflow: hidden;
+  transition: background-color 1s ease-in-out;
+}
+
+.black-background {
+  background-color: black;
+  transition: background-color 1s ease-in-out;
 }
 
 #myVideo {
@@ -125,10 +139,10 @@ export default {
 }
 
 .banner-image {
-  height: 75vh;
+  height: 48vh;
   width: auto;
   position: relative;
-  top: -5vh;
+  top: 0vh;
   right: -3vw;
   transition: all ease-in-out 0.5s;
 }
@@ -136,7 +150,7 @@ export default {
 .banner-text {
   position: relative;
   left: 8vh;
-  top: -10vh;
+  top: 25vh;
   color: #f77c00;
   transition: all ease-in-out 0.5s;
 }
@@ -188,6 +202,7 @@ export default {
    .banner-text {
      text-align: center;
      left: auto;
+     top: -5vh;
    }
 
    .show-large {
