@@ -17,12 +17,21 @@
     <transition
       name="logo"
     >
-      <img 
-        v-if="!isVideoShown" 
-        src="~/assets/img/logo_white.png"
-        class="banner-image" 
-        alt=""
+      <div 
+        class="banner"
+        v-if="!isVideoShown"   
       >
+        <img 
+          src="~/assets/img/logo_white.png"
+          class="banner-image" 
+          alt=""
+        >
+        <div class="banner-text">
+          <div>Facing</div>
+          <div>Dragons</div>
+          <small id="desc">Unlock Your Purpose</small>
+        </div>
+      </div>
     </transition>
     <slot></slot>
   </div>
@@ -72,13 +81,40 @@ export default {
   opacity: 0;
 }
 
-.banner-image {
-  height: 40vh;
-  width: auto;
+.banner {
   position: absolute;
-  top: 20vh;
-  right: -5vw;
+  height: 100vh;
+  right: 0;
+}
+
+.banner-image {
+  height: 75vh;
+  width: auto;
+  position: relative;
+  top: -5vh;
+  right: -3vw;
   transition: all ease-in-out 0.5s;
+}
+
+.banner-text {
+  position: relative;
+  left: 8vh;
+  top: -10vh;
+  color: #f77c00;
+  transition: all ease-in-out 0.5s;
+}
+
+.banner-text div {
+  font-size: 11vh;
+  margin-bottom: -8vh;
+}
+
+#desc {
+  color: white;
+  font-size: 3vh;
+  left: 1%;
+  top: 3vh;
+  position: relative;
 }
 
 @media screen and (max-width: 630px){
