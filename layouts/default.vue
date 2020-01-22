@@ -102,7 +102,7 @@ export default {
 }
 
 #myVideo {
-  width: 98vw;
+  width: 100%;
   height: auto;
 }
 
