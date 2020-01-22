@@ -91,11 +91,11 @@ export default {
 }
 
 .logo-enter-active {
-  transition: all 1.5s ease-in-out;
+  transition: all 3s ease-in-out;
 }
 .logo-enter {
   opacity: 0;
-  transform: translateX(-50vw);
+  transform: translateX(50vw);
 }
 .logo-enter-to {
   opacity: 1;
