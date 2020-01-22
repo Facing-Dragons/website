@@ -27,8 +27,9 @@
           alt=""
         >
         <div class="banner-text">
-          <div>Facing</div>
-          <div>Dragons</div>
+          <div class="show-large">Facing</div>
+          <div class="show-large">Dragons</div>
+          <div class="hide-large">Facing Dragons</div>
           <small id="desc">Unlock Your Purpose</small>
         </div>
       </div>
@@ -104,25 +105,60 @@ export default {
   transition: all ease-in-out 0.5s;
 }
 
-.banner-text div {
+.show-large {
   font-size: 11vh;
   margin-bottom: -8vh;
+  opacity: 1;
 }
 
 #desc {
   color: white;
   font-size: 3vh;
   left: 1%;
-  top: 3vh;
+  top: -5vh;
   position: relative;
+}
+
+.hide-large {
+  opacity: 0;
+  font-size: 6vh;
 }
 
 @media screen and (max-width: 630px){
    .banner-image {
      transition: all 0.5s ease-in-out;
-     width: 40vw;
+     width: 75vw;
      height: auto;
-     right: -10vw;
+     right: auto;
+   }
+
+   .banner {
+    height: auto;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+   }
+
+   .banner-text {
+     text-align: center;
+     left: auto;
+   }
+
+   .show-large {
+     font-size: 7vh;
+     opacity: 0;
+   }
+
+   #desc {
+     left: auto;
+     top: -3vh;
+   }
+
+   .hide-large {
+     opacity: 1;
+     font-size: 6vh;
    }
 }
 
