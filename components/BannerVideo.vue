@@ -107,7 +107,7 @@ export default {
   width: auto;
   height: 100vh;
   /* top: 10vh; */
-  position: fixed;
+  position: absolute;
 }
 
 .fade-enter-active, .fade-leave-active {
