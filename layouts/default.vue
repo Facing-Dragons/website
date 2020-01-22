@@ -23,7 +23,9 @@
           type="video/mp4"
         >
       </video>
-      <QuestOverlay v-if="isVideoEnded"></QuestOverlay>
+      <transition name="fade">
+        <QuestOverlay v-if="isVideoEnded"></QuestOverlay>
+      </transition>
       <div 
         v-if="isArrowShown"
         class="arrow-container"
@@ -129,42 +131,6 @@ body {
   background-color: black;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-
 .arrow-container {
   display: flex;
   justify-content: center;
@@ -174,6 +140,13 @@ body {
   position: absolute;
   bottom: 0;
   height: 3rem;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>

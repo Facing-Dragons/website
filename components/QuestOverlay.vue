@@ -2,14 +2,16 @@
     <div>
         <div class="overlay"></div>
         <div class="content">
-            <div class="guidian-container">
-                <img 
-                    src="~/assets/img/guidian.png" 
-                    alt="guidian"
-                    height="20vh"
-                    class="guidian"
-                >
-            </div>
+            <transition name="popup">
+                <div v-if="isGuidianShown" class="guidian-container">
+                    <img 
+                        src="~/assets/img/guidian.png" 
+                        alt="guidian"
+                        height="20vh"
+                        class="guidian"
+                    >
+                </div>
+            </transition>
         </div>
     </div>
 </template>
@@ -18,8 +20,14 @@
 export default {
     data() {
         return {
-            email: ""
+            email: "",
+            isGuidianShown: false
         }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.isGuidianShown = true;   
+        }, 600);
     }
 }
 </script>
@@ -47,11 +55,9 @@ export default {
         align-content: center;
     }
     .guidian-container {
-        animation: popup 2s ease-in-out;
-        animation-delay: 1s;
         position: absolute;
-        top: 40%;
-        right: 70%;
+        top: 60%;
+        left: 20%;
     }
     .guidian {
         height: 20vh;
@@ -60,16 +66,6 @@ export default {
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-delay: 2s;
-    }
-    @keyframes popup {
-        from {
-            transform: translateY(100vh);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
     }
     @keyframes float {
         0% {
@@ -80,6 +76,15 @@ export default {
         }
         100% {
             transform: translatey(0px);
-}
+        }
+    }
+
+    .popup-enter-active, .popup-leave-active {
+       opacity: 1;
+       transition: all 2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .popup-enter, .popup-leave-to /* .popup-leave-active below version 2.1.8 */ {
+        transform: translateY(100vh);
+        opacity: 0;
     }
 </style>
