@@ -10,14 +10,19 @@
     >
     </ParallaxBackground> -->
     <Header></Header>
-    <!-- <div class="video-container">
+    <div class="video-container">
       <video autoplay muted id="myVideo">
         <source 
           src="~/assets/video/logo_video.mp4"
           type="video/mp4"
         >
       </video>
-    </div> -->
+      <div 
+        class="arrow-container"
+      >
+        <AnimatingArrowDown></AnimatingArrowDown>
+      </div>
+    </div>
     <nuxt />
   </div>
 </template>
@@ -25,10 +30,13 @@
 <script>
 import Header from '~/components/Header';
 import ParallaxBackground from '~/components/ParallaxBackground';
+import AnimatingArrowDown from '~/components/AnimatingArrowDown';
+
 export default {
   components: {
     Header,
-    ParallaxBackground
+    ParallaxBackground,
+    AnimatingArrowDown
   },
   data() {
     return {
@@ -133,6 +141,17 @@ body {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 3rem;
 }
 
 </style>
