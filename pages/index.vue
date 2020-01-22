@@ -18,7 +18,7 @@
         temp-bg = "#ebebeb"
       ></TeamSection> -->
 
-      <div class="row">
+      <div class="row" id="intro">
         <div class="col-12 d-flex justify-content-center align-items-center p-5">
           <h2 class="m-5 text-white">
             Intro Section

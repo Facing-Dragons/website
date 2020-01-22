@@ -27,7 +27,9 @@
         v-if="isArrowShown"
         class="arrow-container"
       >
-        <AnimatingArrowDown></AnimatingArrowDown>
+        <nuxt-link to="#intro">
+          <AnimatingArrowDown></AnimatingArrowDown>
+        </nuxt-link>
       </div>
     </div>
     <nuxt />
@@ -74,7 +76,7 @@ export default {
   },
   computed: {
     isArrowShown() {
-      return this.isVideoEnded && this.currentWindowY > 0.95;
+      return this.isVideoEnded && this.currentWindowY > 0.9;
     }
   }
 }
@@ -117,6 +119,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
