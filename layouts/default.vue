@@ -10,22 +10,11 @@
     >
     </ParallaxBackground> -->
     <Header></Header>
-    <div class="video-container">
-      <video 
-        autoplay 
-        muted 
-        id="myVideo"
-        @ended="videoEndHandler"
-      >
-        <source 
-          src="~/assets/video/logo_video.mp4"
-          type="video/mp4"
-        >
-      </video>
-      <transition name="fade">
+    
+      <!-- <transition name="fade">
         <QuestOverlay v-if="isOverlayShown"></QuestOverlay>
-      </transition>
-      <transition name="fade">
+      </transition> -->
+      <!-- <transition name="fade">
         <div 
           v-if="isArrowShown"
           class="arrow-container"
@@ -34,8 +23,12 @@
             <AnimatingArrowDown></AnimatingArrowDown>
           </nuxt-link>
         </div>
-      </transition>
-    </div>
+      </transition> -->
+    <!-- </div> -->
+    <BannerVideo
+      @ended="videoEndHandler"
+    >
+    </BannerVideo>
     <nuxt />
   </div>
 </template>
@@ -45,13 +38,15 @@ import Header from '~/components/Header';
 import ParallaxBackground from '~/components/ParallaxBackground';
 import AnimatingArrowDown from '~/components/AnimatingArrowDown';
 import QuestOverlay from '~/components/QuestOverlay';
+import BannerVideo from '~/components/BannerVideo';
 
 export default {
   components: {
     Header,
     ParallaxBackground,
     AnimatingArrowDown,
-    QuestOverlay
+    QuestOverlay,
+    BannerVideo
   },
   data() {
     return {
@@ -96,23 +91,6 @@ export default {
 @font-face {
   font-family: 'marcellus';
   src: url("~assets/fonts/marcellus.ttf");
-}
-
-.video-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 100vh;
-}
-
-#myVideo {
-  width: 100%;
-  height: auto;
 }
 
 * {
