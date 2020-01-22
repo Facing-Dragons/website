@@ -21,6 +21,18 @@
         class="banner"
         v-if="!isVideoShown"   
       >
+        <video 
+            autoplay 
+            loop
+            muted 
+            id="fireVideo"
+            v-if="!isMobile"
+        >
+            <source 
+            src="~/assets/video/fire.webm"
+            type="video/webm"
+            >
+        </video>
         <div class="triangle"></div>
         <img 
           src="~/assets/img/logo_white.png"
@@ -41,6 +53,9 @@
 
 <script>
 export default {
+  props: {
+    isMobile: Boolean
+  },
   data() {
       return {
           isVideoShown: true,
@@ -64,9 +79,8 @@ export default {
   height: 0;
   top: 0px;
   border-style: solid;
-  border-radius: ;
   border-width: 100vh 23vh 0 0;
-  border-color: #ebebeb transparent transparent transparent;
+  border-color: #efefef transparent transparent transparent;
   z-index: 4;
 }
 
@@ -87,6 +101,13 @@ export default {
 #myVideo {
   width: 100%;
   height: auto;
+}
+
+#fireVideo {
+  width: auto;
+  height: 100vh;
+  /* top: 10vh; */
+  position: fixed;
 }
 
 .fade-enter-active, .fade-leave-active {
@@ -140,6 +161,10 @@ export default {
 }
 
 @media screen and (max-width: 630px){
+    .video-container {
+      background: black;
+    }
+
     .triangle {
       opacity: 0;
     }

@@ -17,6 +17,7 @@
     <!-- </div> -->
     <BannerVideo
       @ended="videoEndHandler"
+      :isMobile="isMobile"
     >
       <!-- <transition name="fade">
         <div 
@@ -41,6 +42,7 @@ import QuestOverlay from '~/components/QuestOverlay';
 import BannerVideo from '~/components/BannerVideo';
 
 export default {
+  middleware: ['isMobile'],
   components: {
     Header,
     ParallaxBackground,
@@ -52,16 +54,19 @@ export default {
     return {
       currentWindowY: 1,
       isVideoEnded: false,
+      isMobile: false || window.innerWidth < 630,
     }
   },
   created () {
     if (process.browser) {
         window.addEventListener('scroll', this.handleScroll)
+        window.addEventListener('resize', this.handleResize)
     }
   },
   destroyed () {
     if (process.browser) { 
-        window.removeEventListener('scroll', this.handleScroll)
+      window.removeEventListener('scroll', this.handleScroll)
+      window.removeEventListener('resize', this.handleResize)
     }
   },
   methods: {
@@ -70,6 +75,9 @@ export default {
       // this is basically how much of the window is remaining from 0 to 1 ... 1 is all remaining to scroll
       // and 0 zero means we reached to the end of the page
       this.currentWindowY = 1 - (window.scrollY / window.innerHeight);
+    },
+    handleResize () {
+      this.isMobile = window.innerWidth < 630;
     },
     videoEndHandler () {
       this.isVideoEnded = true;
