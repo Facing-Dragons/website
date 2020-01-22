@@ -167,11 +167,11 @@ export default {
 }
 .logo-enter {
   opacity: 0;
-  transform: translateX(50vw);
+  /* transform: translateX(50vw); */
 }
 .logo-enter-to {
   opacity: 1;
-  transform: translateX(0);
+  /* transform: translateX(0); */
 }
 
 </style>
