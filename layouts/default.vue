@@ -144,6 +144,7 @@ body {
   position: absolute;
   bottom: 0;
   height: 3rem;
+  z-index: 5;
 }
 
 .fade-enter-active, .fade-leave-active {
