@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ParallaxBackground
+    <!-- <ParallaxBackground
       background-img = "main.png"
       foreground-img = "layer2.png"
       :currentScrollValue = "currentWindowY"
@@ -8,8 +8,8 @@
       height = "200vh"
       width = "100vw"
     >
-    </ParallaxBackground>
-    <!-- <Header></Header> -->
+    </ParallaxBackground> -->
+    <Header></Header>
     <!-- <div class="video-container">
       <video autoplay muted id="myVideo">
         <source 
@@ -18,7 +18,7 @@
         >
       </video>
     </div> -->
-    <!-- <nuxt /> -->
+    <nuxt />
   </div>
 </template>
 
