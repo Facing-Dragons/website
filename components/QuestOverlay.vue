@@ -31,8 +31,9 @@ export default {
         bottom: 0;
         right: 0;
         left: 0;
-        background: rgba(230, 230, 230, 0.5);
+        background: rgba(39, 39, 39, 0.8);
         z-index: 2;
+        transform: all 0.5s;
     }
     .content {
         position: absolute;
@@ -46,9 +47,14 @@ export default {
         align-content: center;
     }
     .guidian-container {
-        animation: popup 1s ease-in-out;
+        animation: popup 2s ease-in-out;
+        animation-delay: 1s;
+        position: absolute;
+        top: 40%;
+        right: 70%;
     }
     .guidian {
+        height: 20vh;
         animation-name: float;
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
@@ -57,7 +63,7 @@ export default {
     }
     @keyframes popup {
         from {
-            transform: translateY(-100vh);
+            transform: translateY(100vh);
             opacity: 0;
         }
         to {
@@ -67,15 +73,12 @@ export default {
     }
     @keyframes float {
         0% {
-            box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
             transform: translatey(0px);
         }
         50% {
-            box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
             transform: translatey(-20px);
         }
         100% {
-            box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
             transform: translatey(0px);
 }
     }

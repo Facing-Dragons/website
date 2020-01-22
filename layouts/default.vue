@@ -23,6 +23,7 @@
           type="video/mp4"
         >
       </video>
+      <QuestOverlay v-if="isVideoEnded"></QuestOverlay>
       <div 
         v-if="isArrowShown"
         class="arrow-container"
@@ -40,12 +41,14 @@
 import Header from '~/components/Header';
 import ParallaxBackground from '~/components/ParallaxBackground';
 import AnimatingArrowDown from '~/components/AnimatingArrowDown';
+import QuestOverlay from '~/components/QuestOverlay';
 
 export default {
   components: {
     Header,
     ParallaxBackground,
-    AnimatingArrowDown
+    AnimatingArrowDown,
+    QuestOverlay
   },
   data() {
     return {
