@@ -18,7 +18,7 @@
     <BannerVideo
       @ended="videoEndHandler"
     >
-      <transition name="fade">
+      <!-- <transition name="fade">
         <div 
           v-if="isArrowShown"
           class="arrow-container"
@@ -27,7 +27,7 @@
             <AnimatingArrowDown></AnimatingArrowDown>
           </nuxt-link>
         </div>
-      </transition>
+      </transition> -->
     </BannerVideo>
     <nuxt />
   </div>
