@@ -11,13 +11,20 @@
     </ParallaxBackground> -->
     <Header></Header>
     <div class="video-container">
-      <video autoplay muted id="myVideo">
+      <video 
+        autoplay 
+        muted 
+        id="myVideo"
+        @ended="videoEndHandler"
+        @play="() => {isVideoEnded = false;}"
+      >
         <source 
           src="~/assets/video/logo_video.mp4"
           type="video/mp4"
         >
       </video>
       <div 
+        v-if="isArrowShown"
         class="arrow-container"
       >
         <AnimatingArrowDown></AnimatingArrowDown>
@@ -40,7 +47,8 @@ export default {
   },
   data() {
     return {
-      currentWindowY: 0
+      currentWindowY: 0,
+      isVideoEnded: false,
     }
   },
   created () {
@@ -59,8 +67,16 @@ export default {
       // this is basically how much of the window is remaining from 0 to 1 ... 1 is all remaining to scroll
       // and 0 zero means we reached to the end of the page
       this.currentWindowY = 1 - (window.scrollY / window.innerHeight);
+    },
+    videoEndHandler () {
+      this.isVideoEnded = true;
     }
   },
+  computed: {
+    isArrowShown() {
+      return this.isVideoEnded && this.currentWindowY > 0.95;
+    }
+  }
 }
 </script>
 

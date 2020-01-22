@@ -10,7 +10,7 @@
         animation-duration: 2s;
         animation-iteration-count: infinite;
         color: #ebebeb;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
     .bounce-7 {
         animation-name: bounce-7;
@@ -19,7 +19,7 @@
     @keyframes bounce-7 {
         0%   { transform: scale(1,1)      translateY(0); }
         10%  { transform: scale(1.1,.9)   translateY(0); }
-        30%  { transform: scale(.9,1.1)   translateY(-30px); }
+        30%  { transform: scale(.9,1.1)   translateY(-20px); }
         50%  { transform: scale(1.05,.95) translateY(0); }
         57%  { transform: scale(1,1)      translateY(-7px); }
         64%  { transform: scale(1,1)      translateY(0); }
