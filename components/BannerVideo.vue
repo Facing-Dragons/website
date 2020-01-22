@@ -11,6 +11,7 @@
           type="video/mp4"
         >
       </video>
+      <slot></slot>
     </div>
 </template>
 

@@ -14,7 +14,11 @@
       <!-- <transition name="fade">
         <QuestOverlay v-if="isOverlayShown"></QuestOverlay>
       </transition> -->
-      <!-- <transition name="fade">
+    <!-- </div> -->
+    <BannerVideo
+      @ended="videoEndHandler"
+    >
+      <transition name="fade">
         <div 
           v-if="isArrowShown"
           class="arrow-container"
@@ -23,11 +27,7 @@
             <AnimatingArrowDown></AnimatingArrowDown>
           </nuxt-link>
         </div>
-      </transition> -->
-    <!-- </div> -->
-    <BannerVideo
-      @ended="videoEndHandler"
-    >
+      </transition>
     </BannerVideo>
     <nuxt />
   </div>
