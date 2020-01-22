@@ -21,6 +21,7 @@
         class="banner"
         v-if="!isVideoShown"   
       >
+        <div class="triangle"></div>
         <img 
           src="~/assets/img/logo_white.png"
           class="banner-image" 
@@ -57,7 +58,20 @@ export default {
 </script>
 
 <style scoped>
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0px;
+  border-style: solid;
+  border-radius: ;
+  border-width: 100vh 23vh 0 0;
+  border-color: #ebebeb transparent transparent transparent;
+  z-index: 4;
+}
+
 .video-container {
+  background: #efefef;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -83,6 +97,7 @@ export default {
 }
 
 .banner {
+  background: black;
   position: absolute;
   height: 100vh;
   right: 0;
@@ -125,6 +140,10 @@ export default {
 }
 
 @media screen and (max-width: 630px){
+    .triangle {
+      opacity: 0;
+    }
+
    .banner-image {
      transition: all 0.5s ease-in-out;
      width: 75vw;
