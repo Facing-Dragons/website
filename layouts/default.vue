@@ -16,7 +16,6 @@
         muted 
         id="myVideo"
         @ended="videoEndHandler"
-        @play="() => {isVideoEnded = false;}"
       >
         <source 
           src="~/assets/video/logo_video.mp4"
@@ -24,16 +23,18 @@
         >
       </video>
       <transition name="fade">
-        <QuestOverlay v-if="isVideoEnded"></QuestOverlay>
+        <QuestOverlay v-if="isOverlayShown"></QuestOverlay>
       </transition>
-      <div 
-        v-if="isArrowShown"
-        class="arrow-container"
-      >
-        <nuxt-link to="#intro">
-          <AnimatingArrowDown></AnimatingArrowDown>
-        </nuxt-link>
-      </div>
+      <transition name="fade">
+        <div 
+          v-if="isArrowShown"
+          class="arrow-container"
+        >
+          <nuxt-link to="#intro">
+            <AnimatingArrowDown></AnimatingArrowDown>
+          </nuxt-link>
+        </div>
+      </transition>
     </div>
     <nuxt />
   </div>
@@ -54,7 +55,7 @@ export default {
   },
   data() {
     return {
-      currentWindowY: 0,
+      currentWindowY: 1,
       isVideoEnded: false,
     }
   },
@@ -82,6 +83,9 @@ export default {
   computed: {
     isArrowShown() {
       return this.isVideoEnded && this.currentWindowY > 0.9;
+    },
+    isOverlayShown() {
+      return this.isVideoEnded && this.currentWindowY > 0.6;
     }
   }
 }
