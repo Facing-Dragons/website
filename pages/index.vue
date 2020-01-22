@@ -31,7 +31,8 @@
 
     <b-container fluid class="content-band">
       <b-container>
-        <div class="row py-5" id="#team">
+        <div class="row py-5 position-relative" id="#team">
+          <img src="~/assets/img/helios_head.png" class="helios-head">
           <div class="col-12">
             <TeamSection></TeamSection>
           </div>
@@ -123,5 +124,20 @@ export default {
 
   .empty-band {
     height: 35vh;
+  }
+
+  .helios-head {
+    height: 20vh;
+    width: auto;
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
+
+  @media screen and (max-width: 800px){
+      .helios-head {
+        height: auto;
+        width: 33vw;
+      }
   }
 </style>

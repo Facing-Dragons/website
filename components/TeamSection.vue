@@ -4,7 +4,7 @@
             <span class="red-text">
                 The
             </span>
-            Team
+            Faces Behind Facing Dragons
         </h2>
         <hr>
         <div class="team-text my-4">
@@ -216,4 +216,5 @@ export default {
         color: white;
         font-size: 1.2rem;
     }
+
 </style>
