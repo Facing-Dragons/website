@@ -1,60 +1,63 @@
 <template>
   <b-container fluid class="main-container">
-    <b-container
-      class="center-container"
-    >
-      
-      <!-- <animating-image
-        backgroundImageSrc = "~/assets/img/mountain1_01.png"
-        foregroundImageSrc = "blah"
-        initialForegroundImageHeight = "100%"
-        stepSize = "1%"
-        currentHeight = "50%"
-        containerHeight = "300px"
-        containerWidth = "100%"
-      ></animating-image> -->
-      <!-- <TeamSection
-        temp-text = "Animating Image placeholder"
-        temp-bg = "#ebebeb"
-      ></TeamSection> -->
+    <b-container fluid class="content-band">
+      <b-container>
+        <div class="row" id="intro">
+          <div class="col-12 d-flex justify-content-center align-items-center p-5">
+            <h2 class="m-5 text-white">
+              Intro Section
+            </h2>
+          </div>
+        </div>
+      </b-container>
+    </b-container>
 
-      <div class="row" id="intro">
-        <div class="col-12 d-flex justify-content-center align-items-center p-5">
-          <h2 class="m-5 text-white">
-            Intro Section
-          </h2>
+    <div class="empty-band"></div>
+
+    <b-container fluid class="content-band">
+      <b-container>
+        <div class="row" id="game">
+          <div class="col-12">
+            <AboutGame
+              temp-text = "This is the Text about game section"
+              temp-bg = "#78AD32"
+            ></AboutGame>
+          </div>
         </div>
-      </div>
-      <div class="row" id="game">
-        <div class="col-12">
-          <AboutGame
-            temp-text = "This is the Text about game section"
-            temp-bg = "#78AD32"
-          ></AboutGame>
+      </b-container>
+    </b-container>
+
+    <div class="empty-band"></div>
+
+    <b-container fluid class="content-band">
+      <b-container>
+        <div class="row py-5" id="#team">
+          <div class="col-12">
+            <TeamSection></TeamSection>
+          </div>
         </div>
-      </div>
-      <div class="row py-5" id="#team">
-        <div class="col-12">
-          <TeamSection></TeamSection>
-        </div>
-      </div>
+      </b-container>
+    </b-container>
+
+    <div class="empty-band"></div>
+
+    <b-container>
       <Sponsors></Sponsors>
-      <div class="row">
-        <div class="col-12">
-          <Footer
-            temp-text = "This is the Social Media section"
-            temp-bg = "#F6E67B"
-          ></Footer>
-        </div>
-      </div>
-      <!-- <ParallaxingImage
-        width = "100%"
-        height = "300px"
-        :currentWindowY = "currentWindowY"
-        src = "~/assets/img/mountain1_01.png"
-      >
+    </b-container>
 
-      </ParallaxingImage> -->
+    <div class="empty-band"></div>
+
+    <b-container fluid class="content-band">
+      <b-container>
+        <div class="row">
+          <div class="col-12">
+            <Footer
+              temp-text = "This is the Social Media section"
+              temp-bg = "#F6E67B"
+            ></Footer>
+          </div>
+        </div>
+      </b-container>
     </b-container>
   </b-container>
 </template>
@@ -86,10 +89,15 @@ export default {
 
   .main-container {
     background: url("~assets/img/main.png");
-    height: 200vh;
-    background-size: cover;
+    background-size: contain;
     padding-right: 0;
     padding-left: 0;
+  }
+
+  @media screen and (max-width: 800px) {
+    .main-container {
+      background-size: cover;
+    }
   }
 
 
@@ -107,5 +115,13 @@ export default {
     /* background: red; */
     position: relative;
     height: 100%;
+  }
+
+  .content-band {
+    background: black;
+  }
+
+  .empty-band {
+    height: 35vh;
   }
 </style>
