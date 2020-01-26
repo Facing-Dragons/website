@@ -7,42 +7,14 @@
           PURPOSE 
         </span>
       </div>
-      <!-- <svg id="face" viewBox="0 0 110 20">
-        <defs>
-          <linearGradient id="Gradient1">
-            <stop class="stop1" offset="0%"/>
-            <stop class="stop2" offset="100%"/>
-          </linearGradient>
-          <style type="text/css">
-            #faceText { fill: url(#Gradient1); }
-            .stop1 { stop-color: #f83600; }
-            .stop2 { stop-color: #f9d423;}
-          </style>
-        </defs>
-        <text x="0" y="20" id="faceText" fill="url(#Gradient1)">FACE</text>
-      </svg>
-      <svg id="your" viewBox="0 0 110 20">
-        <text x="0" y="15">YOUR</text>
-      </svg>
-      <svg id="dragon" viewBox="0 0 110 20">
-        <defs>
-          <linearGradient id="Gradient1">
-            <stop class="stop1" offset="0%"/>
-            <stop class="stop2" offset="100%"/>
-          </linearGradient>
-          <style type="text/css">
-            #dragonText { fill: url(#Gradient1); }
-            .stop1 { stop-color: #f83600; }
-            .stop2 { stop-color: #f9d423;}
-          </style>
-        </defs>
-        <text id="dragonText" x="0" y="12">DRAGONS</text>
-      </svg> -->
       <div class="main-title">
         <span class="main-title-text">FACE </span><span class="your-title">YOUR</span>
       </div>
       <div class="main-title-text second">
         DRAGONS
+        <div class="logo-container">
+          <img src="~/assets/img/logo_white.png" class="title-logo">
+        </div>
       </div>
       <p class="small-text">
         Facing Dragons is a deeply gamified mobile health app that helps your adults overcome life's challenges 
@@ -100,6 +72,18 @@ export default {
   position: relative;
 }
 
+.logo-container {
+  position: absolute;
+  top: -0.7vw;
+  height: 100%;
+  background: black;
+  left: 25.7vw;
+}
+
+.title-logo {
+  width: 8vw;
+}
+
 .main-title-text {
   color: #f79519;
   font-size: 9.5vw;
@@ -115,6 +99,7 @@ export default {
 
 .second {
   margin-top: -7.2vw;
+  position: relative;
 }
 
 .pre-title {
