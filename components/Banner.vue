@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+    transition: all 0.5ms ease-in-out;
+  }
+
 .secondary {
   height: 100vh;
   position: absolute;
@@ -161,6 +165,10 @@ text {
 }
 
 @media screen and (max-width: 700px) {
+  * {
+    transition: all 0.5ms ease-in-out;
+  }
+
   .dragon-image {
     right: -31vw;
     height: 50vh;
