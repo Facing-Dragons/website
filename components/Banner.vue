@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="main d-flex p-5 align-items-center">
+  <b-container fluid class="main d-flex p-5 align-items-md-center">
     <div class="title-box">
       <div class="pre-title">
         UNLOCK YOUR 
@@ -158,5 +158,62 @@ text {
 
 #dragon {
   /* margin-top: -7.5vh; */
+}
+
+@media screen and (max-width: 700px) {
+  .dragon-image {
+    right: -31vw;
+    height: 50vh;
+    width: auto;
+  }
+
+  .small-text {
+    font-size: max(1.3vh, 1vw);
+  }  
+
+  .title-box {
+    margin-top: 10vh;
+    width: 100%;
+  }
+
+  .pre-title {
+    padding-left: 0.6vw;
+    letter-spacing: 0.8vw;
+    font-size: 3.7vw;
+  }
+
+  .main-title {
+    margin-top: -3vh;
+  }
+
+  .main-title-text {
+    font-size: 8vh;
+  }
+
+  .your-title {
+    margin-left: -5vw;
+    font-size: 1vh;
+  }
+
+  .second {
+    margin-top: -6vh;
+    position: relative;
+    font-size: 8vh;
+  }
+
+  .logo-container {
+    display: flex;
+    top: 2.5vh;
+    height: 7vh;
+    background: black;
+    left: 21.5vh;
+  }
+
+  .title-logo {
+    position: relative;
+    top: 0;
+    height: 7vh;
+    width: auto;
+  }
 }
 </style>
