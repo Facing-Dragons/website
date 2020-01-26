@@ -1,49 +1,57 @@
 <template>
   <b-container class="main-container">
-    <div 
-      ref="shit"
-      class="shit d-flex justify-content-center align-items-center"
-    >
-      {{ count.number  }}
-    </div>
+    <Banner></Banner>
   </b-container>    
 </template>
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
+import Banner from '~/components/Banner';
+
 export default {
-    data() {
-      return {
-        count: {
-          number: 12
-        },
-      }
-    },
-    mounted() {
-      anime({
-        targets: this.count,
-        number: 20,
-        easing: 'easeInOutQuad',
-        duration: 2000,
-        delay: 200,
-        round: 10
-      });
+  components: {
+    Banner
+  },
+  data() {
+    return {
+      count: {
+        number: 12
+      },
+      animation: ""
     }
+  },
+  created() {
+    if (process.browser) {
+      window.addEventListener('scroll', this.onScrollHandler)
+      window.addEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    onScrollHandler() {
+      // console.log(this.animation)
+      // if(this.animation) {
+      //   this.animation.seek(this.animation.duration * (window.scrollY / window.innerHeight));
+      // }
+    }
+  },
+  mounted() {
+    // var animation = anime({
+    //   targets: '.dragon-image',
+    //   translateX: '10vw',
+    //   easing: 'easeInOutSine',
+    //   autoplay: false
+    // });
+    // this.animation = animation;
+  }
 }
 </script>
 
 <style scoped>
 .main-container {
-  height: 100vh;
+  height: 300vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-.shit {
-  background-color: yellow;
-  width: 100px;
-  height: 200px;
 }
 </style>
