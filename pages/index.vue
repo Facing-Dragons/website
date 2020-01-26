@@ -1,5 +1,8 @@
 <template>
-  <b-container fluid class="main-container">
+  <b-container class="all-container">
+
+  </b-container>
+  <!-- <b-container fluid class="main-container">
     <b-container fluid class="content-band">
       <b-container>
         <div class="row" id="intro">
@@ -61,7 +64,7 @@
         </div>
       </b-container>
     </b-container>
-  </b-container>
+  </b-container> -->
 </template>
 
 <script>

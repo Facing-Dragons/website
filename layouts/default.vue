@@ -1,35 +1,6 @@
 <template>
   <div>
-    <!-- <ParallaxBackground
-      background-img = "main.png"
-      foreground-img = "layer2.png"
-      :currentScrollValue = "currentWindowY"
-      scrollDelayValue = "0px"
-      height = "200vh"
-      width = "100vw"
-    >
-    </ParallaxBackground> -->
     <Header></Header>
-    
-      <!-- <transition name="fade">
-        <QuestOverlay v-if="isOverlayShown"></QuestOverlay>
-      </transition> -->
-    <!-- </div> -->
-    <BannerVideo
-      @ended="videoEndHandler"
-      :isMobile="isMobile"
-    >
-      <!-- <transition name="fade">
-        <div 
-          v-if="isArrowShown"
-          class="arrow-container"
-        >
-          <nuxt-link to="#intro">
-            <AnimatingArrowDown></AnimatingArrowDown>
-          </nuxt-link>
-        </div>
-      </transition> -->
-    </BannerVideo>
     <nuxt />
   </div>
 </template>
