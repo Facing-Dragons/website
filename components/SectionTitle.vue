@@ -30,14 +30,15 @@ export default {
             return this.titleText.split(' ');
         },
         titleTextStyle() {
-            return `background: ${this.textColor || this.textGradient || 'white'};
+            return `background: ${this.textColor || this.textGradient || 'black'};
+                    color: ${!this.lineColor && !this.lineGradient ? 'white' : ''}
                     background-clip: text;
                     -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;`
+                    -webkit-text-fill-color: ${!this.lineColor && !this.lineGradient ? '' : 'transparent'};`
         },
         titleLineStyle() {
             return `
-                background: ${this.lineColor || this.lineGradient || 'white'}
+                background: ${this.lineColor || this.lineGradient || 'white'};
             `
         }
     }
@@ -56,5 +57,19 @@ export default {
 .title-line {
     height: 2px;
     width: 100%;
+}
+
+.title-text-fragment {
+    font-size: 3vh;
+    letter-spacing: 0.5vw;
+    margin-top: -1vh;
+}
+
+.title-text-fragment:nth-child(2) {
+    margin-top: -1.5vh;
+}
+
+.title-text-fragment:nth-child(3) {
+    margin-top: -1.5vh;
 }
 </style>

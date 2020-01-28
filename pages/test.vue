@@ -54,7 +54,7 @@ export default {
   height: 300vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
 }
 </style>
