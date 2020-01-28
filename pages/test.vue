@@ -1,16 +1,19 @@
 <template>
   <b-container class="main-container">
     <Banner></Banner>
+    <NewAbout></NewAbout>
   </b-container>    
 </template>
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
 import Banner from '~/components/Banner';
+import NewAbout from '~/components/NewAbout';
 
 export default {
   components: {
-    Banner
+    Banner,
+    NewAbout
   },
   data() {
     return {
