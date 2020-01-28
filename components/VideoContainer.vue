@@ -26,7 +26,7 @@ export default {
 <style scoped>
 .main-video-container {
     position: relative;
-    width: 41vw;
+    /* width: 41vw; */
     background-image: url('~assets/img/frame_trans.png');
     padding: 2rem;
     padding-bottom: 0;

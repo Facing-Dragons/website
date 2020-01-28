@@ -60,16 +60,16 @@ export default {
 }
 
 .title-text-fragment {
-    font-size: 3vh;
+    font-size: 2vw;
     letter-spacing: 0.5vw;
     margin-top: -1vh;
 }
 
 .title-text-fragment:nth-child(2) {
-    margin-top: -1.5vh;
+    margin-top: -1.4vw;
 }
 
 .title-text-fragment:nth-child(3) {
-    margin-top: -1.5vh;
+    margin-top: -1.4vw;
 }
 </style>

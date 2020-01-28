@@ -1,45 +1,49 @@
 <template>
-    <b-container 
-        class="about-container"
-    >
-        <section-title 
-            title-text="About The Game"
-            text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
-            line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
-        ></section-title>
+    <b-container fluid class="about-container-fluid">
         <img
             src="~/assets/img/torches_01.png"
-            class="mountain-image"
+            class="mountain-image d-none d-md-block"
         >
-        <div class="row">
-            <div class="col-9 col-xs-12">
-                <video-container></video-container>
-            </div>
-            <div class="col-3 col-xs-12">
-                <div class="text-1">
+        <b-container 
+            class="about-container"
+        >
+            <section-title 
+                title-text="About The Game"
+                text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
+                line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
+            ></section-title>
+            <div class="row">
+                <div class="col-md-9 col-xs-12">
+                    <video-container></video-container>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="text-1 mt-5 mt-md-0">
+                        <p>
+                        What if a <span id="game">game</span>  could support the next  
+                        generation of <span id="young-adult">young adult leaders</span> and <span id="change">change</span> the world? 
+                        </p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-5 text-2">
                     <p>
-                       What if a <span id="game">game</span>  could support the next  
-                       generation of <span id="young-adult">young adult leaders</span> and <span id="change">change</span> the world? 
+                        We believe we can harness the incredible technology that's 
+                        already in their hands to empower them rather than consum them.
                     </p>
+                    <div class="fancy-border"></div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-5 text-2">
-                <p>
-                    We believe we can harness the incredible technology that's 
-                    already in their hands to empower them rather than consum them.
-                </p>
-            <div class="fancy-border"></div>
+            <div class="row">
+                
             </div>
-        </div>
-        <!-- <div class="animation-container" ref="ani">
-            <div 
-                v-for="(message, index) in messages"
-                :key="index"
-                class="text-section"
-            >{{message[0]}}</div>
-        </div> -->
+            <!-- <div class="animation-container" ref="ani">
+                <div 
+                    v-for="(message, index) in messages"
+                    :key="index"
+                    class="text-section"
+                >{{message[0]}}</div>
+            </div> -->
+        </b-container>
+
     </b-container>
 </template>
 
@@ -97,8 +101,10 @@ export default {
 </script>
 
 <style scoped>
-.about-container {
+.about-container-fluid {
     margin-top: 100vh;
+    min-height: 100vh;
+    position: absolute;
 }
 
 .animation-container {
@@ -117,6 +123,7 @@ export default {
     position: absolute;
     width: 50vw;
     right: 0;
+    bottom: 0;
 }
 
 .text-1, .text-2 {
