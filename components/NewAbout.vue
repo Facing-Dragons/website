@@ -24,6 +24,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-5 text-2">
+                <p>
+                    We believe we can harness the incredible technology that's 
+                    already in their hands to empower them rather than consum them.
+                </p>
+            <div class="fancy-border"></div>
+            </div>
+        </div>
         <!-- <div class="animation-container" ref="ani">
             <div 
                 v-for="(message, index) in messages"
@@ -110,13 +119,23 @@ export default {
     right: 0;
 }
 
-.text-1 {
+.text-1, .text-2 {
     background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.2vw;
     font-size: 1vw;
+}
+
+.text-2 {
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 14vh;
+    font-size: 1.3vw;
+    text-align: center;
 }
 
 #game {
@@ -144,5 +163,11 @@ export default {
     -webkit-text-fill-color: transparent;
     font-size: 1.5vw;
     line-height: 0.5;
+}
+
+.fancy-border {
+    background: linear-gradient(to right, black 0%, #92fe9d 25%, #00c9ff 75%, black 100%);
+    height: 2px;
+    width: 100%;
 }
 </style>
