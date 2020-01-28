@@ -11,55 +11,65 @@
             src="~/assets/img/torches_01.png"
             class="mountain-image"
         >
+        <video-container></video-container>
+        <!-- <div class="animation-container" ref="ani">
+            <div 
+                v-for="(message, index) in messages"
+                :key="index"
+                class="text-section"
+            >{{message[0]}}</div>
+        </div> -->
     </b-container>
 </template>
 
 <script>
 import SectionTitle from '~/components/SectionTitle';
+import VideoContainer from '~/components/VideoContainer';
 export default {
     components: {
         SectionTitle,
+        VideoContainer
     },
     data() {
-        const firstMessage = [
-            `
-                What if a game could support the next generation of young adult leader and change the world?
-            `,
-            `
-                We believe we can harness the incredible technology that's already in their hands to empower them 
-                rather than consum them.
-            `
-        ];
-        const secondMessage = [
-            `
-                Facing Dragons gives the players in-game challenges and real-world quests, assiting
-                them to develop research-proven coping skills and helps them figure out what to do 
-                with their life. The eight key areas of life (relationship, mission,fun, health, mind, work, social,
-                 and home) are represented by dragons that players face, and get quests from, to progress.
-            `,
-            `
-                The game guides young adults to face their dragons through a solo campaign and a quest mode with 
-                increasing challenge levels. Experienced players can join forces with a team of other players to 
-                do group missions and keep each other accountable
-            `
-        ];
-        const thirdMessage = [
-            `
-                The game links players with varying levels of support and provides coaches, counsellors and 
-                clinicians with a powerful tool to understand and engage their clients. Support Hub subscriptions 
-                are available to individuals and institutions, allowing them to provide an engaging way to connect 
-                with the young adults they care for by inviting them to join and play the game for free.
-            `,
-            `
-                The Support Hub allows subscribers to view useful client metrics and stay in touch by scheduling
-                face-to-face appointments, sending notifications and even suggesting quests to support players on
-                their journey of personal growth.
-            `
+        const messages = [
+            [
+                `
+                    What if a game could support the next generation of young adult leader and change the world?
+                `,
+                `
+                    We believe we can harness the incredible technology that's already in their hands to empower them 
+                    rather than consum them.
+                `
+            ],
+            [
+                `
+                    Facing Dragons gives the players in-game challenges and real-world quests, assiting
+                    them to develop research-proven coping skills and helps them figure out what to do 
+                    with their life. The eight key areas of life (relationship, mission,fun, health, mind, work, social,
+                    and home) are represented by dragons that players face, and get quests from, to progress.
+                `,
+                `
+                    The game guides young adults to face their dragons through a solo campaign and a quest mode with 
+                    increasing challenge levels. Experienced players can join forces with a team of other players to 
+                    do group missions and keep each other accountable
+                `
+            ],
+            [
+                `
+                    The game links players with varying levels of support and provides coaches, counsellors and 
+                    clinicians with a powerful tool to understand and engage their clients. Support Hub subscriptions 
+                    are available to individuals and institutions, allowing them to provide an engaging way to connect 
+                    with the young adults they care for by inviting them to join and play the game for free.
+                `,
+                `
+                    The Support Hub allows subscribers to view useful client metrics and stay in touch by scheduling
+                    face-to-face appointments, sending notifications and even suggesting quests to support players on
+                    their journey of personal growth.
+                `
+            ]
         ];
         return {
-            firstMessage, 
-            secondMessage,
-            thirdMessage
+            messages,
         }
     }
 }
@@ -68,6 +78,18 @@ export default {
 <style scoped>
 .about-container {
     margin-top: 100vh;
+}
+
+.animation-container {
+    width: 50vw;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: yellow;
+    position: relative;
 }
 
 .mountain-image {

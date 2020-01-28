@@ -28,18 +28,18 @@ export default {
       isMobile: false || window.innerWidth < 630,
     }
   },
-  created () {
-    if (process.browser) {
-        window.addEventListener('scroll', this.handleScroll)
-        window.addEventListener('resize', this.handleResize)
-    }
-  },
-  destroyed () {
-    if (process.browser) { 
-      window.removeEventListener('scroll', this.handleScroll)
-      window.removeEventListener('resize', this.handleResize)
-    }
-  },
+  // created () {
+  //   if (process.browser) {
+  //       window.addEventListener('scroll', this.handleScroll)
+  //       window.addEventListener('resize', this.handleResize)
+  //   }
+  // },
+  // destroyed () {
+  //   if (process.browser) { 
+  //     window.removeEventListener('scroll', this.handleScroll)
+  //     window.removeEventListener('resize', this.handleResize)
+  //   }
+  // },
   methods: {
     handleScroll () {
       // console.log(window.scrollY/window.innerHeight);

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 import Banner from '~/components/Banner';
 import NewAbout from '~/components/NewAbout';
 
@@ -25,7 +25,7 @@ export default {
   },
   created() {
     if (process.browser) {
-      window.addEventListener('scroll', this.onScrollHandler)
+      // window.addEventListener('scroll', this.onScrollHandler)
       window.addEventListener('resize', this.handleResize)
     }
   },
