@@ -11,7 +11,19 @@
             src="~/assets/img/torches_01.png"
             class="mountain-image"
         >
-        <video-container></video-container>
+        <div class="row">
+            <div class="col-9 col-xs-12">
+                <video-container></video-container>
+            </div>
+            <div class="col-3 col-xs-12">
+                <div class="text-1">
+                    <p>
+                       What if a <span id="game">game</span>  could support the next  
+                       generation of <span id="young-adult">young adult leaders</span> and <span id="change">change</span> the world? 
+                    </p>
+                </div>
+            </div>
+        </div>
         <!-- <div class="animation-container" ref="ani">
             <div 
                 v-for="(message, index) in messages"
@@ -34,7 +46,7 @@ export default {
         const messages = [
             [
                 `
-                    What if a game could support the next generation of young adult leader and change the world?
+                    What if a game could support the next generation of young adult leaders and change the world?
                 `,
                 `
                     We believe we can harness the incredible technology that's already in their hands to empower them 
@@ -96,5 +108,41 @@ export default {
     position: absolute;
     width: 50vw;
     right: 0;
+}
+
+.text-1 {
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.2vw;
+    font-size: 1vw;
+}
+
+#game {
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4vw;
+    line-height: 0.5;
+}
+
+#change {
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3vw;
+    line-height: 0.7;
+}
+
+#young-adult {
+    background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5vw;
+    line-height: 0.5;
 }
 </style>
