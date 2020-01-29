@@ -8,6 +8,7 @@
             class="about-container"
         >
             <section-title 
+                right
                 title-text="About The Game"
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"

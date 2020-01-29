@@ -3,6 +3,7 @@
     <Banner></Banner>
     <NewAbout></NewAbout>
     <GameDescription></GameDescription>
+    <NewTeamSection></NewTeamSection>
   </b-container>    
 </template>
 
@@ -11,12 +12,14 @@
 import Banner from '~/components/Banner';
 import NewAbout from '~/components/NewAbout';
 import GameDescription from '~/components/GameDescription'
+import NewTeamSection from '~/components/NewTeamSection'
 
 export default {
   components: {
     Banner,
     NewAbout,
-    GameDescription
+    GameDescription,
+    NewTeamSection
   },
   data() {
     return {
@@ -54,7 +57,7 @@ export default {
 
 <style scoped>
 .main-container {
-  height: 300vh;
+  /* height: 300vh; */
   display: flex;
   flex-direction: column;
   /* justify-content: center; */

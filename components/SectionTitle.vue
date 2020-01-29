@@ -1,8 +1,12 @@
 <template>
     <div 
         class="section-title-container py-5"
+        :style="{'flex-direction': right ? 'row-reverse' : 'row'}"
     >
-        <div class="title-text d-flex flex-column text-right">
+        <div 
+            class="title-text d-flex flex-column"
+            :class="{'text-right': right}"
+        >
             <div 
                 v-for="fragment in titleTextArray"
                 :key="fragment"
@@ -23,7 +27,11 @@ export default {
         textColor: String,
         textGradient: String,
         lineColor: String,
-        lineGradient: String
+        lineGradient: String,
+        right: {
+            type: Boolean,
+            default: false
+        }
     },
     computed: {
         titleTextArray() {
@@ -70,6 +78,10 @@ export default {
 }
 
 .title-text-fragment:nth-child(3) {
+    margin-top: -1.4vw;
+}
+
+.title-text-fragment:nth-child(4) {
     margin-top: -1.4vw;
 }
 </style>
