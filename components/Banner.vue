@@ -51,7 +51,7 @@ export default {
 
 .main {
   height: 100vh;
-  position: absolute;
+  /* position: absolute; */
   top: 0;
 }
 

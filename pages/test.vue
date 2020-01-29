@@ -1,7 +1,8 @@
 <template>
-  <b-container class="main-container">
+  <b-container fluid class="main-container">
     <Banner></Banner>
     <NewAbout></NewAbout>
+    <GameDescription></GameDescription>
   </b-container>    
 </template>
 
@@ -9,11 +10,13 @@
 // import anime from 'animejs/lib/anime.es.js';
 import Banner from '~/components/Banner';
 import NewAbout from '~/components/NewAbout';
+import GameDescription from '~/components/GameDescription'
 
 export default {
   components: {
     Banner,
-    NewAbout
+    NewAbout,
+    GameDescription
   },
   data() {
     return {
@@ -53,7 +56,8 @@ export default {
 .main-container {
   height: 300vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
   /* align-items: center; */
   width: 100%;
 }

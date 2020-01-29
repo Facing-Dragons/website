@@ -32,16 +32,6 @@
                     <div class="fancy-border"></div>
                 </div>
             </div>
-            <div class="row">
-                
-            </div>
-            <!-- <div class="animation-container" ref="ani">
-                <div 
-                    v-for="(message, index) in messages"
-                    :key="index"
-                    class="text-section"
-                >{{message[0]}}</div>
-            </div> -->
         </b-container>
 
     </b-container>
@@ -102,9 +92,9 @@ export default {
 
 <style scoped>
 .about-container-fluid {
-    margin-top: 100vh;
+    /* margin-top: 100vh; */
     min-height: 100vh;
-    position: absolute;
+    position: relative;
 }
 
 .animation-container {
@@ -126,7 +116,7 @@ export default {
     bottom: 0;
 }
 
-.text-1, .text-2 {
+.text-1, .text-2{
     background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -170,6 +160,29 @@ export default {
     -webkit-text-fill-color: transparent;
     font-size: 1.5vw;
     line-height: 0.5;
+}
+
+@media screen and (max-width: 800px) {
+    .text-1 {
+        font-size: 4.5vw;
+        text-align: center;
+    }
+    .text-2 {
+        font-size: 4.6vw;
+    }
+
+    #change {
+        font-size: 7vw;
+    }
+
+    #game {
+        font-size: 5vw;
+    }
+
+    #young-adult {
+        font-size: 4.5vw;
+    }
+
 }
 
 .fancy-border {
