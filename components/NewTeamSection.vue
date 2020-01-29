@@ -13,15 +13,26 @@
                 <swiper :options="swiperOption" ref="mySwiper">
                     <!-- slides -->
                     <swiper-slide 
-                        v-for="slide in [1,2,3,4,5,6]"
-                        :key="slide"
+                        v-for="(member, index) in teamMembers"
+                        :key="index"
                     >
                         <div 
-                            class="slide-content"
+                            class="slide-content d-flex justify-content-center align-items-center"
                             @mouseover="() => mouseHandler(slide)"
-                            :style="`background: #${Math.floor(Math.random()*16777215).toString(16)}`"
                         >
-                            {{ slide }}
+                            <!-- :style="`background: url(${require('~/assets/img/'+member.backgroundImage)})`" -->
+                          <div 
+                            class="member-frame"
+                          >
+                            <img 
+                              class="frame"
+                              src="~/assets/img/card_frame.png"
+                            >
+                            <img 
+                              class="member-image rounded shadow-sm"
+                              :src="require(`~/assets/img/${member.image}`)"
+                            >
+                          </div>
                         </div>
                     </swiper-slide>
                     <div class="swiper-pagination" slot="pagination"></div>
@@ -51,7 +62,8 @@ export default {
                  ability to connect with and motivate teens and young adults. 
                  He understands people at a core level and is highly skilled at helping people reach their 
                  goals and create lasting transformations.`,
-                image: "",
+                image: "moh.jpg",
+                backgroundImage: "manager_pattern.jpg",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -77,7 +89,8 @@ export default {
                 University in British Columbia. He is studying peoples’ motivation to play video games 
                 and how to create mixed reality games that are customized to an individual’s learning 
                 needs. Dov is a lifelong gamer with a deep knowledge of game design and mechanics.`,
-                image: "",
+                image: "moh.jpg",
+                backgroundImage: "manager_pattern.jpg",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -103,7 +116,8 @@ export default {
                 partnerships, access grants, and connect with investors to make this all possible. 
                 Stay tuned for more information on how you can be involved with the Facing Dragons 
                 game, as well as their upcoming Kickstarter Campaign and official release date!`,
-                image: "",
+                image: "moh.jpg",
+                backgroundImage: "manager_pattern.jpg",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -128,7 +142,8 @@ export default {
                 description: `Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
-                image: "",
+                image: "moh.jpg",
+                backgroundImage: "gamer2_pattern.jpg",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -153,7 +168,8 @@ export default {
                 description: `Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
-                image: "",
+                image: "moh.jpg",
+                backgroundImage: "programmer2_pattern.jpg",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -220,11 +236,60 @@ export default {
 
 .slide-content {
     height: 50vh;
+    transition: 1s all ease-in-out;
+    padding: 2rem;
 
-    &:hover {
-        background: 
+    &::before {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-image: url('~assets/img/dragon_palettes_02.jpg');
+      filter: grayscale(100%) blur(5px);
+      background-size: cover;
+      transition: 0.2s all ease-in-out;
+    }
+    &:hover::before {
+      filter: grayscale(0%) blur(2px);
+    }
+
+    &:hover .member-frame {
+      width: 95%;
+      height: 105%;
     }
 }
+
+.member-frame {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background: #121212;
+  padding: 1rem;
+  transition: 0.2s all ease-in-out;
+}
+
+.frame {
+  position: absolute;
+  top: -7px;
+  right: -4px;
+  height: 103%;
+  /* position: absolute; */
+  z-index: 1;
+  width: 102%;
+}
+
+.member-image {
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+}
+
 
 
 .carousel-container {
