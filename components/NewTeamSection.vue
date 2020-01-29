@@ -32,6 +32,15 @@
                               class="member-image rounded shadow-sm"
                               :src="require(`~/assets/img/${member.image}`)"
                             >
+                            <div class="img-border-bottom"></div>
+                            <div class="member-text w-100 d-flex flex-column justify-content-center align-item-center text-center">
+                              <h2>
+                                {{ member.name }}
+                              </h2>
+                              <h4>
+                                {{ member.role }}
+                              </h4>
+                            </div>
                           </div>
                         </div>
                     </swiper-slide>
@@ -84,7 +93,7 @@ export default {
             },
             { 
                 name: "Dov",
-                role: "Game Design Researcher",
+                role: "Game Director",
                 description: `Dov Schafer, Gaming Design Researcher, is a PhD candidate at Simon Fraser 
                 University in British Columbia. He is studying peoples’ motivation to play video games 
                 and how to create mixed reality games that are customized to an individual’s learning 
@@ -197,9 +206,15 @@ export default {
             el: '.swiper-pagination',
             clickable: true
           },
+          grabCursor: true,
+          loop: true,
+          freeMode: true,
           breakpoints: {
             980: {
               slidesPerView: 2,
+            },
+            540: {
+              slidesPerView: 1,
             }
           }
         }
@@ -235,7 +250,7 @@ export default {
 }
 
 .slide-content {
-    height: 50vh;
+    height: calc(200px + 10vw);
     transition: 1s all ease-in-out;
     padding: 2rem;
 
@@ -264,6 +279,7 @@ export default {
 .member-frame {
   width: 90%;
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   height: 100%;
   position: relative;
@@ -284,10 +300,36 @@ export default {
 
 .member-image {
   width: 100%;
+  height: 65%;
   top: 0;
   right: 0;
   left: 0;
   position: absolute;
+}
+
+.img-border-bottom {
+  width: 100%;
+  background: linear-gradient(to right, black 0%, #f9d423 50%, black 100%);
+  height: 8px;
+  z-index: 2;
+  position: absolute;
+  top: 65%;
+  left: 0;
+}
+
+.member-text {
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  & h2 {
+    font-size: 1.4vw;
+  }
+
+  & h4 {
+    font-size: 1vw;
+  }
 }
 
 
