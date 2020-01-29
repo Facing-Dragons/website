@@ -60,6 +60,8 @@ export default {
   /* height: 300vh; */
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
   /* justify-content: center; */
   /* align-items: center; */
   width: 100%;

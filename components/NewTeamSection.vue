@@ -198,7 +198,7 @@ export default {
             clickable: true
           },
           breakpoints: {
-            640: {
+            980: {
               slidesPerView: 2,
             }
           }
