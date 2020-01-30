@@ -21,6 +21,10 @@
                             @mouseover="() => mouseHandler(slide)"
                         >
                             <!-- :style="`background: url(${require('~/assets/img/'+member.backgroundImage)})`" -->
+                          <img 
+                            class="card-pattern"
+                            :src="require(`~/assets/img/${member.backgroundImage}`)"
+                          >
                           <div 
                             class="member-frame"
                           >
@@ -64,14 +68,14 @@ export default {
     data() {
       const teamMembers = [
             { 
-                name: "Brodie",
+                name: "Brodie Whitney",
                 role: "CEO",
-                description: `Owner and CEO of Facing Dragons, is a Certified Professional Co-active Coach (CPCC).
-                 Brodie has extensive experience working one-on-one and in groups, and has a reputation for his 
-                 ability to connect with and motivate teens and young adults. 
-                 He understands people at a core level and is highly skilled at helping people reach their 
-                 goals and create lasting transformations.`,
-                image: "moh.jpg",
+                shortText: "What if we could make a game that engaged people in their life as much as these video games",
+                description: `on a mission to co-create a mixed-reality, self-care game that helps people 
+                unlock their purpose and empowers the next generation of leaders.
+                Favourite Video Game: Deja Vu
+                Fun Fact: Lived in a tipi in the woods.`,
+                image: "brodie.jpg",
                 backgroundImage: "manager_pattern.jpg",
                 socialMedia: [
                     {
@@ -92,14 +96,24 @@ export default {
                 ]
             },
             { 
-                name: "Dov",
-                role: "Game Director",
-                description: `Dov Schafer, Gaming Design Researcher, is a PhD candidate at Simon Fraser 
-                University in British Columbia. He is studying peoples’ motivation to play video games 
-                and how to create mixed reality games that are customized to an individual’s learning 
-                needs. Dov is a lifelong gamer with a deep knowledge of game design and mechanics.`,
-                image: "moh.jpg",
-                backgroundImage: "manager_pattern.jpg",
+                name: "Dov “Rallos” Schafer",
+                role: "Design Director",
+                description: `Dov is PhD candidate in Educational Technology at Simon Fraser University 
+                  in British Columba. He is studying peoples’ intrinsic motivation to play video games and 
+                  how to create mixed reality games that support positive personal growth. Dov is a lifelong 
+                  game enthusiast with a deep knowledge of design and mechanics.
+
+                  Favorite Game: EverQuest Classic; WoW up until WOTLK; I used to be in the top guild in the 
+                  world in both EQ and WOW (nerd alert) Also I love boardgames like Star Realms, Dune, 
+                  Mageknight…
+                  Favorite Dragon: They are like babies to me… don’t make me choose just one. Ok fine, 
+                  Helios – I like that he can see the future.
+                  Fun Facts:  Dov means Bear in hebrew. I have a culinary degree, and I have lost 
+                  over 120lbs since I was 20 years old.
+                  Oh I also have a 3 year old boy, and a baby girl scheduled 
+                  to start public beta in August`,
+                image: "dov.png",
+                backgroundImage: "dov_pattern.png",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -119,39 +133,16 @@ export default {
                 ]
             },
             { 
-                name: "Stephan",
-                role: "Lorem Ipsum!?",
-                description: `Stephen Urquhart is their business wizard, helping develop strategic 
-                partnerships, access grants, and connect with investors to make this all possible. 
-                Stay tuned for more information on how you can be involved with the Facing Dragons 
-                game, as well as their upcoming Kickstarter Campaign and official release date!`,
-                image: "moh.jpg",
-                backgroundImage: "manager_pattern.jpg",
-                socialMedia: [
-                    {
-                        name: "Facebook",
-                        link: "",
-                        icon: "fab facebook"
-                    },
-                    {
-                        name: "Twiiter",
-                        link: "",
-                        icon: "fab twitter"
-                    },
-                    {
-                        name: "Instagram",
-                        link: "",
-                        icon: "fab instagram"
-                    }
-                ]
-            },
-            { 
-                name: "Osama",
-                role: "Lorem Ipsum!?",
-                description: `Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
-                Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
-                Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
-                image: "moh.jpg",
+                name: `Osama "Dorgam" Alsalman`,
+                role: "Lead Game Developer",
+                description: `If Osama isn't spending his time making games, he is probably playing them! 
+                His toolbelt include skills in game programming, game design and narrative. He is a strong 
+                believer in games as an art form and aims to deliver meaningful experiences through them.
+                Unique Facts: Osama's games won many awards including the 2017 Excellence in Design award 
+                in the International Mobile Game Awards - MENA
+                Favorite Game: Dishonored
+                Favorite Dragon: Enthuz - The Play Dragon`,
+                image: "osama.jpg",
                 backgroundImage: "gamer2_pattern.jpg",
                 socialMedia: [
                     {
@@ -179,6 +170,65 @@ export default {
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
                 image: "moh.jpg",
                 backgroundImage: "programmer2_pattern.jpg",
+                socialMedia: [
+                    {
+                        name: "Facebook",
+                        link: "",
+                        icon: "fab facebook"
+                    },
+                    {
+                        name: "Twiiter",
+                        link: "",
+                        icon: "fab twitter"
+                    },
+                    {
+                        name: "Instagram",
+                        link: "",
+                        icon: "fab instagram"
+                    }
+                ]
+            },
+            { 
+                name: "Celia 'Cil' Cheung",
+                role: "Lead Artist",
+                description: `Cil is the art monkey of the team! She brings to the table years of experience 
+                with gaming startups and an animation industry background, and is keen on advocating for mental 
+                health wellness among gamers and game-makers alike.
+                Favourite Dragon: Amora, the Love Dragon
+                Unique Facts: Owns a small car and a large cat, was once a martial arts 
+                lion dancer, and is just starting to learn archery!`,
+                image: "cil.jpg",
+                backgroundImage: "cil_pattern.png",
+                socialMedia: [
+                    {
+                        name: "Facebook",
+                        link: "",
+                        icon: "fab facebook"
+                    },
+                    {
+                        name: "Twiiter",
+                        link: "",
+                        icon: "fab twitter"
+                    },
+                    {
+                        name: "Instagram",
+                        link: "",
+                        icon: "fab instagram"
+                    }
+                ]
+            },
+            { 
+                name: "Alyssa Castle",
+                role: "Media Manager",
+                description: `Alyssa is a Media Wizard by day and avid Minecrafter by night. 
+                  She joined the team as a way to face her own dragons and experience fulfillment 
+                  in her career. Alyssa is passionate about mental health efforts and is looking 
+                  forward to making a difference in the world - especially for fellow gamers!
+                  Favourite Dragon: Currently Mentano, the Mind Dragon
+                  Unique Facts: Alyssa has two rescue dogs, an unhealthy obsession with spreadsheets, 
+                  and drinks too much coffee.`,
+                image: "alyssa.jpg",
+                backgroundImage: "alyssa_pattern.png",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -250,24 +300,25 @@ export default {
 }
 
 .slide-content {
-    height: calc(200px + 10vw);
-    transition: 1s all ease-in-out;
+    height: calc(300px + 10vw);
+    // transition: 1s all ease-in-out;
     padding: 2rem;
 
-    &::before {
-      content: "";
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background-image: url('~assets/img/dragon_palettes_02.jpg');
-      filter: grayscale(100%) blur(5px);
-      background-size: cover;
+    // &::before {
+    //   content: "";
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   position: absolute;
+    //   background-image: url('~assets/img/dragon_palettes_02.jpg');
+    //   filter: grayscale(100%) blur(5px);
+    //   background-size: cover;
+    //   transition: 0.2s all ease-in-out;
+    // }
+    &:hover .card-pattern {
+      filter: grayscale(0%) blur(1px);
       transition: 0.2s all ease-in-out;
-    }
-    &:hover::before {
-      filter: grayscale(0%) blur(2px);
     }
 
     &:hover .member-frame {
@@ -315,6 +366,20 @@ export default {
   position: absolute;
   top: 65%;
   left: 0;
+}
+
+.card-pattern {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.2s all ease-in-out;
+  object-fit: cover;
+  filter: grayscale(100%) blur(4px);
 }
 
 .member-text {
