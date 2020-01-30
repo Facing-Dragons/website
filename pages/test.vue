@@ -5,6 +5,7 @@
     <GameDescription></GameDescription>
     <NewTeamSection></NewTeamSection>
     <Sponsors></Sponsors>
+    <Footer></Footer>
   </b-container>    
 </template>
 
@@ -15,6 +16,7 @@ import NewAbout from '~/components/NewAbout';
 import GameDescription from '~/components/GameDescription'
 import NewTeamSection from '~/components/NewTeamSection'
 import Sponsors from '~/components/Sponsors'
+import Footer from '~/components/Footer';
 
 export default {
   components: {
@@ -22,7 +24,8 @@ export default {
     NewAbout,
     GameDescription,
     NewTeamSection,
-    Sponsors
+    Sponsors,
+    Footer
   },
   data() {
     return {
