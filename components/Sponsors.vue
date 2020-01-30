@@ -1,26 +1,36 @@
 <template>
-    <div class="row bg-white rounded d-flex flex-wrap justify-content-center align-items-center p-5">
-        <div class="col-12 d-flex justify-content-center align-items-center">
-            <h2 class="my-4">
-                Sponsors
-            </h2>
-        </div>
-        <div 
-            v-for="sponsor in sponsors"
-            :key="sponsor.title"
-            class="col-5 col-md-3 justify-content-center align-items-center"
-        >
-            <img 
-                :src="sponsor.logo" 
-                :alt="sponsor.title"
-                class="sponsor-image"
+    <b-container class="sponsors-container p-5">
+        <section-title 
+            class="pt-5"
+            right
+            title-text="Our Sponsors"
+            text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
+            line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
+        ></section-title>
+        <div class="row justify-content-center justify-content-md-start">
+            <div 
+                v-for="sponsor in sponsors"
+                :key="sponsor.title"
+                class="col-5 col-md-3 align-items-center"
             >
+                <div class="bg-white shadow-sm rounded p-3 m-2 sponsor-image-div">
+                    <img 
+                        :src="sponsor.logo" 
+                        :alt="sponsor.title"
+                        class="sponsor-image"
+                    >
+                </div>
+            </div>
         </div>
-    </div>
+    </b-container>
 </template>
 
 <script>
+import SectionTitle from '~/components/SectionTitle';
 export default {
+    components: {
+        SectionTitle,
+    },
     data() {
         const sponsors = [
             {
@@ -71,5 +81,14 @@ export default {
     .sponsor-image {
         width: 100%;
         height: auto;
+    }
+
+    .sponsor-image-div {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .sponsor-image-div:hover {
+        cursor: pointer;
+        transform: translateY(-2vh) scale(1.1);
     }
 </style>

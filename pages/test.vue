@@ -4,6 +4,7 @@
     <NewAbout></NewAbout>
     <GameDescription></GameDescription>
     <NewTeamSection></NewTeamSection>
+    <Sponsors></Sponsors>
   </b-container>    
 </template>
 
@@ -13,13 +14,15 @@ import Banner from '~/components/Banner';
 import NewAbout from '~/components/NewAbout';
 import GameDescription from '~/components/GameDescription'
 import NewTeamSection from '~/components/NewTeamSection'
+import Sponsors from '~/components/Sponsors'
 
 export default {
   components: {
     Banner,
     NewAbout,
     GameDescription,
-    NewTeamSection
+    NewTeamSection,
+    Sponsors
   },
   data() {
     return {
