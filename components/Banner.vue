@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="main d-flex p-5 align-items-md-center">
+  <b-container fluid class="main d-flex align-items-md-center">
     <div class="title-box">
       <div class="pre-title">
         UNLOCK YOUR 
@@ -78,10 +78,10 @@ export default {
 
 .logo-container {
   position: absolute;
-  top: -0.7vw;
-  height: 100%;
+  display: flex;
+  top: 3.3vw;
   background: black;
-  left: 25.7vw;
+  left: 28.7vw;
 }
 
 .title-logo {
@@ -91,6 +91,7 @@ export default {
 .main-title-text {
   color: #f79519;
   font-size: 9.5vw;
+  font-weight: 300;
   background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -107,9 +108,14 @@ export default {
 }
 
 .pre-title {
-  padding-left: 0.6vw;
+  padding-left: 1vw;
   letter-spacing: 0.8vw;
   font-size: 1.7vw;
+  font-weight: 100;
+  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #purpose {
@@ -118,6 +124,7 @@ export default {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 100;
 }
 
 .your-title {
