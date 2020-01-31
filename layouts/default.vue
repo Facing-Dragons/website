@@ -67,17 +67,14 @@ export default {
 
 <style>
 
-@font-face {
-  font-family: 'marcellus';
-  src: url("~assets/fonts/marcellus.ttf");
-}
 
 * {
-  font-family: 'marcellus';
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 html {
-  font-family: 'marcellus' ,sans-serif;
+  font-family: 'Montserrat' ,sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
