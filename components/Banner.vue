@@ -17,11 +17,13 @@
         </div>
       </div>
       <p class="small-text">
-        Facing Dragons is a deeply gamified mobile health app that helps your adults overcome life's challenges 
-        and unlock their purpose. <br>
-        <span class="get-quest-text">
+        Facing Dragons is mixed reality
+        mental health and life coaching game. <br><br>
+        Overcome real-life challenges
+        and unlock your purpose. <br>
+        <!-- <span class="get-quest-text">
           In order to get your first quest, click on the link below.
-        </span> 
+        </span>  -->
       </p>
     </div>
     <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image">
@@ -137,10 +139,12 @@ export default {
 }
 
 .small-text {
-  margin-left: 0.5vw;
-  font-size: max(2vh, 1vw);
-  letter-spacing: 0.4vw;
-  text-align: justify;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 1vw;
+  font-size: max(1.5vh, 1.5vw);
+  letter-spacing: 0.3vw;
+  /* text-align: justify; */
   width: 65%;
   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   background-clip: text;
@@ -171,7 +175,7 @@ text {
   /* margin-top: -7.5vh; */
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
   * {
     transition: all 0.5ms ease-in-out;
   }
@@ -183,12 +187,13 @@ text {
   }
 
   .small-text {
-    font-size: max(1.3vh, 1vw);
+    font-size: max(1.5vh, 1.2vw);
   }  
 
   .title-box {
-    margin-top: 10vh;
+    margin-top: 20vh;
     width: 100%;
+    transition: 0.2s all ease-in-out;
   }
 
   .pre-title {
@@ -221,7 +226,7 @@ text {
     top: 2.5vh;
     height: 7vh;
     background: black;
-    left: 21.5vh;
+    left: 24vh;
   }
 
   .title-logo {
