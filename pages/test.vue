@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="main-container">
     <Banner></Banner>
-    <NewAbout></NewAbout>
+    <about-game></about-game>
     <GameDescription></GameDescription>
     <NewTeamSection></NewTeamSection>
     <Sponsors></Sponsors>
@@ -12,7 +12,7 @@
 <script>
 // import anime from 'animejs/lib/anime.es.js';
 import Banner from '~/components/Banner';
-import NewAbout from '~/components/NewAbout';
+import AboutGame from '~/components/AboutGame';
 import GameDescription from '~/components/GameDescription'
 import NewTeamSection from '~/components/NewTeamSection'
 import Sponsors from '~/components/Sponsors'
@@ -21,7 +21,7 @@ import Footer from '~/components/Footer';
 export default {
   components: {
     Banner,
-    NewAbout,
+    AboutGame,
     GameDescription,
     NewTeamSection,
     Sponsors,
