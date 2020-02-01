@@ -7,7 +7,7 @@
         class="d-flex"
     >
         <b-navbar-brand href="#" class="logo-container ml-3">
-            <img class="logo-img" src="~/assets/img/logo.png" alt="Facing Dragons">
+            <img class="logo-img" src="~/assets/img/logo_white.png" alt="Facing Dragons">
         </b-navbar-brand>
 
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
