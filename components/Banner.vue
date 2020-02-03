@@ -17,7 +17,7 @@
         </div>
       </div>
       <p class="small-text">
-        Facing Dragons is mixed reality
+        Facing Dragons is mixed-reality
         mental health and life coaching game. <br><br>
         Overcome real-life challenges
         and unlock your purpose. <br>
