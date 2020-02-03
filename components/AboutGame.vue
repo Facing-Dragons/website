@@ -1,6 +1,6 @@
 <template>
     <div class="container about-main-container mt-5">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-12 justify-content-center">
                 <div class="video-frame rounded p-2">
                     <b-embed
@@ -16,13 +16,13 @@
                     <div 
                         v-for="feature in gameFeatures"
                         :key="feature.name"
-                        class="col-3"
+                        class="col"
                     >
-                        <about-game
+                        <game-feature-item
                             :icon="feature.icon"
                             :title="feature.title"
                             :description="feature.desc"
-                        ></about-game>
+                        ></game-feature-item>
                     </div>
                 </div>
             </div>
@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import AboutGame from '~/components/AboutGame'
+import GameFeatureItem from '~/components/GameFeatureItem'
 export default {
     components: {
-        AboutGame
+        GameFeatureItem
     },
     data() {
         const gameFeatures = [
