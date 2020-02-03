@@ -2,7 +2,7 @@
   <b-container fluid class="main-container">
     <Banner></Banner>
     <about-game></about-game>
-    <GameDescription></GameDescription>
+    <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
     <Sponsors></Sponsors>
     <Footer></Footer>

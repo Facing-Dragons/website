@@ -85,8 +85,9 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 0.2vw;
+    letter-spacing: 0.1vw;
     font-size: 1vw;
+    font-weight: 500;
 }
 
 .text-3-title {
