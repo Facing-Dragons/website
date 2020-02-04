@@ -70,7 +70,7 @@ export default {
                 name: "Portal Island",
                 icon: "door-open",
                 title: "Quests in the real world",
-                desc: "Lorm Ipsum Lorem Ipsum! Lorm Ipsum Lorem Ipsum!Lorm Ipsum Lorem Ipsum!"
+                desc: "The eight key areas of life are represented by dragons who give players quests and challenges to complete in real life, based on tools used in coaching and counseling."
             },
             {
                 name: "Archives",
@@ -88,7 +88,7 @@ export default {
                 name: "Hall of Heroes",
                 icon: "landmark",
                 title: "Hall of Heroes",
-                desc: "Meet, and get quests from, inspiring real-life heroes such the MMA world champion from the jungles of Brazil."
+                desc: "Meet and get quests from inspiring real-life people who have managed to face their dragons; such the MMA world champion from the jungles of Brazil."
             },
         ];
         return {
