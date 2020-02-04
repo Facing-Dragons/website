@@ -4,6 +4,7 @@
     <about-game></about-game>
     <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
+    <VlogSection></VlogSection>
     <Sponsors></Sponsors>
     <Footer></Footer>
   </b-container>    
@@ -17,6 +18,7 @@ import GameDescription from '~/components/GameDescription'
 import NewTeamSection from '~/components/NewTeamSection'
 import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer';
+import VlogSection from '~/components/VlogSection';
 
 export default {
   components: {
@@ -24,6 +26,7 @@ export default {
     AboutGame,
     GameDescription,
     NewTeamSection,
+    VlogSection,
     Sponsors,
     Footer
   },
