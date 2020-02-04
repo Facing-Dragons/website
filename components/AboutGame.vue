@@ -22,7 +22,7 @@
                     <div 
                         v-for="feature in gameFeatures"
                         :key="feature.name"
-                        class="col"
+                        class="col-6 col-md-3"
                     >
                         <game-feature-item
                             :icon="feature.icon"
@@ -32,7 +32,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 justify-content-center align-items-center read-more-section">
+            <game-description></game-description>
+            <div class="col-12 justify-content-center align-items-center read-more-section mt-5">
                 <div v-b-toggle.game-description class="read-more-icon text-center">
                     <div class="more">
                         More
@@ -41,7 +42,7 @@
                 </div>
             </div>
             <b-collapse id="game-description">
-                <game-description></game-description>
+                <more-description></more-description>
             </b-collapse>
         </div>
     </div>
@@ -52,6 +53,7 @@ import GameFeatureItem from '~/components/GameFeatureItem'
 import SectionTitle from '~/components/SectionTitle'
 import ChevronDown from '~/components/ChevronDown'
 import GameDescription from '~/components/GameDescription'
+import MoreDescription from '~/components/MoreDescription'
 
 
 export default {
@@ -59,6 +61,7 @@ export default {
         GameFeatureItem,
         SectionTitle,
         ChevronDown,
+        MoreDescription,
         GameDescription
     },
     data() {
@@ -73,14 +76,20 @@ export default {
                 name: "Archives",
                 icon: "book-open",
                 title: "Track Your Progress",
-                desc: "blab la bla goals and progress! Lorm Ipsum Lorem Ipsum!"
+                desc: "You can keep track of your progress by visiting your private archives to see all your quests, goals, daily check ins, and mirror results."
+            },
+            {
+                name: "Mirrors",
+                icon: "chalkboard",
+                title: "Learn About Yourself",
+                desc: "Learn more about yourself by gazing into mirrors that ask you questions, based on established psychometric instruments such as Big 5, and DISC."
             },
             {
                 name: "Hall of Heroes",
                 icon: "landmark",
                 title: "Hall of Heroes",
-                desc: "Discover the stories of real-life heroes. Such the MMA world champion from the jungles of Brazil"
-            }
+                desc: "Meet, and get quests from, inspiring real-life heroes such the MMA world champion from the jungles of Brazil."
+            },
         ];
         return {
             gameFeatures

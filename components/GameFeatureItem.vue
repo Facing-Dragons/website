@@ -1,13 +1,13 @@
 <template>
-    <div class="feature-container d-flex flex-column p-5 text-center align-items-center justify-content-around">
+    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-around mb-5">
         <div class="icon">
             <font-awesome-icon :icon="icon"/>
         </div>
         <div class="feature-text">
-            <h2 class="feature-title">
+            <div class="feature-title">
                 {{ title }}
-            </h2>
-            <div class="feature-description">
+            </div>
+            <div class="feature-description mt-4">
                 {{ description }}
             </div>
         </div>
@@ -42,20 +42,31 @@ export default {
     }
 
     &:hover {
-        transform: scale(1.05);
-
         & .icon {
             color: #ebebeb;
+        }
+
+        & .feature-title {
+            background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     }
 }
 
 
 .feature-title {
-    font-weight: 200;
+    font-size: calc(1rem + 0.6vw);
+    font-weight: 500;
+    background-image: linear-gradient(to right, white 0%, white 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-// .feature-description {
-//     font-size: 2vw;
-// }
+.feature-description {
+    font-size: calc(0.5rem + 0.2vw);
+    letter-spacing: 0.1vw;
+}
 </style>

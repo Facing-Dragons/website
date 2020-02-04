@@ -3,18 +3,18 @@
         class="game-description-container"
     >
         <div class="row mt-5 d-flex justify-content-around">
-            <div class="col-12 col-md-7 d-flex flex-column">
-                <b-img fluid thumbnail rounded src="~/assets/img/support_hub.png"></b-img>
+            <div class="d-none d-md-flex col-md-1">
+                <div class="fancy-vertical-line"></div>
             </div>
-            <div class="col-12 col-md-5 d-flex flex-column mt-4 mt-md-0">
-                <h3 class="text-3-title" id="support">
-                    Optional Counselling Support
+            <div class="col-11 d-flex flex-column">
+                <h3 class="text-3-title" id="game">
+                    The Game
                 </h3>
                 <p class="text-3">
-                    {{ messages[2][0] }}
+                    {{ messages[1][0] }}
                 </p>
                 <p class="text-3 mt-2">
-                    {{ messages[2][1] }}
+                    {{ messages[1][1] }}
                 </p>
             </div>
         </div>
