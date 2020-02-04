@@ -16,39 +16,23 @@
                         v-for="(member, index) in teamMembers"
                         :key="index"
                     >
-                        <div 
-                            class="slide-content d-flex justify-content-center align-items-center"
-                            @mouseover="() => mouseHandler(slide)"
+                      <div class="new-slide-content text-center d-flex flex-column justify-content-center h-100 align-items-center">
+                        <b-img
+                          height="200px"
+                          rounded="circle"
+                          :src="require(`~/assets/img/${member.image}`)"
                         >
-                            <!-- :style="`background: url(${require('~/assets/img/'+member.backgroundImage)})`" -->
-                          <img 
-                            class="card-pattern"
-                            :src="require(`~/assets/img/${member.backgroundImage}`)"
-                          >
-                          <div 
-                            class="member-frame"
-                          >
-                            <img 
-                              class="frame"
-                              src="~/assets/img/card_frame.png"
-                            >
-                            <img 
-                              class="member-image rounded shadow-sm"
-                              :src="require(`~/assets/img/${member.image}`)"
-                            >
-                            <div class="img-border-bottom"></div>
-                            <div class="member-text w-100 d-flex flex-column justify-content-center align-item-center text-center">
-                              <h2>
-                                {{ member.name }}
-                              </h2>
-                              <h4>
-                                {{ member.role }}
-                              </h4>
-                            </div>
-                          </div>
+                        </b-img>
+                        <div class="name my-1">
+                          {{ member.name }}
                         </div>
+                        <div class="role">
+                          {{ member.role }}
+                        </div>
+                      </div>
                     </swiper-slide>
-                    <div class="swiper-pagination" slot="pagination"></div>
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
             </div>
         </b-container>
@@ -163,8 +147,8 @@ export default {
                 ]
             },
             { 
-                name: "Mohammad",
-                role: "Lorem Ipsum!?",
+                name: "Mohammad Rajabi Seraji",
+                role: "Senior UI/UX Developer",
                 description: `Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
                 Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
@@ -251,21 +235,26 @@ export default {
       return {
         teamMembers,
         swiperOption: {
-          slidesPerView: 3,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-          },
+          slidesPerView: 4,
+          // pagination: {
+          //   el: '.swiper-pagination',
+          //   clickable: true
+          // },
+
           grabCursor: true,
           loop: true,
           freeMode: true,
           breakpoints: {
             980: {
-              slidesPerView: 2,
+              slidesPerView: 3,
             },
             540: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             }
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
           }
         }
       }
@@ -295,9 +284,21 @@ export default {
 
 .team-container-fluid {
     /* margin-top: 100vh; */
-    min-height: 100vh;
+    // min-height: 100vh;
     position: relative;
 }
+
+.name {
+  font-weight: 500;
+  font-size: calc(1.1rem + 0.5vw);
+  color: #ebebeb;
+}
+
+.role {
+  color: #ebebeb;
+}
+
+
 
 .slide-content {
     height: calc(300px + 10vw);
@@ -356,6 +357,19 @@ export default {
   right: 0;
   left: 0;
   position: absolute;
+}
+
+// .new-swiper-slide {
+//   height: 30vh;
+// }
+
+.swiper-pagination-bullet {
+  height: 12px;
+  width: 12px;
+  background: #ebebeb;
+  display: inline-block;
+  border-radius: 100%;
+  opacity: 0.2;
 }
 
 .img-border-bottom {

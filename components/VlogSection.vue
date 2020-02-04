@@ -21,9 +21,6 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div v-if="swiper" style="width: 200px; height: 300px" class="test">
-        {{ swiper.activeIndex }}
-      </div>
     </div>
   </div>
 </template>

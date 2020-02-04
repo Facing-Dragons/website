@@ -1,5 +1,5 @@
 <template>
-    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-around mb-5">
+    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-center h-100 mb-5">
         <div class="icon">
             <font-awesome-icon :icon="icon"/>
         </div>
@@ -57,7 +57,7 @@ export default {
 
 
 .feature-title {
-    font-size: calc(1rem + 0.6vw);
+    font-size: calc(1.2rem + 0.7vw);
     font-weight: 500;
     background-image: linear-gradient(to right, white 0%, white 100%);
     background-clip: text;
