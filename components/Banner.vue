@@ -8,7 +8,7 @@
         </span>
       </div>
       <div class="main-title">
-        <span class="main-title-text">FACE </span><span class="your-title">YOUR</span>
+        <span class="main-title-text">FACE YOUR</span>
       </div>
       <div class="main-title-text second">
         DRAGONS
@@ -74,26 +74,26 @@ export default {
 }
 
 .title-box {
-  width: 50vw;
+  width: 53vw;
   position: relative;
 }
 
 .logo-container {
   position: absolute;
   display: flex;
-  top: 3.3vw;
+  top: 3vw;
   background: black;
-  left: 28.7vw;
+  left: 24.7vw;
 }
 
 .title-logo {
-  width: 8vw;
+  width: 6.5vw;
 }
 
 .main-title-text {
   color: #f79519;
-  font-size: 9.5vw;
-  font-weight: 300;
+  font-size: 8vw;
+  font-weight: 500;
   background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -101,16 +101,16 @@ export default {
 }
 
 .main-title {
-  margin-top: -4vw;
+  margin-top: -3.7vw;
 }
 
 .second {
-  margin-top: -7.2vw;
+  margin-top: -6.1vw;
   position: relative;
 }
 
 .pre-title {
-  padding-left: 1vw;
+  padding-left: 0.5vw;
   letter-spacing: 0.8vw;
   font-size: 1.7vw;
   font-weight: 100;
@@ -207,7 +207,7 @@ text {
   }
 
   .main-title-text {
-    font-size: 8vh;
+    font-size: 7.7vh;
   }
 
   .your-title {
@@ -218,7 +218,7 @@ text {
   .second {
     margin-top: -6vh;
     position: relative;
-    font-size: 8vh;
+    font-size: 7.7vh;
   }
 
   .logo-container {
@@ -231,8 +231,39 @@ text {
 
   .title-logo {
     position: relative;
-    top: 0;
+    top: 0.5vh;
+    height: 6vh;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+   .main-title {
+    margin-top: -3vh;
+  }
+
+  .main-title-text {
+    font-size: 6vh;
+  }
+
+  .second {
+    margin-top: -4.4vh;
+    position: relative;
+    font-size: 6vh;
+  }
+
+  .logo-container {
+    display: flex;
+    top: 2.1vh;
     height: 7vh;
+    background: black;
+    left: 18.6vh;
+  }
+
+  .title-logo {
+    position: relative;
+    top: 0;
+    height: 5vh;
     width: auto;
   }
 }
