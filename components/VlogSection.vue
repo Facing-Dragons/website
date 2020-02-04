@@ -8,9 +8,9 @@
           line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
       ></section-title>
       <div class="col-12">
-        <carousel-3d>
-          <slide v-for="v in videos" :index="v.id" :key="v.id">
-            <div class="vlog-container rounded p-2">
+        <swiper :options="swiperOptions" ref="mySwiper">
+          <swiper-slide v-for="v in videos" :index="v.id" :key="v.id">
+            <div class="vlog-container rounded p-1">
               <b-embed
                   type="iframe"
                   aspect="16by9"
@@ -18,55 +18,95 @@
                   allowfullscreen
               ></b-embed>
             </div>
-          </slide>
-        </carousel-3d>
+          </swiper-slide>
+        </swiper>
+      </div>
+      <div v-if="swiper" style="width: 200px; height: 300px" class="test">
+        {{ swiper.activeIndex }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Carousel3d, Slide } from 'vue-carousel-3d';
 import SectionTitle from '~/components/SectionTitle';
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
+    name: 'VlogSection',
     components: {
-        Carousel3d, 
-        Slide,
-        SectionTitle
+        SectionTitle,
+        swiper,
+        swiperSlide
     },
     data() {
         const videos = [
             {
-                id: 1,
+                id: 0,
                 url: 'https://www.youtube.com/embed/JxCQOfH1Wa8?rel=0'
             },
             {
-                id: 2,
+                id: 1,
                 url: 'https://www.youtube.com/embed/zFsMAbpeRXw?rel=0'
             },
             {
-                id: 3,
+                id: 2,
                 url: 'https://www.youtube.com/embed/XcQEPNA0TZk?rel=0'
             },
             {
-                id: 4,
+                id: 3,
                 url: 'https://www.youtube.com/embed/QateDsNO7fY?rel=0'
             },
             {
-                id: 5,
+                id: 4,
                 url: 'https://www.youtube.com/embed/BNW4z6UiBKg?rel=0'
             },
             {
-                id: 6,
+                id: 5,
                 url: 'https://www.youtube.com/embed/EM2dfGk_lgQ?rel=0'
             },
 
         ]
         return {
-            videos
+            videos,
+            swiperOptions: {
+              effect: 'coverflow',
+              slidesPerView: 5,
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+              },
+              grabCursor: true,
+              loop: true,
+              freeMode: true,
+              breakpoints: {
+                980: {
+                  slidesPerView: 3,
+                },
+                540: {
+                  slidesPerView: 1,
+                }
+              },
+              coverflowEffect: {
+                slideShadows: false,
+                rotate: 30,
+                stretch: 20,
+                depth: 100
+              }
+            }
         }
-    }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper;
+      }
+    },
+    mounted() {
+      // current swiper instance
+      console.log('this is current swiper instance object', this.swiper)
+    //   this.swiper.slideTo(3, 1000, false)
+    },
 }
 </script>
 
@@ -74,4 +114,5 @@ export default {
 .vlog-container {
   background-color: rgba(230, 230, 230, 0.5); 
 }
+
 </style>
