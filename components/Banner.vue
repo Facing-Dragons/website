@@ -33,7 +33,7 @@
         >
           START YOUR QUEST
         </button>
-        <transition name="fade" @before-enter="fadeEnter" @leave="fadeLeave">
+        <transition name="fade">
           <div 
             v-if="isPlayerModalOpen"
             class="player-modal"
@@ -82,7 +82,7 @@
           @click="handleWorkerQuest"
         >SUPPORT WORKERS</button>
         
-        <transition name="fade" @before-enter="fadeEnter" @leave="fadeLeave">
+        <transition name="fade">
           <div 
             v-if="isWorkerModalOpen"
             class="worker-modal"
