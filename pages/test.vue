@@ -1,5 +1,10 @@
 <template>
   <b-container fluid class="main-container">
+    <div class="background-container">
+      <img src="~/assets/img/mountains_01.png" class="backdrop">
+      <!-- <img src="~/assets/img/mountain1.png" class="mountain"> -->
+
+    </div>
     <Banner></Banner>
     <about-game></about-game>
     <!-- <GameDescription></GameDescription> -->
@@ -64,7 +69,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-container {
   /* height: 300vh; */
   display: flex;
@@ -75,4 +80,32 @@ export default {
   /* align-items: center; */
   width: 100%;
 }
+
+.background-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  background: url('~assets/img/main.png');
+  background-size: cover;
+  overflow: hidden;
+
+  .mountain {
+    position: absolute;
+    bottom: -10vh;
+    width: 100vw;
+    height: auto;
+    right: -10vw;
+  }
+
+  .backdrop {
+    position: absolute;
+    bottom: 0vh;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
 </style>

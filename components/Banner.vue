@@ -13,9 +13,9 @@
       </div>
       <div class="main-title-text second">
         DRAGONS
-        <div class="logo-container">
+        <!-- <div class="logo-container">
           <img src="~/assets/img/logo_white.png" class="title-logo">
-        </div>
+        </div> -->
       </div>
       <p class="small-text">
         Facing Dragons is a mixed-reality
