@@ -33,18 +33,46 @@
         >
           START YOUR QUEST
         </button>
-        <transition name="fade">
+        <transition name="fade" @before-enter="fadeEnter" @leave="fadeLeave">
           <div 
             v-if="isPlayerModalOpen"
             class="player-modal"
           >
               <div 
                 class="overlay" 
-                @click="handleOverlayClick"
               >
-                <b-card class="msg-container p-2">
-                  <p>Player Modal Body with button</p>
-                  <b-button>Hide Modal</b-button>
+                <div class="overlay-background" @click.stop="handleOverlayClick"></div>
+                <transition name="popup">
+                    <div v-if="isGuidianShown" class="guidian-container">
+                        <img 
+                            src="~/assets/img/guidian.png" 
+                            alt="guidian"
+                            height="20vh"
+                            class="guidian"
+                        >
+                    </div>
+                </transition>
+                <b-card class="msg-container d-flex flex-column justify-content-center p-2">
+                  <p class="overlay-card-text">Get Your First Quest!</p>
+                  <b-form @submit="() => {}" @reset="() => {}">
+                    <b-form-group
+                      id="input-email-group"
+                      :state="emailState"
+                      :invalid-feedback="invalidFeedback"
+                    >
+                      <b-form-input
+                        id="input-email"
+                        v-model="form.email"
+                        type="email"
+                        required
+                        placeholder="Enter Your Email"
+                      ></b-form-input>
+                    </b-form-group>
+                  </b-form>
+                  <div class="button-container w-100 d-flex justify-content-end">
+                    <b-button variant="danger">No Thanks!</b-button>
+                    <b-button class="ml-2" variant="success">Submit</b-button>
+                  </div>
                 </b-card>
               </div>
           </div>
@@ -53,21 +81,49 @@
           class="w-50 py-2 py-md-0 custom-buttons rounded"
           @click="handleWorkerQuest"
         >SUPPORT WORKERS</button>
-
-        <transition name="fade">
+        
+        <transition name="fade" @before-enter="fadeEnter" @leave="fadeLeave">
           <div 
             v-if="isWorkerModalOpen"
             class="worker-modal"
           >
-            <div 
-              class="overlay" 
-              @click="handleOverlayClick"
-            >
-              <b-card class="msg-container p-2">
-                <p>Worker Modal Body with button</p>
-                <b-button>Hide Modal</b-button>
-              </b-card>
-            </div>
+              <div 
+                class="overlay" 
+              >
+                <div class="overlay-background" @click.stop="handleOverlayClick"></div>
+                <transition name="popup">
+                    <div v-if="isGuidianShown" class="guidian-container">
+                        <img 
+                            src="~/assets/img/guidian.png" 
+                            alt="guidian"
+                            height="20vh"
+                            class="guidian"
+                        >
+                    </div>
+                </transition>
+                <b-card class="msg-container d-flex flex-column justify-content-center p-2">
+                  <p class="overlay-card-text">We'll Keep You Posted!</p>
+                  <b-form @submit="() => {}" @reset="() => {}">
+                    <b-form-group
+                      id="input-email-group"
+                      :state="emailState"
+                      :invalid-feedback="invalidFeedback"
+                    >
+                      <b-form-input
+                        id="input-email"
+                        v-model="form.email"
+                        type="email"
+                        required
+                        placeholder="Enter Your Email"
+                      ></b-form-input>
+                    </b-form-group>
+                  </b-form>
+                  <div class="button-container w-100 d-flex justify-content-end">
+                    <b-button variant="danger">No Thanks!</b-button>
+                    <b-button class="ml-2" variant="success">Submit</b-button>
+                  </div>
+                </b-card>
+              </div>
           </div>
         </transition>
       </div>
@@ -94,6 +150,32 @@ export default {
       return {
         isPlayerModalOpen: false,
         isWorkerModalOpen: false,
+        form: {email: ''},
+        isGuidianShown: false,
+      }
+    },
+    computed: {
+      emailState() {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.form.email))
+        {
+          return (true)
+        }
+        return (false);
+      },
+      invalidFeedback() {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.form.email)) {
+          return '';
+        } else {
+          return 'Please Enter a Valid Email Address'
+        }
+      }
+    },
+    watch: {
+      isPlayerModalOpen: function (newVal, oldVal) {
+        this.isGuidianShown = newVal;
+      },
+      isWorkerModalOpen: function (newVal, oldVal) {
+        this.isGuidianShown = newVal;
       }
     },
     methods: {
@@ -116,16 +198,52 @@ export default {
     transition: all 0.5ms ease-in-out;
   }
 
+.btn {
+  transition: .2s all ease-in-out;
+}
+
+.guidian-container {
+  margin-right: 1vw;
+  z-index: 5;
+}
+.guidian {
+  height: 35vh;
+  animation-name: float;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes float {
+  0% {
+      transform: translatey(0px);
+  }
+  50% {
+      transform: translatey(-10px);
+  }
+  100% {
+      transform: translatey(0px);
+  }
+}
+
+.popup-enter-active, .popup-leave-active {
+  opacity: 1;
+  transition: all 2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.popup-enter, .popup-leave-to /* .popup-leave-active below version 2.1.8 */ {
+  transform: translateY(100vh);
+  opacity: 0;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
   z-index: 3;
 }
+
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 3;
   width: 100%;
@@ -138,6 +256,37 @@ export default {
   justify-content: center;
   align-items: center;
   /* transition: 0.3s all ease-in-out; */
+}
+
+.overlay-card-text {
+  font-weight: 500;
+  font-size: 2vw;
+}
+
+.overlay-background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.msg-container {
+  /* position: relative;
+  top: 30vh; */
+  z-index: 5;
+  transition: 0.5s all ease-in-out;
+}
+
+.msg-title {
+  position: absolute;
+  z-index: 4;
+  top: 20vh;
+  right: 40vh;
 }
 
 .arrow-container {
