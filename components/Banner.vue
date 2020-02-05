@@ -43,7 +43,7 @@
               >
                 <div class="overlay-background" @click.stop="handleOverlayClick"></div>
                 <transition name="popup">
-                    <div v-if="isGuidianShown" class="guidian-container">
+                    <div v-if="isGuidianShown" class="guidian-container d-none d-md-block">
                         <img 
                             src="~/assets/img/guidian.png" 
                             alt="guidian"
@@ -70,8 +70,14 @@
                     </b-form-group>
                   </b-form>
                   <div class="button-container w-100 d-flex justify-content-end">
-                    <b-button variant="danger">No Thanks!</b-button>
-                    <b-button class="ml-2" variant="success">Submit</b-button>
+                    <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
+                    <b-button 
+                      class="ml-2" 
+                      variant="success" 
+                      :disabled="form.email === ''"
+                    >
+                        Submit
+                    </b-button>
                   </div>
                 </b-card>
               </div>
@@ -92,7 +98,7 @@
               >
                 <div class="overlay-background" @click.stop="handleOverlayClick"></div>
                 <transition name="popup">
-                    <div v-if="isGuidianShown" class="guidian-container">
+                    <div v-if="isGuidianShown" class="guidian-container d-none d-md-block">
                         <img 
                             src="~/assets/img/guidian.png" 
                             alt="guidian"
@@ -119,8 +125,14 @@
                     </b-form-group>
                   </b-form>
                   <div class="button-container w-100 d-flex justify-content-end">
-                    <b-button variant="danger">No Thanks!</b-button>
-                    <b-button class="ml-2" variant="success">Submit</b-button>
+                    <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
+                    <b-button 
+                      class="ml-2" 
+                      variant="success" 
+                      :disabled="form.email === ''"
+                    >
+                        Submit
+                    </b-button>
                   </div>
                 </b-card>
               </div>
@@ -163,6 +175,8 @@ export default {
         return (false);
       },
       invalidFeedback() {
+        if (this.form.email === '')
+          return '';
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.form.email)) {
           return '';
         } else {
@@ -260,7 +274,7 @@ export default {
 
 .overlay-card-text {
   font-weight: 500;
-  font-size: 2vw;
+  font-size: 2vmax;
 }
 
 .overlay-background {
@@ -450,7 +464,7 @@ text {
 
   .dragon-image {
     right: -31vw;
-    height: 50vh;
+    height: 43vh;
     width: auto;
   }
 
