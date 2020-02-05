@@ -9,6 +9,7 @@
       </div>
       <div class="main-title">
         <span class="main-title-text">FACE YOUR</span>
+        <!-- <banner-text-section></banner-text-section> -->
       </div>
       <div class="main-title-text second">
         DRAGONS
@@ -25,8 +26,15 @@
           In order to get your first quest, click on the link below.
         </span>  -->
       </p>
+      <div class="button-container d-flex flex-row flex-md-column p-0 p-md-4 justify-content-center align-items-start">
+        <button class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 py-md-0 custom-buttons w-50 rounded">START YOUR QUEST</button>
+        <button class="w-50 py-2 py-md-0 custom-buttons rounded">SUPPORT WORKERS</button>
+      </div>
     </div>
     <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image">
+    <div class="arrow-container w-100 d-flex justify-content-center align-items-center">
+      <animating-arrow-down></animating-arrow-down>
+    </div>
   </b-container>
 </template>
 
@@ -34,8 +42,13 @@
 /**
  * This will be the first section of the page, the banner that also contains the video
  */
+import BannerTextSection from '~/components/BannerTextFirst'
+import AnimatingArrowDown from '~/components/AnimatingArrowDown'
 export default {
-    
+    components: {
+      BannerTextSection,
+      AnimatingArrowDown
+    }
 }
 </script>
 
@@ -43,6 +56,10 @@ export default {
 * {
     transition: all 0.5ms ease-in-out;
   }
+
+.arrow-container {
+  height: 10vh;
+}
 
 .secondary {
   height: 100vh;
@@ -152,9 +169,24 @@ export default {
   -webkit-text-fill-color: transparent;
 }
 
-svg {
-  width: 100%;
+.custom-buttons {
+  transition: 0.3s all ease-in-out;
+  font-size: calc(1rem + 0.5vw);
+  font-weight: 700;
+  background: #f79519;
+  color: #1f1f1f;
+  border: none;
+  outline: none;
 }
+
+.custom-buttons:hover {
+  color: #303030;
+  background: #dfdfdf;
+}
+
+/* svg {
+  width: 100%;
+} */
 
 text {
   fill: #00c9ff;
@@ -178,6 +210,10 @@ text {
 @media screen and (max-width: 780px) {
   * {
     transition: all 0.5ms ease-in-out;
+  }
+
+  .custom-buttons {
+    font-size: max(1.5vh, 1.2vw);
   }
 
   .dragon-image {
@@ -208,11 +244,6 @@ text {
 
   .main-title-text {
     font-size: 7.7vh;
-  }
-
-  .your-title {
-    margin-left: -5vw;
-    font-size: 1vh;
   }
 
   .second {
