@@ -248,8 +248,11 @@ export default {
             980: {
               slidesPerView: 3,
             },
-            540: {
+            775: {
               slidesPerView: 2,
+            },
+            540: {
+              slidesPerView: 1,
             }
           },
           navigation: {
