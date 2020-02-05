@@ -18,7 +18,7 @@
         </div>
       </div>
       <p class="small-text">
-        Facing Dragons is mixed-reality
+        Facing Dragons is a mixed-reality
         mental health and life coaching game. <br><br>
         Overcome real-life challenges
         and unlock your purpose. <br>
@@ -27,8 +27,49 @@
         </span>  -->
       </p>
       <div class="button-container d-flex flex-row flex-md-column p-0 p-md-4 justify-content-center align-items-start">
-        <button class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 py-md-0 custom-buttons w-50 rounded">START YOUR QUEST</button>
-        <button class="w-50 py-2 py-md-0 custom-buttons rounded">SUPPORT WORKERS</button>
+        <button 
+          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 py-md-0 custom-buttons w-50 rounded"
+          @click="handleStartQuest"
+        >
+          START YOUR QUEST
+        </button>
+        <transition name="fade">
+          <div 
+            v-if="isPlayerModalOpen"
+            class="player-modal"
+          >
+              <div 
+                class="overlay" 
+                @click="handleOverlayClick"
+              >
+                <b-card class="msg-container p-2">
+                  <p>Player Modal Body with button</p>
+                  <b-button>Hide Modal</b-button>
+                </b-card>
+              </div>
+          </div>
+        </transition>
+        <button 
+          class="w-50 py-2 py-md-0 custom-buttons rounded"
+          @click="handleWorkerQuest"
+        >SUPPORT WORKERS</button>
+
+        <transition name="fade">
+          <div 
+            v-if="isWorkerModalOpen"
+            class="worker-modal"
+          >
+            <div 
+              class="overlay" 
+              @click="handleOverlayClick"
+            >
+              <b-card class="msg-container p-2">
+                <p>Worker Modal Body with button</p>
+                <b-button>Hide Modal</b-button>
+              </b-card>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
     <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image">
@@ -48,6 +89,24 @@ export default {
     components: {
       BannerTextSection,
       AnimatingArrowDown
+    },
+    data() {
+      return {
+        isPlayerModalOpen: false,
+        isWorkerModalOpen: false,
+      }
+    },
+    methods: {
+      handleStartQuest: function () {
+        this.isPlayerModalOpen = true;
+      },
+      handleWorkerQuest: function () {
+        this.isWorkerModalOpen = true;
+      },
+      handleOverlayClick: function () {
+        this.isPlayerModalOpen = false;
+        this.isWorkerModalOpen = false;
+      }
     }
 }
 </script>
@@ -56,6 +115,30 @@ export default {
 * {
     transition: all 0.5ms ease-in-out;
   }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  z-index: 3;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* transition: 0.3s all ease-in-out; */
+}
 
 .arrow-container {
   height: 10vh;
