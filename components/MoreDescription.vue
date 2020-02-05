@@ -75,7 +75,7 @@ export default {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.1vw;
-    font-size: 0.8vw;
+    font-size: calc(0.6rem + 0.3vw);
     font-weight: 500;
 }
 
