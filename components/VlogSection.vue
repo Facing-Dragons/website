@@ -11,6 +11,7 @@
         <swiper :options="swiperOptions" ref="mySwiper">
           <swiper-slide v-for="v in videos" :index="v.id" :key="v.id">
             <div class="vlog-container rounded p-1">
+              <!-- <youtube :video-id="v.id" :ref="`video-${id}`" @playing=""></youtube> -->
               <b-embed
                   type="iframe"
                   aspect="16by9"
@@ -20,6 +21,8 @@
             </div>
           </swiper-slide>
         </swiper>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
       </div>
     </div>
   </div>
@@ -40,27 +43,27 @@ export default {
     data() {
         const videos = [
             {
-                id: 0,
+                id: 'JxCQOfH1Wa8',
                 url: 'https://www.youtube.com/embed/JxCQOfH1Wa8?rel=0'
             },
             {
-                id: 1,
+                id: 'zFsMAbpeRXw',
                 url: 'https://www.youtube.com/embed/zFsMAbpeRXw?rel=0'
             },
             {
-                id: 2,
+                id: 'XcQEPNA0TZk',
                 url: 'https://www.youtube.com/embed/XcQEPNA0TZk?rel=0'
             },
             {
-                id: 3,
+                id: 'QateDsNO7fY',
                 url: 'https://www.youtube.com/embed/QateDsNO7fY?rel=0'
             },
             {
-                id: 4,
+                id: 'BNW4z6UiBKg',
                 url: 'https://www.youtube.com/embed/BNW4z6UiBKg?rel=0'
             },
             {
-                id: 5,
+                id: 'EM2dfGk_lgQ',
                 url: 'https://www.youtube.com/embed/EM2dfGk_lgQ?rel=0'
             },
 
@@ -69,28 +72,30 @@ export default {
             videos,
             swiperOptions: {
               effect: 'coverflow',
-              slidesPerView: 5,
+              slidesPerView: 3,
               pagination: {
                 el: '.swiper-pagination',
                 clickable: true
               },
-              grabCursor: true,
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+              },
+              grabCursor: false,
               loop: true,
               freeMode: true,
               breakpoints: {
                 980: {
-                  slidesPerView: 3,
-                },
-                540: {
                   slidesPerView: 1,
+                  effect: 'none'
                 }
               },
-              coverflowEffect: {
-                slideShadows: false,
-                rotate: 30,
-                stretch: 20,
-                depth: 100
-              }
+              // coverflowEffect: {
+              //   slideShadows: false,
+              //   rotate: 60,
+              //   stretch: 20,
+              //   depth: 100
+              // }
             }
         }
     },
@@ -110,6 +115,15 @@ export default {
 <style lang="scss" scoped>
 .vlog-container {
   background-color: rgba(230, 230, 230, 0.5); 
+  // width: 30vw;
+}
+
+.swiper-button-prev {
+  left: -24px;
+}
+
+.swiper-button-next {
+  right: -24px;
 }
 
 </style>
