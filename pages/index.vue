@@ -109,7 +109,7 @@ export default {
   right: 0;
   left: 0;
   height: 220vh;
-  background: url(/_nuxt/assets/img/main.png);
+  background: url('~assets/img/main.png');
   background-size: cover;
   overflow: hidden;
   background-position-y: -15vh;

@@ -25,16 +25,16 @@
                 <b-nav-item href="#about-game-section" class="item">
                     Game
                 </b-nav-item>
-                <b-nav-item href="#team-section">
+                <b-nav-item class="item" href="#team-section">
                     Team
                 </b-nav-item>
-                <b-nav-item href="#sponsors">
+                <b-nav-item class="item" href="#sponsors">
                     Sponsors
                 </b-nav-item>
-                <b-nav-item href="#dev-vlog">
+                <b-nav-item class="item" href="#dev-vlog">
                     VLogs
                 </b-nav-item>
-                <b-nav-item href="#contact">
+                <b-nav-item class="item" href="#contact">
                     Contact Us
                 </b-nav-item>
             </b-navbar-nav>
@@ -71,6 +71,11 @@ export default {
         justify-content: center;
         align-items: center;
         height: 100%;
+    }
+
+    .item {
+        font-size: 1.5rem;
+        color: white;
     }
 
     .logo-img {
