@@ -9,7 +9,7 @@
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
             ></section-title>
-            <div class="carousel-container">
+            <div class="carousel-container p-relative">
                 <swiper :options="swiperOption" ref="mySwiper">
                     <!-- slides -->
                     <swiper-slide 
@@ -34,6 +34,7 @@
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
+            <div class="swiper-pagination w-100" slot="pagination"></div>
             </div>
         </b-container>
     </b-container>
@@ -236,11 +237,6 @@ export default {
         teamMembers,
         swiperOption: {
           slidesPerView: 4,
-          // pagination: {
-          //   el: '.swiper-pagination',
-          //   clickable: true
-          // },
-
           grabCursor: true,
           loop: false,
           freeMode: true,
