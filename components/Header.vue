@@ -14,14 +14,17 @@
 
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-                <b-nav-item to="#game" class="item">
+                <b-nav-item to="#about-game-section" class="item">
                     Game
                 </b-nav-item>
-                <b-nav-item to="#team">
+                <b-nav-item to="#team-section">
                     Team
                 </b-nav-item>
                 <b-nav-item to="#sponsors">
                     Sponsors
+                </b-nav-item>
+                <b-nav-item to="#dev-vlog">
+                    VLogs
                 </b-nav-item>
                 <b-nav-item to="#contact">
                     Contact Us

@@ -1,5 +1,5 @@
 <template>
-  <div class="container vlog-main-container my-5">
+  <div class="container vlog-main-container my-5" id="dev-vlog">
     <div class="row mt-2">
       <section-title 
           right

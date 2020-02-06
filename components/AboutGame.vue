@@ -1,5 +1,5 @@
 <template>
-    <div class="container about-main-container my-5">
+    <div class="container about-main-container my-5" id="about-game-section">
         <div class="row mt-2">
             <div class="col-12 justify-content-center">
                 <div class="video-frame rounded p-2">

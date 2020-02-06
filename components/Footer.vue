@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid footer-container py-5 d-flex flex-column justify-content-center align-items-center">
+    <div id="contact" class="container-fluid footer-container py-5 d-flex flex-column justify-content-center align-items-center">
         <div 
             class="icon-set p-2 d-flex flex-wrap justify-content-center align-items-center"
         >

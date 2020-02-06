@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="team-container-fluid">
+    <b-container id="team-section" fluid class="team-container-fluid">
         <b-container 
             class="team-container"
         >

@@ -1,5 +1,5 @@
 <template>
-    <b-container class="sponsors-container p-5">
+    <b-container class="sponsors-container p-5" id="sponsors">
         <section-title 
             class="pt-5"
             left
