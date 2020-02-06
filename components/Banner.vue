@@ -13,9 +13,9 @@
         Mental health and life coaching game
         That connects players to real support.
       </p>
-      <div class="button-container d-flex flex-row flex-md-column p-0 p-md-4 justify-content-center align-items-start">
+      <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
         <button 
-          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 py-md-0 custom-buttons w-50 rounded"
+          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 custom-buttons w-50 rounded"
           @click="handleStartQuest"
         >
           START YOUR QUEST
@@ -56,7 +56,7 @@
                       ></b-form-input>
                     </b-form-group>
                   </b-form>
-                  <div class="button-container w-100 d-flex justify-content-end">
+                  <div class="modal-button-container w-100 d-flex justify-content-end">
                     <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
                     <b-button 
                       class="ml-2" 
@@ -71,7 +71,7 @@
           </div>
         </transition>
         <button 
-          class="w-50 py-2 py-md-0 custom-buttons rounded"
+          class="w-50 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
         >SUPPORT WORKERS</button>
         
@@ -111,7 +111,7 @@
                       ></b-form-input>
                     </b-form-group>
                   </b-form>
-                  <div class="button-container w-100 d-flex justify-content-end">
+                  <div class="modal-button-container w-100 d-flex justify-content-end">
                     <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
                     <b-button 
                       class="ml-2" 
@@ -203,6 +203,12 @@ export default {
 
 .btn {
   transition: .2s all ease-in-out;
+}
+
+.button-container {
+  opacity: 0;
+  max-width: 40vw;
+  animation: fade-and-up 1.5s forwards ease-in-out 7.5s;
 }
 
 .guidian-container {
@@ -396,10 +402,10 @@ export default {
   opacity: 0;
   text-transform: uppercase;
   /* margin-left: 1vw; */
-  font-size: max(1.5vh, 1.5vw);
-  letter-spacing: 0.3vw;
+  font-size: max(1.5vh, 1.2vw);
+  letter-spacing: 0.2vw;
   text-align: justify;
-  width: 66%;
+  max-width: 40vw;
   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -422,15 +428,19 @@ export default {
   transition: 0.3s all ease-in-out;
   font-size: calc(1rem + 0.5vw);
   font-weight: 700;
-  background: #f79519;
-  color: #1f1f1f;
+  background: #dfdfdf;
+  color: #303030;
   border: none;
   outline: none;
 }
 
 .custom-buttons:hover {
-  color: #303030;
-  background: #dfdfdf;
+  color: #1f1f1f;
+  background: #f79519;
+}
+
+.worker-button:hover {
+  background: #f5a237;
 }
 
 /* svg {
