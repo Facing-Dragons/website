@@ -1,9 +1,17 @@
 <template>
-    <font-awesome-icon 
+    <other-chevron-down 
         class="animating-arrow-down bounce-7"
-        icon="arrow-down"
-    />
+    ></other-chevron-down>
 </template>
+
+<script>
+import OtherChevronDown from '~/components/OtherChevronDown'
+export default {
+    components: {
+        OtherChevronDown
+    }
+}
+</script>
 
 <style scoped>
     .animating-arrow-down {
