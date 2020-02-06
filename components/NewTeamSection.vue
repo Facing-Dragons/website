@@ -242,7 +242,7 @@ export default {
           // },
 
           grabCursor: true,
-          loop: true,
+          loop: false,
           freeMode: true,
           breakpoints: {
             980: {

@@ -1,18 +1,18 @@
 <template>
   <b-container fluid class="main d-flex align-items-md-center">
     <div class="title-box">
-      <div class="pre-title">
+      <!-- <div class="pre-title">
         UNLOCK YOUR 
         <span id="purpose">
           PURPOSE 
         </span>
-      </div>
+      </div> -->
       <div class="main-title">
-        <span class="main-title-text">FACE YOUR</span>
-        <!-- <banner-text-section></banner-text-section> -->
+        <!-- <span class="main-title-text">FACE YOUR</span> -->
+        <banner-text-section></banner-text-section>
       </div>
       <div class="main-title-text second">
-        DRAGONS
+        <!-- DRAGONS -->
         <!-- <div class="logo-container">
           <img src="~/assets/img/logo_white.png" class="title-logo">
         </div> -->
