@@ -3,12 +3,12 @@
     <div class="title-box">
       <div class="main-title">
         <banner-text-section></banner-text-section>
-        <banner-text-unlock class="mt-4"></banner-text-unlock>
+        <banner-text-unlock class="my-4"></banner-text-unlock>
       </div>
       <!-- <div class="logo-container">
         <img src="~/assets/img/logo_white.png" class="title-logo">
       </div> -->
-      <p class="small-text mt-4">
+      <p class="small-text mt-4 pt-4">
         Facing Dragons is the first mixed-reality
         Mental health and life coaching game
         That connects players to real support.
@@ -393,16 +393,29 @@ export default {
 
 .small-text {
   font-weight: 600;
+  opacity: 0;
   text-transform: uppercase;
   /* margin-left: 1vw; */
   font-size: max(1.5vh, 1.5vw);
   letter-spacing: 0.3vw;
   text-align: justify;
-  width: 65%;
+  width: 66%;
   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fade-and-up 1.5s forwards ease-in-out 6s;
+}
+
+@keyframes fade-and-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .custom-buttons {
