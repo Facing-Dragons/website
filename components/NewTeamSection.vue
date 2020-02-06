@@ -31,10 +31,10 @@
                         </div>
                       </div>
                     </swiper-slide>
-                    <div class="swiper-button-prev" slot="button-prev"></div>
-                    <div class="swiper-button-next" slot="button-next"></div>
+                    <div class="team-swiper-button-prev" slot="button-prev"></div>
+                    <div class="team-swiper-button-next" slot="button-next"></div>
                 </swiper>
-            <div class="swiper-pagination w-100" slot="pagination"></div>
+            <div class="team-swiper-pagination w-100" slot="pagination"></div>
             </div>
         </b-container>
     </b-container>
@@ -252,8 +252,8 @@ export default {
             }
           },
           navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
+            nextEl: '.team-swiper-button-next',
+            prevEl: '.team-swiper-button-prev'
           }
         }
       }
