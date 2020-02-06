@@ -1,28 +1,8 @@
 <template>
   <b-container fluid class="main d-flex align-items-md-center">
-    <div class="title-box">
-      <div class="main-title">
-        <banner-text-section></banner-text-section>
-        <banner-text-unlock class="my-4"></banner-text-unlock>
-      </div>
-      <!-- <div class="logo-container">
-        <img src="~/assets/img/logo_white.png" class="title-logo">
-      </div> -->
-      <p class="small-text mt-4 pt-4">
-        Facing Dragons is the first mixed-reality
-        Mental health and life coaching game
-        That connects players to real support.
-      </p>
-      <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
-        <button 
-          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 custom-buttons w-50 rounded"
-          @click="handleStartQuest"
-        >
-          START YOUR QUEST
-        </button>
-        <transition name="fade">
+    <transition name="fade">
           <div 
-            v-if="isPlayerModalOpen"
+            v-show="isPlayerModalOpen"
             class="player-modal"
           >
               <div 
@@ -57,7 +37,7 @@
                     </b-form-group>
                   </b-form>
                   <div class="modal-button-container w-100 d-flex justify-content-end">
-                    <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
+                    <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
                     <b-button 
                       class="ml-2" 
                       variant="success" 
@@ -69,15 +49,9 @@
                 </b-card>
               </div>
           </div>
-        </transition>
-        <button 
-          class="w-50 py-2 custom-buttons worker-button rounded"
-          @click="handleWorkerQuest"
-        >SUPPORT WORKERS</button>
-        
-        <transition name="fade">
+        </transition><transition name="fade">
           <div 
-            v-if="isWorkerModalOpen"
+            v-show="isWorkerModalOpen"
             class="worker-modal"
           >
               <div 
@@ -112,7 +86,7 @@
                     </b-form-group>
                   </b-form>
                   <div class="modal-button-container w-100 d-flex justify-content-end">
-                    <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button>
+                    <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
                     <b-button 
                       class="ml-2" 
                       variant="success" 
@@ -125,9 +99,36 @@
               </div>
           </div>
         </transition>
+    
+    <div class="title-box">
+      <div class="main-title">
+        <banner-text-section></banner-text-section>
+        <banner-text-unlock class="my-4"></banner-text-unlock>
+      </div>
+      <!-- <div class="logo-container">
+        <img src="~/assets/img/logo_white.png" class="title-logo">
+      </div> -->
+      <p class="small-text mt-4 pt-4">
+        Facing Dragons is the first mixed-reality
+        Mental health and life coaching game
+        That connects players to real support.
+      </p>
+      <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
+        <button 
+          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 custom-buttons w-50 rounded"
+          @click="handleStartQuest"
+        >
+          START YOUR QUEST
+        </button>
+        <button 
+          class="w-50 py-2 custom-buttons worker-button rounded"
+          @click="handleWorkerQuest"
+        >SUPPORT WORKERS</button>
+        
+        
       </div>
     </div>
-    <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image">
+    <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
     <div class="arrow-container w-100 d-flex justify-content-center align-items-center">
       <animating-arrow-down></animating-arrow-down>
     </div>
@@ -141,11 +142,12 @@
 import BannerTextSection from '~/components/BannerTextFirst'
 import BannerTextUnlock from '~/components/BannerTextUnlock'
 import AnimatingArrowDown from '~/components/AnimatingArrowDown'
+
 export default {
     components: {
       BannerTextSection,
       BannerTextUnlock,
-      AnimatingArrowDown
+      AnimatingArrowDown,
     },
     data() {
       return {
@@ -200,6 +202,12 @@ export default {
 * {
     transition: all 0.5ms ease-in-out;
   }
+
+.dragon-mountain-container {
+  position: absolute;
+  bottom: -20vh;
+  width: 60vw;
+}
 
 .btn {
   transition: .2s all ease-in-out;
@@ -323,7 +331,7 @@ export default {
   width: 100%;
 }
 
-.dragon-image {
+.dragon-image, .mountain-image {
   position: absolute;
   bottom: 0;
   right: 0;

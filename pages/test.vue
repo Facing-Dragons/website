@@ -2,8 +2,12 @@
   <b-container fluid class="main-container">
     <div class="background-container">
       <img src="~/assets/img/mountains_01.png" class="backdrop">
-      <!-- <img src="~/assets/img/mountain1.png" class="mountain"> -->
-
+      <img src="~/assets/img/mountain1.png" class="mountain">
+      <img src="~/assets/img/dragon.png" class="dragon">
+      <div class="gradient"></div>
+      <!-- <div class="dragon-container">
+        <dragon></dragon>
+      </div> -->
     </div>
     <Banner></Banner>
     <about-game></about-game>
@@ -24,6 +28,7 @@ import NewTeamSection from '~/components/NewTeamSection'
 import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer';
 import VlogSection from '~/components/VlogSection';
+import Dragon from '~/components/Dragon'
 
 export default {
   components: {
@@ -33,7 +38,8 @@ export default {
     NewTeamSection,
     VlogSection,
     Sponsors,
-    Footer
+    Footer,
+    Dragon
   },
   data() {
     return {
@@ -70,6 +76,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.gradient {
+  position: absolute;
+  width: 100vw;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 80vh;
+  background: linear-gradient(to bottom, transparent, black);
+}
+
 .main-container {
   /* height: 300vh; */
   display: flex;
@@ -81,27 +97,42 @@ export default {
   width: 100%;
 }
 
+.dragon-container {
+  width: 60vw;
+  position: relative;
+  right: 0;
+}
+
 .background-container {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  height: 100vh;
-  background: url('~assets/img/main.png');
+  height: 220vh;
+  background: url(/_nuxt/assets/img/main.png);
   background-size: cover;
   overflow: hidden;
+  background-position-y: -15vh;
 
   .mountain {
     position: absolute;
-    bottom: -10vh;
-    width: 100vw;
+    bottom: -17vh;
+    width: 120vw;
     height: auto;
-    right: -10vw;
+    right: -20vw;
+  }
+
+  .dragon {
+    position: absolute;
+    bottom: 102vh;
+    width: 77vw;
+    height: auto;
+    right: 2vw;
   }
 
   .backdrop {
     position: absolute;
-    bottom: 0vh;
+    bottom: 51vh;
     width: 100%;
     height: auto;
   }

@@ -14,19 +14,19 @@
 
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
-                <b-nav-item to="#about-game-section" class="item">
+                <b-nav-item href="#about-game-section" class="item">
                     Game
                 </b-nav-item>
-                <b-nav-item to="#team-section">
+                <b-nav-item href="#team-section">
                     Team
                 </b-nav-item>
-                <b-nav-item to="#sponsors">
+                <b-nav-item href="#sponsors">
                     Sponsors
                 </b-nav-item>
-                <b-nav-item to="#dev-vlog">
+                <b-nav-item href="#dev-vlog">
                     VLogs
                 </b-nav-item>
-                <b-nav-item to="#contact">
+                <b-nav-item href="#contact">
                     Contact Us
                 </b-nav-item>
             </b-navbar-nav>

@@ -1,7 +1,7 @@
 <template>
-    <div class="container about-main-container my-5" id="about-game-section">
+    <div class="container about-main-container" id="about-game-section">
         <div class="row mt-2">
-            <div class="col-12 justify-content-center">
+            <div class="col-12 justify-content-center video-col">
                 <div class="video-frame rounded p-2">
                     <b-embed
                         type="iframe"
@@ -101,9 +101,19 @@ export default {
 <style lang="scss" scoped>
 $more-color: gray;
 
+.about-main-container {
+    margin-top: 20vw;
+}
+
+.video-col {
+    margin-bottom: 10vw;
+}
+
 .video-frame {
     background: rgba(230, 230, 230, 0.5);
 }
+
+.section
 
 .read-more-section {
     max-height: 5vh;
