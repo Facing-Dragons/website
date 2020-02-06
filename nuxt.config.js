@@ -7,6 +7,7 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 export default {
   ...routerBase,
+  loading: '~/components/Loading.vue',
   mode: 'spa',
   /*
   ** Headers of the page

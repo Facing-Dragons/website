@@ -6,8 +6,16 @@
         fixed="top"
         class="d-flex"
     >
-        <b-navbar-brand href="#" class="logo-container ml-3">
+        <b-navbar-brand  
+            href="#" 
+            class="logo-container ml-3"
+            @mouseenter="() => {this.isTitleShown = true}"
+            @mouseleave="() => {this.isTitleShown = false}"
+        >
             <img class="logo-img" src="~/assets/img/logo_white.png" alt="Facing Dragons">
+            <transition name="go-left">
+                <span v-show="isTitleShown" class="title">FACING DRAGONS</span>
+            </transition>
         </b-navbar-brand>
 
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
@@ -36,13 +44,52 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+            isTitleShown: true
+        }
+    },
+    created() {
+        if (process.browser) {
+            window.addEventListener('scroll', this.onScrollHandler)
+        }
+    },
+    methods: {
+        onScrollHandler() {
+            if(window.scrollY > 400)
+                this.isTitleShown = false;
+            else if (window.screenY < 400)
+                this.isTitleShown = true;
+        }
+    },
 }
 </script>
 
 <style scoped>
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
     .logo-img {
         width: auto;
         height: 50px;
+        margin-right: 1rem;
+    }
+    .title {
+        font-weight: 500;
+        font-size: calc(1rem + 1vw);
+        color: #f83600;
+    }
+
+    .go-left-enter-active, .go-left-leave-active {
+        transition: all .7s;
+    }
+
+    .go-left-enter, .go-left-leave-to {
+        opacity: 0;
+        transform: translateX(-10%);
     }
 </style>

@@ -2,7 +2,7 @@
   <b-container fluid class="main-container">
     <div class="background-container">
       <img src="~/assets/img/mountains_01.png" class="backdrop">
-      <img src="~/assets/img/mountain1.png" class="mountain d-none d-md-block">
+      <img src="~/assets/img/mountain1.png" class="mountain">
       <img src="~/assets/img/dragon.png" class="dragon">
       <div class="gradient"></div>
       <!-- <div class="dragon-container">
