@@ -483,6 +483,11 @@ text {
     font-size: max(1.5vh, 1.2vw);
   }
 
+  .main-title {
+    /* margin-top: -3.7vw; */
+    max-width: 90vw;
+  }
+
   .dragon-image {
     right: -31vw;
     height: 43vh;
