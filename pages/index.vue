@@ -1,160 +1,142 @@
 <template>
-  <b-container class="all-container">
-
-  </b-container>
-  <!-- <b-container fluid class="main-container">
-    <b-container fluid class="content-band">
-      <b-container>
-        <div class="row" id="intro">
-          <div class="col-12 d-flex justify-content-center align-items-center p-5">
-            <h2 class="m-5 text-white">
-              Intro Section
-            </h2>
-          </div>
-        </div>
-      </b-container>
-    </b-container>
-
-    <div class="empty-band"></div>
-
-    <b-container fluid class="content-band">
-      <b-container>
-        <div class="row" id="game">
-          <div class="col-12">
-            <AboutGame
-              temp-text = "This is the Text about game section"
-              temp-bg = "#78AD32"
-            ></AboutGame>
-          </div>
-        </div>
-      </b-container>
-    </b-container>
-
-    <div class="empty-band"></div>
-
-    <b-container fluid class="content-band">
-      <b-container>
-        <div class="row py-5 position-relative" id="#team">
-          <img src="~/assets/img/helios_head.png" class="helios-head">
-          <div class="col-12">
-            <TeamSection></TeamSection>
-          </div>
-          <img src="~/assets/img/dragon_mountain.png" class="dragon-mountain">
-        </div>
-      </b-container>
-    </b-container>
-
-    <div class="empty-band"></div>
-
-    <b-container>
-      <Sponsors></Sponsors>
-    </b-container>
-
-    <div class="empty-band"></div>
-
-    <b-container fluid class="content-band">
-      <b-container>
-        <div class="row">
-          <div class="col-12">
-            <Footer
-              temp-text = "This is the Social Media section"
-              temp-bg = "#F6E67B"
-            ></Footer>
-          </div>
-        </div>
-      </b-container>
-    </b-container>
-  </b-container> -->
+  <b-container fluid class="main-container">
+    <div class="background-container">
+      <img src="~/assets/img/mountains_01.png" class="backdrop">
+      <img src="~/assets/img/mountain1.png" class="mountain">
+      <img src="~/assets/img/dragon.png" class="dragon">
+      <div class="gradient"></div>
+      <!-- <div class="dragon-container">
+        <dragon></dragon>
+      </div> -->
+    </div>
+    <Banner></Banner>
+    <about-game></about-game>
+    <!-- <GameDescription></GameDescription> -->
+    <NewTeamSection></NewTeamSection>
+    <VlogSection></VlogSection>
+    <Sponsors></Sponsors>
+    <Footer></Footer>
+  </b-container>    
 </template>
 
 <script>
-import ParallaxingImage from '~/components/ParallaxingImage';
-import AnimatingImage from '~/components/AnimatingImage';
-import TeamSection from '~/components/TeamSection';
+// import anime from 'animejs/lib/anime.es.js';
+import Banner from '~/components/Banner';
 import AboutGame from '~/components/AboutGame';
-import Sponsors from '~/components/Sponsors';
+import GameDescription from '~/components/GameDescription'
+import NewTeamSection from '~/components/NewTeamSection'
+import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer';
+import VlogSection from '~/components/VlogSection';
+import Dragon from '~/components/Dragon'
 
 export default {
   components: {
-    ParallaxingImage,
-    TeamSection,
-    AnimatingImage,
+    Banner,
     AboutGame,
+    GameDescription,
+    NewTeamSection,
+    VlogSection,
     Sponsors,
-    Footer
+    Footer,
+    Dragon
+  },
+  data() {
+    return {
+      count: {
+        number: 12
+      },
+      animation: ""
+    }
+  },
+  created() {
+    if (process.browser) {
+      // window.addEventListener('scroll', this.onScrollHandler)
+      window.addEventListener('resize', this.handleResize)
+    }
+  },
+  methods: {
+    onScrollHandler() {
+      // console.log(this.animation)
+      // if(this.animation) {
+      //   this.animation.seek(this.animation.duration * (window.scrollY / window.innerHeight));
+      // }
+    }
+  },
+  mounted() {
+    // var animation = anime({
+    //   targets: '.dragon-image',
+    //   translateX: '10vw',
+    //   easing: 'easeInOutSine',
+    //   autoplay: false
+    // });
+    // this.animation = animation;
   }
 }
 </script>
 
-<style>
-  .video-embed {
-    height: 50vh;
+<style lang="scss" scoped>
+.gradient {
+  position: absolute;
+  width: 100vw;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 80vh;
+  background: linear-gradient(to bottom, transparent, black);
+}
+
+.main-container {
+  /* height: 300vh; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 100%;
+}
+
+.dragon-container {
+  width: 60vw;
+  position: relative;
+  right: 0;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 220vh;
+  background: url(/_nuxt/assets/img/main.png);
+  background-size: cover;
+  overflow: hidden;
+  background-position-y: -15vh;
+
+  .mountain {
+    position: absolute;
+    bottom: -17vh;
+    width: 120vw;
+    height: auto;
+    right: -20vw;
   }
 
-  .main-container {
-    background: url("~assets/img/main.png");
-    background-size: contain;
-    padding-right: 0;
-    padding-left: 0;
+  .dragon {
+    position: absolute;
+    bottom: 102vh;
+    width: 77vw;
+    height: auto;
+    right: 2vw;
   }
 
-  @media screen and (max-width: 800px) {
-    .main-container {
-      background-size: cover;
-    }
-  }
-
-
-  .mountain-image {
+  .backdrop {
+    position: absolute;
+    bottom: 51vh;
     width: 100%;
     height: auto;
   }
+}
 
-  .parallaxing-image {
-    width: 100%;
-    height: auto;
-  }
 
-  .center-container {
-    /* background: red; */
-    position: relative;
-    height: 100%;
-  }
-
-  .content-band {
-    background: black;
-  }
-
-  .empty-band {
-    height: 35vh;
-  }
-
-  .helios-head {
-    height: 20vh;
-    width: auto;
-    right: 0;
-    top: 0;
-    position: absolute;
-  }
-
-  .dragon-mountain {
-    height: 30vh;
-    width: auto;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-  }
-
-  @media screen and (max-width: 650px){
-      .helios-head {
-        height: auto;
-        width: 33vw;
-      }
-
-      .dragon-mountain {
-        height: auto;
-        width: 33vw;
-      }
-  }
 </style>
