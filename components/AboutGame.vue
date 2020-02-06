@@ -68,25 +68,25 @@ export default {
         const gameFeatures = [
             {
                 name: "Portal Island",
-                icon: "door-open",
+                icon: "section_icon_Quest.png",
                 title: "Quests in the real world",
                 desc: "The eight key areas of life are represented by dragons who give players quests and challenges to complete in real life, based on tools used in coaching and counseling."
             },
             {
                 name: "Archives",
-                icon: "book-open",
+                icon: "section_icon_Archives.png",
                 title: "Track Your Progress",
                 desc: "You can keep track of your progress by visiting your private archives to see all your quests, goals, daily check ins, and mirror results."
             },
             {
                 name: "Mirrors",
-                icon: "chalkboard",
+                icon: "section_icon_Mirror.png",
                 title: "Learn About Yourself",
                 desc: "Learn more about yourself by gazing into mirrors that ask you questions, based on established psychometric instruments such as Big 5, and DISC."
             },
             {
                 name: "Hall of Heroes",
-                icon: "landmark",
+                icon: "section_icon_Hall.png",
                 title: "Hall <br> of Heroes",
                 desc: "Meet and get quests from inspiring real-life people who have managed to face their dragons; such the MMA world champion from the jungles of Brazil."
             },

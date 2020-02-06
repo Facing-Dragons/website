@@ -1,7 +1,8 @@
 <template>
     <div class="feature-container d-flex flex-column text-center align-items-center justify-content-center h-100 mb-5">
         <div class="icon">
-            <font-awesome-icon :icon="icon"/>
+            <!-- <font-awesome-icon :icon="icon"/> -->
+            <img class="icon-image"  :src="require(`~/assets/img/${icon}`)">
         </div>
         <div class="feature-text">
             <div class="feature-title" v-html="title">
@@ -28,6 +29,11 @@ export default {
     font-size: calc(1rem + 6vw);
     color: #aaaaaa;
     transition: 0.2s all ease-in-out;
+}
+
+.icon-image {
+    width: 10vw;
+    height: auto;
 }
 
 .feature-container {
