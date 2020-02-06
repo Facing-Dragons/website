@@ -43,9 +43,10 @@
   fill: none;
 }
 
-
 #main-text-svg {
   animation: fillout 2s ease forwards 4s;
+  width: 100%;
+  height: 100%;
 }
 
 #main-text-svg g {
