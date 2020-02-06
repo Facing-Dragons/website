@@ -1,30 +1,17 @@
 <template>
   <b-container fluid class="main d-flex align-items-md-center">
     <div class="title-box">
-      <!-- <div class="pre-title">
-        UNLOCK YOUR 
-        <span id="purpose">
-          PURPOSE 
-        </span>
-      </div> -->
       <div class="main-title">
-        <!-- <span class="main-title-text">FACE YOUR</span> -->
         <banner-text-section></banner-text-section>
+        <banner-text-unlock class="mt-4"></banner-text-unlock>
       </div>
-      <div class="main-title-text second">
-        <!-- DRAGONS -->
-        <!-- <div class="logo-container">
-          <img src="~/assets/img/logo_white.png" class="title-logo">
-        </div> -->
-      </div>
-      <p class="small-text">
-        Facing Dragons is a mixed-reality
-        mental health and life coaching game. <br><br>
-        Overcome real-life challenges
-        and unlock your purpose. <br>
-        <!-- <span class="get-quest-text">
-          In order to get your first quest, click on the link below.
-        </span>  -->
+      <!-- <div class="logo-container">
+        <img src="~/assets/img/logo_white.png" class="title-logo">
+      </div> -->
+      <p class="small-text mt-4">
+        Facing Dragons is the first mixed-reality
+        Mental health and life coaching game
+        That connects players to real support.
       </p>
       <div class="button-container d-flex flex-row flex-md-column p-0 p-md-4 justify-content-center align-items-start">
         <button 
@@ -152,10 +139,12 @@
  * This will be the first section of the page, the banner that also contains the video
  */
 import BannerTextSection from '~/components/BannerTextFirst'
+import BannerTextUnlock from '~/components/BannerTextUnlock'
 import AnimatingArrowDown from '~/components/AnimatingArrowDown'
 export default {
     components: {
       BannerTextSection,
+      BannerTextUnlock,
       AnimatingArrowDown
     },
     data() {
@@ -364,7 +353,8 @@ export default {
 }
 
 .main-title {
-  margin-top: -3.7vw;
+  /* margin-top: -3.7vw; */
+  max-width: 40vw;
 }
 
 .second {
@@ -404,10 +394,10 @@ export default {
 .small-text {
   font-weight: 600;
   text-transform: uppercase;
-  margin-left: 1vw;
+  /* margin-left: 1vw; */
   font-size: max(1.5vh, 1.5vw);
   letter-spacing: 0.3vw;
-  /* text-align: justify; */
+  text-align: justify;
   width: 65%;
   background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
   background-clip: text;
