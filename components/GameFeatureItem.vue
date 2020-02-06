@@ -4,8 +4,7 @@
             <font-awesome-icon :icon="icon"/>
         </div>
         <div class="feature-text">
-            <div class="feature-title">
-                {{ title }}
+            <div class="feature-title" v-html="title">
             </div>
             <div class="feature-description mt-4">
                 {{ description }}

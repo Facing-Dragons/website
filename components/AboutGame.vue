@@ -87,7 +87,7 @@ export default {
             {
                 name: "Hall of Heroes",
                 icon: "landmark",
-                title: "Hall of Heroes",
+                title: "Hall <br> of Heroes",
                 desc: "Meet and get quests from inspiring real-life people who have managed to face their dragons; such the MMA world champion from the jungles of Brazil."
             },
         ];
