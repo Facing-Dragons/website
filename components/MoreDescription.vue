@@ -77,6 +77,7 @@ export default {
     letter-spacing: 0.1vw;
     font-size: calc(0.6rem + 0.3vw);
     font-weight: 500;
+    text-align: justify;
 }
 
 .text-3-title {
@@ -91,6 +92,7 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: justify;
 }
 
 .fancy-vertical-line {
