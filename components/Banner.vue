@@ -129,7 +129,7 @@
       </div>
     </div>
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
-    <div class="arrow-container w-100 d-flex justify-content-center align-items-center">
+    <div class="arrow-container d-flex justify-content-center align-items-center">
       <animating-arrow-down></animating-arrow-down>
     </div>
   </b-container>
@@ -217,11 +217,16 @@ export default {
   opacity: 0;
   max-width: 40vw;
   animation: fade-and-up 1.5s forwards ease-in-out 7.5s;
+  z-index: 4;
+}
+
+.button-container button {
+  z-index: 4;
 }
 
 .guidian-container {
   margin-right: 1vw;
-  z-index: 5;
+  z-index: 10;
 }
 .guidian {
   height: 35vh;
@@ -253,7 +258,7 @@ export default {
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
-  z-index: 3;
+  z-index: 6;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
@@ -262,7 +267,7 @@ export default {
 
 .overlay {
   position: fixed;
-  z-index: 3;
+  z-index: 6;
   width: 100%;
   height: 100%;
   right: 0;
@@ -284,7 +289,7 @@ export default {
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 4;
+  z-index: 8;
   top: 0;
   right: 0;
   left: 0;
@@ -295,19 +300,21 @@ export default {
 .msg-container {
   /* position: relative;
   top: 30vh; */
-  z-index: 5;
+  z-index: 10;
   transition: 0.5s all ease-in-out;
 }
 
 .msg-title {
   position: absolute;
-  z-index: 4;
+  z-index: 8;
   top: 20vh;
   right: 40vh;
 }
 
 .arrow-container {
   height: 10vh;
+  width: 10vw;
+  left: 45vw;
 }
 
 .secondary {
