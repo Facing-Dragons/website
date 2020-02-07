@@ -10,7 +10,7 @@
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
             ></section-title>
             <div class="carousel-container p-relative">
-                <swiper :options="swiperOption" ref="mySwiper">
+                <swiper id="swiperTeam" :options="swiperOption" ref="mySwiperTeam">
                     <!-- slides -->
                     <swiper-slide 
                         v-for="(member, index) in teamMembers"
@@ -31,8 +31,8 @@
                         </div>
                       </div>
                     </swiper-slide>
-                    <div class="team-swiper-button-prev" slot="button-prev"></div>
-                    <div class="team-swiper-button-next" slot="button-next"></div>
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
             <div class="team-swiper-pagination w-100" slot="pagination"></div>
             </div>
@@ -45,6 +45,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import SectionTitle from '~/components/SectionTitle';
 export default {
+    name: "newTeamSection",
     components: {
         SectionTitle,
         swiper,
@@ -252,8 +253,8 @@ export default {
             }
           },
           navigation: {
-            nextEl: '.team-swiper-button-next',
-            prevEl: '.team-swiper-button-prev'
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
           }
         }
       }
@@ -267,7 +268,7 @@ export default {
     },
     computed: {
       swiper() {
-        return this.$refs.mySwiper.swiper;
+        return this.$refs.mySwiperTeam.swiper;
       }
     },
     mounted() {
