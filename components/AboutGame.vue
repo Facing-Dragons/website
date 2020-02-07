@@ -113,8 +113,6 @@ $more-color: gray;
     background: rgba(230, 230, 230, 0.5);
 }
 
-.section
-
 .read-more-section {
     max-height: 5vh;
     transition: 0.2s all ease-in-out;
