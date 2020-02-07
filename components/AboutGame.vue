@@ -34,14 +34,22 @@
             </div>
             <game-description></game-description>
             <div class="col-12 justify-content-center align-items-center read-more-section mt-5">
-                <div v-b-toggle.game-description class="read-more-icon text-center">
+                <div 
+                    class="read-more-icon text-center"
+                    @click="() => {this.isReadMoreOpen = !this.isReadMoreOpen}"    
+                >
                     <div class="more">
-                        More
+                        {{ isReadMoreOpen ? 'Less' : 'More' }}
                     </div>
-                    <chevron-down :currentColor="'red'"></chevron-down>
+                    <div 
+                        class="chevron-container"
+                        :class="{'upside-down': isReadMoreOpen}"
+                    >
+                        <chevron-down :currentColor="'red'"></chevron-down>
+                    </div>
                 </div>
             </div>
-            <b-collapse id="game-description">
+            <b-collapse v-model="isReadMoreOpen" id="game-description">
                 <more-description></more-description>
             </b-collapse>
         </div>
@@ -92,7 +100,8 @@ export default {
             },
         ];
         return {
-            gameFeatures
+            gameFeatures,
+            isReadMoreOpen: false
         }
     }
 }
@@ -107,6 +116,10 @@ $more-color: gray;
 
 .video-col {
     margin-bottom: 10vw;
+}
+
+.upside-down {
+    transform: rotate(180deg);
 }
 
 .video-frame {
