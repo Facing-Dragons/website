@@ -6,7 +6,7 @@
                     <b-embed
                         type="iframe"
                         aspect="16by9"
-                        src="https://www.youtube.com/embed/btjqB2RKAOU?rel=0"
+                        src="https://www.youtube.com/embed/JxCQOfH1Wa8?rel=0"
                         allowfullscreen
                     ></b-embed>
                 </div>
