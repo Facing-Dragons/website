@@ -85,8 +85,28 @@ export default {
     }
     .title {
         font-weight: 500;
-        font-size: calc(1rem + 1vw);
+        font-size: calc(0.8rem + 1vw);
         color: #f83600;
+    }
+
+    @media screen and (max-width: 360px) {
+        .title {
+            font-size: calc(0.5rem + 1vw);
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        .navbar-nav {
+            background: #000;
+            text-align: center;
+            border-radius: 5px; 
+        }
+
+        .navbar-item, .item {
+            font-size: calc(1rem + 0.5vw);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
     }
 
     .go-left-enter-active, .go-left-leave-active {

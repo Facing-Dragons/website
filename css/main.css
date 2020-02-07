@@ -6,3 +6,16 @@
   border-radius: 100%;
   opacity: 0.2;
 }
+
+  @media screen and (max-width: 560px) {
+    .navbar-nav {
+      background: #000;
+      width: 33vw;
+      text-align: right;
+    }
+
+    .navbar-item,
+    .item {
+      font-size: calc(1rem + 0.5vw);
+    }
+  }
