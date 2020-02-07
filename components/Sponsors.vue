@@ -11,7 +11,7 @@
             <div 
                 v-for="sponsor in sponsors"
                 :key="sponsor.title"
-                class="col-5 col-md-3 align-items-center sponsor-image-col"
+                class="col-6 col-md-3 p-2 p-md-0 align-items-center sponsor-image-col"
             >
                 <a 
                     class="bg-white rounded p-3 m-2 sponsor-image-div d-block"
