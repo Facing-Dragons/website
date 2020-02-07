@@ -1,13 +1,7 @@
 <template>
   <b-container fluid class="main-container">
     <div class="background-container">
-      <img src="~/assets/img/mountains_01.png" class="backdrop">
-      <img src="~/assets/img/dragonMountain.png" class="mountain">
-      <!-- <img src="~/assets/img/dragon.png" class="dragon"> -->
-      <div class="gradient"></div>
-      <!-- <div class="dragon-container">
-        <dragon></dragon>
-      </div> -->
+      <img src="~/assets/img/mountainCombo.png" class="mountain">
     </div>
     <Banner></Banner>
     <about-game></about-game>
@@ -116,11 +110,21 @@ export default {
 
   .mountain {
     position: absolute;
-    bottom: -17vh;
+    // top: 0vh;
     width: 120vw;
     height: auto;
     right: -20vw;
+    top: 0vh;
+    bottom: auto;
   }
+
+  
+@media screen and (max-width: 710px) {
+  .mountain {
+    bottom: 100vh;
+    top: auto;
+  }
+}
 
   .dragon {
     position: absolute;

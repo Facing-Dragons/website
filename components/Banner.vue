@@ -108,7 +108,7 @@
       <!-- <div class="logo-container">
         <img src="~/assets/img/logo_white.png" class="title-logo">
       </div> -->
-      <p class="small-text mt-4 pt-4">
+      <p class="small-text mt-0 pt-0 mt-md-4 pt-md-4">
         Facing Dragons is the first mixed-reality
         Mental health and life coaching game
         That connects players to real support.
@@ -340,6 +340,7 @@ export default {
 }
 
 .title-box {
+  margin-top: 20vh;
   width: 53vw;
   position: relative;
 }
@@ -434,7 +435,7 @@ export default {
 
 .custom-buttons {
   transition: 0.3s all ease-in-out;
-  font-size: calc(1rem + 0.5vw);
+  font-size: calc(0.5rem + 1vw);
   font-weight: 700;
   background: #dfdfdf;
   color: #303030;
@@ -474,9 +475,20 @@ text {
   /* margin-top: -7.5vh; */
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 5870px) {
+  .title-box {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
   * {
     transition: all 0.5ms ease-in-out;
+  }
+
+  .button-container {
+    position: relative;
+    top: 20vh;
   }
 
   .custom-buttons {
@@ -495,12 +507,13 @@ text {
   }
 
   .small-text {
+    max-width: 100%;
     font-size: max(1.5vh, 1.2vw);
   }  
 
   .title-box {
-    margin-top: 20vh;
-    width: 100%;
+    /* margin-top: 20vh;
+    width: 100%; */
     transition: 0.2s all ease-in-out;
   }
 
@@ -553,6 +566,11 @@ text {
     margin-top: -4.4vh;
     position: relative;
     font-size: 6vh;
+  }
+
+  .button-container {
+    max-width: 100%;
+    bottom: 10vh;
   }
 
   .logo-container {
