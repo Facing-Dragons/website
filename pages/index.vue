@@ -4,6 +4,7 @@
       <img src="~/assets/img/mountainCombo.png" class="mountain">
     </div>
     <Banner></Banner>
+    <div class="black-background"></div>
     <about-game></about-game>
     <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
@@ -23,6 +24,7 @@ import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer';
 import VlogSection from '~/components/VlogSection';
 import Dragon from '~/components/Dragon'
+
 
 export default {
   components: {
@@ -98,15 +100,17 @@ export default {
 }
 
 .background-container {
+  z-index: -1;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   height: 220vh;
-  background: url('~assets/img/main.png');
+  background: url('~assets/img/blackendedbackground.png');
   background-size: cover;
   overflow: hidden;
   background-position-y: -15vh;
+  background-repeat: no-repeat;
 
   .mountain {
     position: absolute;
