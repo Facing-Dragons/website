@@ -86,7 +86,7 @@ export default {
     .title {
         font-weight: 500;
         font-size: calc(0.8rem + 1vw);
-        color: #f83600;
+        color: #f77f00;
     }
 
     @media screen and (max-width: 360px) {
