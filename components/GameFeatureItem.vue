@@ -1,10 +1,10 @@
 <template>
-    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-center h-100 mb-5">
+    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-around h-100 mb-5">
         <div class="icon">
             <!-- <font-awesome-icon :icon="icon"/> -->
-            <img class="icon-image"  :src="require(`~/assets/img/${icon}`)">
+            <b-img fluid class="icon-image"  :src="require(`~/assets/img/${icon}`)"></b-img>
         </div>
-        <div class="feature-text">
+        <div class="feature-text d-flex flex-column">
             <div class="feature-title" v-html="title">
             </div>
             <div class="feature-description mt-4">
@@ -26,13 +26,14 @@ export default {
 
 <style lang="scss" scoped>
 .icon {
-    font-size: calc(1rem + 6vw);
+    width: 100%;
     color: #aaaaaa;
     transition: 0.2s all ease-in-out;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .icon-image {
-    width: 10vw;
     height: auto;
 }
 
@@ -62,10 +63,11 @@ export default {
 
 
 .feature-title {
-    font-size: calc(1.2rem + 0.7vw);
+    font-size: calc(1rem + 0.5vw);
     font-weight: 500;
     background-image: linear-gradient(to right, white 0%, white 100%);
     background-clip: text;
+    transition: .2s all ease-in-out;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     user-select: none; /* supported by Chrome and Opera */
@@ -73,6 +75,12 @@ export default {
    -khtml-user-select: none; /* Konqueror HTML */
    -moz-user-select: none; /* Firefox */
    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.feature-text {
+    // height: 100%;
+    min-height: 15vh;
+    justify-content: space-evenly;
 }
 
 .feature-description {
