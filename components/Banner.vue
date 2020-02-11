@@ -444,7 +444,7 @@ export default {
   transition: 0.3s all ease-in-out;
   font-size: calc(0.5rem + 1vw);
   font-weight: 700;
-  background: #dfdfdf;
+  background: #f9b038;
   color: #303030;
   border: none;
   outline: none;
@@ -452,11 +452,11 @@ export default {
 
 .custom-buttons:hover {
   color: #1f1f1f;
-  background: #f79519;
+  background: #e26e0a;
 }
 
 .worker-button:hover {
-  background: #f5a237;
+  background: #e26e0a;
 }
 
 /* svg {
