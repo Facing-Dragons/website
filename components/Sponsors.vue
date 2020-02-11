@@ -54,47 +54,47 @@ export default {
             {
                 title: "cnrc",
                 link: "https://nrc.canada.ca/en",
-                logo: require("~/assets/img/cnrc.png")
+                logo: require("~/assets/img/logos/cnrc.png")
             },
             {
                 title: "sfu",
                 link: "https://sfu.ca",
-                logo: require("~/assets/img/sfu.png")
+                logo: require("~/assets/img/logos/sfu.png")
             },
             {
                 title: "mitacs",
                 link: "https://www.mitacs.ca/en",
-                logo: require("~/assets/img/mitacs.jpg")
+                logo: require("~/assets/img/logos/mitacs.jpg")
             },
             {
                 title: "columbia trust",
                 link: "https://ourtrust.org/",
-                logo: require("~/assets/img/columbiabasin.jpg")
+                logo: require("~/assets/img/logos/columbiabasin.jpg")
             },
             {
                 title: "innovate bc",
                 link: "https://innovatebc.ca/",
-                logo: require("~/assets/img/innovatebc.png")
+                logo: require("~/assets/img/logos/innovatebc.png")
             },
             {
                 title: "new ventures bc",
                 link: "https://www.newventuresbc.com/",
-                logo: require("~/assets/img/newventure.png")
+                logo: require("~/assets/img/logos/newventure.png")
             },
             {
                 title: "ryla",
                 link: "http://ryla5040.org/",
-                logo: require("~/assets/img/RYLA.jpg")
+                logo: require("~/assets/img/logos/RYLA.png")
             },
             {
                 title: "kpu",
                 link: "https://kpu.ca",
-                logo: require("~/assets/img/kpu.jpg")
+                logo: require("~/assets/img/logos/kpu.jpg")
             },
             {
                 title: "kast",
                 link: "https://kast.com/",
-                logo: require("~/assets/img/kast.png")
+                logo: require("~/assets/img/logos/kast.png")
             },
         ];  
         return {

@@ -19,7 +19,7 @@
                 :key="member.name"
                 class="member-item col-12 col-md-4 px-2 d-flex flex-column"
             >   
-                <img src="~/assets/img/moh.jpg" class="team-member-image m-2" alt="">
+                <!-- <img src="~/assets/img/moh.jpg" class="team-member-image m-2" alt=""> -->
                 <div 
                     class="social-media-icons p-2 d-flex flex-wrap justify-content-center align-items-center"
                 >
