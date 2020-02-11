@@ -32,7 +32,7 @@
                     Sponsors
                 </b-nav-item>
                 <b-nav-item class="item" href="#dev-vlog">
-                    VLogs
+                    Posts
                 </b-nav-item>
                 <b-nav-item class="item" href="#contact">
                     Contact Us
