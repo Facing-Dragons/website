@@ -30,8 +30,8 @@
                           </a>
                       </div>
                     </swiper-slide>
-                    <div class="swiper-button-prev" slot="button-prev"></div>
-                    <div class="swiper-button-next" slot="button-next"></div>
+                    <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div> -->
                 </swiper>
             <div class="team-swiper-pagination w-100" slot="pagination"></div>
             </div>
@@ -64,12 +64,12 @@ export default {
             {
                 title: "mitacs",
                 link: "https://www.mitacs.ca/en",
-                logo: require("~/assets/img/logos/mitacs.jpg")
+                logo: require("~/assets/img/logos/mitacs.png")
             },
             {
                 title: "columbia trust",
                 link: "https://ourtrust.org/",
-                logo: require("~/assets/img/logos/columbiabasin.jpg")
+                logo: require("~/assets/img/logos/columbiabasin.png")
             },
             {
                 title: "innovate bc",
@@ -89,7 +89,7 @@ export default {
             {
                 title: "kpu",
                 link: "https://kpu.ca",
-                logo: require("~/assets/img/logos/kpu.jpg")
+                logo: require("~/assets/img/logos/kpu.png")
             },
             {
                 title: "kast",
@@ -103,9 +103,9 @@ export default {
             slidesPerView: 4,
             grabCursor: true,
             loop: true,
-            freeMode: true,
+            freeMode: false,
             autoplay: {
-              delay: 500,
+              delay: 800,
               disableOnInteraction: false
             },
             breakpoints: {
@@ -118,11 +118,11 @@ export default {
               540: {
                 slidesPerView: 1,
               }
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev'
             }
+            // navigation: {
+            //   nextEl: '.swiper-button-next',
+            //   prevEl: '.swiper-button-prev'
+            // }
           }
         }
     },
@@ -143,14 +143,14 @@ export default {
     .sponsor-image {
         width: 100%;
         height: auto;
-        filter: grayscale(100%);
     }
     .sponsor-image-div {
-        transition: all 0.3s ease-in-out;
+      filter: grayscale(100%);
+      transition: all 0.3s ease-in-out;
     }
 
     .sponsor-image-div:hover {
         cursor: pointer;
-        transform: translateY(-2vh) scale(1.1);
+        filter: grayscale(0%);
     }
 </style>
