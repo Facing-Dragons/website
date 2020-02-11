@@ -7,33 +7,47 @@
             text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
             line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
         ></section-title>
-        <div class="row justify-content-center justify-content-md-start">
-            <div 
-                v-for="sponsor in sponsors"
-                :key="sponsor.title"
-                class="col-6 col-md-3 p-2 p-md-0 align-items-center sponsor-image-col"
-            >
-                <a 
-                    class="bg-white rounded p-3 m-2 sponsor-image-div d-block"
-                    :href="sponsor.link"
-                    target="_blank"    
-                >
-                    <img 
-                        :src="sponsor.logo" 
-                        :alt="sponsor.title"
-                        class="sponsor-image"
+        <div class="carousel-container p-relative">
+                <swiper id="swiperSponsors" :options="swiperOption" ref="mySwiperSponsors">
+                    <!-- slides -->
+                    <swiper-slide 
+                      v-for="sponsor in sponsors"
+                      :key="sponsor.title"
                     >
-                </a>
+                      <div 
+                          class="p-2 p-md-0 align-items-center"
+                      >
+                          <a 
+                              class="rounded sponsor-image-div d-block"
+                              :href="sponsor.link"
+                              target="_blank"    
+                          >
+                              <img 
+                                  :src="sponsor.logo" 
+                                  :alt="sponsor.title"
+                                  class="sponsor-image"
+                              >
+                          </a>
+                      </div>
+                    </swiper-slide>
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div>
+                </swiper>
+            <div class="team-swiper-pagination w-100" slot="pagination"></div>
             </div>
-        </div>
     </b-container>
 </template>
 
 <script>
 import SectionTitle from '~/components/SectionTitle';
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+    name: 'Sponsors',
     components: {
         SectionTitle,
+        swiper, 
+        swiperSlide
     },
     data() {
         const sponsors = [
@@ -84,8 +98,43 @@ export default {
             },
         ];  
         return {
-            sponsors
+          sponsors,
+          swiperOption: {
+            slidesPerView: 4,
+            grabCursor: true,
+            loop: true,
+            freeMode: true,
+            autoplay: {
+              delay: 500,
+              disableOnInteraction: false
+            },
+            breakpoints: {
+              980: {
+                slidesPerView: 3,
+              },
+              775: {
+                slidesPerView: 2,
+              },
+              540: {
+                slidesPerView: 1,
+              }
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
+            }
+          }
         }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiperSponsors.swiper;
+      }
+    },
+    mounted() {
+      // current swiper instance
+      console.log('this is current swiper instance object', this.swiper)
+    //   this.swiper.slideTo(3, 1000, false)
     }
 }
 </script>
@@ -94,12 +143,10 @@ export default {
     .sponsor-image {
         width: 100%;
         height: auto;
+        filter: grayscale(100%);
     }
     .sponsor-image-div {
         transition: all 0.3s ease-in-out;
-        -webkit-box-shadow: 4px 9px 11px -2px rgba(255, 255, 255,0.75);
-        -moz-box-shadow: 4px 9px 11px -2px rgba(255, 255, 255,0.75);
-        box-shadow: 4px 9px 11px -6px rgba(255, 255, 255,0.75);
     }
 
     .sponsor-image-div:hover {

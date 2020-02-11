@@ -20,7 +20,7 @@
                         <b-img
                           height="200px"
                           rounded="circle"
-                          :src="require(`~/assets/img/${member.image}`)"
+                          :src="require(`~/assets/img/team/${member.image}`)"
                         >
                         </b-img>
                         <div class="name my-1">
