@@ -41,7 +41,7 @@
                     <b-button 
                       class="ml-2" 
                       variant="success" 
-                      :disabled="form.email === ''"
+                      :disabled="form.email === '' || !emailState"
                     >
                         Submit
                     </b-button>
