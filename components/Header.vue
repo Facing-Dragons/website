@@ -22,10 +22,11 @@
 
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto d-block d-md-flex align-items-center">
-                <b-nav-item class="item" href="https://support.facingdragon.com">
+                <b-nav-item class="item d-none d-md-block" href="https://support.facingdragon.com" id="support">
                     <button class="btn p-2 btn-rounded btn-success text-light">
                         For Support Workers
                     </button>
+                    <!-- For Support Workers -->
                 </b-nav-item>
                 <b-nav-item href="#about-game-section" class="item">
                     Game
@@ -91,6 +92,13 @@ export default {
         outline: none; 
         border: none;
     }
+
+    /* #support {
+        background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    } */
 
     .logo-img {
         width: auto;

@@ -129,6 +129,14 @@
     <div class="arrow-container d-flex justify-content-center align-items-center">
       <animating-arrow-down></animating-arrow-down>
     </div>
+    <div class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
+      <div class="support-text text-light h-100 w-100 p-2">
+        <span>
+          For Support Workers
+        </span>
+        <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
+      </div>
+    </div>
   </b-container>
 </template>
 
@@ -219,6 +227,38 @@ export default {
 
 .button-container button {
   z-index: 4;
+}
+
+.mobile-support {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.support-text * {
+  font-weight: 700;
+}
+
+.support-icon {
+  font-size: 5vw;
+  animation-name: clickAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes clickAnimation {
+  0% {
+    transform: scale(1) rotateY(0);
+  }
+  30% {
+    transform: scale(1.3) rotateY(-30deg);
+  }
+  50%, 100% {
+    transform: scale(1) rotateY(0);
+  }
 }
 
 .guidian-container {
