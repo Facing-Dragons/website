@@ -115,6 +115,7 @@
       <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
         <button 
           class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 custom-buttons w-50 rounded"
+          :class="{'nav-button': isButtonInNav}"
           @click="handleStartQuest"
         >
           START YOUR QUEST
@@ -163,6 +164,7 @@ export default {
         form: {email: ''},
         isGuidianShown: false,
         isSupportShown: true,
+        isButtonInNav: false,
       }
     },
     computed: {
@@ -203,10 +205,14 @@ export default {
         this.isWorkerModalOpen = false;
       },
       onScrollHandler() {
-        if(window.scrollY > 100)
-            this.isSupportShown = false;
-        else if (window.screenY < 400)
-            this.isSupportShown = true;
+        if(window.scrollY > 100) {
+          this.isSupportShown = false;
+          this.isButtonInNav = true;
+        }
+        else if (window.screenY < 400) {
+          this.isSupportShown = true;
+          this.isButtonInNav = false;
+        }
       }
     },
     created() {
@@ -505,6 +511,12 @@ export default {
   color: #303030;
   border: none;
   outline: none;
+}
+
+.custom-buttons.nav-button {
+  /* position: fixed;
+  top: 2vh;
+  right: 45vw; */
 }
 
 .custom-buttons:hover {
