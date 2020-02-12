@@ -21,7 +21,12 @@
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
 
         <b-collapse id="main-collapse" is-nav>
-            <b-navbar-nav class="ml-auto">
+            <b-navbar-nav class="ml-auto d-block d-md-flex align-items-center">
+                <b-nav-item class="item" href="https://support.facingdragon.com">
+                    <button class="btn p-2 btn-rounded btn-success text-light">
+                        For Support Workers
+                    </button>
+                </b-nav-item>
                 <b-nav-item href="#about-game-section" class="item">
                     Game
                 </b-nav-item>
@@ -39,6 +44,9 @@
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
+        <!-- <button class="btn p-2 btn-rounded btn-success text-light ml-auto d-block d-md-none">
+            For Support Workers
+        </button> -->
     </b-navbar>    
 </template>
 
@@ -76,6 +84,12 @@ export default {
     .item {
         font-size: 1.6vw;
         color: white;
+    }
+
+    .item .btn {
+        font-size: 1.4vw;
+        outline: none; 
+        border: none;
     }
 
     .logo-img {

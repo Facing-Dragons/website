@@ -110,9 +110,7 @@
       </div> -->
       <p class="small-text mt-0 pt-0 mt-md-4 pt-md-4">
         Facing Dragons is the first mixed-reality
-        Mental health and career support game. <br><br>
-        Players: Overcome real-life challenges. <br>
-        Support Workers: Engage with your clients.
+        Mental health and career support game. 
       </p>
       <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
         <button 
@@ -121,12 +119,10 @@
         >
           START YOUR QUEST
         </button>
-        <button 
+        <!-- <button 
           class="w-50 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
-        >SUPPORT WORKERS</button>
-        
-        
+        >SUPPORT WORKERS</button> -->
       </div>
     </div>
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
@@ -313,8 +309,8 @@ export default {
 }
 
 .arrow-container {
-  height: 10vh;
-  width: 10vw;
+  height: 8vmin;
+  width: 8vmin;
   left: 45vw;
 }
 
@@ -419,7 +415,7 @@ export default {
   opacity: 0;
   text-transform: uppercase;
   /* margin-left: 1vw; */
-  font-size: max(1.3vh, 1vw);
+  font-size: max(1.6vh, 1.3vw);
   color: white;
   letter-spacing: 0.2vw;
   text-align: left;
@@ -455,6 +451,10 @@ export default {
 
 .worker-button:hover {
   background: #e26e0a;
+}
+
+.worker-button {
+  background: #fae667;
 }
 
 /* svg {
