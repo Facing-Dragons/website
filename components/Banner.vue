@@ -129,14 +129,16 @@
     <div class="arrow-container d-flex justify-content-center align-items-center">
       <animating-arrow-down></animating-arrow-down>
     </div>
-    <div class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
-      <div class="support-text text-light h-100 w-100 p-2">
-        <span>
-          For Support Workers
-        </span>
-        <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
+    <transition name="fade-up">
+      <div v-if="isSupportShown" class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
+        <div class="support-text text-light h-100 w-100 p-2">
+          <span>
+            For Support Workers
+          </span>
+          <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
+        </div>
       </div>
-    </div>
+    </transition>
   </b-container>
 </template>
 
@@ -160,6 +162,7 @@ export default {
         isWorkerModalOpen: false,
         form: {email: ''},
         isGuidianShown: false,
+        isSupportShown: false,
       }
     },
     computed: {
@@ -198,7 +201,18 @@ export default {
       handleOverlayClick: function () {
         this.isPlayerModalOpen = false;
         this.isWorkerModalOpen = false;
+      },
+      onScrollHandler() {
+        if(window.scrollY > 100)
+            this.isSupportShown = false;
+        else if (window.screenY < 400)
+            this.isSupportShown = true;
       }
+    },
+    created() {
+        if (process.browser) {
+            window.addEventListener('scroll', this.onScrollHandler)
+        }
     }
 }
 </script>
@@ -259,6 +273,15 @@ export default {
   50%, 100% {
     transform: scale(1) rotateY(0);
   }
+}
+
+.fade-up-enter-active, .fade-up-leave-active {
+  transition: all .7s;
+}
+
+.fade-up-enter, .fade-up-leave-to {
+  opacity: 0;
+  transform: translateY(-10%);
 }
 
 .guidian-container {
