@@ -7,19 +7,11 @@
 
 <script>
 import Header from '~/components/Header';
-import ParallaxBackground from '~/components/ParallaxBackground';
-import AnimatingArrowDown from '~/components/AnimatingArrowDown';
-import QuestOverlay from '~/components/QuestOverlay';
-import BannerVideo from '~/components/BannerVideo';
 
 export default {
   middleware: ['isMobile'],
   components: {
     Header,
-    ParallaxBackground,
-    AnimatingArrowDown,
-    QuestOverlay,
-    BannerVideo
   },
   data() {
     return {

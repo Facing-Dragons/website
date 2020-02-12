@@ -1,7 +1,15 @@
 <template>
   <b-container fluid class="main-container">
     <div class="background-container">
-      <img src="~/assets/img/mountainCombo.png" class="mountain">
+      <img 
+        src="~/assets/img/dragon/mountainCombo.webp"
+        :srcset="`${require(`~/assets/img/dragon/mountainCombo@0,25x.webp`)} 480w,
+                ${require(`~/assets/img/dragon/mountainCombo@0,5x.webp`)} 960w,
+                ${require(`~/assets/img/dragon/mountainCombo@0,75x.webp`)} 1440w,
+                ${require(`~/assets/img/dragon/mountainCombo.webp`)} 1920w`" 
+        sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
+        class="mountain"
+      >
     </div>
     <Banner></Banner>
     <div class="black-background"></div>
@@ -99,6 +107,27 @@ export default {
   right: 0;
 }
 
+@media screen and (max-width: 360px){
+  .background-container {
+    background: url('~assets/img/background/blackendedbackground@0,25x.webp');
+  }
+}
+@media screen and (max-width: 480px){
+  .background-container {
+    background: url('~assets/img/background/blackendedbackground@0,5x.webp');
+  }
+}
+@media screen and (max-width: 640px){
+  .background-container {
+    background: url('~assets/img/background/blackendedbackground@0,75x.webp');
+  }
+}
+// @media screen and (max-width: 960px){
+//   .background-container {
+//     background: url('~assets/img/blackendedbackground.webp');
+//   }
+// }
+
 .background-container {
   z-index: -1;
   position: absolute;
@@ -106,7 +135,7 @@ export default {
   right: 0;
   left: 0;
   height: 220vh;
-  background: url('~assets/img/blackendedbackground.png');
+  background: url('~assets/img/background/blackendedbackground.webp');
   background-size: cover;
   overflow: hidden;
   background-position-y: -15vh;
