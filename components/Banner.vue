@@ -162,7 +162,7 @@ export default {
         isWorkerModalOpen: false,
         form: {email: ''},
         isGuidianShown: false,
-        isSupportShown: false,
+        isSupportShown: true,
       }
     },
     computed: {
