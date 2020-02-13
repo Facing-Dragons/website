@@ -3,7 +3,7 @@
     <div class="row mt-2">
       <section-title 
           right
-          title-text="Dev VLogs"
+          title-text="Posts"
           text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
           line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
       ></section-title>

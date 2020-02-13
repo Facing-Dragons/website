@@ -16,7 +16,7 @@
     <about-game></about-game>
     <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
-    <!-- <VlogSection></VlogSection> -->
+    <VlogSection></VlogSection>
     <Sponsors></Sponsors>
     <Footer></Footer>
   </b-container>    
