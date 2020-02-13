@@ -7,7 +7,7 @@
         class="d-flex"
     >
         <b-navbar-brand  
-            href="#" 
+            href="/" 
             class="logo-container ml-3"
             @mouseenter="() => {this.isTitleShown = true}"
             @mouseleave="() => {this.isTitleShown = false}"
@@ -22,7 +22,7 @@
 
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto d-block d-md-flex align-items-center">
-                <b-nav-item class="item d-none d-md-block" href="https://support.facingdragon.com" id="support">
+                <b-nav-item v-if="!isSupport" class="item d-none d-md-block" to="/support" id="support">
                     <button class="btn p-2 btn-rounded btn-success text-light">
                         For Support Workers
                     </button>
@@ -57,6 +57,10 @@ export default {
         headerType: {
             type: String, 
             default: 'dark'
+        },
+        isSupport: {
+            type: Boolean, 
+            default: false
         }
     },
     data() {

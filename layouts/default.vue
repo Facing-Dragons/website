@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Header :header-type="headerType"></Header>
+    <Header 
+      :header-type="headerType"
+      :is-support="isSupportHeader"  
+    ></Header>
     <nuxt />
   </div>
 </template>
@@ -55,6 +58,9 @@ export default {
     },
     headerType() {
       return this.$route.path !== '/quest' ? 'dark' : 'light';
+    },
+    isSupportHeader() {
+      return this.$route.path === '/support';
     }
   }
 }

@@ -21,7 +21,13 @@
                 </transition>
                 <b-card class="msg-container d-flex flex-column justify-content-center p-2">
                   <div v-if="!isWriteSuccessful" class="quest-question">
-                    <p class="overlay-card-text">Get Your First Quest!</p>
+                    <p class="overlay-card-text">
+                      {{
+                        isSupport ? 
+                        "Subscribe to learn more" :
+                        "Get Your First Quest!"
+                      }}
+                    </p>
                     <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -52,7 +58,11 @@
                     </div>
                   </div>
                   <div v-else class="quest-email-message">
-                    Thanks for your support! Enjoy Your First Quest!
+                    {{
+                      isSupport ? 
+                      "Thank you for your support! We will keep in touch." :
+                      "Thanks for your support! You'll get your first quest, soon."
+                    }}
                   </div>
                 </b-card>
               </div>
@@ -126,7 +136,7 @@
           :class="{'nav-button': isButtonInNav}"
           @click="handleStartQuest"
         >
-          START YOUR QUEST
+          {{ isSupport ? 'LEARN MORE' : 'START YOUR QUEST'}}
         </button>
         <!-- <button 
           class="w-50 py-2 custom-buttons worker-button rounded"
@@ -165,6 +175,12 @@ export default {
       BannerTextSection,
       BannerTextUnlock,
       AnimatingArrowDown,
+    },
+    props: {
+      isSupport: {
+        type: Boolean,
+        default: false
+      }
     },
     data() {
       return {
@@ -206,8 +222,13 @@ export default {
     },
     methods: {
       async writeEmail() {
-        const ref = fireDb.collection("users").add({
+        const isSupportWorker = this.$route.path === '/support'
+        const ref = fireDb.collection("users");
+        this.isWriting = true;
+        try {
+          await ref.add({
             email: this.form.email,
+            isSupportWorker,
             mission: 0,
             love: 0, 
             fun: 0,
@@ -217,9 +238,6 @@ export default {
             mind: 0,
             home: 0
         })
-        this.isWriting = true;
-        try {
-          await ref.set(document)
         } catch (e) {
           // TODO: error handling
           console.error(e)
