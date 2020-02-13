@@ -35,7 +35,7 @@
                     Team
                 </b-nav-item>
                 <b-nav-item class="item" href="#sponsors">
-                    Sponsors
+                    Partners
                 </b-nav-item>
                 <b-nav-item class="item" href="#dev-vlog">
                     Posts
