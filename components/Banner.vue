@@ -149,14 +149,16 @@
       <animating-arrow-down></animating-arrow-down>
     </div>
     <transition name="fade-up">
-      <div v-if="isSupportShown" class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
-        <div class="support-text text-light h-100 w-100 p-2">
-          <span>
-            For Support Workers
-          </span>
-          <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
+      <nuxt-link to="/support">
+        <div v-if="isSupportShown && $route.path !== '/support'" class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
+            <div class="support-text text-light h-100 w-100 p-2">
+              <span>
+                For Support Workers
+              </span>
+              <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
+            </div>
         </div>
-      </div>
+      </nuxt-link>
     </transition>
   </b-container>
 </template>

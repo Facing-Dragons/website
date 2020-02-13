@@ -7,7 +7,7 @@
         class="d-flex"
     >
         <b-navbar-brand  
-            href="/" 
+            to="/" 
             class="logo-container ml-3"
             @mouseenter="() => {this.isTitleShown = true}"
             @mouseleave="() => {this.isTitleShown = false}"
