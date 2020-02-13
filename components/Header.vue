@@ -2,7 +2,7 @@
     <b-navbar 
         toggleable="sm" 
         variant="faded" 
-        type="dark"
+        :type="headerType"
         fixed="top"
         class="d-flex"
     >
@@ -53,6 +53,12 @@
 
 <script>
 export default {
+    props: {
+        headerType: {
+            type: String, 
+            default: 'dark'
+        }
+    },
     data() {
         return {
             isTitleShown: true

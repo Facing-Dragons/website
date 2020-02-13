@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header :header-type="headerType"></Header>
     <nuxt />
   </div>
 </template>
@@ -52,6 +52,9 @@ export default {
     },
     isOverlayShown() {
       return this.isVideoEnded && this.currentWindowY > 0.6;
+    },
+    headerType() {
+      return this.$route.path !== '/quest' ? 'dark' : 'light';
     }
   }
 }
