@@ -74,11 +74,31 @@
 import GameQuestion from '~/components/GameQuestion';
 import ChevronRight from '~/components/ChevronRight';
 import ChevronLeft from '~/components/ChevronLeft';
+import {fireDb} from '~/plugins/firebase.js'
+
 export default {
   components: {
     GameQuestion,
     ChevronRight,
     ChevronLeft
+  },
+  async mounted() {
+    if(!this.$store.state.email && this.$route.query.id) {
+      const userID = this.$route.query.id;
+      // console.log(userID);
+      
+      const ref = fireDb.collection("users").doc(userID);
+
+      let snap
+      try {
+        snap = await ref.get()
+        console.log(snap.data().email);
+        this.$store.commit('setEmail', snap.data().email);
+      } catch (e) {
+        // TODO: error handling
+        console.error(e)
+      }
+    }
   },
   data() {
     const gameQuestions = [
