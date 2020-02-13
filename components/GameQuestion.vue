@@ -13,7 +13,9 @@
             </div>
             <div class="col-12 justify-content-center align-items-center control-col">
                 <vue-slider
-                    v-model="value"
+                    :key="title"
+                    :value="value"
+                    @change="handleChange"
                     :adsorb="true"
                     :interval="10"
                     :marks="true"
@@ -41,6 +43,11 @@ export default {
         color: String,
         title: String,
     },
+    methods: {
+        handleChange(newVal) {
+            this.$emit('change', newVal);
+        }
+    },
     computed: {
         computedStyle() {
             return {
@@ -56,6 +63,17 @@ export default {
 <style lang="scss" scoped>
 .control-col {
     // height: 40vh;
+    z-index: 4;
+}
+
+.main-quest-container {
+    width: 80vw;
+}
+
+@media screen and (max-width: 760px) {
+    .main-quest-container {
+        width: auto;
+    }
 }
 
 .quest-title {
