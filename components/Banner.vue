@@ -60,8 +60,8 @@
                   <div v-else class="quest-email-message">
                     {{
                       isSupport ? 
-                      "Thank you for your support! We will keep in touch." :
-                      "Thanks for your support! You'll get your first quest, soon."
+                      "Thank you for your interest! We will keep in touch." :
+                      "Great Choice! You'll get your first quest in 48 hours."
                     }}
                   </div>
                 </b-card>

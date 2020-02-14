@@ -13,7 +13,7 @@
             </div>
             <section-title 
                 right
-                title-text="About The Game"
+                title-text="About"
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
             ></section-title>
@@ -31,27 +31,11 @@
                         ></game-feature-item>
                     </div>
                 </div>
-            </div>
-            <game-description></game-description>
-            <div class="col-12 justify-content-center align-items-center read-more-section mt-5">
-                <div 
-                    class="read-more-icon text-center"
-                    @click="() => {this.isReadMoreOpen = !this.isReadMoreOpen}"    
-                >
-                    <div class="more">
-                        {{ isReadMoreOpen ? 'Less' : 'More' }}
-                    </div>
-                    <div 
-                        class="chevron-container"
-                        :class="{'upside-down': isReadMoreOpen}"
-                    >
-                        <chevron-down :currentColor="'red'"></chevron-down>
-                    </div>
+                <div class="game-description">
+                    <more-description></more-description>
                 </div>
             </div>
-            <b-collapse v-model="isReadMoreOpen" id="game-description">
-                <more-description></more-description>
-            </b-collapse>
+            <game-description></game-description>
         </div>
     </div>
 </template>
@@ -77,7 +61,7 @@ export default {
             {
                 name: "Portal Island",
                 icon: "section_icon_Quest.png",
-                title: "Real-World Quests",
+                title: "Real-World <br> Quests",
                 desc: "The eight key areas of life are represented by dragons who give players quests and challenges to complete in real life, based on tools used in coaching and counseling."
             },
             {
@@ -101,7 +85,6 @@ export default {
         ];
         return {
             gameFeatures,
-            isReadMoreOpen: false
         }
     }
 }
