@@ -9,8 +9,8 @@
         <b-navbar-brand  
             to="/" 
             class="logo-container ml-3"
-            @mouseenter="() => {this.isTitleShown = true}"
-            @mouseleave="() => {this.isTitleShown = false}"
+            @mouseenter="handleMouseEnter"
+            @mouseleave="handleMouseLeave"
         >
             <img class="logo-img" src="~/assets/img/logo_white.png" alt="Facing Dragons">
             <transition name="go-left">
@@ -79,6 +79,14 @@ export default {
                 this.isTitleShown = false;
             else if (window.screenY < 400)
                 this.isTitleShown = true;
+        },
+        handleMouseEnter() {
+            if(window.scrollY > 400)
+                this.isTitleShown = true;
+        },
+        handleMouseLeave() {
+            if(window.scrollY > 400)
+                this.isTitleShown = false;
         }
     },
 }
