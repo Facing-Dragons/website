@@ -1,5 +1,35 @@
 <template>
     <b-container id="team-section" fluid class="team-container-fluid">
+        <!-- <transition name="fade"> -->
+          <div v-show="isOverlayShown">
+            <div class="overlay">
+              <div 
+                @click.stop="() => {isOverlayShown = false}" 
+                class="overlay-background">
+              </div>
+              <b-card
+                no-body
+                class="mb-2 overlay-foreground d-flex text-center text-md-left"
+              >
+                <b-row no-gutters>
+                  <b-col md="6" class="d-flex justify-content-center align-items-center">
+                    <b-card-img 
+                      :src="require(`~/assets/img/team/icon/${currentMember.icon}`)"
+                      class="card-image rounded-0 p-5">
+                    </b-card-img>
+                  </b-col>
+                  <b-col md="6">
+                    <b-card-body :title="currentMember.name" :sub-title="currentMember.role">
+                      <b-card-text class="desc mt-4">
+                        {{ currentMember.description }}
+                      </b-card-text>
+                    </b-card-body>
+                  </b-col>
+                </b-row>
+              </b-card>
+            </div>
+          </div>
+        <!-- </transition> -->
         <b-container 
             class="team-container"
         >
@@ -13,7 +43,8 @@
               <div 
                 v-for="(member, index) in teamMembers"
                 :key="index"
-                class="col-12 col-md-4 my-4 my-md-0"
+                class="col-12 col-md-4 my-4 my-md-0 team-member-container"
+                @click="() => handleClick(index)"
               >
                 <div class="new-slide-content text-center d-flex flex-column justify-content-center h-100 align-items-center">
                   <b-img
@@ -31,20 +62,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="carousel-container p-relative"> -->
-                <!-- <swiper id="swiperTeam" :options="swiperOption" ref="mySwiperTeam">
-                     slides -->
-                    <!-- <swiper-slide 
-                        v-for="(member, index) in teamMembers"
-                        :key="index"
-                    >  -->
-                      
-                    <!-- </swiper-slide>
-                    <div class="swiper-button-prev" slot="button-prev"></div>
-                    <div class="swiper-button-next" slot="button-next"></div>
-                </swiper> -->
-            <!-- <div class="team-swiper-pagination w-100" slot="pagination"></div> -->
-            <!-- </div> -->
         </b-container>
     </b-container>
 </template>
@@ -71,6 +88,7 @@ export default {
                 Favourite Video Game: Deja Vu
                 Fun Fact: Lived in a tipi in the woods.`,
                 image: "brodie.jpg",
+                icon: "brodie.png",
                 backgroundImage: "manager_pattern.jpg",
                 socialMedia: [
                     {
@@ -108,6 +126,7 @@ export default {
                   Oh I also have a 3 year old boy, and a baby girl scheduled 
                   to start public beta in August`,
                 image: "dov.png",
+                icon: "dov.png",
                 backgroundImage: "dov_pattern.png",
                 socialMedia: [
                     {
@@ -138,6 +157,7 @@ export default {
                 Favorite Game: Dishonored
                 Favorite Dragon: Enthuz - The Play Dragon`,
                 image: "osama.jpg",
+                icon: "osama.png",
                 backgroundImage: "gamer2_pattern.jpg",
                 socialMedia: [
                     {
@@ -160,10 +180,9 @@ export default {
             { 
                 name: "Mohammad Rajabi Seraji",
                 role: "Senior UI/UX Developer",
-                description: `Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
-                Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!
-                Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!Lorem Ipsum!`,
+                description: `He's a mystery man, you should visit his website to know more about him. It's enough to know that he's quite a snow man! :D `,
                 image: "moh.jpg",
+                icon: "moh.png",
                 backgroundImage: "programmer2_pattern.jpg",
                 socialMedia: [
                     {
@@ -193,6 +212,7 @@ export default {
                 Unique Facts: Owns a small car and a large cat, was once a martial arts 
                 lion dancer, and is just starting to learn archery!`,
                 image: "cil.jpg",
+                icon: "cil.png",
                 backgroundImage: "cil_pattern.png",
                 socialMedia: [
                     {
@@ -223,6 +243,7 @@ export default {
                   Unique Facts: Alyssa has two rescue dogs, an unhealthy obsession with spreadsheets, 
                   and drinks too much coffee.`,
                 image: "alyssa.jpg",
+                icon: "alyssa.png",
                 backgroundImage: "alyssa_pattern.png",
                 socialMedia: [
                     {
@@ -245,51 +266,86 @@ export default {
         ];
       return {
         teamMembers,
-        // swiperOption: {
-        //   slidesPerView: 4,
-        //   grabCursor: true,
-        //   loop: false,
-        //   freeMode: true,
-        //   breakpoints: {
-        //     980: {
-        //       slidesPerView: 3,
-        //     },
-        //     775: {
-        //       slidesPerView: 2,
-        //     },
-        //     540: {
-        //       slidesPerView: 1,
-        //     }
-        //   },
-        //   navigation: {
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev'
-        //   }
-        // }
+        isOverlayShown: false,
+        currentMember: teamMembers[0]
       }
     },
     methods: {
-        mouseHandler: function (slideNum) {
-            console.log('====================================');
-            console.log('Im hovered Slide: ' + slideNum);
-            console.log('====================================');
-        }
+      handleClick(index) {
+        this.currentMember = this.teamMembers[index];
+        this.isOverlayShown = true;
+      }
     },
-    // computed: {
-    //   swiper() {
-    //     return this.$refs.mySwiperTeam.swiper;
-    //   }
-    // },
-    // mounted() {
-    //   // current swiper instance
-    //   console.log('this is current swiper instance object', this.swiper)
-    // //   this.swiper.slideTo(3, 1000, false)
-    // }
 }
 </script>
 
 
 <style lang="scss" scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  z-index: 6;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.desc {
+  font-weight: 500;
+  font-size: 0.8vw;
+  text-align: justify;
+  color: #2e2e2e;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* transition: 0.3s all ease-in-out; */
+}
+
+.overlay-background {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 8;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.team-member-container {
+  cursor: pointer;
+}
+
+.overlay-foreground {
+  z-index: 12;
+  // position: fixed;
+  // top: 10vh;
+  // max-width: 50vw;
+  background: #ebebeb;
+   transition: 0.5s all ease-in-out;
+  transition-delay: 1s;
+  max-width: 60vw;
+  // .card-text {
+  //   font-size: 1vw;
+  // }
+}
+
+// .card-image {
+//   width: 50%;
+//   height: auto;
+// }
 
 .team-container-fluid {
     /* margin-top: 100vh; */
