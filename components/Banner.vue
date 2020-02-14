@@ -21,13 +21,9 @@
                 </transition>
                 <b-card class="msg-container d-flex flex-column justify-content-center p-2">
                   <div v-if="!isWriteSuccessful" class="quest-question">
-                    <p class="overlay-card-text">
-                      {{
-                        isSupport ? 
-                        "Subscribe to learn more" :
-                        "Get Your First Quest!"
-                      }}
-                    </p>
+                    <h2 class="overlay-card-text">
+                      Get Your First Quest!
+                    </h2>
                     <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -85,7 +81,7 @@
                 </transition>
                 <b-card class="msg-container d-flex flex-column justify-content-center p-2">
                   <div v-if="!isWriteSuccessful" class="quest-question">
-                    <p class="overlay-card-text">Enter your email to know more about the game.</p>
+                    <h2 class="overlay-card-text">Subscribe to learn more!</h2>
                     <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -134,18 +130,18 @@
         Facing Dragons is the first mixed-reality
         Mental health and career support game. 
       </p>
-      <div class="button-container d-flex flex-row p-0 pt-4 justify-content-center align-items-start">
+      <div class="button-container d-flex flex-column p-0 pt-4 justify-content-center align-items-start">
         <button 
-          class="mb-0 mb-md-2 mr-2 mr-md-2 py-2 custom-buttons w-50 rounded"
+          class="mb-2 py-2 custom-buttons w-100 w-md-75 rounded"
           :class="{'nav-button': isButtonInNav}"
           @click="handleStartQuest"
         >
           {{ isSupport ? 'LEARN MORE' : 'START YOUR QUEST'}}
         </button>
         <button 
-          class="w-50 py-2 custom-buttons worker-button rounded"
+          class="w-100 w-md-75 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
-        >SUPPORT WORKERS</button>
+        >I'M A SUPPORT WORKER</button>
       </div>
     </div>
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
@@ -407,7 +403,7 @@ export default {
 
 .overlay-card-text {
   font-weight: 500;
-  font-size: 2vmax;
+  font-size: 1.5vmax;
 }
 
 .overlay-background {
