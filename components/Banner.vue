@@ -130,7 +130,7 @@
         Facing Dragons is the first mixed-reality
         Mental health and career support game. 
       </p>
-      <div class="button-container d-flex flex-column p-0 pt-4 justify-content-center align-items-start">
+      <div class="button-container d-flex flex-column p-0 pt-5 justify-content-center align-items-start">
         <button 
           class="mb-2 py-2 custom-buttons w-100 w-md-75 rounded"
           :class="{'nav-button': isButtonInNav}"
@@ -539,10 +539,10 @@ export default {
   opacity: 0;
   text-transform: uppercase;
   /* margin-left: 1vw; */
-  font-size: max(1.6vh, 1.3vw);
+  font-size: max(1.9vh, 1.6vw);
   color: white;
   letter-spacing: 0.2vw;
-  text-align: left;
+  text-align: justify;
   max-width: 40vw;
   animation: fade-and-up 1.5s forwards ease-in-out 6s;
 }
