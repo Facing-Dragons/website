@@ -79,8 +79,8 @@ export default {
 
 .feature-text {
     // height: 100%;
-    min-height: 15vh;
-    justify-content: space-evenly;
+    height: 25vh;
+    // justify-content: space-evenly;
 }
 
 .feature-description {

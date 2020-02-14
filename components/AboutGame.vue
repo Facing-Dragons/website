@@ -67,7 +67,7 @@ export default {
             {
                 name: "Mirrors",
                 icon: "section_icon_Mirror.png",
-                title: "Learn About Yourself",
+                title: "Learn About <br> Yourself",
                 desc: "Learn more about yourself by gazing into mirrors that ask you questions, based on established psychometric instruments such as Big 5, and DISC."
             },
             {
@@ -79,7 +79,7 @@ export default {
             {
                 name: "Archives",
                 icon: "section_icon_Archives.png",
-                title: "Track Your Progress",
+                title: "Track Your <br> Progress",
                 desc: "You can keep track of your progress by visiting your private archives to see all your quests, goals, daily check ins, and mirror results."
             },
         ];
