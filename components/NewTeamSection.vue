@@ -292,16 +292,17 @@ export default {
 
 .desc {
   font-weight: 500;
-  font-size: 0.8vw;
+  font-size: 1.3vw;
   text-align: justify;
   color: #2e2e2e;
 }
 
 .overlay {
   position: fixed;
+  overflow-y: auto;
   z-index: 6;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   right: 0;
   top: 0;
   bottom: 0;
@@ -340,6 +341,20 @@ export default {
   // .card-text {
   //   font-size: 1vw;
   // }
+}
+
+@media screen and (max-width: 760px) {
+  .overlay-foreground {
+    max-width: 85vw;
+  }
+
+  .desc {
+    font-size: 2.8vw;
+  }
+
+  .card-img {
+    width: 80%;
+  }
 }
 
 // .card-image {
