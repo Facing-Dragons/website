@@ -9,47 +9,56 @@
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
             ></section-title>
-            <div class="carousel-container p-relative">
-                <swiper id="swiperTeam" :options="swiperOption" ref="mySwiperTeam">
-                    <!-- slides -->
-                    <swiper-slide 
+            <div class="row">
+              <div 
+                v-for="(member, index) in teamMembers"
+                :key="index"
+                class="col-12 col-md-4 my-4 my-md-0"
+              >
+                <div class="new-slide-content text-center d-flex flex-column justify-content-center h-100 align-items-center">
+                  <b-img
+                    height="200px"
+                    rounded="circle"
+                    :src="require(`~/assets/img/team/${member.image}`)"
+                  >
+                  </b-img>
+                  <div class="name my-1">
+                    {{ member.name }}
+                  </div>
+                  <div class="role">
+                    {{ member.role }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="carousel-container p-relative"> -->
+                <!-- <swiper id="swiperTeam" :options="swiperOption" ref="mySwiperTeam">
+                     slides -->
+                    <!-- <swiper-slide 
                         v-for="(member, index) in teamMembers"
                         :key="index"
-                    >
-                      <div class="new-slide-content text-center d-flex flex-column justify-content-center h-100 align-items-center">
-                        <b-img
-                          height="200px"
-                          rounded="circle"
-                          :src="require(`~/assets/img/team/${member.image}`)"
-                        >
-                        </b-img>
-                        <div class="name my-1">
-                          {{ member.name }}
-                        </div>
-                        <div class="role">
-                          {{ member.role }}
-                        </div>
-                      </div>
-                    </swiper-slide>
+                    >  -->
+                      
+                    <!-- </swiper-slide>
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <div class="swiper-button-next" slot="button-next"></div>
-                </swiper>
-            <div class="team-swiper-pagination w-100" slot="pagination"></div>
-            </div>
+                </swiper> -->
+            <!-- <div class="team-swiper-pagination w-100" slot="pagination"></div> -->
+            <!-- </div> -->
         </b-container>
     </b-container>
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+// import 'swiper/dist/css/swiper.css'
+// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import SectionTitle from '~/components/SectionTitle';
 export default {
     name: "newTeamSection",
     components: {
         SectionTitle,
-        swiper,
-        swiperSlide
+        // swiper,
+        // swiperSlide
     },
     data() {
       const teamMembers = [
@@ -236,27 +245,27 @@ export default {
         ];
       return {
         teamMembers,
-        swiperOption: {
-          slidesPerView: 4,
-          grabCursor: true,
-          loop: false,
-          freeMode: true,
-          breakpoints: {
-            980: {
-              slidesPerView: 3,
-            },
-            775: {
-              slidesPerView: 2,
-            },
-            540: {
-              slidesPerView: 1,
-            }
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          }
-        }
+        // swiperOption: {
+        //   slidesPerView: 4,
+        //   grabCursor: true,
+        //   loop: false,
+        //   freeMode: true,
+        //   breakpoints: {
+        //     980: {
+        //       slidesPerView: 3,
+        //     },
+        //     775: {
+        //       slidesPerView: 2,
+        //     },
+        //     540: {
+        //       slidesPerView: 1,
+        //     }
+        //   },
+        //   navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev'
+        //   }
+        // }
       }
     },
     methods: {
@@ -266,16 +275,16 @@ export default {
             console.log('====================================');
         }
     },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiperTeam.swiper;
-      }
-    },
-    mounted() {
-      // current swiper instance
-      console.log('this is current swiper instance object', this.swiper)
-    //   this.swiper.slideTo(3, 1000, false)
-    }
+    // computed: {
+    //   swiper() {
+    //     return this.$refs.mySwiperTeam.swiper;
+    //   }
+    // },
+    // mounted() {
+    //   // current swiper instance
+    //   console.log('this is current swiper instance object', this.swiper)
+    // //   this.swiper.slideTo(3, 1000, false)
+    // }
 }
 </script>
 
