@@ -4,7 +4,7 @@
         variant="faded" 
         :type="headerType"
         fixed="top"
-        class="d-flex"
+        class="d-flex navbar-main"
     >
         <b-navbar-brand  
             to="/" 
@@ -21,13 +21,13 @@
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
 
         <b-collapse id="main-collapse" is-nav>
-            <b-navbar-nav class="ml-auto d-block d-md-flex align-items-center">
-                <b-nav-item v-if="!isSupport" class="item d-none d-md-block" to="/support" id="support">
+            <b-navbar-nav class="ml-auto d-block d-sm-flex align-items-center">
+                <!-- <b-nav-item v-if="!isSupport" class="item d-none d-md-block" to="/support" id="support">
                     <button class="btn p-2 btn-rounded btn-success text-light">
                         For Support Workers
-                    </button>
+                    </button> -->
                     <!-- For Support Workers -->
-                </b-nav-item>
+                <!-- </b-nav-item> -->
                 <b-nav-item href="#about-game-section" class="item">
                     Game
                 </b-nav-item>
@@ -85,6 +85,9 @@ export default {
 </script>
 
 <style scoped>
+    .navbar-main {
+        background: rgba(0, 0, 0, 0.5);
+    }
     .logo-container {
         display: flex;
         justify-content: center;
