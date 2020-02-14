@@ -6,7 +6,7 @@
             <div class="d-none d-md-flex col-md-1">
                 <div class="fancy-vertical-line"></div>
             </div>
-            <div class="col-11 d-flex flex-column">
+            <div class="col-12 col-md-11 px-0 px-md-1 d-flex flex-column">
                 <h3 class="text-3-title" id="game">
                     The Game
                 </h3>
