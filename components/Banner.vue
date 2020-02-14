@@ -50,6 +50,7 @@
                         type="submit"
                         class="ml-2" 
                         variant="success" 
+                        @input.enter="writeEmail"
                         @click="writeEmail"
                         :disabled="form.email === '' || !emailState || isWriting"
                       >
@@ -58,11 +59,7 @@
                     </div>
                   </div>
                   <div v-else class="quest-email-message">
-                    {{
-                      isSupport ? 
-                      "Thank you for your interest! We will keep in touch." :
-                      "Great Choice! You'll get your first quest in 48 hours."
-                    }}
+                    Great Choice! You'll get your first quest in 48 hours.
                   </div>
                 </b-card>
               </div>
@@ -87,31 +84,38 @@
                     </div>
                 </transition>
                 <b-card class="msg-container d-flex flex-column justify-content-center p-2">
-                  <p class="overlay-card-text">We'll Keep You Posted!</p>
-                  <b-form @submit="() => {}" @reset="() => {}">
-                    <b-form-group
-                      id="input-email-group"
-                      :state="emailState"
-                      :invalid-feedback="invalidFeedback"
-                    >
-                      <b-form-input
-                        id="input-email"
-                        v-model="form.email"
-                        type="email"
-                        required
-                        placeholder="Enter Your Email"
-                      ></b-form-input>
-                    </b-form-group>
-                  </b-form>
-                  <div class="modal-button-container w-100 d-flex justify-content-end">
-                    <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
-                    <b-button 
-                      class="ml-2" 
-                      variant="success" 
-                      :disabled="form.email === '' || !emailState || isWriting"
-                    >
+                  <div v-if="!isWriteSuccessful" class="quest-question">
+                    <p class="overlay-card-text">Enter your email to know more about the game.</p>
+                    <b-form>
+                      <b-form-group
+                        id="input-email-group"
+                        :state="emailState"
+                        :invalid-feedback="invalidFeedback"
+                      >
+                        <b-form-input
+                          id="input-email"
+                          v-model="form.email"
+                          type="email"
+                          required
+                          @input.enter="() => writeEmail(true)"
+                          placeholder="Enter Your Email"
+                        ></b-form-input>
+                      </b-form-group>
+                    </b-form>
+                    <div class="modal-button-container w-100 d-flex justify-content-end">
+                      <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
+                      <b-button 
+                        class="ml-2" 
+                        variant="success" 
+                        @click="() => writeEmail(true)"
+                        :disabled="form.email === '' || !emailState || isWriting"
+                      >
                         Submit
-                    </b-button>
+                      </b-button>
+                    </div>
+                  </div>
+                  <div v-else class="quest-email-message">
+                    Thank you for your interest! We will keep in touch.
                   </div>
                 </b-card>
               </div>
@@ -138,10 +142,10 @@
         >
           {{ isSupport ? 'LEARN MORE' : 'START YOUR QUEST'}}
         </button>
-        <!-- <button 
+        <button 
           class="w-50 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
-        >SUPPORT WORKERS</button> -->
+        >SUPPORT WORKERS</button>
       </div>
     </div>
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
@@ -223,14 +227,14 @@ export default {
       }
     },
     methods: {
-      async writeEmail() {
+      async writeEmail(isSupport=false) {
         const isSupportWorker = this.$route.path === '/support'
         const ref = fireDb.collection("users");
         this.isWriting = true;
         try {
           await ref.add({
             email: this.form.email,
-            isSupportWorker,
+            isSupport,
             mission: 0,
             love: 0, 
             fun: 0,
