@@ -292,7 +292,7 @@ export default {
 
 .desc {
   font-weight: 500;
-  font-size: 1.3vw;
+  font-size: 1vw;
   text-align: justify;
   color: #2e2e2e;
 }
