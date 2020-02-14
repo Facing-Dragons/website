@@ -148,7 +148,7 @@
     <div class="arrow-container d-flex justify-content-center align-items-center">
       <animating-arrow-down></animating-arrow-down>
     </div>
-    <transition name="fade-up">
+    <!-- <transition name="fade-up">
       <nuxt-link to="/support">
         <div v-if="isSupportShown && $route.path !== '/support'" class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
             <div class="support-text text-light h-100 w-100 p-2">
@@ -159,7 +159,7 @@
             </div>
         </div>
       </nuxt-link>
-    </transition>
+    </transition> -->
   </b-container>
 </template>
 
