@@ -69,7 +69,7 @@ export default {
 
 .title-text-fragment {
     font-weight: 200;
-    font-size: 4vmin;
+    font-size: 5vmin;
     letter-spacing: 0.5vmin;
     margin-top: -1vh;
 }
