@@ -5,16 +5,15 @@
     >
         <div 
             class="title-text d-flex flex-column"
-            :class="{'text-right': right}"
+            :class="{'text-right': right, 'ml-3': right, 'mr-3': !right}"
         >
-            <div 
+            <h2 
                 v-for="fragment in titleTextArray"
                 :key="fragment"
                 class="title-text-fragment"
-                :style="titleTextStyle"
             >
                 {{ fragment }}
-            </div>
+            </h2>
         </div> 
         <div class="title-line" :style="titleLineStyle"></div>
     </div>    
@@ -69,9 +68,9 @@ export default {
 
 .title-text-fragment {
     font-weight: 200;
-    font-size: 5vmin;
-    letter-spacing: 0.5vmin;
-    margin-top: -1vh;
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+    color: white;
 }
 
 .title-text-fragment:nth-child(2) {
