@@ -1,5 +1,5 @@
 <template>
-    <b-container id="team-section" fluid class="team-container-fluid">
+    <b-container id="team-section" class="team-container-fluid">
         <!-- <transition name="fade"> -->
           <div v-show="isOverlayShown">
             <div class="overlay">
@@ -30,7 +30,7 @@
             </div>
           </div>
         <!-- </transition> -->
-        <b-container 
+        <div 
             class="team-container"
         >
             <section-title 
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-        </b-container>
+        </div>
     </b-container>
 </template>
 
