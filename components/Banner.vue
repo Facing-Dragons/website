@@ -143,7 +143,7 @@
           @click="handleWorkerQuest"
         >I'M A SUPPORT WORKER</button>
       </div>
-    </div>
+    </div> 
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
     <div class="arrow-container d-flex justify-content-center align-items-center">
       <nuxt-link to="#about-game-section">
