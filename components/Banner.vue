@@ -136,12 +136,12 @@
           :class="{'nav-button': isButtonInNav}"
           @click="handleStartQuest"
         >
-          {{ isSupport ? 'LEARN MORE' : 'START YOUR QUEST'}}
+          START YOUR QUEST!
         </button>
         <button 
           class="w-100 w-md-75 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
-        >I'M A SUPPORT WORKER</button>
+        >Support Workers</button>
       </div>
     </div> 
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
