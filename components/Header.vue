@@ -104,12 +104,15 @@ export default {
     }
 
     .item {
-        font-size: 1.6vw;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        margin-right: 0.7rem;
+        margin-left: 0.7rem;
         color: white;
     }
 
     .item .btn {
-        font-size: 1.4vw;
+        font-size: 1.1rem;
         outline: none; 
         border: none;
     }
@@ -146,7 +149,7 @@ export default {
         }
 
         .navbar-item, .item {
-            font-size: calc(1rem + 0.5vw);
+            font-size: 1rem;
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
