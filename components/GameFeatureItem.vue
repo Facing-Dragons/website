@@ -5,10 +5,12 @@
             <b-img fluid class="icon-image"  :src="require(`~/assets/img/${icon}`)"></b-img>
         </div>
         <div class="feature-text d-flex flex-column">
-            <div class="feature-title" v-html="title">
-            </div>
+            <h3 class="feature-title" v-html="title">
+            </h3>
             <div class="feature-description mt-4">
-                {{ description }}
+                <p>
+                    {{ description }}
+                </p>
             </div>
         </div>
     </div>    
@@ -26,11 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 .icon {
-    width: 100%;
-    color: #aaaaaa;
+    max-width: 75%;
     transition: 0.2s all ease-in-out;
     padding-top: 10%;
-    padding-bottom: 10%;
 }
 
 .icon-image {
@@ -38,53 +38,28 @@ export default {
 }
 
 .feature-container {
-    transition: 0.2s all ease-in-out;
-    & div {
-        background: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
-        // color: white;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    &:hover {
-        & .icon {
-            color: #ebebeb;
-        }
-
-        & .feature-title {
-            background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    }
+    transition: 0.5s all ease-in-out;
 }
 
 
 .feature-title {
-    font-size: calc(1rem + 0.5vw);
+    font-size: 1.6rem;
     font-weight: 500;
-    background-image: linear-gradient(to right, white 0%, white 100%);
-    background-clip: text;
-    transition: .2s all ease-in-out;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+    color: #ebebeb;
 }
 
-.feature-text {
-    // height: 100%;
-    height: 25vh;
-    // justify-content: space-evenly;
+.feature-description p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #ebebeb;
 }
 
-.feature-description {
-    font-size: calc(0.5rem + 0.2vw);
-    letter-spacing: 0.1vw;
+@media screen and (max-width: 768px) {
+    .feature-title {
+        font-size: 2.4rem;
+    }
+    .feature-description p {
+        font-size: 1.9rem;
+    }
 }
 </style>

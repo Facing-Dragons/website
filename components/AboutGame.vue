@@ -22,7 +22,7 @@
                     <div 
                         v-for="feature in gameFeatures"
                         :key="feature.name"
-                        class="col-6 col-md-3"
+                        class="col-12 col-sm-6 col-lg-3"
                     >
                         <game-feature-item
                             :icon="feature.icon"
