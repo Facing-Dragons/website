@@ -46,6 +46,7 @@ export default {
     font-size: 1.6rem;
     font-weight: 500;
     color: #ebebeb;
+    user-select: none;
 }
 
 .feature-description p {
