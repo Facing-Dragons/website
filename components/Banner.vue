@@ -41,7 +41,6 @@
                       </b-form-group>
                     </b-form> 
                     <div class="modal-button-container w-100 d-flex justify-content-end">
-                      <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
                       <b-button 
                         type="submit"
                         class="ml-2" 
@@ -99,7 +98,6 @@
                       </b-form-group>
                     </b-form>
                     <div class="modal-button-container w-100 d-flex justify-content-end">
-                      <!-- <b-button variant="danger" @click="handleOverlayClick">No Thanks!</b-button> -->
                       <b-button 
                         class="ml-2" 
                         variant="success" 
@@ -123,9 +121,6 @@
         <banner-text-section></banner-text-section>
         <banner-text-unlock class="my-4"></banner-text-unlock>
       </div>
-      <!-- <div class="logo-container">
-        <img src="~/assets/img/logo_white.png" class="title-logo">
-      </div> -->
       <p class="small-text mt-0 pt-0 mt-md-4 pt-md-4">
         Facing Dragons is the first mixed-reality
         Mental health and career support game. 
@@ -144,7 +139,6 @@
         >SUPPORT WORKERS</button>
       </div>
     </div> 
-    <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
     <div class="arrow-container d-flex justify-content-center align-items-center">
       <nuxt-link to="#about-game-section">
         <div v-if="isSupportShown" class="arrow-box">
@@ -152,18 +146,6 @@
         </div>
       </nuxt-link>
     </div>
-    <!-- <transition name="fade-up">
-      <nuxt-link to="/support">
-        <div v-if="isSupportShown && $route.path !== '/support'" class="mobile-support bg-success text-center d-flex d-md-none justify-content-center align-items-center">
-            <div class="support-text text-light h-100 w-100 p-2">
-              <span>
-                For Support Workers
-              </span>
-              <font-awesome-icon class="support-icon mx-2" icon="hand-pointer"/>
-            </div>
-        </div>
-      </nuxt-link>
-    </transition> -->
   </b-container>
 </template>
 
@@ -300,7 +282,7 @@ export default {
 .button-container {
   opacity: 0;
   max-width: 40vw;
-  animation: fade-and-up 1.5s forwards ease-in-out 7.5s;
+  animation: fade-and-up 1.5s forwards ease-in-out 4.5s;
   z-index: 4;
 }
 
@@ -557,7 +539,7 @@ export default {
   letter-spacing: 0.2vw;
   text-align: justify;
   max-width: 40vw;
-  animation: fade-and-up 1.5s forwards ease-in-out 6s;
+  animation: fade-and-up 1.5s forwards ease-in-out 3s;
 }
 
 @keyframes fade-and-up {

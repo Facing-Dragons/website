@@ -44,13 +44,13 @@
 }
 
 #main-text-svg {
-  animation: fillout 2s ease forwards 4s;
+  animation: fillout 2s ease forwards 2s;
   width: 100%;
   height: 100%;
 }
 
 #main-text-svg g {
-  animation: filloutdragon 2s ease forwards 4s;
+  animation: filloutdragon 2s ease forwards 2s;
 }
 
 @keyframes fillout {

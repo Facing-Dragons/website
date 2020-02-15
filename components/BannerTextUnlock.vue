@@ -89,7 +89,7 @@
 }
 
 #unlock-text-svg {
-  animation: fillout 2s ease forwards 7s;
+  animation: fillout 2s ease forwards 3s;
   width: 100%;
   height: 100%;
 }
@@ -107,7 +107,7 @@ path {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
   animation: dash 10s ease forwards;
-  animation-delay: 5s;
+  animation-delay: 2s;
 }
 
 @keyframes dash {
