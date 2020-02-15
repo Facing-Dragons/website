@@ -141,7 +141,7 @@
         <button 
           class="w-100 w-md-75 py-2 custom-buttons worker-button rounded"
           @click="handleWorkerQuest"
-        >Support Workers</button>
+        >SUPPORT WORKERS</button>
       </div>
     </div> 
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
@@ -573,18 +573,12 @@ export default {
 
 .custom-buttons {
   transition: 0.3s all ease-in-out;
-  font-size: calc(0.5rem + 1vw);
+  font-size: 1.5rem;
   font-weight: 700;
   background: #f9b038;
   color: #303030;
   border: none;
   outline: none;
-}
-
-.custom-buttons.nav-button {
-  /* position: fixed;
-  top: 2vh;
-  right: 45vw; */
 }
 
 .custom-buttons:hover {
@@ -599,10 +593,6 @@ export default {
 .worker-button {
   background: #fae667;
 }
-
-/* svg {
-  width: 100%;
-} */
 
 text {
   fill: #00c9ff;
@@ -639,9 +629,9 @@ text {
     top: 20vh;
   }
 
-  .custom-buttons {
-    font-size: max(1.5vh, 1.2vw);
-  }
+  /* .custom-buttons {
+    font-size: 1.5rem;
+  } */
 
   .main-title {
     /* margin-top: -3.7vw; */

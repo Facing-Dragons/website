@@ -76,7 +76,8 @@ export default {
 
 html {
   font-family: 'Montserrat' ,sans-serif;
-  font-size: 16px;
+  /* This means for sizes under 576px the body font size will be 10px */
+  font-size: 10px; 
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
