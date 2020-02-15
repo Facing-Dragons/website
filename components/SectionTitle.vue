@@ -67,7 +67,8 @@ export default {
 }
 
 .title-text-fragment {
-    font-weight: 200;
+    font-weight: 300;
+    text-transform: uppercase;
     font-size: 3rem;
     letter-spacing: 0.3rem;
     color: white;
