@@ -35,7 +35,7 @@
         >
             <section-title 
                 class="pt-5"
-                title-text="Meet The Team"
+                title-text="Team"
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
             ></section-title>
