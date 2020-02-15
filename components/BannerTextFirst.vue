@@ -80,8 +80,8 @@
 path {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
-  animation: dash 10s ease forwards;
-  animation-delay: 2s;
+  animation: dash 8s ease forwards;
+  animation-delay: 1s;
 }
 
 @keyframes dash {
