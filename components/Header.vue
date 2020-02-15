@@ -41,7 +41,7 @@
                     Posts
                 </b-nav-item>
                 <b-nav-item class="item" href="#contact">
-                    Contact Us
+                    Contact
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
@@ -131,25 +131,20 @@ export default {
     }
     .title {
         font-weight: 500;
-        font-size: calc(0.8rem + 1vw);
+        font-size: 1.8rem;
         color: #f77f00;
-    }
-
-    @media screen and (max-width: 360px) {
-        .title {
-            font-size: calc(0.5rem + 1vw);
-        }
     }
 
     @media screen and (max-width: 575px) {
         .navbar-nav {
             background: #000;
+            width: 100%;
             text-align: center;
             border-radius: 5px; 
         }
 
         .navbar-item, .item {
-            font-size: 1rem;
+            font-size: 1.6rem;
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
