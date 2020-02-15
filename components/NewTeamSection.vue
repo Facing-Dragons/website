@@ -147,6 +147,36 @@ export default {
                 ]
             },
             { 
+                name: "Celia 'Cil' Cheung",
+                role: "Lead Artist",
+                description: `Cil is the art monkey of the team! She brings to the table years of experience 
+                with gaming startups and an animation industry background, and is keen on advocating for mental 
+                health wellness among gamers and game-makers alike.
+                Favourite Dragon: Amora, the Love Dragon
+                Unique Facts: Owns a small car and a large cat, was once a martial arts 
+                lion dancer, and is just starting to learn archery!`,
+                image: "cil.jpg",
+                icon: "cil.png",
+                backgroundImage: "cil_pattern.png",
+                socialMedia: [
+                    {
+                        name: "Facebook",
+                        link: "",
+                        icon: "fab facebook"
+                    },
+                    {
+                        name: "Twiiter",
+                        link: "",
+                        icon: "fab twitter"
+                    },
+                    {
+                        name: "Instagram",
+                        link: "",
+                        icon: "fab instagram"
+                    }
+                ]
+            },
+            { 
                 name: `Osama "Dorgam" Alsalman`,
                 role: "Lead Game Developer",
                 description: `If Osama isn't spending his time making games, he is probably playing them! 
@@ -184,36 +214,6 @@ export default {
                 image: "moh.jpg",
                 icon: "moh.png",
                 backgroundImage: "programmer2_pattern.jpg",
-                socialMedia: [
-                    {
-                        name: "Facebook",
-                        link: "",
-                        icon: "fab facebook"
-                    },
-                    {
-                        name: "Twiiter",
-                        link: "",
-                        icon: "fab twitter"
-                    },
-                    {
-                        name: "Instagram",
-                        link: "",
-                        icon: "fab instagram"
-                    }
-                ]
-            },
-            { 
-                name: "Celia 'Cil' Cheung",
-                role: "Lead Artist",
-                description: `Cil is the art monkey of the team! She brings to the table years of experience 
-                with gaming startups and an animation industry background, and is keen on advocating for mental 
-                health wellness among gamers and game-makers alike.
-                Favourite Dragon: Amora, the Love Dragon
-                Unique Facts: Owns a small car and a large cat, was once a martial arts 
-                lion dancer, and is just starting to learn archery!`,
-                image: "cil.jpg",
-                icon: "cil.png",
-                backgroundImage: "cil_pattern.png",
                 socialMedia: [
                     {
                         name: "Facebook",
