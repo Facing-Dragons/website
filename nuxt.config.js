@@ -3,7 +3,11 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/'
   }
-} : {}
+}: process.env.DEPLOY_ENV === 'STAGING' ? {
+    router: {
+      base: '/facingdragons'
+    }
+  } : {}
 
 export default {
   ...routerBase,
