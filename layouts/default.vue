@@ -86,6 +86,30 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (min-width: 576px) { 
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 768px) { 
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) { 
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) { 
+  html {
+    font-size: 16px;
+  }
+}
+
 body {
   background-color: black;
 }
