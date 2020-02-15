@@ -8,6 +8,9 @@
             </div>
             <div class="col-12 justify-content-center">
                 <p class="quest-text">
+                    {{ question }}
+                </p>
+                <p class="desc">
                     {{ text }}
                 </p>
             </div>
@@ -22,7 +25,7 @@
                     :dotSize="18"
                     height="20px"
                     :processStyle="computedStyle"
-                    :data="[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+                    :data="['0 - Low', 1, 2, 3, 4, 5, 6, 7, 8, 9, '10 - High']"
                 ></vue-slider>
             </div>
         </div>
@@ -39,6 +42,7 @@ export default {
     },
     props: {
         text: String,
+        question: String,
         value: Number,
         color: String,
         title: String,
@@ -52,7 +56,7 @@ export default {
         computedStyle() {
             return {
                 backgroundColor: this.color,
-                opacity: this.value/10,
+                opacity: 1,
                 transition: '0.5s all ease-in-out'
             }
         }

@@ -104,7 +104,10 @@ export default {
     const gameQuestions = [
       {
         title: 'Mind',
-        text: 'How fulfilled are you in your mental and emotional health?',
+        question: 'How fulfilled are you in your mental and emotional health? ',
+        text: `Low: High stress, low resilience, unhealthy beliefs and focus, depressed, anxious, low self-esteem, 
+              low confidence. High: Low stress, high resilience, healthy beliefs and focus, clear-minded, at peace, 
+              confident, centered, grounded.`,
         value: 0,
         color: "#0059b9"
       },
@@ -176,6 +179,7 @@ export default {
         color: this.gameQuestions[this.currentStepIndex].color,
         value: this.gameQuestions[this.currentStepIndex].value,
         title: this.gameQuestions[this.currentStepIndex].title,
+        question: this.gameQuestions[this.currentStepIndex].question || '',
       }
     }
   }

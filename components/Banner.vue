@@ -146,7 +146,11 @@
     </div>
     <!-- <img src="~/assets/img/dragon_mountain_02.png" class="dragon-image"> -->
     <div class="arrow-container d-flex justify-content-center align-items-center">
-      <animating-arrow-down></animating-arrow-down>
+      <nuxt-link to="#about-game-section">
+        <div v-if="isSupportShown" class="arrow-box">
+          <animating-arrow-down></animating-arrow-down>
+        </div>
+      </nuxt-link>
     </div>
     <!-- <transition name="fade-up">
       <nuxt-link to="/support">
@@ -433,9 +437,18 @@ export default {
 }
 
 .arrow-container {
+  width: 100%;
+  right: 0;
+  left: 0;
   height: 8vmin;
-  width: 8vmin;
-  left: 45vw;
+  z-index: 10;
+  position: absolute;
+  top: 93vh;
+}
+
+.arrow-box {
+  height: 4vmin;
+  width: 4vmin;
 }
 
 .secondary {
