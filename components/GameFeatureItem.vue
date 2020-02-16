@@ -60,7 +60,7 @@ export default {
         font-size: 2.4rem;
     }
     .feature-description p {
-        font-size: 1.9rem;
+        font-size: 1.6rem;
     }
 }
 </style>

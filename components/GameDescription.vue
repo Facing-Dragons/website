@@ -3,10 +3,10 @@
         class="game-description-container"
     >
         <div class="row mt-5 d-flex justify-content-around">
-            <div class="col-12 col-md-7 d-flex flex-column">
+            <div class="col-12 col-lg-7 d-flex flex-column">
                 <b-img fluid thumbnail rounded src="~/assets/img/support_hub.png"></b-img>
             </div>
-            <div class="col-12 col-md-5 d-flex flex-column mt-4 mt-md-0">
+            <div class="col-12 col-lg-5 d-flex flex-column mt-4 mt-lg-0">
                 <h3 class="text-3-title" id="support">
                     Optional Counselling Support
                 </h3>
@@ -70,14 +70,9 @@ export default {
 
 <style scoped>
 .text-3 {
-    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0.1vw;
-    font-size: calc(0.6rem + 0.3vw);
-    font-weight: 500;
-    text-align: justify;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ebebeb;
 }
 
 .text-3-title {
@@ -85,6 +80,7 @@ export default {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 2rem;
 }
 
 #support {
@@ -98,5 +94,14 @@ export default {
     height: 100%;
     width: 2px;
     background: linear-gradient(to bottom, black 0%, #92fe9d 25%, #00c9ff 75%, black 100%);
+}
+
+@media screen and (max-width: 768px) {
+    .text-3-title {
+        font-size: 2.4rem;
+    }
+    .text-3 {
+        font-size: 1.6rem;
+    }
 }
 </style>

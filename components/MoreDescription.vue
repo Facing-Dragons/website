@@ -70,17 +70,13 @@ export default {
 
 <style scoped>
 .text-3 {
-    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0.1vw;
-    font-size: calc(0.6rem + 0.3vw);
-    font-weight: 500;
-    text-align: justify;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ebebeb;
 }
 
 .text-3-title {
+    font-size: 2rem;
     background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -99,5 +95,14 @@ export default {
     height: 100%;
     width: 2px;
     background: linear-gradient(to bottom, black 0%, #92fe9d 25%, #00c9ff 75%, black 100%);
+}
+
+@media screen and (max-width: 768px) {
+    .text-3-title {
+        font-size: 2.4rem;
+    }
+    .text-3 {
+        font-size: 1.6rem;
+    }
 }
 </style>

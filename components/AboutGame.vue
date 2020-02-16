@@ -31,11 +31,11 @@
                         ></game-feature-item>
                     </div>
                 </div>
-                <div class="game-description">
-                    <more-description></more-description>
-                </div>
             </div>
             <game-description></game-description>
+            <div class="game-description container">
+                <more-description></more-description>
+            </div>
         </div>
     </div>
 </template>
