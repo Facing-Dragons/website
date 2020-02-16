@@ -1,13 +1,37 @@
 <template>
   <b-container fluid class="main-container">
     <div class="background-container">
-      <img 
-        src="~/assets/img/dragon/mountainCombo.webp"
-        :srcset="`${require(`~/assets/img/dragon/mountainCombo@0,25x.webp`)} 480w,
+      <picture v-if="!$device.isIos">
+        <source
+          :srcset="`${require(`~/assets/img/dragon/mountainCombo@0,25x.webp`)} 480w,
                 ${require(`~/assets/img/dragon/mountainCombo@0,5x.webp`)} 960w,
                 ${require(`~/assets/img/dragon/mountainCombo@0,75x.webp`)} 1440w,
                 ${require(`~/assets/img/dragon/mountainCombo.webp`)} 1920w`" 
-        sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
+          sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
+          class="mountain"
+        >
+        <source 
+          type="image/png"
+          :srcset="`${require(`~/assets/img/dragon/mountainCombo@0,25x.png`)} 480w,
+                  ${require(`~/assets/img/dragon/mountainCombo@0,5x.png`)} 960w,
+                  ${require(`~/assets/img/dragon/mountainCombo@0,75x.png`)} 1440w,
+                  ${require(`~/assets/img/dragon/mountainCombo.png`)} 1920w`" 
+          sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
+          class="mountain"
+        >
+        <img 
+          src="~/assets/img/dragon/mountainCombo.png"
+          :srcset="`${require(`~/assets/img/dragon/mountainCombo@0,25x.png`)} 480w,
+                  ${require(`~/assets/img/dragon/mountainCombo@0,5x.png`)} 960w,
+                  ${require(`~/assets/img/dragon/mountainCombo@0,75x.png`)} 1440w,
+                  ${require(`~/assets/img/dragon/mountainCombo.png`)} 1920w`" 
+          sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
+          class="mountain"
+        >
+      </picture>
+      <img 
+        v-else
+        src="~/assets/img/dragon/mountainCombo@0,5x.png" 
         class="mountain"
       >
     </div>
@@ -109,17 +133,17 @@ export default {
 
 @media screen and (max-width: 360px){
   .background-container {
-    background: url('~assets/img/background/blackendedbackground@0,25x.webp');
+    background: url('~assets/img/background/blackendedbackground@0,25x.webp'), url('~assets/img/background/blackendedbackground@0,25x.png') ;
   }
 }
 @media screen and (max-width: 480px){
   .background-container {
-    background: url('~assets/img/background/blackendedbackground@0,5x.webp');
+    background: url('~assets/img/background/blackendedbackground@0,5x.webp'), url('~assets/img/background/blackendedbackground@0,5x.png') ;
   }
 }
 @media screen and (max-width: 640px){
   .background-container {
-    background: url('~assets/img/background/blackendedbackground@0,75x.webp');
+    background: url('~assets/img/background/blackendedbackground@0,75x.webp'), url('~assets/img/background/blackendedbackground@0,75x.png') ;
   }
 }
 // @media screen and (max-width: 960px){
@@ -135,7 +159,7 @@ export default {
   right: 0;
   left: 0;
   height: 220vh;
-  background: url('~assets/img/background/blackendedbackground.webp');
+  background: url('~assets/img/background/blackendedbackground.webp'), url('~assets/img/background/blackendedbackground.png');
   background-size: cover;
   overflow: hidden;
   background-position-y: -15vh;
