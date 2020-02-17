@@ -18,7 +18,7 @@
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
             ></section-title>
-            <div class="col-12 justify-content-between align-items-center game-features-section">
+            <div class="col-12 justify-content-between align-items-center game-features-section" v-b-visible="featuresVisibleHandler">
                 <div class="row">
                     <div 
                         v-for="feature in gameFeatures"
@@ -26,6 +26,7 @@
                         class="col-12 col-sm-6 col-lg-3"
                     >
                         <game-feature-item
+                            class="game-feature-item"
                             :icon="feature.icon"
                             :title="feature.title"
                             :description="feature.desc"
@@ -33,8 +34,8 @@
                     </div>
                 </div>
             </div>
-            <game-description></game-description>
-            <div class="game-description container">
+            <game-description id="game-description-parent" v-b-visible="supportVisibleHandler"></game-description>
+            <div class="game-description container" v-b-visible="gameVisibleHandler">
                 <more-description></more-description>
             </div>
         </div>
@@ -47,7 +48,7 @@ import SectionTitle from '~/components/SectionTitle'
 import ChevronDown from '~/components/ChevronDown'
 import GameDescription from '~/components/GameDescription'
 import MoreDescription from '~/components/MoreDescription'
-
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
     components: {
@@ -86,11 +87,57 @@ export default {
         ];
         return {
             gameFeatures,
+            featureAnimation: '',
+            supportAnimation: '',
+            gameAnimation: ''
         }
+    },
+    mounted() {
+        var featureAnimation = anime({
+            targets: '.game-feature-item',
+            translateY: ['10vh', 0],
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            autoplay: false,
+            duration: 400,
+            delay: anime.stagger(400)
+        });
+        this.featureAnimation = featureAnimation;
+        var supportAnimation = anime({
+            targets: '#game-description-parent',
+            translateY: ['10vh', 0],
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            autoplay: false,
+            duration: 600,
+        });
+        this.supportAnimation = supportAnimation;
+        var gameAnimation = anime({
+            targets: '.game-description-container',
+            translateY: ['10vh', 0],
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            autoplay: false,
+            duration: 600,
+            delay: 600,
+        });
+        this.gameAnimation = gameAnimation;
     },
     methods: {
         visibleHandler(isVisible) {
             this.$emit('videoVisible', isVisible);
+        },
+        featuresVisibleHandler(isVisible) {
+            if(isVisible && !this.featureAnimation.completed)
+                this.featureAnimation.play();
+        },
+        supportVisibleHandler(isVisible) {
+            if(isVisible && !this.supportVisibleHandler.completed)
+                this.supportVisibleHandler.play();
+        },
+        gameVisibleHandler(isVisible) {
+            if(isVisible && !this.gameAnimation.completed)
+                this.gameAnimation.play();
         }
     }
 }
@@ -98,6 +145,12 @@ export default {
 
 <style lang="scss" scoped>
 $more-color: gray;
+
+.game-feature-item, #game-description-parent, .game-description-container {
+    opacity: 0;
+}
+
+.game-
 
 .about-main-container {
     margin-top: 20rem;
