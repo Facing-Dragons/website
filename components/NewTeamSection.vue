@@ -21,6 +21,7 @@
                       :src="require(`~/assets/img/team/icon/${currentMember.icon}`)"
                       class="card-image rounded-0 p-5">
                     </b-card-img>
+                    <div class="image-overlay h-100 w-100"></div>
                   </div>
                   <b-card-body class="d-flex flex-column justify-content-around">
                     <div class="card-titles my-5 my-md-0 d-flex flex-column">
@@ -31,8 +32,7 @@
                         {{currentMember.role}}
                       </h4>
                     </div>
-                    <b-card-text class="desc mt-4">
-                      {{ currentMember.description }}
+                    <b-card-text class="desc mt-4" v-html="currentMember.description">
                     </b-card-text>
                   </b-card-body>
                 </b-card>
@@ -63,7 +63,6 @@
                     :src="require(`~/assets/img/team/${member.image}`)"
                   >
                   </b-img>
-                  <div class="image-overlay p-absolute h-100 w-100"></div>
                   <div class="member-texts mt-4">
                     <h3 class="name mb-1">
                       {{ member.name }}
@@ -92,10 +91,10 @@ export default {
                 name: "Brodie Whitney",
                 role: "CEO",
                 shortText: "What if we could make a game that engaged people in their life as much as these video games",
-                description: `on a mission to co-create a mixed-reality, self-care game that helps people 
-                unlock their purpose and empowers the next generation of leaders.
-                Favourite Video Game: Deja Vu
-                Fun Fact: Lived in a tipi in the woods.`,
+                description: `On a mission to co-create a mixed-reality, self-care game that helps people 
+                unlock their purpose and empowers the next generation of leaders.<br>
+                <strong>Favourite Video Game</strong>: Deja Vu <br>
+                <strong>Fun Fact</strong>: Lived in a tipi in the woods.`,
                 image: "brodie.jpg",
                 icon: "brodie.png",
                 backgroundImage: "manager_pattern.jpg",
@@ -123,15 +122,15 @@ export default {
                 description: `Dov is PhD candidate in Educational Technology at Simon Fraser University 
                   in British Columba. He is studying peoples’ intrinsic motivation to play video games and 
                   how to create mixed reality games that support positive personal growth. Dov is a lifelong 
-                  game enthusiast with a deep knowledge of design and mechanics.
+                  game enthusiast with a deep knowledge of design and mechanics.<br>
 
-                  Favorite Game: EverQuest Classic; WoW up until WOTLK; I used to be in the top guild in the 
+                  <Strong>Favorite Game</Strong>: EverQuest Classic; WoW up until WOTLK; I used to be in the top guild in the 
                   world in both EQ and WOW (nerd alert) Also I love boardgames like Star Realms, Dune, 
-                  Mageknight…
-                  Favorite Dragon: They are like babies to me… don’t make me choose just one. Ok fine, 
-                  Helios – I like that he can see the future.
-                  Fun Facts:  Dov means Bear in hebrew. I have a culinary degree, and I have lost 
-                  over 120lbs since I was 20 years old.
+                  Mageknight… <br>
+                  <Strong>Favorite Dragon</strong>: They are like babies to me… don’t make me choose just one. Ok fine, 
+                  Helios – I like that he can see the future. <br>
+                  <strong>Fun Facts</strong>:  Dov means Bear in hebrew. I have a culinary degree, and I have lost 
+                  over 120lbs since I was 20 years old. <br>
                   Oh I also have a 3 year old boy, and a baby girl scheduled 
                   to start public beta in August`,
                 image: "dov.png",
@@ -160,9 +159,9 @@ export default {
                 role: "Lead Artist",
                 description: `Cil is the art monkey of the team! She brings to the table years of experience 
                 with gaming startups and an animation industry background, and is keen on advocating for mental 
-                health wellness among gamers and game-makers alike.
-                Favourite Dragon: Amora, the Love Dragon
-                Unique Facts: Owns a small car and a large cat, was once a martial arts 
+                health wellness among gamers and game-makers alike. <br>
+                <Strong>Favourite Dragon</strong>: Amora, the Love Dragon. <br>
+                <Strong>Unique Facts</Strong>: Owns a small car and a large cat, was once a martial arts 
                 lion dancer, and is just starting to learn archery!`,
                 image: "cil.jpg",
                 icon: "cil.png",
@@ -190,11 +189,11 @@ export default {
                 role: "Lead Game Developer",
                 description: `If Osama isn't spending his time making games, he is probably playing them! 
                 His toolbelt include skills in game programming, game design and narrative. He is a strong 
-                believer in games as an art form and aims to deliver meaningful experiences through them.
-                Unique Facts: Osama's games won many awards including the 2017 Excellence in Design award 
-                in the International Mobile Game Awards - MENA
-                Favorite Game: Dishonored
-                Favorite Dragon: Enthuz - The Play Dragon`,
+                believer in games as an art form and aims to deliver meaningful experiences through them. <br>
+                <Strong>Favorite Game</strong>: Dishonored <br>
+                <strong>Favorite Dragon</strong>: Enthuz - The Play Dragon <br>
+                <strong>Unique Facts</strong>: Osama's games won many awards including the 2017 Excellence in Design award 
+                in the International Mobile Game Awards - MENA`,
                 image: "osama.jpg",
                 icon: "osama.png",
                 backgroundImage: "gamer2_pattern.jpg",
@@ -247,9 +246,9 @@ export default {
                 description: `Alyssa is a Media Wizard by day and avid Minecrafter by night. 
                   She joined the team as a way to face her own dragons and experience fulfillment 
                   in her career. Alyssa is passionate about mental health efforts and is looking 
-                  forward to making a difference in the world - especially for fellow gamers!
-                  Favourite Dragon: Currently Mentano, the Mind Dragon
-                  Unique Facts: Alyssa has two rescue dogs, an unhealthy obsession with spreadsheets, 
+                  forward to making a difference in the world - especially for fellow gamers! <br>
+                  <strong>Favourite Dragon</strong>: Currently Mentano, the Mind Dragon
+                  <strong>Unique Facts</strong>: Alyssa has two rescue dogs, an unhealthy obsession with spreadsheets, 
                   and drinks too much coffee.`,
                 image: "alyssa.jpg",
                 icon: "alyssa.png",
@@ -340,11 +339,15 @@ export default {
 
 .desc {
   z-index: 10;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.1rem;
   color: white;
   max-height: 37vh;
   overflow: auto;
+
+  strong {
+    font-weight: 500;
+  }
 
   @media screen and (max-width: 1440px) {
     font-size: 1.4rem;
@@ -456,6 +459,7 @@ export default {
 
 .image-overlay {
   background: rgba(10,10,10,0.6);
+  position: absolute;
 }
 
 .team-container-fluid {
