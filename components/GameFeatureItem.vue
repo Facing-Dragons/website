@@ -1,10 +1,10 @@
 <template>
-    <div class="feature-container d-flex flex-column text-center align-items-center justify-content-around h-100 mb-5">
+    <div class="feature-container d-flex flex-column text-center align-items-center h-100 mb-5">
         <div class="icon">
             <!-- <font-awesome-icon :icon="icon"/> -->
             <b-img fluid class="icon-image"  :src="require(`~/assets/img/${icon}`)"></b-img>
         </div>
-        <div class="feature-text d-flex flex-column">
+        <div class="feature-text mt-4 d-flex flex-column">
             <h3 class="feature-title" v-html="title">
             </h3>
             <div class="feature-description mt-4">
@@ -39,6 +39,7 @@ export default {
 
 .feature-container {
     transition: 0.5s all ease-in-out;
+    min-height: 40vh;
 }
 
 
