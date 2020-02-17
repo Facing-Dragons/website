@@ -8,12 +8,9 @@
                 <slot></slot>
             </div>
             <div class="col-12 justify-content-center">
-                <p v-if="question" class="quest-text">
-                    {{ question }}
-                </p>
-                <!-- <p class="quest-text">
+                <p class="quest-text">
                     {{ text }}
-                </p> -->
+                </p>
             </div>
             <div class="col-12 justify-content-center align-items-center control-col">
                 <vue-slider
@@ -92,7 +89,7 @@ export default {
 }
 
 .quest-text {
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: 300;
     text-align: center;
     letter-spacing: 0.1vw;

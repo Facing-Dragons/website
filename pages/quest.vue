@@ -123,10 +123,7 @@ export default {
       {
         title: 'Mind',
         titleComponent: 'MindText',
-        question: 'How fulfilled are you in your mental and emotional health? ',
-        text: `Low: High stress, low resilience, unhealthy beliefs and focus, depressed, anxious, low self-esteem, 
-              low confidence. High: Low stress, high resilience, healthy beliefs and focus, clear-minded, at peace, 
-              confident, centered, grounded.`,
+        text: `How fulfilled are you in your mental and emotional health?`,
         value: 0,
         color: "#0059b9"
       },
