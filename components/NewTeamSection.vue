@@ -7,26 +7,36 @@
                 @click.stop="() => {isOverlayShown = false}" 
                 class="overlay-background">
               </div>
-              <b-card
-                no-body
-                class="mb-2 overlay-foreground d-flex text-center text-md-left"
-              >
-                <b-row no-gutters>
-                  <b-col md="6" class="d-flex justify-content-center align-items-center">
+              <transition :name="$device.isMobile ? 'pop-up' : ''">
+                <b-card
+                  v-show="isOverlayShown"
+                  no-body
+                  class="overlay-foreground d-flex text-center text-md-left"
+                >
+                  <div v-if="$device.isMobile" class="d-flex d-md-none close-button" @click="() => {isOverlayShown = false}">
+                    <font-awesome-icon icon="chevron-down"/>
+                  </div>
+                  <div class="d-flex justify-content-center align-items-center card-background">
                     <b-card-img 
                       :src="require(`~/assets/img/team/icon/${currentMember.icon}`)"
                       class="card-image rounded-0 p-5">
                     </b-card-img>
-                  </b-col>
-                  <b-col md="6">
-                    <b-card-body :title="currentMember.name" :sub-title="currentMember.role">
-                      <b-card-text class="desc mt-4">
-                        {{ currentMember.description }}
-                      </b-card-text>
-                    </b-card-body>
-                  </b-col>
-                </b-row>
-              </b-card>
+                  </div>
+                  <b-card-body class="d-flex flex-column justify-content-around">
+                    <div class="card-titles my-5 my-md-0 d-flex flex-column">
+                      <h3 class="card-title">
+                        {{currentMember.name}}
+                      </h3>
+                      <h4 class="card-subtitle">
+                        {{currentMember.role}}
+                      </h4>
+                    </div>
+                    <b-card-text class="desc mt-4">
+                      {{ currentMember.description }}
+                    </b-card-text>
+                  </b-card-body>
+                </b-card>
+              </transition>
             </div>
           </div>
         <!-- </transition> -->
@@ -53,6 +63,7 @@
                     :src="require(`~/assets/img/team/${member.image}`)"
                   >
                   </b-img>
+                  <div class="image-overlay p-absolute h-100 w-100"></div>
                   <div class="member-texts mt-4">
                     <h3 class="name mb-1">
                       {{ member.name }}
@@ -279,7 +290,18 @@ export default {
 
 
 <style lang="scss" scoped>
+.card-titles {
+  z-index: 10;
+}
 
+.card-title {
+  color: white;
+  font-size: 2.4rem;
+}
+
+.card-subtitle {
+  color: #c5c5c5 !important;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -290,11 +312,56 @@ export default {
   opacity: 0;
 }
 
+.pop-up-enter-active, .pop-up-leave-active {
+  transition: all .5s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pop-up-enter, .pop-up-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(70%);
+}
+
+.close-button {
+  height: 4rem;
+  width: 100%;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #cecece;
+  position: absolute;
+  top: 0;
+  z-index: 12;
+}
+
 .desc {
+  z-index: 10;
   font-weight: 500;
-  font-size: 1vw;
-  text-align: justify;
-  color: #2e2e2e;
+  font-size: 1.1rem;
+  color: white;
+  max-height: 37vh;
+  overflow: auto;
+
+  @media screen and (max-width: 1440px) {
+    font-size: 1.4rem;
+    max-height: 37vh;
+  }
+  @media screen and (max-width: 992px) {
+    font-size: 1.4rem;
+    max-height: 47vh;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 1.4rem;
+    max-height: 47vh;
+  }
+  @media screen and (max-width: 576px) {
+    font-size: 1.6rem;
+    max-height: 90vh;
+  }
 }
 
 .overlay {
@@ -310,6 +377,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 992px) {
+    align-items: flex-end;
+  }
   /* transition: 0.3s all ease-in-out; */
 }
 
@@ -345,23 +416,47 @@ export default {
   background: #ebebeb;
    transition: 0.5s all ease-in-out;
   transition-delay: 1s;
-  max-width: 60vw;
+  width: 100vw;
+  height: 80vh;
+  background: #121212;
+  border: solid 1px #f77f00;
+
+  @media screen and (min-width: 768px) {
+    max-width: 50vw;
+    width: auto;
+    height: 60vh;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 30vw;
+    width: auto;
+    height: 50vh;
+  }
 }
 
-@media screen and (max-width: 760px) {
-  .overlay-foreground {
-    max-width: 85vw;
-  }
+.card-image {
+  max-width: 60%;
+  filter: blur(3px);
 
-  .desc {
-    font-size: 2.8vw;
+  @media screen and (min-width: 576px) {
+    max-width: 60%;
   }
-
-  .card-img {
-    width: 80%;
+  @media screen and (min-width: 1200px) {
+    max-width: 70%;
   }
 }
 
+.card-background {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.image-overlay {
+  background: rgba(10,10,10,0.6);
+}
 
 .team-container-fluid {
     position: relative;
