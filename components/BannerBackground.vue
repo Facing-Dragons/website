@@ -110,6 +110,48 @@
   </div>
 </template>
 
+<script>
+import anime from 'animejs/lib/anime.es.js';
+export default {
+  data() {
+    return {
+      scrollAnimation: ""
+    }
+  },
+  created() {
+    if (process.browser) {
+      window.addEventListener('scroll', this.onScrollHandler)
+    }
+  },
+  methods: {
+    onScrollHandler() {
+      if(this.scrollAnimation) {
+        this.scrollAnimation.seek(this.scrollAnimation.duration * (window.scrollY / window.innerHeight));
+      }
+    }
+  },
+  mounted() {
+    var animation = anime({
+      targets: '.foreground',
+      translateY: '-10vh',
+      opacity: [0, 1],
+      easing: 'easeInOutSine',
+      autoplay: true,
+      delay: anime.stagger(200, {start: 800})
+    });
+    this.animation = animation;
+    var scrollAnimation = anime({
+      targets: '.foreground',
+      translateY: '50vh',
+      easing: 'easeInOutSine',
+      autoplay: true,
+      delay: anime.stagger(100, {direction: 'reverse'})
+    });
+    this.scrollAnimation = scrollAnimation;
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 $base-container-height: 220vh;
 $bootstrap-col-12-width-xs: 100vw;
