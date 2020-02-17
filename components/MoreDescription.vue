@@ -36,15 +36,10 @@ export default {
             ],
             [
                 `
-                    Facing Dragons gives the players in-game challenges and real-world quests, assiting
-                    them to develop research-proven coping skills and helps them figure out what to do 
-                    with their life. The eight key areas of life (relationship, mission,fun, health, mind, work, social,
-                    and home) are represented by dragons that players face, and get quests from, to progress.
+                    Meet your super-cute Guidian, who will introduce you to eight amazing dragons, each representing one of the 8 Key Areas of Life: Mission, Mind, Money, Vitality, Love, Fun, Social and Home.
                 `,
                 `
-                    The game guides young adults to face their dragons through a solo campaign and a quest mode with 
-                    increasing challenge levels. Experienced players can join forces with a team of other players to 
-                    do group missions and keep each other accountable.
+                    Your dragons help you develop coping skills, self-awareness and confidence by giving you real-life and in-game quests with increasing levels of challenge. As you gain experience, you can join forces with other players for multi-player and mythic-level quests to figure out what to do with your life and achieve your biggest goals.
                 `
             ],
             [
