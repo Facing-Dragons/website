@@ -39,7 +39,6 @@ export default {
 
 .feature-container {
     transition: 0.5s all ease-in-out;
-    min-height: 40vh;
 }
 
 
