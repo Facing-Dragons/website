@@ -21,7 +21,11 @@ export default {
       currentWindowY: 1,
       isVideoEnded: false,
       isMobile: false || window.innerWidth < 630,
+      currentActiveSection: ''
     }
+  },
+  created() {
+    this.$root.$on('bv::scrollspy::activate', this.onActivate)
   },
   // created () {
   //   if (process.browser) {
@@ -36,6 +40,10 @@ export default {
   //   }
   // },
   methods: {
+    onActivate(target) {
+      console.log('Received event: "bv::scrollspy::activate" for target ', target);
+      this.currentActiveSection = target;
+    },
     handleScroll () {
       // console.log(window.scrollY/window.innerHeight);
       // this is basically how much of the window is remaining from 0 to 1 ... 1 is all remaining to scroll
