@@ -714,7 +714,7 @@ export default {
 @media screen and (max-width: 1025px) {
   .title-box {
     position: absolute;
-    bottom: 5vh;
+    bottom: 8vh;
     max-width: 55vw;
   }
 
