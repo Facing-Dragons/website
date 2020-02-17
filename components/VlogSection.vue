@@ -71,6 +71,7 @@ export default {
         return {
             videos,
             swiperOptions: {
+              autoHeight: true,
               effect: 'coverflow',
               slidesPerView: 3,
               pagination: {
@@ -82,11 +83,12 @@ export default {
                 prevEl: '.swiper-button-prev'
               },
               grabCursor: false,
-              loop: true,
-              freeMode: true,
+              // loop: true,
+              // freeMode: true,
               breakpoints: {
-                980: {
-                  slidesPerView: 1,
+                1023: {
+                  // slidesPerView: 1,
+                  slidesPerView: 'auto',
                   effect: 'none'
                 }
               },
@@ -116,14 +118,22 @@ export default {
 .vlog-container {
   background-color: rgba(230, 230, 230, 0.5); 
   // width: 30vw;
+  // max-width: 80vw;
 }
 
 .swiper-button-prev {
   left: -24px;
+
+  @media screen and (max-width: 576px) {
+    left: 0;
+  }
 }
 
 .swiper-button-next {
   right: -24px;
+  @media screen and (max-width: 576px) {
+    right: 0;
+  }
 }
 
 </style>
