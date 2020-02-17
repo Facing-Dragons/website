@@ -43,21 +43,23 @@
               <div 
                 v-for="(member, index) in teamMembers"
                 :key="index"
-                class="col-12 col-md-4 my-4 my-md-0 team-member-container"
+                class="col-12 col-md-6 col-lg-4 my-4 team-member-container"
                 @click="() => handleClick(index)"
               >
-                <div class="new-slide-content text-center d-flex flex-column justify-content-center h-100 align-items-center">
+                <div class="new-slide-content text-center d-flex flex-column h-100 align-items-center">
                   <b-img
                     height="200px"
                     rounded="circle"
                     :src="require(`~/assets/img/team/${member.image}`)"
                   >
                   </b-img>
-                  <div class="name my-1">
-                    {{ member.name }}
-                  </div>
-                  <div class="role">
-                    {{ member.role }}
+                  <div class="member-texts mt-4">
+                    <h3 class="name mb-1">
+                      {{ member.name }}
+                    </h3>
+                    <h4 class="role">
+                      {{ member.role }}
+                    </h4>
                   </div>
                 </div>
               </div>
@@ -67,15 +69,11 @@
 </template>
 
 <script>
-// import 'swiper/dist/css/swiper.css'
-// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import SectionTitle from '~/components/SectionTitle';
 export default {
     name: "newTeamSection",
     components: {
         SectionTitle,
-        // swiper,
-        // swiperSlide
     },
     data() {
       const teamMembers = [
@@ -281,6 +279,8 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
   z-index: 6;
@@ -327,20 +327,25 @@ export default {
 
 .team-member-container {
   cursor: pointer;
+  // min-height: 30vh;
+  @media screen and (min-width: 576px) {
+  }
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 992px) {
+    
+  }
+  @media screen and (min-width: 1200px) {
+    
+  }
 }
 
 .overlay-foreground {
   z-index: 12;
-  // position: fixed;
-  // top: 10vh;
-  // max-width: 50vw;
   background: #ebebeb;
    transition: 0.5s all ease-in-out;
   transition-delay: 1s;
   max-width: 60vw;
-  // .card-text {
-  //   font-size: 1vw;
-  // }
 }
 
 @media screen and (max-width: 760px) {
@@ -357,46 +362,42 @@ export default {
   }
 }
 
-// .card-image {
-//   width: 50%;
-//   height: auto;
-// }
 
 .team-container-fluid {
-    /* margin-top: 100vh; */
-    // min-height: 100vh;
     position: relative;
 }
 
 .name {
   font-weight: 500;
-  font-size: calc(1.1rem + 0.5vw);
+  font-size: 2.4rem;
   color: #ebebeb;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.6rem;
+  }
+  @media screen and (min-width: 996px) {
+    font-size: 1.4rem;
+  }
 }
 
 .role {
+  font-size: 1.6rem;
+  font-weight: 300;
   color: #ebebeb;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 1rem;
+  }
 }
 
 
 
 .slide-content {
     height: calc(300px + 10vw);
-    // transition: 1s all ease-in-out;
     padding: 2rem;
-
-    // &::before {
-    //   content: "";
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   position: absolute;
-    //   background-image: url('~assets/img/dragon_palettes_02.jpg');
-    //   filter: grayscale(100%) blur(5px);
-    //   background-size: cover;
-    //   transition: 0.2s all ease-in-out;
-    // }
     &:hover .card-pattern {
       filter: grayscale(0%) blur(1px);
       transition: 0.2s all ease-in-out;
