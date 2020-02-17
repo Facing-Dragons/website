@@ -133,7 +133,7 @@ export default {
   mounted() {
     var animation = anime({
       targets: '.foreground',
-      translateY: '-10vh',
+      translateY: ['-10vh', 0],
       opacity: [0, 1],
       easing: 'easeInOutSine',
       autoplay: true,
@@ -142,7 +142,7 @@ export default {
     this.animation = animation;
     var scrollAnimation = anime({
       targets: '.foreground',
-      translateY: '50vh',
+      translateY: [0, '50vh'],
       easing: 'easeInOutSine',
       autoplay: true,
       delay: anime.stagger(100, {direction: 'reverse'})
@@ -229,6 +229,7 @@ $largest-foreground-height: 1402px;
   width: 105vw;
   right: -5vw;
   bottom: 0vh;
+  transform: translateY(0);
 }
 
 #dragon {
