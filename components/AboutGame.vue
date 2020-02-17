@@ -2,7 +2,7 @@
     <div class="container about-main-container" id="about-game-section">
         <div class="row mt-2">
             <div class="col-12 justify-content-center video-col">
-                <div class="video-frame rounded p-2">
+                <div class="video-frame rounded p-2 p-relative">
                     <b-embed
                         v-b-visible="visibleHandler"
                         type="iframe"
@@ -144,6 +144,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 $more-color: gray;
 
 .game-feature-item, #game-description-parent, #gd {

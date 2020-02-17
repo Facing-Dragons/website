@@ -3,7 +3,7 @@
     <Header 
       :header-type="headerType"
       :is-support="isSupportHeader" 
-      v-if="!$device.isMobile || !isVideoVisible" 
+      v-if="!isVideoVisible" 
     ></Header>
     <nuxt @videoVisible="handleVisible"/>
   </div>
@@ -24,6 +24,7 @@ export default {
       isVideoEnded: false,
       isMobile: false || window.innerWidth < 630,
       currentActiveSection: '',
+      isLandscape: false,
     }
   },
   created() {
