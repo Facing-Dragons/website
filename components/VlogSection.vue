@@ -43,28 +43,28 @@ export default {
     data() {
         const videos = [
             {
-                id: 'JxCQOfH1Wa8',
-                url: 'https://www.youtube.com/embed/JxCQOfH1Wa8?rel=0'
+                id: 'er66ouHPTJU',
+                url: 'https://www.youtube.com/embed/er66ouHPTJU?rel=0'
             },
             {
-                id: 'zFsMAbpeRXw',
-                url: 'https://www.youtube.com/embed/zFsMAbpeRXw?rel=0'
+                id: '3A0m9l7O59E',
+                url: 'https://www.youtube.com/embed/3A0m9l7O59E?rel=0'
             },
             {
-                id: 'XcQEPNA0TZk',
-                url: 'https://www.youtube.com/embed/XcQEPNA0TZk?rel=0'
-            },
-            {
-                id: 'QateDsNO7fY',
-                url: 'https://www.youtube.com/embed/QateDsNO7fY?rel=0'
+                id: 'EM2dfGk_lgQ',
+                url: 'https://www.youtube.com/embed/EM2dfGk_lgQ?rel=0'
             },
             {
                 id: 'BNW4z6UiBKg',
                 url: 'https://www.youtube.com/embed/BNW4z6UiBKg?rel=0'
             },
             {
-                id: 'EM2dfGk_lgQ',
-                url: 'https://www.youtube.com/embed/EM2dfGk_lgQ?rel=0'
+                id: 'Ov6EVYghHDI',
+                url: 'https://www.youtube.com/embed/Ov6EVYghHDI?rel=0'
+            },
+            {
+                id: 'DYVWN5TNnMA',
+                url: 'https://www.youtube.com/embed/DYVWN5TNnMA?rel=0'
             },
 
         ]
