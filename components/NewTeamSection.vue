@@ -44,7 +44,8 @@
             class="team-container"
         >
             <section-title 
-                class="pt-5"
+                v-b-visible="handleTitleVisible"
+                class="pt-5 section-title"
                 title-text="Team"
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
@@ -80,6 +81,8 @@
 
 <script>
 import SectionTitle from '~/components/SectionTitle';
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
     name: "newTeamSection",
     components: {
@@ -275,13 +278,43 @@ export default {
       return {
         teamMembers,
         isOverlayShown: false,
-        currentMember: teamMembers[0]
+        currentMember: teamMembers[0],
+        tl: ''
       }
+    },
+    mounted() {
+      var tl = anime.timeline({
+        easing: 'easeOutExpo',
+        autoplay: false,
+        delay: 1000,
+      });
+
+      tl.add({
+          targets: '.section-title',
+          translateX: ['20vw', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 600,
+      })
+      .add({
+          targets: '.team-member-container',
+          translateY: ['5rem', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 1000,
+          delay: anime.stagger(200)
+      });
+      this.tl = tl;
     },
     methods: {
       handleClick(index) {
         this.currentMember = this.teamMembers[index];
         this.isOverlayShown = true;
+      },
+      handleTitleVisible(isVisible) {
+        if(isVisible && !this.tl.completed) {
+          this.tl.play();
+        }
       }
     },
 }
@@ -289,6 +322,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.section-title {
+  opacity: 0;
+}
+
 .card-titles {
   z-index: 10;
 }
