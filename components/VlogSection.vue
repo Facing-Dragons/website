@@ -2,12 +2,14 @@
   <div class="container vlog-main-container my-5" id="posts">
     <div class="row mt-2">
       <section-title 
+          v-b-visible="handleTitleVisible"
           right
+          class="section-title"
           title-text="Posts"
           text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
           line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
       ></section-title>
-      <div class="col-12">
+      <div class="col-12 swiper-section">
         <swiper :options="swiperOptions" ref="mySwiper">
           <swiper-slide v-for="v in videos" :index="v.id" :key="v.id">
             <div class="vlog-container rounded p-1">
@@ -32,6 +34,7 @@
 import SectionTitle from '~/components/SectionTitle';
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
     name: 'VlogSection',
@@ -70,6 +73,7 @@ export default {
         ]
         return {
             videos,
+            animationTimeline: '',
             swiperOptions: {
               autoHeight: true,
               effect: 'coverflow',
@@ -107,10 +111,36 @@ export default {
       }
     },
     mounted() {
-      // current swiper instance
-      console.log('this is current swiper instance object', this.swiper)
-    //   this.swiper.slideTo(3, 1000, false)
+      var tl = anime.timeline({
+        easing: 'easeOutExpo',
+        autoplay: false,
+        delay: 1000,
+      });
+
+      tl.add({
+          targets: '.section-title',
+          translateX: ['-20vw', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 600,
+      })
+      .add({
+          targets: '.swiper-section',
+          translateY: ['5rem', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 600,
+      });
+
+      this.animationTimeline = tl;
     },
+    methods: {
+      handleTitleVisible(isVisible) {
+        if(isVisible && !this.animationTimeline.completed) {
+          this.animationTimeline.play();
+        }
+      }
+    }
 }
 </script>
 
