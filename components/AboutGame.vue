@@ -4,6 +4,7 @@
             <div class="col-12 justify-content-center video-col">
                 <div class="video-frame rounded p-2">
                     <b-embed
+                        v-b-visible="visibleHandler"
                         type="iframe"
                         aspect="16by9"
                         src="https://www.youtube.com/embed/MRA9iJuIBok?rel=0"
@@ -85,6 +86,11 @@ export default {
         ];
         return {
             gameFeatures,
+        }
+    },
+    methods: {
+        visibleHandler(isVisible) {
+            this.$emit('videoVisible', isVisible);
         }
     }
 }

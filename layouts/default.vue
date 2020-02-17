@@ -2,14 +2,16 @@
   <div>
     <Header 
       :header-type="headerType"
-      :is-support="isSupportHeader"  
+      :is-support="isSupportHeader" 
+      v-if="!$device.isMobile || !isVideoVisible" 
     ></Header>
-    <nuxt />
+    <nuxt @videoVisible="handleVisible"/>
   </div>
 </template>
 
 <script>
 import Header from '~/components/Header';
+import { mapState } from 'vuex';
 
 export default {
   middleware: ['isMobile'],
@@ -21,7 +23,7 @@ export default {
       currentWindowY: 1,
       isVideoEnded: false,
       isMobile: false || window.innerWidth < 630,
-      currentActiveSection: ''
+      currentActiveSection: '',
     }
   },
   created() {
@@ -43,6 +45,11 @@ export default {
     onActivate(target) {
       console.log('Received event: "bv::scrollspy::activate" for target ', target);
       this.currentActiveSection = target;
+    },
+    handleVisible(isVisible) {
+      this.isVideoVisible = isVisible;
+      console.log(isVisible);
+      
     },
     handleScroll () {
       // console.log(window.scrollY/window.innerHeight);
@@ -69,7 +76,8 @@ export default {
     },
     isSupportHeader() {
       return this.$route.path === '/support';
-    }
+    },
+    ...mapState(['isVideoVisible']),
   }
 }
 </script>

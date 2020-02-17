@@ -3,7 +3,7 @@
     <banner-background></banner-background>
     <Banner></Banner>
     <div class="black-background"></div>
-    <about-game></about-game>
+    <about-game @videoVisible="handleVisible"></about-game>
     <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
     <VlogSection></VlogSection>
@@ -55,6 +55,9 @@ export default {
       // if(this.animation) {
       //   this.animation.seek(this.animation.duration * (window.scrollY / window.innerHeight));
       // }
+    },
+    handleVisible(isVisible) {
+      this.$store.commit('setVideoVisible', isVisible);
     }
   },
   mounted() {
