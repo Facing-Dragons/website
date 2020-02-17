@@ -22,7 +22,9 @@
         <game-question
           v-bind="currentProperties"
           @change="handleChange"
-        ></game-question>
+        >
+          <component :is="currentTextComponent"></component>
+        </game-question>
       </transition>
       <div class="button-container d-none d-md-block">
         <transition
@@ -74,13 +76,29 @@
 import GameQuestion from '~/components/GameQuestion';
 import ChevronRight from '~/components/ChevronRight';
 import ChevronLeft from '~/components/ChevronLeft';
+import MindText from '~/components/MindText';
+import LoveText from '~/components/LoveText';
+import FunText from '~/components/FunText';
+import VitalityText from '~/components/VitalityText';
+import WealthText from '~/components/WealthText';
+import HomeText from '~/components/HomeText';
+import SocialText from '~/components/SocialText';
+import MissionText from '~/components/MissionText';
 import {fireDb} from '~/plugins/firebase.js'
 
 export default {
   components: {
     GameQuestion,
     ChevronRight,
-    ChevronLeft
+    ChevronLeft,
+    MindText,
+    LoveText,
+    FunText,
+    VitalityText,
+    WealthText,
+    HomeText,
+    SocialText,
+    MissionText
   },
   async mounted() {
     if(!this.$store.state.email && this.$route.query.id) {
@@ -104,6 +122,7 @@ export default {
     const gameQuestions = [
       {
         title: 'Mind',
+        titleComponent: 'MindText',
         question: 'How fulfilled are you in your mental and emotional health? ',
         text: `Low: High stress, low resilience, unhealthy beliefs and focus, depressed, anxious, low self-esteem, 
               low confidence. High: Low stress, high resilience, healthy beliefs and focus, clear-minded, at peace, 
@@ -113,42 +132,49 @@ export default {
       },
       {
         title: 'Mission',
+        titleComponent: 'MissionText',
         text: 'How fulfilled are you in knowing and living your mission, work that is meaningful to you?',
         value: 0,
         color: "#ff6800"
       },
       {
         title: 'Vitality',
+        titleComponent: 'VitalityText',
         text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
         value: 0,
         color: "#76b72b"
       },
       {
         title: 'Love',
+        titleComponent: 'LoveText',
         text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
         value: 0,
         color: "#c22832"
       },
       {
         title: 'Fun',
+        titleComponent: 'FunText',
         text: 'How fulfilled are you in having fun, being playful, and enjoying the lighter side of yourself and your life?',
         value: 0,
         color: "#f9e777"
       },
       {
         title: 'Social',
+        titleComponent: 'SocialText',
         text: 'How are you doing at staying in touch and feeling connected with the people who mean the most to you?',
         value: 0,
         color: "#61a5e3"
       },
       {
         title: 'Home',
+        titleComponent: 'HomeText',
         text: 'How fulfilled are you with your home and the current state of your physical surroundings?',
         value: 0,
         color: "#72655f"
       },
       {
         title: 'Wealth',
+        titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
         value: 0,
         color: "#c5c5c5"
@@ -181,6 +207,9 @@ export default {
         title: this.gameQuestions[this.currentStepIndex].title,
         question: this.gameQuestions[this.currentStepIndex].question || '',
       }
+    },
+    currentTextComponent() {
+      return this.gameQuestions[this.currentStepIndex].titleComponent;
     }
   }
 }

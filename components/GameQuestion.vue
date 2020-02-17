@@ -1,18 +1,19 @@
 <template>
     <div class="container main-quest-container h-100 d-flex justify-content-center align-items-center">
         <div class="row">
-            <div class="col-12 justify-content-center">
-                <h1 class="quest-title">
+            <div class="col-12 justify-content-center title-container">
+                <!-- <h1 class="quest-title">
                     {{ title }}
-                </h1>
+                </h1> -->
+                <slot></slot>
             </div>
             <div class="col-12 justify-content-center">
-                <p class="quest-text">
+                <p v-if="question" class="quest-text">
                     {{ question }}
                 </p>
-                <p class="desc">
+                <!-- <p class="quest-text">
                     {{ text }}
-                </p>
+                </p> -->
             </div>
             <div class="col-12 justify-content-center align-items-center control-col">
                 <vue-slider
@@ -84,6 +85,10 @@ export default {
     font-size: 12vw;
     text-align: center;
     font-weight: 200;
+}
+
+.title-container {
+    height: 30vh;
 }
 
 .quest-text {
