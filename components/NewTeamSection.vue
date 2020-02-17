@@ -45,7 +45,7 @@
         >
             <section-title 
                 v-b-visible="handleTitleVisible"
-                class="pt-5 section-title"
+                class="pt-5 team-section-title"
                 title-text="Team"
                 text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
                 line-gradient="linear-gradient(to left, black 0%, #f9d423 100%)"
@@ -290,7 +290,7 @@ export default {
       });
 
       tl.add({
-          targets: '.section-title',
+          targets: '.team-section-title',
           translateX: ['20vw', 0],
           opacity: [0, 1],
           easing: 'easeInOutSine',
@@ -312,7 +312,7 @@ export default {
         this.isOverlayShown = true;
       },
       handleTitleVisible(isVisible) {
-        if(isVisible && !this.tl.completed) {
+        if(isVisible && !this.tl.began) {
           this.tl.play();
         }
       }

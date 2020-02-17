@@ -1,7 +1,8 @@
 <template>
     <b-container class="sponsors-container p-5" id="sponsors">
         <section-title 
-            class="pt-5"
+            v-b-visible="handleTitleVisible"
+            class="pt-5 sponsors-section-title"
             left
             title-text="Partners"
             text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
@@ -42,6 +43,8 @@
 import SectionTitle from '~/components/SectionTitle';
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
     name: 'Sponsors',
     components: {
@@ -98,6 +101,7 @@ export default {
             },
         ];  
         return {
+          animationTimeline: "",
           sponsors,
           swiperOption: {
             slidesPerView: 4,
@@ -132,9 +136,35 @@ export default {
       }
     },
     mounted() {
-      // current swiper instance
-      console.log('this is current swiper instance object', this.swiper)
-    //   this.swiper.slideTo(3, 1000, false)
+      var tl = anime.timeline({
+        easing: 'easeOutExpo',
+        autoplay: false,
+        delay: 1000,
+      });
+
+      tl.add({
+          targets: '.sponsors-section-title',
+          translateX: ['20vw', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 600,
+      })
+      .add({
+          targets: '.carousel-container',
+          translateY: ['5rem', 0],
+          opacity: [0, 1],
+          easing: 'easeInOutSine',
+          duration: 600,
+      });
+
+      this.animationTimeline = tl;
+    },
+    methods: {
+      handleTitleVisible(isVisible) {
+        if(isVisible && !this.animationTimeline.began) {
+          this.animationTimeline.play();
+        }
+      }
     }
 }
 </script>

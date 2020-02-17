@@ -35,7 +35,7 @@
                 </div>
             </div>
             <game-description id="game-description-parent" v-b-visible="supportVisibleHandler"></game-description>
-            <div class="game-description container" v-b-visible="gameVisibleHandler">
+            <div id="gd" class="game-description container" v-b-visible="gameVisibleHandler">
                 <more-description></more-description>
             </div>
         </div>
@@ -113,7 +113,7 @@ export default {
         });
         this.supportAnimation = supportAnimation;
         var gameAnimation = anime({
-            targets: '.game-description-container',
+            targets: '#gd',
             translateY: ['10vh', 0],
             opacity: [0, 1],
             easing: 'easeInOutSine',
@@ -128,15 +128,15 @@ export default {
             this.$emit('videoVisible', isVisible);
         },
         featuresVisibleHandler(isVisible) {
-            if(isVisible && !this.featureAnimation.completed)
+            if(isVisible && !this.featureAnimation.began)
                 this.featureAnimation.play();
         },
         supportVisibleHandler(isVisible) {
-            if(isVisible && !this.supportAnimation.completed)
+            if(isVisible && !this.supportAnimation.began)
                 this.supportAnimation.play();
         },
         gameVisibleHandler(isVisible) {
-            if(isVisible && !this.gameAnimation.completed)
+            if(isVisible && !this.gameAnimation.began)
                 this.gameAnimation.play();
         }
     }
@@ -146,7 +146,7 @@ export default {
 <style lang="scss" scoped>
 $more-color: gray;
 
-.game-feature-item, #game-description-parent, .game-description-container {
+.game-feature-item, #game-description-parent, #gd {
     opacity: 0;
 }
 
