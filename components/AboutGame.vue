@@ -132,8 +132,8 @@ export default {
                 this.featureAnimation.play();
         },
         supportVisibleHandler(isVisible) {
-            if(isVisible && !this.supportVisibleHandler.completed)
-                this.supportVisibleHandler.play();
+            if(isVisible && !this.supportAnimation.completed)
+                this.supportAnimation.play();
         },
         gameVisibleHandler(isVisible) {
             if(isVisible && !this.gameAnimation.completed)
