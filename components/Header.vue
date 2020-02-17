@@ -21,8 +21,8 @@
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
 
         <b-collapse id="main-collapse" is-nav>
-            <b-navbar-nav class="ml-auto d-block d-sm-flex align-items-center">
-                <b-nav pills v-b-scrollspy>
+            <b-navbar-nav class="ml-auto">
+                <b-nav pills v-b-scrollspy="200" class="d-block d-sm-flex align-items-center">
                     <b-nav-item href="#about-game-section" class="item">
                         Game
                     </b-nav-item>

@@ -26,6 +26,10 @@
   color: black;
 }
 
+.navbar-toggler {
+  font-size: 2rem;
+}
+
   @media screen and (max-width: 560px) {
     .navbar-nav {
       background: #000;
