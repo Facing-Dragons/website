@@ -94,11 +94,11 @@ export default {
 $more-color: gray;
 
 .about-main-container {
-    margin-top: 20vw;
+    margin-top: 20rem;
 }
 
 .video-col {
-    margin-bottom: 10vw;
+    margin-bottom: 10rem;
 }
 
 .upside-down {
