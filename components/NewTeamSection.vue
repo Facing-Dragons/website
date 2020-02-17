@@ -286,7 +286,7 @@ export default {
       var tl = anime.timeline({
         easing: 'easeOutExpo',
         autoplay: false,
-        delay: 1000,
+        delay: 200,
       });
 
       tl.add({
