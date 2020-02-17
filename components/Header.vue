@@ -22,27 +22,29 @@
 
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto d-block d-sm-flex align-items-center">
+                <b-nav pills v-b-scrollspy>
+                    <b-nav-item href="#about-game-section" class="item">
+                        Game
+                    </b-nav-item>
+                    <b-nav-item class="item" href="#team-section">
+                        Team
+                    </b-nav-item>
+                    <b-nav-item class="item" href="#posts">
+                        Posts
+                    </b-nav-item>
+                    <b-nav-item class="item" href="#sponsors">
+                        Partners
+                    </b-nav-item>
+                    <b-nav-item class="item" href="#contact">
+                        Contact
+                    </b-nav-item>
+                </b-nav>
                 <!-- <b-nav-item v-if="!isSupport" class="item d-none d-md-block" to="/support" id="support">
                     <button class="btn p-2 btn-rounded btn-success text-light">
                         For Support Workers
                     </button> -->
                     <!-- For Support Workers -->
                 <!-- </b-nav-item> -->
-                <b-nav-item href="#about-game-section" class="item">
-                    Game
-                </b-nav-item>
-                <b-nav-item class="item" href="#team-section">
-                    Team
-                </b-nav-item>
-                <b-nav-item class="item" href="#sponsors">
-                    Partners
-                </b-nav-item>
-                <b-nav-item class="item" href="#dev-vlog">
-                    Posts
-                </b-nav-item>
-                <b-nav-item class="item" href="#contact">
-                    Contact
-                </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
         <!-- <button class="btn p-2 btn-rounded btn-success text-light ml-auto d-block d-md-none">

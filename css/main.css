@@ -7,6 +7,25 @@
   opacity: 0.2;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+  transition: 0.5s all ease-in-out;
+  background-color: #f77f00;
+  color: black;
+}
+
+.nav-link {
+   transition: 0.5s all ease-in-out;
+}
+
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  transition: 0.5s all ease-in-out;
+  color: black;
+}
+
   @media screen and (max-width: 560px) {
     .navbar-nav {
       background: #000;
