@@ -184,13 +184,13 @@ $largest-foreground-height: 1402px;
 
 .foreground {
   position: absolute;
-  width: 110vw;
-  right: -10vw;
+  width: 105vw;
+  right: -5vw;
   bottom: 0vh;
 }
 
 #dragon {
-  width: 100vw;
+  width: 92vw;
   // left: 10vw;
 }
 
@@ -225,11 +225,40 @@ $largest-foreground-height: 1402px;
   }
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1024px) and (min-height: 768px) and (max-height: 768px) {
+  .foreground {
+    position: absolute;
+    width: 110vw;
+    right: -10vw;
+    bottom: 0vh;
+  }
+
+  #dragon {
+    width: 110vw;
+    // left: 10vw;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .foreground {
+    position: absolute;
+    width: 105vw;
+    right: -5vw;
+    bottom: 0vh;
+  }
+
+  #dragon {
+    width: 92vw;
+    // left: 10vw;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .background-container {
       height: containerHeight();
   }
 }
+
 @media screen and (max-width: 992px){
   .background-container {
     background: url('~assets/img/newBackground/BG_sky_wstars_black@0,75x.webp'), url('~assets/img/newBackground/BG_sky_wstars_black@0,75x.png') ;
