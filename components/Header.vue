@@ -6,6 +6,16 @@
         fixed="top"
         class="d-flex navbar-main"
     >
+        <transition name="fade-from-up">
+            <button 
+                v-if="isFirstQuestShown" 
+                class="quest-button btn p-2 btn-rounded text-light ml-auto"
+                @click="handleScrollTopClick"
+            >
+                
+                <span style="color: black">START YOUR QUEST!</span>
+            </button>
+        </transition>
         <b-navbar-brand  
             to="/" 
             class="logo-container ml-3"
@@ -17,9 +27,8 @@
                 <span v-show="isTitleShown" class="title">FACING DRAGONS</span>
             </transition>
         </b-navbar-brand>
-
+        
         <b-navbar-toggle target="main-collapse"></b-navbar-toggle>
-
         <b-collapse id="main-collapse" is-nav>
             <b-navbar-nav class="ml-auto">
                 <b-nav pills v-b-scrollspy="200" class="d-block d-sm-flex align-items-center">
@@ -47,9 +56,6 @@
                 <!-- </b-nav-item> -->
             </b-navbar-nav>
         </b-collapse>
-        <!-- <button class="btn p-2 btn-rounded btn-success text-light ml-auto d-block d-md-none">
-            For Support Workers
-        </button> -->
     </b-navbar>    
 </template>
 
@@ -67,7 +73,8 @@ export default {
     },
     data() {
         return {
-            isTitleShown: true
+            isTitleShown: true,
+            isFirstQuestShown: false,
         }
     },
     created() {
@@ -81,6 +88,11 @@ export default {
                 this.isTitleShown = false;
             else if (window.screenY < 400)
                 this.isTitleShown = true;
+
+            if(window.scrollY > 600)
+                this.isFirstQuestShown = true;
+            else if (window.screenY < 600)
+                this.isFirstQuestShown = false;
         },
         handleMouseEnter() {
             if(window.scrollY > 400)
@@ -89,12 +101,40 @@ export default {
         handleMouseLeave() {
             if(window.scrollY > 400)
                 this.isTitleShown = false;
+        },
+        handleScrollTopClick() {
+            if (process.browser) {
+                window.scrollTo(0, 0);
+            }
         }
     },
 }
 </script>
 
 <style scoped>
+    .quest-button {
+        background:#f77f00;
+        transition: .5s all ease-in-out;
+        position: absolute;
+        width: 100vw;
+        right: 0;
+        top: calc(100vh - 2.8rem);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .quest-button span {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    .quest-button:hover {
+        background: #cf6b00;
+        transition: .5s all ease-in-out;
+    }
+
+
+
     .navbar-main {
         background: rgba(0, 0, 0, 0.5);
     }
@@ -159,5 +199,14 @@ export default {
     .go-left-enter, .go-left-leave-to {
         opacity: 0;
         transform: translateX(-10%);
+    }
+
+    .fade-from-up-enter-active, .fade-from-up-leave-active {
+        transition: all .7s;
+    }
+
+    .fade-from-up-enter, .fade-from-up-leave-to {
+        opacity: 0;
+        transform: translateY(-10%);
     }
 </style>
