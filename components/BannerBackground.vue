@@ -142,14 +142,16 @@ export default {
       delay: anime.stagger(200, {start: 800})
     });
     this.animation = animation;
+    const scrollAnimationTranslateY = this.$isMobile ? '20vh' : '40vh';
     var scrollAnimation = anime({
       targets: '.back-foreground',
-      translateY: [0, '40vh'],
+      translateY: [0, scrollAnimationTranslateY],
       easing: 'easeInOutSine',
       autoplay: true,
       delay: anime.stagger(100, {direction: 'reverse'})
     });
     this.scrollAnimation = scrollAnimation;
+    const dragonAnimationTranslateY = this.$isMobile ? '30vh' : '40vh';
     var dragonAnimation = anime({
       targets: '#dragon',
       translateY: [0, '30vh'],
