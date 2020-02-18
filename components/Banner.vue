@@ -13,7 +13,7 @@
                 <transition name="popup">
                     <div v-if="isGuidianShown" class="guidian-container d-none d-md-block">
                         <img 
-                            src="~/assets/img/guidian.png" 
+                            src="~/assets/img/beige_white_guidian.png" 
                             alt="guidian"
                             height="20vh"
                             class="guidian"
@@ -91,7 +91,7 @@
                   <transition name="popup">
                     <div v-if="isGuidianShown" class="guidian-container-mobile d-block d-md-none">
                         <img 
-                            src="~/assets/img/guidian.png" 
+                            src="~/assets/img/beige_white_guidian.png" 
                             alt="guidian"
                             height="20vh"
                             class="guidian"
@@ -172,7 +172,7 @@
                 <transition name="popup">
                     <div v-if="isGuidianShown" class="guidian-container d-none d-md-block">
                         <img 
-                            src="~/assets/img/guidian.png" 
+                            src="~/assets/img/beige_white_guidian.png" 
                             alt="guidian"
                             height="20vh"
                             class="guidian"
@@ -202,7 +202,7 @@
                           <div class="response" id="mce-success-response" style="display:none"></div>
                         </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73bd4d1cff787d311b6fbc928_d87acb66fd" tabindex="-1" value=""></div>
-                          <div class="clear"><input type="submit" @click="handleSubscribe" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                          <div class="clear"><input type="submit" @click="handleSubscribe" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit-button"></div>
                           </div>
                       </form>
                       </div>
@@ -241,7 +241,7 @@
                   <transition name="popup">
                     <div v-if="isGuidianShown" class="guidian-container-mobile d-block d-md-none">
                         <img 
-                            src="~/assets/img/guidian.png" 
+                            src="~/assets/img/beige_white_guidian.png" 
                             alt="guidian"
                             height="20vh"
                             class="guidian"
@@ -524,7 +524,7 @@ export default {
   position: absolute;
   bottom: -8vh;
   z-index: 10;
-  left: -13vw;
+  left: 0vw;
 }
 .guidian {
   height: 35vh;
@@ -612,12 +612,14 @@ export default {
 }
 
 .msg-container-mobile {
+  background: rgba(20,20,20,0.9);
   position: absolute;
   bottom: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   z-index: 20;
   transition: 0.5s all ease-in-out;
+  color: white;
 }
 
 .msg-container-mobile.overlay-card-text {
@@ -685,6 +687,13 @@ export default {
   transition: 0.3s all ease-in-out;
   font-size: 1.5rem;
   font-weight: 700;
+  background: #f9b038;
+  color: #303030;
+  border: none;
+  outline: none;
+}
+
+.submit-button {
   background: #f9b038;
   color: #303030;
   border: none;
