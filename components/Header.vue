@@ -130,6 +130,16 @@ export default {
         font-size: 1.2rem;
     }
 
+    @media screen and (max-width: 768px) {
+        .quest-button {
+           top: calc(100vh - 4.25rem); 
+        }
+        .quest-button span {
+            font-weight: 500;
+            font-size: 2rem;
+        }
+    }
+
     .iphone-quest-button {
         position: fixed;
         top: unset;
