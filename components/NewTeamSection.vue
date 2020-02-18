@@ -1,8 +1,7 @@
 <template>
     <b-container id="team-section" class="team-container-fluid">
-        <!-- <transition name="fade"> -->
-          <div v-show="isOverlayShown">
-            <div class="overlay">
+        <transition name="fade">
+            <div v-show="isOverlayShown" class="overlay">
               <div 
                 @click.stop="() => {isOverlayShown = false}" 
                 class="overlay-background">
@@ -38,8 +37,7 @@
                 </b-card>
               </transition>
             </div>
-          </div>
-        <!-- </transition> -->
+        </transition>
         <div 
             class="team-container"
         >
@@ -340,7 +338,7 @@ export default {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity .3s;
   z-index: 6;
 }
 
@@ -349,7 +347,7 @@ export default {
 }
 
 .pop-up-enter-active, .pop-up-leave-active {
-  transition: all .5s;
+  transition: all .2s;
   opacity: 1;
   transform: translateY(0);
 }
