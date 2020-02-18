@@ -10,6 +10,7 @@
             <button 
                 v-if="isFirstQuestShown" 
                 class="quest-button btn p-2 btn-rounded text-light ml-auto"
+                :class="{'iphone-quest-button': $device.isIos}"
                 @click="handleScrollTopClick"
             >
                 
@@ -104,7 +105,7 @@ export default {
         },
         handleScrollTopClick() {
             if (process.browser) {
-                window.scrollTo(0, 0);
+                window.scroll(0, 0);
             }
         }
     },
@@ -123,9 +124,16 @@ export default {
         border-top-right-radius: 0;
     }
 
+
     .quest-button span {
         font-weight: 500;
         font-size: 1.2rem;
+    }
+
+    .iphone-quest-button {
+        position: fixed;
+        top: unset;
+        bottom: 0;
     }
 
     .quest-button:hover {
