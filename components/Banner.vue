@@ -607,19 +607,23 @@ export default {
 .msg-container {
   /* position: relative;
   top: 30vh; */
+  background: #1e1e1ed8;
+  color: white;
+  border: 1px solid rgba(107, 107, 107, 0.85);
   z-index: 10;
   transition: 0.5s all ease-in-out;
 }
 
 .msg-container-mobile {
-  background: rgba(20,20,20,0.9);
+  background: #1e1e1ed8;
+  color: white;
+  border: 1px solid rgba(107, 107, 107, 0.85);
   position: absolute;
   bottom: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   z-index: 20;
   transition: 0.5s all ease-in-out;
-  color: white;
 }
 
 .msg-container-mobile.overlay-card-text {
