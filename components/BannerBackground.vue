@@ -8,7 +8,7 @@
                   ${require(`~/assets/img/newBackground/dark_mountain@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/dark_mountain.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
         <img 
           src="~/assets/img/newBackground/dark_mountain.png"
@@ -17,13 +17,13 @@
                   ${require(`~/assets/img/newBackground/dark_mountain@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/dark_mountain.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
       </picture>
       <img 
         v-else
         src="~/assets/img/newBackground/dark_mountain@0,5x.png" 
-        class="foreground"
+        class="foreground back-foreground"
         id="dark-mountain"
       >
     <picture v-if="!$device.isIos" id="light-mountain">
@@ -34,7 +34,7 @@
                   ${require(`~/assets/img/newBackground/light_mountain@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/light_mountain.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
         <img 
           src="~/assets/img/newBackground/light_mountain.png"
@@ -43,13 +43,13 @@
                   ${require(`~/assets/img/newBackground/light_mountain@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/light_mountain.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
       </picture>
       <img 
         v-else
         src="~/assets/img/newBackground/light_mountain@0,5x.png" 
-        class="foreground"
+        class="foreground back-foreground"
         id="light-mountain"
       >
     <picture v-if="!$device.isIos" id="trees">
@@ -60,7 +60,7 @@
                   ${require(`~/assets/img/newBackground/trees@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/trees.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
         <img 
           src="~/assets/img/newBackground/trees.png"
@@ -69,13 +69,13 @@
                   ${require(`~/assets/img/newBackground/trees@0,75x.png`)} 1440w,
                   ${require(`~/assets/img/newBackground/trees.png`)} 1920w`" 
           sizes="(max-width: 1920px) 120vw, (max-width: 640px) 120vw, (max-width: 480px) 120vw, (max-width: 320px) 120vw"
-          class="foreground"
+          class="foreground back-foreground"
         >
       </picture>
       <img 
         v-else
         src="~/assets/img/newBackground/trees@0,5x.png" 
-        class="foreground"
+        class="foreground back-foreground"
         id="trees"
       >
     <picture v-if="!$device.isIos">
@@ -115,7 +115,8 @@ import anime from 'animejs/lib/anime.es.js';
 export default {
   data() {
     return {
-      scrollAnimation: ""
+      scrollAnimation: "",
+      dragonAnimation: ""
     }
   },
   created() {
@@ -125,8 +126,9 @@ export default {
   },
   methods: {
     onScrollHandler() {
-      if(this.scrollAnimation) {
+      if(this.scrollAnimation && this.dragonAnimation) {
         this.scrollAnimation.seek(this.scrollAnimation.duration * (window.scrollY / window.innerHeight));
+        this.dragonAnimation.seek(this.dragonAnimation.duration * (window.scrollY / window.innerHeight));
       }
     }
   },
@@ -141,13 +143,20 @@ export default {
     });
     this.animation = animation;
     var scrollAnimation = anime({
-      targets: '.foreground',
-      translateY: [0, '50vh'],
+      targets: '.back-foreground',
+      translateY: [0, '40vh'],
       easing: 'easeInOutSine',
       autoplay: true,
       delay: anime.stagger(100, {direction: 'reverse'})
     });
     this.scrollAnimation = scrollAnimation;
+    var dragonAnimation = anime({
+      targets: '#dragon',
+      translateY: [0, '30vh'],
+      easing: 'easeInOutSine',
+      autoplay: true,
+    });
+    this.dragonAnimation = dragonAnimation;
   }
 }
 </script>
