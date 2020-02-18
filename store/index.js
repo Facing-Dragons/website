@@ -1,5 +1,6 @@
 export const state = () => ({
   email: "",
+  isSupportWorker: false,
   dataIsLoading: false,
   dataIsLoaded: false,
   dataLoadError: false,
