@@ -1,6 +1,6 @@
 <template>
     <b-container id="team-section" class="team-container-fluid">
-        <transition name="fade">
+        <transition :name="$device.isMobile ? 'fade-mobile' : 'fade'">
             <div v-show="isOverlayShown" class="overlay">
               <div 
                 @click.stop="() => {isOverlayShown = false}" 
@@ -337,8 +337,17 @@ export default {
   color: #c5c5c5 !important;
 }
 
+.fade-mobile-enter-active, .fade-mobile-leave-active {
+  transition: opacity .1s;
+  z-index: 6;
+}
+
+.fade-mobile-enter, .fade-mobile-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
+  transition: opacity .4s;
   z-index: 6;
 }
 
@@ -347,7 +356,7 @@ export default {
 }
 
 .pop-up-enter-active, .pop-up-leave-active {
-  transition: all .2s;
+  transition: all .1s;
   opacity: 1;
   transform: translateY(0);
 }
@@ -452,8 +461,8 @@ export default {
 .overlay-foreground {
   z-index: 12;
   background: #ebebeb;
-   transition: 0.5s all ease-in-out;
-  transition-delay: 1s;
+  transition: 0.3s all ease-in-out;
+  // transition-delay: 1s;
   width: 100vw;
   height: 80vh;
   background: #121212;
