@@ -1,10 +1,11 @@
 const firebase = require("firebase");
-const config = require("~/config");
+const {config} = require("~/config");
 // Required for side-effects
 require("firebase/firestore");
 
 if (!firebase.apps.length) {
 
+  console.log(config);
   
 
   firebase.initializeApp(config)
