@@ -28,7 +28,11 @@ export default {
     ],
     script: [{
       src: 'https://apis.google.com/js/api.js'
-    }],
+    },
+    {
+      src: "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
+    }
+  ],
   },
   /*
   ** Customize the progress-bar color
