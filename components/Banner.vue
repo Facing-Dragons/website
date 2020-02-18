@@ -49,43 +49,6 @@
                   </form>
                   </div>
 
-                  <!--End mc_embed_signup-->
-
-                  <!-- <div v-if="!isWriteSuccessful" class="quest-question"> -->
-                    
-
-                    <!--End mc_embed_signup-->
-                    <!-- <b-form>
-                      <b-form-group
-                        id="input-email-group"
-                        :state="emailState"
-                        :invalid-feedback="invalidFeedback"
-                      >
-                        <b-form-input
-                          id="input-email"
-                          v-model="form.email"
-                          type="email"
-                          name="EMAIL"
-                          required
-                          placeholder="Enter Your Email"
-                        ></b-form-input>
-                      </b-form-group>
-                    </b-form>  -->
-                    <!-- <div class="modal-button-container w-100 d-flex justify-content-end">
-                      <b-button 
-                        type="submit"
-                        class="ml-2" 
-                        variant="success" 
-                        @click="writeEmail"
-                        :disabled="form.email === '' || !emailState || isWriting"
-                      >
-                          Submit
-                      </b-button> -->
-                    <!-- </div> -->
-                  <!-- </div> -->
-                  <!-- <div v-else class="quest-email-message">
-                    Great Choice! You'll get your first quest in 48 hours.
-                  </div> -->
                 </b-card>
                 <b-card v-else no-body class="msg-container-mobile w-100 d-flex d-md-none p-2 pt-4">
                   <transition name="popup">
@@ -276,33 +239,6 @@
                       </div>
                   </form>
                   </div>
-                    <!-- <b-form>
-                      <b-form-group
-                        id="input-email-group"
-                        :state="emailState"
-                        :invalid-feedback="invalidFeedback"
-                      >
-                        <b-form-input
-                          id="input-email"
-                          v-model="form.email"
-                          type="email"
-                          name="EMAIL"
-                          required
-                          placeholder="Enter Your Email"
-                        ></b-form-input>
-                      </b-form-group>
-                    </b-form> 
-                    <div class="modal-button-container w-100 d-flex justify-content-end">
-                      <b-button 
-                        type="submit"
-                        class="ml-2" 
-                        variant="success" 
-                        @click="writeEmail"
-                        :disabled="form.email === '' || !emailState || isWriting"
-                      >
-                          Submit
-                      </b-button>
-                    </div> -->
                   </div>
                   <div v-else class="quest-email-message quest-question-mobile w-50">
                     Thank you for your interest! We will keep in touch.
@@ -486,7 +422,7 @@ export default {
 .button-container {
   opacity: 0;
   max-width: 40vw;
-  animation: fade-and-up 1.5s forwards ease-in-out 4.5s;
+  animation: fade-and-up .8s forwards ease-in-out 2.5s;
   z-index: 4;
 }
 
@@ -671,7 +607,7 @@ export default {
 
 .title-description {
   opacity: 0;
-  animation: fade-and-up 1.5s forwards ease-in-out 3s;
+  animation: fade-and-up .8s forwards ease-in-out 2s;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
