@@ -36,15 +36,10 @@ export default {
             ],
             [
                 `
-                    Facing Dragons gives the players in-game challenges and real-world quests, assiting
-                    them to develop research-proven coping skills and helps them figure out what to do 
-                    with their life. The eight key areas of life (relationship, mission,fun, health, mind, work, social,
-                    and home) are represented by dragons that players face, and get quests from, to progress.
+                    The game connects players with varying levels of support and provides coaches, counsellors, and clinicians with a powerful tool to understand and engage their clients. Support Hub subscriptions are available to solo practitioners and institutions, providing an engaging way to connect with clients by inviting them to join and play Facing Dragons for free.
                 `,
                 `
-                    The game guides young adults to face their dragons through a solo campaign and a quest mode with 
-                    increasing challenge levels. Experienced players can join forces with a team of other players to 
-                    do group missions and keep each other accountable.
+                    The Support Hub allows professionals to view useful client metrics and stay in touch by scheduling appointments, sending notifications, and even suggesting quests to help guide players on their journey of personal growth.
                 `
             ],
             [
