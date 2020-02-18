@@ -64,25 +64,25 @@ export default {
                 name: "Portal Island",
                 icon: "section_icon_Quest.png",
                 title: "Real-World <br> Quests",
-                desc: "The eight key areas of life are represented by dragons who give players quests and challenges to complete in real life, based on tools used in coaching and counseling."
+                desc: "The eight key areas of life are represented by dragons, who give you quests and challenges to complete in the real world, based on established tools."
             },
             {
                 name: "Mirrors",
                 icon: "section_icon_Mirror.png",
                 title: "Learn About <br> Yourself",
-                desc: "Learn more about yourself by gazing into mirrors that ask you questions, based on established psychometric instruments such as Big 5, and DISC."
+                desc: "Learn more about yourself by taking solo quests that ask you questions  based on established psychometric instruments such as Big 5, DISC, and Leadership Style."
             },
             {
                 name: "Hall of Heroes",
                 icon: "section_icon_Hall.png",
                 title: "Hall <br> of Heroes",
-                desc: "Meet and get quests from inspiring real-life people who have managed to face their dragons; such the MMA world champion from the jungles of Brazil."
+                desc: "Discover heroic stories and get special quests from people who have faced their dragons in real life, such as MMA world champion, Bibiano Fernandes."
             },
             {
                 name: "Archives",
                 icon: "section_icon_Archives.png",
                 title: "Track Your <br> Progress",
-                desc: "You can keep track of your progress by visiting your private archives to see all your quests, goals, daily check ins, and mirror results."
+                desc: "Access your personal archives to see your private journal, goal progression, quest log, game-genreated mood tracker, and personality test results."
             },
         ];
         return {
