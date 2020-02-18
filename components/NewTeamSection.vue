@@ -90,7 +90,7 @@ export default {
       const teamMembers = [
             { 
                 name: "Brodie Whitney",
-                role: "CEO",
+                role: "Founder/CEO",
                 shortText: "What if we could make a game that engaged people in their life as much as these video games",
                 description: `On a mission to co-create a mixed-reality, self-care game that helps people 
                 unlock their purpose and empowers the next generation of leaders.<br>
@@ -119,7 +119,7 @@ export default {
             },
             { 
                 name: "Dov “Rallos” Schafer",
-                role: "Design Director",
+                role: "Co-founder/Design Director",
                 description: `Dov is PhD candidate in Educational Technology at Simon Fraser University 
                   in British Columba. He is studying peoples’ intrinsic motivation to play video games and 
                   how to create mixed reality games that support positive personal growth. Dov is a lifelong 
