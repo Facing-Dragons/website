@@ -7,6 +7,7 @@ export const state = () => ({
   dataIsWritten: false,
   dataWriteError: false,
   isVideoVisible: false,
+  isTeamsVisible: false,
 })
 
 export const mutations = {
@@ -20,5 +21,8 @@ export const mutations = {
   },
   setVideoVisible(state, isVideoVisible) {
     state.isVideoVisible = isVideoVisible;
+  },
+  setTeamsVisible(state, isTeamsVisible) {
+    state.isTeamsVisible = isTeamsVisible;
   }
 }

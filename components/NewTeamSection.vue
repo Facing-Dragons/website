@@ -12,7 +12,7 @@
                   no-body
                   class="overlay-foreground d-flex text-center text-md-left"
                 >
-                  <div v-if="$device.isMobile" class="d-flex d-md-none close-button" @click="() => {isOverlayShown = false}">
+                  <div v-if="$device.isMobile" class="d-flex d-md-none close-button" @click="handleCloseOverlay">
                     <font-awesome-icon icon="chevron-down"/>
                   </div>
                   <div class="d-flex justify-content-center align-items-center card-background">
@@ -308,6 +308,11 @@ export default {
       handleClick(index) {
         this.currentMember = this.teamMembers[index];
         this.isOverlayShown = true;
+        this.$store.commit('setTeamsVisible', true);
+      },
+      handleCloseOverlay() {
+        this.isOverlayShown = false;
+        this.$store.commit('setTeamsVisible', false);
       },
       handleTitleVisible(isVisible) {
         if(isVisible && !this.tl.began) {

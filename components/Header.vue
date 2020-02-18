@@ -8,7 +8,7 @@
     >
         <transition name="fade-from-up">
             <button 
-                v-if="isFirstQuestShown" 
+                v-if="isFirstQuestShown && !($device.isMobile && isTeamsVisible)" 
                 class="quest-button btn p-2 btn-rounded text-light ml-auto"
                 :class="{'iphone-quest-button': $device.isIos}"
                 @click="handleScrollTopClick"
@@ -49,18 +49,13 @@
                         Contact
                     </b-nav-item>
                 </b-nav>
-                <!-- <b-nav-item v-if="!isSupport" class="item d-none d-md-block" to="/support" id="support">
-                    <button class="btn p-2 btn-rounded btn-success text-light">
-                        For Support Workers
-                    </button> -->
-                    <!-- For Support Workers -->
-                <!-- </b-nav-item> -->
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>    
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
     props: {
         headerType: {
@@ -83,6 +78,9 @@ export default {
             window.addEventListener('scroll', this.onScrollHandler)
         }
     },
+    computed: {
+        ...mapState(['isTeamsVisible']),
+    },
     methods: {
         onScrollHandler() {
             if(window.scrollY > 400)
@@ -90,10 +88,12 @@ export default {
             else if (window.screenY < 400)
                 this.isTitleShown = true;
 
-            if(window.scrollY > 600)
+            if(window.scrollY > 600) {
                 this.isFirstQuestShown = true;
-            else if (window.screenY < 600)
+            }
+            else if (window.screenY < 600) {
                 this.isFirstQuestShown = false;
+            }
         },
         handleMouseEnter() {
             if(window.scrollY > 400)
