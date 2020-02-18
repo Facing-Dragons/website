@@ -36,10 +36,10 @@ export default {
             ],
             [
                 `
-                    Meet your super-cute Guidian, who will introduce you to eight amazing dragons, each representing one of the 8 Key Areas of Life: Mission, Mind, Money, Vitality, Love, Fun, Social and Home.
+                    Meet your Guidian! This cute little companion will introduce you to the eight dragons who embody the 8 Key Areas of Life: Mission, Mind, Money, Vitality, Love, Fun, Social and Home.
                 `,
                 `
-                    Your dragons help you develop coping skills, self-awareness and confidence by giving you real-life and in-game quests with increasing levels of challenge. As you gain experience, you can join forces with other players for multi-player and mythic-level quests to figure out what to do with your life and achieve your biggest goals.
+                    Your dragons help you develop coping skills, self-awareness and confidence by giving you quests to complete in the real world. As you gain experience, you have the option to join forces with other players for mythic-level quests to figure out what to do with your life and achieve your biggest goals.
                 `
             ],
             [
