@@ -5,8 +5,6 @@ require("firebase/firestore");
 
 if (!firebase.apps.length) {
 
-  console.log(config);
-  
 
   firebase.initializeApp(config)
   firebase.firestore().settings({
