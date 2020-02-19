@@ -120,7 +120,7 @@ export default {
             { 
                 name: "Dov “Rallos” Schafer",
                 role: "Co-founder/Design Director",
-                description: `Dov is PhD candidate in Educational Technology at Simon Fraser University 
+                description: `Dov is a PhD candidate in Educational Technology at Simon Fraser University 
                   in British Columba. He is studying peoples’ intrinsic motivation to play video games and 
                   how to create mixed reality games that support positive personal growth. Dov is a lifelong 
                   game enthusiast with a deep knowledge of design and mechanics.<br>
