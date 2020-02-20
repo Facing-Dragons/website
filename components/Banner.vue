@@ -288,7 +288,7 @@ import BannerTextSection from '~/components/BannerTextFirst'
 import BannerTextUnlock from '~/components/BannerTextUnlock'
 import TitleDesc from '~/components/TitleDesc'
 import AnimatingArrowDown from '~/components/AnimatingArrowDown'
-import {fireDb} from '~/plugins/firebase.js'
+// import {fireDb} from '~/plugins/firebase.js'
 
 export default {
     components: {
@@ -342,39 +342,39 @@ export default {
       }
     },
     methods: {
-      async writeEmail(isSupport=false) {
-        const isSupportWorker = this.$route.path === '/support'
-        const ref = fireDb.collection("users");
-        this.isWriting = true;
-        try {
-          await ref.add({
-            email: this.form.email,
-            isSupport,
-            mission: 0,
-            love: 0, 
-            fun: 0,
-            social: 0,
-            vitality: 0,
-            wealth: 0,
-            mind: 0,
-            home: 0
-        })
-        } catch (e) {
-          // TODO: error handling
-          console.error(e)
-          this.isWriteSuccessful = false;
-        }
-        this.isWriteSuccessful = true;
-        this.isWriting = false;
-        this.$store.commit('setEmail', this.form.email);
-      },
-      handleSubscribe: function() {
-        setTimeout(() => {
-          this.isWriteSuccessful = true;
-          // this.isPlayerModalOpen = false;
-          // this.isWorkerModalOpen = false;
-        }, 2000);
-      },
+      // async writeEmail(isSupport=false) {
+      //   const isSupportWorker = this.$route.path === '/support'
+      //   const ref = fireDb.collection("users");
+      //   this.isWriting = true;
+      //   try {
+      //     await ref.add({
+      //       email: this.form.email,
+      //       isSupport,
+      //       mission: 0,
+      //       love: 0, 
+      //       fun: 0,
+      //       social: 0,
+      //       vitality: 0,
+      //       wealth: 0,
+      //       mind: 0,
+      //       home: 0
+      //   })
+      //   } catch (e) {
+      //     // TODO: error handling
+      //     console.error(e)
+      //     this.isWriteSuccessful = false;
+      //   }
+      //   this.isWriteSuccessful = true;
+      //   this.isWriting = false;
+      //   this.$store.commit('setEmail', this.form.email);
+      // },
+      // handleSubscribe: function() {
+      //   setTimeout(() => {
+      //     this.isWriteSuccessful = true;
+      //     // this.isPlayerModalOpen = false;
+      //     // this.isWorkerModalOpen = false;
+      //   }, 2000);
+      // },
       handleStartQuest: function () {
         this.isPlayerModalOpen = true;
       },

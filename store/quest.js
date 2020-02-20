@@ -8,14 +8,14 @@ export const state = () => ({
     homeScore: 0,
     wealthScore: 0,
     resultScore: 0,
-    resultText: ""
+    resultText: "",
+    userInfo: ""
 })
 
 
 export const mutations = {
-
-}
-
-export const actions = {
-    
+    setUserInfo(state, newUserInfo) {
+        console.log(newUserInfo);
+        state.userInfo = newUserInfo;
+    }
 }
