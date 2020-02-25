@@ -1,4 +1,5 @@
 const firebase = require("firebase");
+const auth = require("firebase/auth");
 const {config} = require("~/config");
 // Required for side-effects
 require("firebase/firestore");
@@ -16,4 +17,17 @@ const fireDb = firebase.firestore()
 
 export {
   fireDb
+}
+
+export default (context) => {
+  const {
+    store
+  } = context
+
+  // return new Promise((resolve, reject) => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     store.commit('setUser', user)
+  //     resolve()
+  //   })
+  // })
 }

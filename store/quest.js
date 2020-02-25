@@ -9,7 +9,9 @@ export const state = () => ({
     wealthScore: 0,
     resultScore: 0,
     resultText: "",
-    userInfo: ""
+    userInfo: "",
+    isSupport: false,
+    isPlayer: true,
 })
 
 
