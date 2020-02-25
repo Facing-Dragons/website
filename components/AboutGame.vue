@@ -82,7 +82,7 @@ export default {
                 name: "Archives",
                 icon: "section_icon_Archives.png",
                 title: "Track Your <br> Progress",
-                desc: "Access your personal archives to see your private journal, goal progression, quest log, game-genreated mood tracker, and personality test results."
+                desc: "Access your personal archives to see your private journal, goal progression, quest log, game-generated mood tracker, and personality test results."
             },
         ];
         return {
