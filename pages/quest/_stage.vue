@@ -1,9 +1,7 @@
 <template>
 <!-- This is the welcome page of the quest to tell the players what they're doing and stuff -->
     <div class="main-container">
-      <transition
-        name="slide-fade"
-      >
+      
         <!-- <game-question
           v-if="currentStepIndex === 0"
           :text="gameQuestions[0].text"
@@ -24,9 +22,13 @@
           v-bind="currentProperties"
           @change="handleChange"
         >
-          <component :is="currentTextComponent"></component>
+            <transition
+                name="slide-fade"
+                mode="out-in"
+            >
+                <component :is="currentTextComponent"></component>
+            </transition>
         </game-question>
-      </transition>
       <div class="button-container d-none d-md-block">
         <transition
           name="slide-fade"
@@ -103,22 +105,23 @@ export default {
     MissionText
   },
   async mounted() {
-    if(!this.$store.state.email && this.$route.query.id) {
-      const userID = this.$route.query.id;
+    //   const 
+    // if(!this.$store.state.email && this.$route.query.id) {
+    //   const userID = this.$route.query.id;
       // console.log(userID);
       
-      const ref = fireDb.collection("users").doc(userID);
+    //   const ref = fireDb.collection("users").doc(userID);
 
-      let snap
-      try {
-        snap = await ref.get()
-        console.log(snap.data().email);
-        this.$store.commit('setEmail', snap.data().email);
-      } catch (e) {
-        // TODO: error handling
-        console.error(e)
-      }
-    }
+    //   let snap
+    //   try {
+    //     snap = await ref.get()
+    //     console.log(snap.data().email);
+    //     this.$store.commit('setEmail', snap.data().email);
+    //   } catch (e) {
+    //     // TODO: error handling
+    //     console.error(e)
+    //   }
+    // }
   },
   data() {
     const gameQuestions = [
@@ -305,14 +308,14 @@ export default {
   }
 
   .slide-fade-enter-active {
-    transition: all .3s ease;
+    transition: all .3s ease-in-out;
   }
   .slide-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all .3s ease-in-out;
   }
   .slide-fade-enter, .slide-fade-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translateX(10px);
+    transform: translateX(2px);
     opacity: 0;
   }
 </style>

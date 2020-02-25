@@ -2,17 +2,23 @@
     <div class="container main-quest-container h-100 d-flex justify-content-center align-items-center">
         <div class="row">
             <div class="col-12 justify-content-center title-container">
-                <!-- <h1 class="quest-title">
-                    {{ title }}
-                </h1> -->
                 <slot></slot>
             </div>
             <div class="col-12 justify-content-center">
-                <p class="quest-text">
+                <transition
+                    name="slide-fade"
+                    mode="out-in"
+                >
+                <p :key="title" class="quest-text">
                     {{ text }}
                 </p>
+                </transition>
             </div>
             <div class="col-12 justify-content-center align-items-center control-col">
+                <transition
+                    name="slide-fade"
+                    mode="out-in"
+                >
                 <vue-slider
                     :key="title"
                     :value="value"
@@ -25,6 +31,7 @@
                     :processStyle="computedStyle"
                     :data="['0 - Low', 1, 2, 3, 4, 5, 6, 7, 8, 9, '10 - High']"
                 ></vue-slider>
+                </transition>
             </div>
         </div>
     </div>
@@ -96,4 +103,16 @@ export default {
     color: #1e1e1e;
     margin-bottom: 10vh;
 }
+
+.slide-fade-enter-active {
+    transition: all .3s ease-in-out;
+  }
+  .slide-fade-leave-active {
+    transition: all .3s ease-in-out;
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateX(2px);
+    opacity: 0;
+  }
 </style>
