@@ -198,6 +198,7 @@ export default {
     },
     handleChange(newVal) {
       this.gameQuestions[this.currentStepIndex].value = newVal;
+      this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: newVal});
     }
   },
   computed: {
