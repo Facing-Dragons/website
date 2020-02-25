@@ -73,7 +73,7 @@ export default {
       return this.isVideoEnded && this.currentWindowY > 0.6;
     },
     headerType() {
-      return this.$route.path !== '/quest' ? 'normal' : 'quest';
+      return this.$route.path.indexOf('/quest') !== -1 ? 'quest' : 'normal';
     },
     isSupportHeader() {
       return this.$route.path === '/support';
