@@ -2,13 +2,12 @@
     <div class="main">
         <svg viewBox="0 0  500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
-                <path d="M 250 250 v -500 h 500 Z" fill="#C4C4C4"/>
+                <path d="M 250 250 v -500 h 500 Z" :fill="mainColor"/>
             </mask>
             <g mask="url(#mask0)">
-                <circle cx="250" cy="250" r="250" fill="#2CD67A" stroke="black" :stroke-width="computedStrokeWidth"/>
+                <circle cx="250" cy="250" :r="mainRadius" :fill="mainColor"/>
             </g>
         </svg>
-        
     </div>
 </template>
 
@@ -65,7 +64,11 @@ svg {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: black;
+    background: transparent;
+    border: 5px black solid;
+}
+circle {
+    transition: all .5s ease-in-out;
 }
 
 </style>
