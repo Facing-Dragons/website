@@ -24,12 +24,12 @@
                     :value="value"
                     @change="handleChange"
                     :adsorb="true"
-                    :interval="10"
-                    :marks="true"
+                    :interval="1"
+                    :max="10"
+                    :marks="marks1"
                     :dotSize="18"
                     height="20px"
                     :processStyle="computedStyle"
-                    :data="['0 - Low', 1, 2, 3, 4, 5, 6, 7, 8, 9, '10 - High']"
                 ></vue-slider>
                 </transition>
             </div>
@@ -51,6 +51,23 @@ export default {
         value: Number,
         color: String,
         title: String,
+    },
+    data() {
+        return {
+            marks1: {
+                '0': '0 - Low',
+                '1': '1',
+                '2': '2',
+                '3': '3',
+                '4': '4',
+                '5': '5',
+                '6': '6',
+                '7': '7',
+                '8': '8',
+                '9': '9',
+                '10': '10 - High'
+            },
+        }
     },
     methods: {
         handleChange(newVal) {

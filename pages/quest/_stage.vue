@@ -201,15 +201,15 @@ export default {
   methods: {
     handlePrev() {
       if (this.currentStepIndex > 0) {
-        this.currentStepIndex--;
         this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.currentStepIndex--;
         this.$router.push(`?step=${this.currentStepIndex}`);
       }
     },
     handleNext() {
       if (this.currentStepIndex < 7) {
-        this.currentStepIndex++;
         this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.currentStepIndex++;
         this.$router.push(`?step=${this.currentStepIndex}`);
       }
     },
