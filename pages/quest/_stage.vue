@@ -36,7 +36,7 @@
         <div 
           @click="handlePrev" 
           v-if="currentStepIndex > 0" 
-          class="quest-arrow-container bg-success h-100 arrow-prev"
+          class="quest-arrow-container bg-success h-100 arrow-prev rounded-right"
         >
           <chevron-left class="arrow-icon chevron-left"></chevron-left>
         </div>
@@ -44,12 +44,19 @@
         <transition
           name="slide-fade"
         >
-        <div @click="handleNext" v-if="currentStepIndex < 9" class="quest-arrow-container bg-success h-100 arrow-next">
+        <div @click="handleNext" v-if="currentStepIndex < 7" class="quest-arrow-container bg-success h-100 arrow-next rounded-left">
           <chevron-right class="arrow-icon chevron-right"></chevron-right>
+        </div>
+        <div @click="handleNext" v-else class="quest-arrow-container bg-warning h-100 arrow-next last-next rounded-left">
+          <chevron-right class="arrow-icon chevron-right"></chevron-right>
+          <div class="arrow-text">
+            RESULTS
+          </div>
         </div>
         </transition>
       </div>
 
+      <!-- MOBILE ARROWS -->
 
       <div class="mobile-button-container d-block d-md-none">
         <transition
@@ -104,7 +111,24 @@ export default {
     SocialText,
     MissionText
   },
+  fetch({store, params}) {
+    var randomGameScores = {
+        mindScore: Math.floor(Math.random() * 10),
+        missionScore: Math.floor(Math.random() * 10),
+        vitalityScore: Math.floor(Math.random() * 10),
+        loveScore: Math.floor(Math.random() * 10),
+        funScore: Math.floor(Math.random() * 10),
+        socialScore: Math.floor(Math.random() * 10),
+        homeScore: Math.floor(Math.random() * 10),
+        wealthScore: Math.floor(Math.random() * 10),
+    };
+    store.commit('quest/setAllScores', randomGameScores);
+  },
   async mounted() {
+    //  Here we need a call to the API in order to load the user scores 
+    //  Then submit them to the store
+
+
     //   const 
     // if(!this.$store.state.email && this.$route.query.id) {
     //   const userID = this.$route.query.id;
@@ -123,7 +147,12 @@ export default {
     //   }
     // }
   },
-  data() {
+  async asyncData({query}) {
+    /**
+     * 
+     * MAKE IT URL-BASED!
+     * 
+     */
     const gameQuestions = [
       {
         title: 'Mind',
@@ -184,21 +213,27 @@ export default {
     ]
     return {
       gameQuestions,
-      currentStepIndex: 0,
+      currentStepIndex: query.step || 0,
     }
   },
   methods: {
     handlePrev() {
-      if (this.currentStepIndex > 0)
+      if (this.currentStepIndex > 0) {
         this.currentStepIndex--;
+        this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.$router.push(`?step=${this.currentStepIndex}`);
+      }
     },
     handleNext() {
-      if (this.currentStepIndex < 9)
+      if (this.currentStepIndex < 7) {
         this.currentStepIndex++;
+        this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.$router.push(`?step=${this.currentStepIndex}`);
+      }
     },
     handleChange(newVal) {
       this.gameQuestions[this.currentStepIndex].value = newVal;
-      this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: newVal});
+      // this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: newVal});
     }
   },
   computed: {
@@ -238,10 +273,10 @@ export default {
 
   .button-container {
     overflow: hidden;
-    height: 60vh;
+    height: 19vh;
     width: 100%;
     position: absolute;
-    top: 20vh;
+    top: 46vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -272,6 +307,27 @@ export default {
     cursor: pointer;
     width: 8vw;
     display: flex;
+    transition: all .5s ease;
+  }
+
+  .quest-arrow-container:hover {
+    background-color: #23913c !important
+  }
+
+  .last-next {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .last-next:hover {
+    background-color: #e6ae07 !important
+  }
+
+  .arrow-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom: 0.15rem;
   }
 
   @media screen and (max-width: 760px) {
