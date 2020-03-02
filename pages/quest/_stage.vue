@@ -57,8 +57,11 @@
         <transition
           name="slide-fade"
         >
-        <div @click="handleNext" v-if="currentStepIndex < 9" class="quest-arrow-container mobile bg-success h-100 arrow-next">
-          <chevron-right class="arrow-icon chevron-right"></chevron-right>
+        <div @click="handleNext" v-if="currentStepIndex < 7" class="quest-arrow-container mobile bg-success h-100 arrow-next">
+          <chevron-right class="arrow-icon chevron-right" fill="white"></chevron-right>
+        </div>
+        <div @click="handleResults" v-else class="quest-arrow-container mobile bg-warning h-100 last-next-mobile arrow-next">
+          <chevron-right class="arrow-icon chevron-right" fill="black" ></chevron-right>
         </div>
         </transition>
       </div>
@@ -190,7 +193,7 @@ export default {
         titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
         value: randomGameScores.wealthScore,
-        color: "#c5c5c5"
+        color: "#FFD700"
       }
     ]
     return {
@@ -271,7 +274,7 @@ export default {
 
   .mobile-button-container {
     height: 5vh;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     overflow: hidden;
     right: 0;
@@ -307,6 +310,10 @@ export default {
   }
 
   .last-next:hover {
+    background-color: #e6ae07 !important
+  }
+
+  .last-next-mobile:hover {
     background-color: #e6ae07 !important
   }
 

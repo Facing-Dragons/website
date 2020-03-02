@@ -1,7 +1,7 @@
 <template>
-    <div class="container-fluid bg-light align-items-center d-flex flex-column justify-content-center">
+    <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <div class="row justify-content-center">
-            <div class="col-12">
+            <div class="col-lg-7 justify-content-end d-flex">
                 <div class="p">
                     <div 
                         class="wrapper"
@@ -18,15 +18,35 @@
                     </div>
                 </div>
             </div>
+            <div class="col d-flex flex-column justify-content-around results-text">
+                <div class="w-100">
+                    <results-wheel></results-wheel>
+                </div>
+                <div class="w-100">
+                    <results-text></results-text>
+                </div>
+                <div class="button-container d-flex justify-content-between">
+                    <button class="rounded custom-button p-2 mr-2">
+                        SHARE
+                    </button>
+                    <button class="rounded custom-button">
+                        PLAY AGAIN!
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import WheelOfLifeSection from '~/components/WheelOfLifeSection'
+import ResultsWheel from '~/components/ResultsWheel'
+import ResultsText from '~/components/ResultsText'
 export default {
     components: {
-        WheelOfLifeSection
+        WheelOfLifeSection,
+        ResultsWheel,
+        ResultsText
     },
     async asyncData({store}) {
         /**
@@ -71,5 +91,24 @@ export default {
     height: 70vmin;
     position: relative;
     top: 0;
+}
+.results-text {
+    height: 70vmin;
+    padding-right: 8rem;
+}
+.custom-button {
+  transition: 0.3s all ease-in-out;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: #f9b038;
+  color: #303030;
+  border: none;
+  outline: none;
+  width: 48%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.custom-button:hover {
+  color: #1f1f1f;
+  background: #e26e0a;
 }
 </style>
