@@ -1,23 +1,6 @@
 <template>
 <!-- This is the welcome page of the quest to tell the players what they're doing and stuff -->
     <div class="main-container">
-      
-        <!-- <game-question
-          v-if="currentStepIndex === 0"
-          :text="gameQuestions[0].text"
-          :color="gameQuestions[0].color"
-          :value="gameQuestions[0].value"
-          :title="gameQuestions[0].title"
-          @change="handleChange"
-        ></game-question>
-        <game-question
-          v-else-if="currentStepIndex === 1"
-          :text="gameQuestions[1].text"
-          :color="gameQuestions[1].color"
-          :value="gameQuestions[1].value"
-          :title="gameQuestions[1].title"
-          @change="handleChange"
-        ></game-question> -->
         <game-question
           v-bind="currentProperties"
           @change="handleChange"
@@ -47,8 +30,8 @@
         <div @click="handleNext" v-if="currentStepIndex < 7" class="quest-arrow-container bg-success h-100 arrow-next rounded-left">
           <chevron-right class="arrow-icon chevron-right"></chevron-right>
         </div>
-        <div @click="handleNext" v-else class="quest-arrow-container bg-warning h-100 arrow-next last-next rounded-left">
-          <chevron-right class="arrow-icon chevron-right"></chevron-right>
+        <div @click="handleResults" v-else class="quest-arrow-container bg-warning h-100 arrow-next last-next rounded-left">
+          <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
           <div class="arrow-text">
             RESULTS
           </div>
@@ -111,19 +94,6 @@ export default {
     SocialText,
     MissionText
   },
-  fetch({store, params}) {
-    var randomGameScores = {
-        mindScore: Math.floor(Math.random() * 10),
-        missionScore: Math.floor(Math.random() * 10),
-        vitalityScore: Math.floor(Math.random() * 10),
-        loveScore: Math.floor(Math.random() * 10),
-        funScore: Math.floor(Math.random() * 10),
-        socialScore: Math.floor(Math.random() * 10),
-        homeScore: Math.floor(Math.random() * 10),
-        wealthScore: Math.floor(Math.random() * 10),
-    };
-    store.commit('quest/setAllScores', randomGameScores);
-  },
   async mounted() {
     //  Here we need a call to the API in order to load the user scores 
     //  Then submit them to the store
@@ -147,67 +117,79 @@ export default {
     //   }
     // }
   },
-  async asyncData({query}) {
+  async asyncData({query, store}) {
     /**
      * 
-     * MAKE IT URL-BASED!
+     * REPLACE RANDOM READING WITH FIREDB READING
      * 
      */
+    var randomGameScores = {
+        mindScore: Math.floor(Math.random() * 10),
+        missionScore: Math.floor(Math.random() * 10),
+        vitalityScore: Math.floor(Math.random() * 10),
+        loveScore: Math.floor(Math.random() * 10),
+        funScore: Math.floor(Math.random() * 10),
+        socialScore: Math.floor(Math.random() * 10),
+        homeScore: Math.floor(Math.random() * 10),
+        wealthScore: Math.floor(Math.random() * 10),
+    };
+    store.commit('quest/setAllScores', randomGameScores);
+
     const gameQuestions = [
       {
         title: 'Mind',
         titleComponent: 'MindText',
         text: `How fulfilled are you in your mental and emotional health?`,
-        value: 0,
+        value: randomGameScores.mindScore,
         color: "#0059b9"
       },
       {
         title: 'Mission',
         titleComponent: 'MissionText',
         text: 'How fulfilled are you in knowing and living your mission, work that is meaningful to you?',
-        value: 0,
+        value: randomGameScores.missionScore,
         color: "#ff6800"
       },
       {
         title: 'Vitality',
         titleComponent: 'VitalityText',
         text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
-        value: 0,
+        value: randomGameScores.vitalityScore,
         color: "#76b72b"
       },
       {
         title: 'Love',
         titleComponent: 'LoveText',
         text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
-        value: 0,
+        value: randomGameScores.loveScore,
         color: "#c22832"
       },
       {
         title: 'Fun',
         titleComponent: 'FunText',
         text: 'How fulfilled are you in having fun, being playful, and enjoying the lighter side of yourself and your life?',
-        value: 0,
+        value: randomGameScores.funScore,
         color: "#f9e777"
       },
       {
         title: 'Social',
         titleComponent: 'SocialText',
         text: 'How are you doing at staying in touch and feeling connected with the people who mean the most to you?',
-        value: 0,
+        value: randomGameScores.socialScore,
         color: "#61a5e3"
       },
       {
         title: 'Home',
         titleComponent: 'HomeText',
         text: 'How fulfilled are you with your home and the current state of your physical surroundings?',
-        value: 0,
+        value: randomGameScores.homeScore,
         color: "#72655f"
       },
       {
         title: 'Wealth',
         titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
-        value: 0,
+        value: randomGameScores.wealthScore,
         color: "#c5c5c5"
       }
     ]
@@ -230,6 +212,11 @@ export default {
         this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
         this.$router.push(`?step=${this.currentStepIndex}`);
       }
+    },
+    handleResults() {
+      // Set the score for the last stage first
+      this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+      this.$router.push('/quest/result');
     },
     handleChange(newVal) {
       this.gameQuestions[this.currentStepIndex].value = newVal;
