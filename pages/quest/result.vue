@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <div class="row justify-content-center">
-            <div class="col-lg-7 justify-content-end d-flex">
+            <div class="col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex">
                 <div class="p">
                     <div 
                         class="wrapper"
@@ -23,15 +23,18 @@
                     <results-wheel></results-wheel>
                 </div>
                 <div class="w-100">
-                    <results-text></results-text>
+                    <space-pirate-text></space-pirate-text>
                 </div>
-                <div class="button-container d-flex justify-content-between">
-                    <button class="rounded custom-button p-2 mr-2">
-                        SHARE
-                    </button>
-                    <button class="rounded custom-button">
-                        PLAY AGAIN!
-                    </button>
+                <div class="w-100">
+                    <results-text></results-text>
+                    <div class="button-container d-flex justify-content-between">
+                        <button class="rounded custom-button p-2 mr-2">
+                            SHARE
+                        </button>
+                        <button class="rounded custom-button">
+                            PLAY AGAIN!
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -42,11 +45,13 @@
 import WheelOfLifeSection from '~/components/WheelOfLifeSection'
 import ResultsWheel from '~/components/ResultsWheel'
 import ResultsText from '~/components/ResultsText'
+import SpacePirateText from '~/components/SpacePirateText'
 export default {
     components: {
         WheelOfLifeSection,
         ResultsWheel,
-        ResultsText
+        ResultsText,
+        SpacePirateText
     },
     async asyncData({store}) {
         /**
@@ -71,7 +76,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container-fluid {
     height: 100vh;
 }
@@ -87,14 +92,17 @@ export default {
    border-radius: 50%;
 } 
 .p {
-    width: 70vmin;
-    height: 70vmin;
+    width: 80vmin;
+    height: 80vmin;
     position: relative;
     top: 0;
 }
 .results-text {
-    height: 70vmin;
+    height: 76vmin;
     padding-right: 8rem;
+    @media screen and (max-width: 768px) {
+        padding-right: unset;
+    }
 }
 .custom-button {
   transition: 0.3s all ease-in-out;
