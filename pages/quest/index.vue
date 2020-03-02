@@ -23,7 +23,7 @@
               <p v-html="questText">
               </p>
             </div>
-            <b-button to="/quest/1" class="card-button rounded">
+            <b-button to="/quest/1?step=0" class="card-button rounded">
               Start!
             </b-button>
           </b-card>
