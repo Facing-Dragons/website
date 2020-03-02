@@ -56,8 +56,8 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
 }
 
 svg {
@@ -65,7 +65,7 @@ svg {
     height: 100%;
     border-radius: 50%;
     background: transparent;
-    border: 5px black solid;
+    // border: 5px black solid;
 }
 circle {
     transition: all .5s ease-in-out;

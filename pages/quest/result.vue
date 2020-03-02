@@ -1,17 +1,21 @@
 <template>
-    <div class="container bg-light align-items-center d-flex flex-column justify-content-center">
+    <div class="container-fluid bg-light align-items-center d-flex flex-column justify-content-center">
         <div class="row justify-content-center">
-            <div class="coll-12">
+            <div class="col-12">
                 <div class="p">
-                    <wheel-of-life-section 
+                    <div 
+                        class="wrapper"
                         v-for="(s, i) in wheelSections"
                         :key="i"
-                        class="section" 
-                        :current-value="s.value"
-                        :mainColor="s.color"
-                        :style="{transform: `rotate(${45 * i}deg)`}"
                     >
-                    </wheel-of-life-section>
+                        <wheel-of-life-section 
+                            class="section" 
+                            :current-value="s.value"
+                            :mainColor="s.color"
+                            :style="{transform: `rotate(${45 * i}deg)`}"
+                        >
+                        </wheel-of-life-section>
+                    </div>
                 </div>
             </div>
         </div>
@@ -48,15 +52,24 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.container-fluid {
     height: 100vh;
 }
-.p {
-    height: 500px;
-    width: 500px;
-}
 .section {
-    position: absolute;
-    top: 55px;
+    /* position: absolute;
+    top: 55px; */
+}
+.wrapper {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   border: 2px solid;
+   border-radius: 50%;
+} 
+.p {
+    width: 70vmin;
+    height: 70vmin;
+    position: relative;
+    top: 0;
 }
 </style>
