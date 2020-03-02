@@ -27,5 +27,9 @@ export const mutations = {
         console.log(newScore);
         var newKey = Object.keys(state.gameScores)[index];
         state.gameScores[newKey] = newScore;
+    },
+    setAllScores(state, newScoreObject) {
+        state.gameScores = Object.assign(newScoreObject);
     }
+    //  We need an action to put the user scores upon !FINISHING! to the database 
 }
