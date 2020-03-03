@@ -140,13 +140,6 @@ export default {
 
     const gameQuestions = [
       {
-        title: 'Mind',
-        titleComponent: 'MindText',
-        text: `How fulfilled are you in your mental and emotional health?`,
-        value: randomGameScores.mindScore,
-        color: "#0059b9"
-      },
-      {
         title: 'Mission',
         titleComponent: 'MissionText',
         text: 'How fulfilled are you in knowing and living your mission, work that is meaningful to you?',
@@ -154,18 +147,11 @@ export default {
         color: "#ff6800"
       },
       {
-        title: 'Vitality',
-        titleComponent: 'VitalityText',
-        text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
-        value: randomGameScores.vitalityScore,
-        color: "#76b72b"
-      },
-      {
-        title: 'Love',
-        titleComponent: 'LoveText',
-        text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
-        value: randomGameScores.loveScore,
-        color: "#c22832"
+        title: 'Mind',
+        titleComponent: 'MindText',
+        text: `How fulfilled are you in your mental and emotional health?`,
+        value: randomGameScores.mindScore,
+        color: "#0059b9"
       },
       {
         title: 'Fun',
@@ -189,11 +175,25 @@ export default {
         color: "#72655f"
       },
       {
+        title: 'Love',
+        titleComponent: 'LoveText',
+        text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
+        value: randomGameScores.loveScore,
+        color: "#c22832"
+      },
+      {
         title: 'Wealth',
         titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
         value: randomGameScores.wealthScore,
         color: "#FFD700"
+      },
+      {
+        title: 'Vitality',
+        titleComponent: 'VitalityText',
+        text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
+        value: randomGameScores.vitalityScore,
+        color: "#76b72b"
       }
     ]
     return {

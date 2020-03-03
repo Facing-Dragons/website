@@ -1,13 +1,13 @@
 export const state = () => ({
     gameScores: {
-        mindScore: 0,
         missionScore: 0,
-        vitalityScore: 0,
-        loveScore: 0,
+        mindScore: 0,
         funScore: 0,
         socialScore: 0,
         homeScore: 0,
+        loveScore: 0,
         wealthScore: 0,
+        vitalityScore: 0,
     },
     resultScore: 0,
     resultText: "",
