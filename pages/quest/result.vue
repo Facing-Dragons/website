@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <!-- MOBILE BUTTONS -->
-        <div v-if="$device.isMobile" class="d-flex d-lg-none button-container-mobile">
+        <div v-if="$device.isMobileOrTablet" class="d-flex d-xl-none button-container-mobile">
             <button class="rounded-top custom-button w-50 p-2">
                 SHARE
             </button>
@@ -11,8 +11,8 @@
         </div>
         <!-- END OF MOBILE BUTTONS -->
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6 wrapper-col align-items-center align-items-lg-end justify-content-center justify-content-lg-end d-flex flex-column">
-                <div v-if="$device.isMobile" class="d-flex d-lg-none w-100 title-mobile">
+            <div class="col-12 col-xl-6 wrapper-col align-items-center align-items-xl-end justify-content-center justify-content-xl-end d-flex flex-column">
+                <div v-if="$device.isMobileOrTablet" class="d-flex d-xl-none w-100 title-mobile">
                     <results-wheel></results-wheel>
                 </div>
                 <div class="p">
@@ -33,9 +33,12 @@
                         <img src="~/assets/img/wheel/HEAD1.png" alt="wheel of life" class="wheel-frame-image">
                     </div>
                 </div>
+                <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile">
+                    <space-pirate-mobile></space-pirate-mobile>
+                </div>
             </div>
             <!-- This won't be shown in mobile devices -->
-            <div class="col d-none d-lg-flex flex-column justify-content-around results-text">
+            <div class="col d-none d-xl-flex flex-column justify-content-around results-text">
                 <div class="w-100">
                     <results-wheel></results-wheel>
                 </div>
@@ -55,10 +58,7 @@
                 </div>
             </div>
             <!-- This will be shown in MOBILE devices -->
-            <div class="col-12 d-flex flex-column justify-content-around results-text-mobile">
-                <div class="w-100 character-title-mobile">
-                    <space-pirate-mobile></space-pirate-mobile>
-                </div>
+            <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
                 <div class="w-100">
                     <results-text></results-text>
                 </div>
@@ -122,6 +122,11 @@ export default {
 // THIS IS JUST FOR DESKTOP .... MEDIA QUERIES NEEDED FOR MOBILE
 .wrapper-col {
     height: 75vh;
+
+    @media screen and (max-width: 1200px) {
+        height: 82vh;
+        top: 10vh;
+    }
 }
 .title-mobile {
     margin-bottom: 10vh;
@@ -153,11 +158,11 @@ export default {
     padding-right: 2rem;
     padding-left: 2rem;
     padding-bottom: 20vh;
+    margin-top: 20vh;
 }
 .character-title-mobile {
     height: 20vh;
-    margin-top: -5vh;
-    margin-bottom: 10vh;
+    margin-top: 5vh;
 }
 .button-container-mobile {
     position: fixed;

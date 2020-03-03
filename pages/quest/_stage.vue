@@ -100,6 +100,9 @@ export default {
   watchQuery(newQ, oldQ) {
     this.currentStepIndex = newQ.step;
   },
+  created() {
+    // screen.orientation.lock('portrait');
+  },
   async mounted() {
     //  Here we need a call to the API in order to load the user scores 
     //  Then submit them to the store
@@ -255,6 +258,7 @@ export default {
     bottom: 0;
     position: fixed;
     overflow: hidden;
+    padding-bottom: 5vh;
   }
 
   .line {
