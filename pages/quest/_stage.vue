@@ -97,6 +97,9 @@ export default {
     SocialText,
     MissionText
   },
+  watchQuery(newQ, oldQ) {
+    this.currentStepIndex = newQ.step;
+  },
   async mounted() {
     //  Here we need a call to the API in order to load the user scores 
     //  Then submit them to the store
