@@ -17,7 +17,7 @@
                         </wheel-of-life-section>
                     </div>
                     <div class="wheel-image-container">
-                        <img src="~/assets/img/wheel/HEAD.png" alt="wheel of life" class="wheel-frame-image">
+                        <img src="~/assets/img/wheel/HEAD1.png" alt="wheel of life" class="wheel-frame-image">
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ export default {
 .wheel-image-container {
     position: absolute;
     z-index: 11;
-    top: -14vmin;
+    top: -13.5vmin;
     left: -10vmin;
 }
 .wheel-frame-image {
