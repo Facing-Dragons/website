@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6 justify-content-center justify-content-lg-end d-flex">
+            <div class="col-12 col-lg-6 wrapper-col align-items-center justify-content-center justify-content-lg-end d-flex">
                 <div class="p">
                     <div 
                         class="wrapper"
@@ -15,6 +15,9 @@
                             :style="{transform: `rotate(${45 * i}deg)`}"
                         >
                         </wheel-of-life-section>
+                    </div>
+                    <div class="wheel-image-container">
+                        <img src="~/assets/img/wheel/HEAD.png" alt="wheel of life" class="wheel-frame-image">
                     </div>
                 </div>
             </div>
@@ -91,11 +94,25 @@ export default {
    border: 2px solid;
    border-radius: 50%;
 } 
+// THIS IS JUST FOR DESKTOP .... MEDIA QUERIES NEEDED FOR MOBILE
+.wrapper-col {
+    height: 85vh;
+}
 .p {
-    width: 80vmin;
-    height: 80vmin;
+    width: 60vmin;
+    height: 60vmin;
     position: relative;
     top: 0;
+}
+.wheel-image-container {
+    position: absolute;
+    z-index: 11;
+    top: -14vmin;
+    left: -10vmin;
+}
+.wheel-frame-image {
+    width: 78vmin;
+    height: 78vmin;
 }
 .results-text {
     height: 76vmin;
