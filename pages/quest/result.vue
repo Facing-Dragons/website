@@ -1,7 +1,20 @@
 <template>
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
+        <!-- MOBILE BUTTONS -->
+        <div v-if="$device.isMobile" class="d-flex d-lg-none button-container-mobile">
+            <button class="rounded-top custom-button w-50 p-2">
+                SHARE
+            </button>
+            <button class="rounded-top custom-button w-50">
+                PLAY AGAIN!
+            </button>
+        </div>
+        <!-- END OF MOBILE BUTTONS -->
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-6 wrapper-col align-items-center justify-content-center justify-content-lg-end d-flex">
+            <div class="col-12 col-lg-6 wrapper-col align-items-center align-items-lg-end justify-content-center justify-content-lg-end d-flex flex-column">
+                <div v-if="$device.isMobile" class="d-flex d-lg-none w-100 title-mobile">
+                    <results-wheel></results-wheel>
+                </div>
                 <div class="p">
                     <div 
                         class="wrapper"
@@ -21,7 +34,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col d-flex flex-column justify-content-around results-text">
+            <!-- This won't be shown in mobile devices -->
+            <div class="col d-none d-lg-flex flex-column justify-content-around results-text">
                 <div class="w-100">
                     <results-wheel></results-wheel>
                 </div>
@@ -40,6 +54,15 @@
                     </div>
                 </div>
             </div>
+            <!-- This will be shown in MOBILE devices -->
+            <div class="col-12 d-flex flex-column justify-content-around results-text-mobile">
+                <div class="w-100 character-title-mobile">
+                    <space-pirate-mobile></space-pirate-mobile>
+                </div>
+                <div class="w-100">
+                    <results-text></results-text>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -49,12 +72,14 @@ import WheelOfLifeSection from '~/components/WheelOfLifeSection'
 import ResultsWheel from '~/components/ResultsWheel'
 import ResultsText from '~/components/ResultsText'
 import SpacePirateText from '~/components/SpacePirateText'
+import SpacePirateMobile from '~/components/SpacePirateMobile'
 export default {
     components: {
         WheelOfLifeSection,
         ResultsWheel,
         ResultsText,
-        SpacePirateText
+        SpacePirateText,
+        SpacePirateMobile
     },
     async asyncData({store}) {
         /**
@@ -81,7 +106,7 @@ export default {
 
 <style lang="scss" scoped>
 .container-fluid {
-    height: 100vh;
+    min-height: 100vh;
 }
 .section {
     /* position: absolute;
@@ -96,7 +121,12 @@ export default {
 } 
 // THIS IS JUST FOR DESKTOP .... MEDIA QUERIES NEEDED FOR MOBILE
 .wrapper-col {
-    height: 85vh;
+    height: 75vh;
+}
+.title-mobile {
+    margin-bottom: 10vh;
+    padding-right: 5vw;
+    padding-left: 5vw;
 }
 .p {
     width: 60vmin;
@@ -115,12 +145,28 @@ export default {
     height: 78vmin;
 }
 .results-text {
-    height: 100%;
+    height: 75vmin;
     padding-right: 7rem;
     padding-left: 7rem;
-    @media screen and (max-width: 768px) {
-        padding-right: unset;
-    }
+}
+.results-text-mobile {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 20vh;
+}
+.character-title-mobile {
+    height: 20vh;
+    margin-top: -5vh;
+    margin-bottom: 10vh;
+}
+.button-container-mobile {
+    position: fixed;
+    height: 8vh;
+    width: 100vw;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 12;
 }
 .custom-button {
   transition: 0.3s all ease-in-out;

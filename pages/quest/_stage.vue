@@ -250,7 +250,10 @@ export default {
   .main-container {
     background: #ebebeb;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
+    top: 0;
+    bottom: 0;
+    position: fixed;
     overflow: hidden;
   }
 
