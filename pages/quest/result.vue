@@ -63,14 +63,14 @@ export default {
         let {gameScores} = store.state.quest;
         // scores are from 0 to 10 so we map them to 0 to 100
         const wheelSections = [
-            {value: gameScores.mindScore * 10, color: "#0059b9"},
             {value: gameScores.missionScore * 10, color: "#ff6800" },
-            {value: gameScores.vitalityScore * 10, color: "#76b72b" },
-            {value: gameScores.loveScore * 10, color: "#c22832" },
+            {value: gameScores.mindScore * 10, color: "#0059b9"},
             {value: gameScores.funScore * 10, color: "#f9e777" },
             {value: gameScores.socialScore * 10, color: "#61a5e3" },
             {value: gameScores.homeScore * 10, color: "#72655f" },
+            {value: gameScores.loveScore * 10, color: "#c22832" },
             {value: gameScores.wealthScore * 10, color: "#c5c5c5" },
+            {value: gameScores.vitalityScore * 10, color: "#76b72b" },
         ]
         return {
             wheelSections
@@ -115,8 +115,9 @@ export default {
     height: 78vmin;
 }
 .results-text {
-    height: 76vmin;
-    padding-right: 8rem;
+    height: 100%;
+    padding-right: 7rem;
+    padding-left: 7rem;
     @media screen and (max-width: 768px) {
         padding-right: unset;
     }

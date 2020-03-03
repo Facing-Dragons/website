@@ -127,14 +127,14 @@ export default {
      * 
      */
     var randomGameScores = {
-        mindScore: Math.floor(Math.random() * 10),
         missionScore: Math.floor(Math.random() * 10),
-        vitalityScore: Math.floor(Math.random() * 10),
-        loveScore: Math.floor(Math.random() * 10),
+        mindScore: Math.floor(Math.random() * 10),
         funScore: Math.floor(Math.random() * 10),
         socialScore: Math.floor(Math.random() * 10),
         homeScore: Math.floor(Math.random() * 10),
+        loveScore: Math.floor(Math.random() * 10),
         wealthScore: Math.floor(Math.random() * 10),
+        vitalityScore: Math.floor(Math.random() * 10),
     };
     store.commit('quest/setAllScores', randomGameScores);
 
