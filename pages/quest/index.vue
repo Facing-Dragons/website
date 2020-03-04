@@ -33,6 +33,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  layout: 'quest'
+}
+</script>
+
 <style lang="scss" scoped>
 .quest-card-title {
   max-width: 60%;
