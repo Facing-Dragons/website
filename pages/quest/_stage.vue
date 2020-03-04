@@ -3,7 +3,9 @@
     <div class="main-container">
         <game-question
           v-bind="currentProperties"
+          :is-last-step="currentStepIndex === 7"
           @change="handleChange"
+          @next="handleNext"
         >
             <transition
                 name="slide-fade"
@@ -99,7 +101,7 @@ export default {
     MissionText
   },
   watchQuery(newQ, oldQ) {
-    this.currentStepIndex = newQ.step;
+    this.currentStepIndex = Number(newQ.step);
   },
   created() {
     // screen.orientation.lock('portrait');
@@ -221,7 +223,7 @@ export default {
     ]
     return {
       gameQuestions,
-      currentStepIndex: query.step || 0,
+      currentStepIndex: Number(query.step) || 0,
     }
   },
   methods: {

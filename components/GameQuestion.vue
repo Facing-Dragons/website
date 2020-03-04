@@ -1,9 +1,11 @@
 <template>
-    <div class="container main-quest-container h-100 d-flex justify-content-center align-items-center">
+    <div class="container main-quest-container h-100">
         <div class="row">
             <div class="col-12 justify-content-center title-container">
                 <slot></slot>
             </div>
+        </div>
+        <div class="row">
             <div class="col-12 justify-content-center">
                 <transition
                     name="slide-fade"
@@ -14,35 +16,62 @@
                 </p>
                 </transition>
             </div>
+        </div>
+        <div class="row">
             <div class="col-12 justify-content-center align-items-center control-col">
                 <transition
                     name="slide-fade"
                     mode="out-in"
                 >
-                <div class="main-wrapper d-flex align-items-center">
-                    <div class="slider-wrapper">
-                        <vue-slider
-                            :key="title"
-                            :value="value"
-                            @change="handleChange"
-                            :adsorb="true"
-                            :interval="1"
-                            :max="10"
-                            :marks="marks1"
-                            :dotSize="$device.isMobile? 30 : $device.isTabletOrDesktop ? 40 : 40"
-                            height="4vh"
-                            :processStyle="computedStyle"
-                            :labelStyle="labelStyle"
-                        ></vue-slider>
+                <div class="rating-box">
+                    <div class="difficulty-description w-100 d-flex">
+                        <div class="low-desc flex-fill d-flex flex-column align-items-center">
+                            <h3 class="difficulty-title">
+                                LOW
+                            </h3>
+                            <p class="difficulty-description">
+                                {{ lowDescription }}
+                            </p>
+                        </div>
+                        <div class="high-desc flex-fill d-flex flex-column align-items-center">
+                            <h3 class="difficulty-title">
+                                HIGH
+                            </h3>
+                            <p class="difficulty-description">
+                                {{ highDescription }}
+                            </p>
+                        </div>
                     </div>
-                    <div v-if="!$device.isMobileOrTablet" class="d-none d-xl-block slider-button-wrapper">
-                        <div class="extra-rail"></div>
-                        <a id="slider-button" class="btn btn-success slider-button" to="#">
-                            <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
-                        </a>
-                        <label id="slider-button-label" for="slider-button">
-                            NEXT
-                        </label>
+                    <div class="main-wrapper d-flex align-items-center">
+                        <div class="slider-wrapper">
+                            <vue-slider
+                                :key="title"
+                                :value="value"
+                                @change="handleChange"
+                                :adsorb="true"
+                                :interval="1"
+                                :max="10"
+                                :marks="marks1"
+                                :dotSize="$device.isMobile? 30 : $device.isTabletOrDesktop ? 40 : 40"
+                                height="4vh"
+                                :processStyle="computedStyle"
+                                :labelStyle="labelStyle"
+                            ></vue-slider>
+                        </div>
+                        <div v-if="!$device.isMobileOrTablet" class="d-none d-xl-block slider-button-wrapper">
+                            <div class="extra-rail"></div>
+                            <a 
+                                @click="handleNext" 
+                                id="slider-button" 
+                                class="btn slider-button"
+                                :class="{'btn-success': !isLastStep, 'btn-warning': isLastStep}"
+                            >
+                                <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
+                            </a>
+                            <label id="slider-button-label" for="slider-button">
+                                {{ isLastStep ? 'RESULTS' : 'NEXT' }}
+                            </label>
+                        </div>
                     </div>
                 </div>
                 </transition>
@@ -67,6 +96,9 @@ export default {
         value: Number,
         color: String,
         title: String,
+        highDescription: String,
+        lowDescription: String,
+        isLastStep: Boolean
     },
     data() {
         const labelStyle = {
@@ -102,6 +134,9 @@ export default {
     methods: {
         handleChange(newVal) {
             this.$emit('change', newVal);
+        },
+        handleNext() {
+            this.$emit('next');
         }
     },
     computed: {
@@ -127,6 +162,7 @@ $slider-height: 4vh;
 
 .main-quest-container {
     width: 80vw;
+    padding-top: 5vh;
 }
 
 @media screen and (max-width: 760px) {
@@ -146,12 +182,27 @@ $slider-height: 4vh;
 }
 
 .quest-text {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 1.6rem;
+    font-weight: 500;
     text-align: center;
     letter-spacing: 0.1vw;
     color: #1e1e1e;
     margin-bottom: 10vh;
+}
+
+.rating-box {
+    height: 40vh;
+    background: white;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.difficulty-description {
+    font-weight: 400;
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 0.5rem;
 }
 
 .main-wrapper {
