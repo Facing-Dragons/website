@@ -25,6 +25,7 @@ import BannerBackground from '~/components/BannerBackground'
 
 
 export default {
+  layout: 'main',
   components: {
     Banner,
     AboutGame,
