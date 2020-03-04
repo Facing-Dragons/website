@@ -19,18 +19,32 @@
                     name="slide-fade"
                     mode="out-in"
                 >
-                <vue-slider
-                    :key="title"
-                    :value="value"
-                    @change="handleChange"
-                    :adsorb="true"
-                    :interval="1"
-                    :max="10"
-                    :marks="marks1"
-                    :dotSize="18"
-                    height="20px"
-                    :processStyle="computedStyle"
-                ></vue-slider>
+                <div class="main-wrapper d-flex align-items-center">
+                    <div class="slider-wrapper">
+                        <vue-slider
+                            :key="title"
+                            :value="value"
+                            @change="handleChange"
+                            :adsorb="true"
+                            :interval="1"
+                            :max="10"
+                            :marks="marks1"
+                            :dotSize="35"
+                            height="35px"
+                            :processStyle="computedStyle"
+                            :labelStyle="labelStyle"
+                        ></vue-slider>
+                    </div>
+                    <div class="slider-button-wrapper">
+                        <div class="extra-rail"></div>
+                        <a id="slider-button" class="btn btn-success slider-button" to="#">
+                            <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
+                        </a>
+                        <label id="slider-button-label" for="slider-button">
+                            NEXT
+                        </label>
+                    </div>
+                </div>
                 </transition>
             </div>
         </div>
@@ -40,10 +54,12 @@
 <script>
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
+import ChevronRight from '~/components/ChevronRight';
 
 export default {
     components: {
         VueSlider,
+        ChevronRight
     },
     props: {
         text: String,
@@ -53,9 +69,13 @@ export default {
         title: String,
     },
     data() {
+        const labelStyle = {
+            fontWeight: 600,
+            fontSize: '1.5rem'
+        };
         return {
             marks1: {
-                '0': '0 - Low',
+                '0': '0',
                 '1': '1',
                 '2': '2',
                 '3': '3',
@@ -65,8 +85,18 @@ export default {
                 '7': '7',
                 '8': '8',
                 '9': '9',
-                '10': '10 - High'
+                '10': {
+                    label: '10',
+                    style: {
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '50%',
+                        backgroundColor: 'rgba(0, 0, 0, 0.16)',
+                        display: 'block'
+                    }
+                }
             },
+            labelStyle
         }
     },
     methods: {
@@ -87,6 +117,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$slider-height: 35px;
+
 .control-col {
     // height: 40vh;
     z-index: 4;
@@ -119,6 +151,54 @@ export default {
     letter-spacing: 0.1vw;
     color: #1e1e1e;
     margin-bottom: 10vh;
+}
+
+.main-wrapper {
+    position: relative;
+}
+
+.slider-wrapper {
+    width: 85%;
+}
+
+.slider-button-wrapper {
+    width: 15%;
+    position: relative;
+    height: $slider-height;
+}
+
+.slider-button {
+    border-radius: 27px;
+    padding: 0;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: $slider-height;
+    position: absolute;
+    right: 0;
+    left: 35%;
+}
+#slider-button-label {
+    font-weight: 600;
+    font-size: 1.5rem;
+    top: 130%;
+    left: 47%;
+    position: absolute;
+}
+.arrow-icon  {
+    width: 100%;
+    height: 100%;
+}
+.extra-rail {
+    border-radius: 27px;
+    background-color: #ccc;
+    height: $slider-height;
+    position: absolute;
+    right: 0;
+    left: -25%;
 }
 
 .slide-fade-enter-active {
