@@ -29,13 +29,13 @@
                             :interval="1"
                             :max="10"
                             :marks="marks1"
-                            :dotSize="35"
-                            height="35px"
+                            :dotSize="$device.isMobile? 30 : $device.isTabletOrDesktop ? 40 : 40"
+                            height="4vh"
                             :processStyle="computedStyle"
                             :labelStyle="labelStyle"
                         ></vue-slider>
                     </div>
-                    <div class="slider-button-wrapper">
+                    <div v-if="!$device.isMobileOrTablet" class="d-none d-xl-block slider-button-wrapper">
                         <div class="extra-rail"></div>
                         <a id="slider-button" class="btn btn-success slider-button" to="#">
                             <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
@@ -92,7 +92,7 @@ export default {
                         height: '100%',
                         borderRadius: '50%',
                         backgroundColor: 'rgba(0, 0, 0, 0.16)',
-                        display: 'block'
+                        display: this.$device.isMobileOrTablet ? 'none' : 'block'
                     }
                 }
             },
@@ -109,7 +109,8 @@ export default {
             return {
                 backgroundColor: this.color,
                 opacity: 1,
-                transition: '0.5s all ease-in-out'
+                transition: '0.5s all ease-in-out',
+                borderRadius: '4vh'
             }
         }
     }
@@ -117,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$slider-height: 35px;
+$slider-height: 4vh;
 
 .control-col {
     // height: 40vh;
@@ -159,6 +160,10 @@ $slider-height: 35px;
 
 .slider-wrapper {
     width: 85%;
+
+    @media screen and (max-width: 1200px) {
+        width: 100%;
+    }
 }
 
 .slider-button-wrapper {
