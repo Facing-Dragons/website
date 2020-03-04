@@ -16,7 +16,7 @@
                 Player Class Reveal
               </span>
             </div> -->
-            <div class="quest-card-title mb-2">
+            <div class="quest-card-title mb-4">
               <wheel-text></wheel-text>
             </div>
             <div class="quest-card-text">
