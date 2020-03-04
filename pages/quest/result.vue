@@ -74,6 +74,7 @@ import ResultsText from '~/components/ResultsText'
 import SpacePirateText from '~/components/SpacePirateText'
 import SpacePirateMobile from '~/components/SpacePirateMobile'
 export default {
+    layout: 'quest',
     components: {
         WheelOfLifeSection,
         ResultsWheel,
