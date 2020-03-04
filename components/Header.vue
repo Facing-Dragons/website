@@ -4,6 +4,7 @@
         variant="faded" 
         fixed="top"
         class="d-flex navbar-main"
+        type="dark"
     >
         <transition name="fade-from-up">
             <button 

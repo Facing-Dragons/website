@@ -214,7 +214,7 @@ $largest-foreground-height: 1402px;
 }
 
 .background-container {
-  z-index: -1;
+  // z-index: ;
   position: absolute;
   top: 0;
   right: 0;

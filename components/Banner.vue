@@ -368,13 +368,13 @@ export default {
       //   this.isWriting = false;
       //   this.$store.commit('setEmail', this.form.email);
       // },
-      // handleSubscribe: function() {
-      //   setTimeout(() => {
-      //     this.isWriteSuccessful = true;
-      //     // this.isPlayerModalOpen = false;
-      //     // this.isWorkerModalOpen = false;
-      //   }, 2000);
-      // },
+      handleSubscribe: function() {
+        setTimeout(() => {
+          this.isWriteSuccessful = true;
+          // this.isPlayerModalOpen = false;
+          // this.isWorkerModalOpen = false;
+        }, 2000);
+      },
       handleStartQuest: function () {
         this.isPlayerModalOpen = true;
       },
