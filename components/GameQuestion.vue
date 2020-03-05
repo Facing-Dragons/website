@@ -23,7 +23,7 @@
                     name="slide-fade"
                     mode="out-in"
                 >
-                <div class="rating-box">
+                <div :id="`${title}-rating-box`" :key="`${title}-rating-box`"  class="rating-box">
                     <div class="difficulty-description w-100 d-flex">
                         <div class="low-desc w-50 d-flex flex-column align-items-center">
                             <h3 class="difficulty-title">
