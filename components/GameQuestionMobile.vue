@@ -17,8 +17,7 @@
                 </transition>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 justify-content-center align-items-center control-col">
+        <div class="content-box">
                 <transition
                     name="slide-fade"
                     mode="out-in"
@@ -76,7 +75,9 @@
                     </div>
                 </div>
                 </transition>
-            </div>
+        </div>
+        <div @click="handleNext" class="button-wrapper" :style="{backgroundColor: color}">
+            NEXT
         </div>
     </div>
 </template>
@@ -155,6 +156,7 @@ export default {
 
 <style lang="scss" scoped>
 $slider-height: 5vh;
+$next-button-height: 10vh;
 
 .control-col {
     // height: 40vh;
@@ -164,7 +166,6 @@ $slider-height: 5vh;
 .main-quest-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 760px) {
@@ -188,15 +189,21 @@ $slider-height: 5vh;
     font-weight: 500;
     text-align: center;
     color: #1e1e1e;
-    margin-top: 4vh;
+}
+
+.content-box { 
+    height: 50vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: $next-button-height; 
 }
 
 .rating-box {
     height: 50vh;
-    background: white;
+    background: #ebebeb;
     padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-top: 3px solid black;
 }
 
 .difficulty-description {
@@ -258,6 +265,20 @@ $slider-height: 5vh;
     position: absolute;
     right: 0;
     left: -25%;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $next-button-height;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all .3s ease;
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 .slide-fade-enter-active {
