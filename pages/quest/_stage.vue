@@ -2,6 +2,7 @@
 <!-- This is the welcome page of the quest to tell the players what they're doing and stuff -->
     <div class="main-container">
         <game-question
+          v-if="$device.isDesktopOrTablet"
           v-bind="currentProperties"
           :is-last-step="currentStepIndex === 7"
           @change="handleChange"
@@ -14,6 +15,21 @@
                 <component :is="currentTextComponent"></component>
             </transition>
         </game-question>
+        <!-- This is just for mobile phones -->
+        <game-question-mobile
+          v-else
+          v-bind="currentProperties"
+          :is-last-step="currentStepIndex === 7"
+          @change="handleChange"
+          @next="handleNext"
+        >
+            <transition
+                name="slide-fade"
+                mode="out-in"
+            >
+                <component :is="currentTextComponent"></component>
+            </transition>
+        </game-question-mobile>
       <!-- <div class="button-container d-none d-md-block">
         <transition
           name="slide-fade"
@@ -72,6 +88,7 @@
 
 <script>
 import GameQuestion from '~/components/GameQuestion';
+import GameQuestionMobile from '~/components/GameQuestionMobile';
 import ChevronRight from '~/components/ChevronRight';
 import ChevronLeft from '~/components/ChevronLeft';
 import MindText from '~/components/svg/MindText';
@@ -89,6 +106,7 @@ export default {
   layout: 'quest',
   components: {
     GameQuestion,
+    GameQuestionMobile,
     ChevronRight,
     ChevronLeft,
     MindText,
@@ -276,6 +294,7 @@ export default {
   .main-container {
     height: 100vh;
     overflow: hidden;
+    background: white;
   }
 
   .line {
