@@ -1,11 +1,11 @@
 <template>
     <div class="container main-quest-container h-100">
         <div class="row">
-            <div class="col-12 justify-content-center title-container">
-                <slot></slot>
+            <div class="col-12 justify-content-center">
+                <div class="title-container">
+                    <slot></slot>
+                </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-12 justify-content-center">
                 <transition
                     name="slide-fade"
@@ -25,7 +25,7 @@
                 >
                 <div class="rating-box">
                     <div class="difficulty-description w-100 d-flex">
-                        <div class="low-desc flex-fill d-flex flex-column align-items-center">
+                        <div class="low-desc w-50 d-flex flex-column align-items-center">
                             <h3 class="difficulty-title">
                                 LOW
                             </h3>
@@ -33,7 +33,7 @@
                                 {{ lowDescription }}
                             </p>
                         </div>
-                        <div class="high-desc flex-fill d-flex flex-column align-items-center">
+                        <div class="high-desc w-50 d-flex flex-column align-items-center">
                             <h3 class="difficulty-title">
                                 HIGH
                             </h3>
@@ -52,10 +52,11 @@
                                 :interval="1"
                                 :max="10"
                                 :marks="marks1"
-                                :dotSize="$device.isMobile? 30 : $device.isTabletOrDesktop ? 40 : 40"
-                                height="4vh"
+                                :dotSize="$device.isMobile? 40 : $device.isTabletOrDesktop ? 50 : 50"
+                                height="5vh"
                                 :processStyle="computedStyle"
                                 :labelStyle="labelStyle"
+                                :railStyle="{borderRadius: '5vh'}"
                             ></vue-slider>
                         </div>
                         <div v-if="!$device.isMobileOrTablet" class="d-none d-xl-block slider-button-wrapper">
@@ -145,7 +146,7 @@ export default {
                 backgroundColor: this.color,
                 opacity: 1,
                 transition: '0.5s all ease-in-out',
-                borderRadius: '4vh'
+                borderRadius: '5vh'
             }
         }
     }
@@ -153,7 +154,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$slider-height: 4vh;
+$slider-height: 5vh;
 
 .control-col {
     // height: 40vh;
@@ -161,8 +162,9 @@ $slider-height: 4vh;
 }
 
 .main-quest-container {
-    width: 80vw;
-    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width: 760px) {
@@ -178,20 +180,19 @@ $slider-height: 4vh;
 }
 
 .title-container {
-    height: 30vh;
+    height: 25vh;
 }
 
 .quest-text {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
-    letter-spacing: 0.1vw;
     color: #1e1e1e;
-    margin-bottom: 10vh;
+    margin-top: 4vh;
 }
 
 .rating-box {
-    height: 40vh;
+    height: 50vh;
     background: white;
     padding: 2rem;
     border-radius: 5px;
@@ -203,6 +204,8 @@ $slider-height: 4vh;
     font-size: 1.25rem;
     text-align: center;
     padding: 0.5rem;
+    height: 70%;
+    overflow: auto;
 }
 
 .main-wrapper {

@@ -239,6 +239,8 @@ export default {
         this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
         this.currentStepIndex++;
         this.$router.push(`?step=${this.currentStepIndex}`);
+      } else { // current-index is 7
+        this.handleResults();
       }
     },
     handleResults() {
@@ -272,13 +274,8 @@ export default {
 
 <style scoped>
   .main-container {
-    width: 100vw;
-    /* height: 100vh; */
-    top: 0;
-    bottom: 0;
-    position: fixed;
+    height: 100vh;
     overflow: hidden;
-    padding-bottom: 5vh;
   }
 
   .line {
