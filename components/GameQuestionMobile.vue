@@ -29,19 +29,29 @@
                         </span>
                     </div>
 
-                    <div class="difficulty-description w-100 d-flex">
-                        <div class="low-desc w-50 d-flex flex-column align-items-center">
-                            <h3 class="difficulty-title">
-                                LOW
-                            </h3>
+                    <div class="title-box d-flex w-100">
+                        <h2 
+                            @click="() => {this.value = 4}" 
+                            class="difficulty-title w-50"
+                            :class="{'active': value < 5}"
+                        >
+                            LOW
+                        </h2>
+                        <h2 
+                            @click="() => {this.value = 10}" 
+                            class="difficulty-title w-50"
+                            :class="{'active': value >= 5}"
+                        >
+                            HIGH
+                        </h2>
+                    </div>
+                    <div class="difficulty-description w-100 d-flex flex-column">
+                        <div v-if="value < 5" class="low-desc h-100 d-flex flex-column align-items-center justify-content-center">
                             <p class="difficulty-description">
                                 {{ lowDescription }}
                             </p>
                         </div>
-                        <div class="high-desc w-50 d-flex flex-column align-items-center">
-                            <h3 class="difficulty-title">
-                                HIGH
-                            </h3>
+                        <div v-else class="high-desc h-100 d-flex flex-column align-items-center justify-content-center">
                             <p class="difficulty-description">
                                 {{ highDescription }}
                             </p>
@@ -138,6 +148,7 @@ export default {
 <style lang="scss" scoped>
 $slider-height: 5vh;
 $next-button-height: 10vh;
+$rating-box-border-width: 3px;
 
 .control-col {
     // height: 40vh;
@@ -165,6 +176,14 @@ $next-button-height: 10vh;
     height: 25vh;
 }
 
+.title-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: $rating-box-border-width;
+    height: 5.65rem;
+}
+
 .quest-text {
     font-size: 1.5rem;
     font-weight: 500;
@@ -181,7 +200,7 @@ $next-button-height: 10vh;
 }
 
 .diamond {
-    border: 3px solid black;
+    border: $rating-box-border-width solid black;
     position: absolute;
     height: 8rem;
     width: 8rem;
@@ -190,6 +209,7 @@ $next-button-height: 10vh;
     text-align: center;
     top: -3.8rem;
     left: calc(50vw - 4rem);
+    z-index: 11;
 
     span {
         font-size: 4rem;
@@ -211,14 +231,30 @@ $next-button-height: 10vh;
     height: 50vh;
     background: #ebebeb;
     padding: 2rem;
-    border-top: 3px solid black;
+    border-top: $rating-box-border-width solid black;
+}
+
+.difficulty-title {
+    font-weight: 500;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    transition: all .3s ease;
+
+    &.active {
+        background-color: #c4c4c4;
+        transition: all .3s ease;
+    }
 }
 
 .difficulty-description {
-    font-weight: 400;
-    font-size: 1.25rem;
+    font-weight: 500;
+    font-size: 1.8rem;
     text-align: center;
     padding: 0.5rem;
+    margin-top: 5%;
     height: 70%;
     overflow: auto;
 }
