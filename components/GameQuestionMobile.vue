@@ -23,6 +23,12 @@
                     mode="out-in"
                 >
                 <div :id="`${title}-rating-box`" :key="`${title}-rating-box`"  class="rating-box">
+                    <div class="diamond" :style="{backgroundColor: this.color}">
+                        <span class="value-number">
+                            {{value}}
+                        </span>
+                    </div>
+
                     <div class="difficulty-description w-100 d-flex">
                         <div class="low-desc w-50 d-flex flex-column align-items-center">
                             <h3 class="difficulty-title">
@@ -51,26 +57,11 @@
                                 :interval="1"
                                 :max="10"
                                 :marks="marks1"
-                                :dotSize="$device.isMobile? 40 : $device.isTabletOrDesktop ? 50 : 50"
-                                height="5vh"
+                                :dotSize="20"
+                                height="3vh"
                                 :processStyle="computedStyle"
                                 :labelStyle="labelStyle"
-                                :railStyle="{borderRadius: '5vh'}"
                             ></vue-slider>
-                        </div>
-                        <div v-if="!$device.isMobileOrTablet" class="d-none d-xl-block slider-button-wrapper">
-                            <div class="extra-rail"></div>
-                            <a 
-                                @click="handleNext" 
-                                id="slider-button" 
-                                class="btn slider-button"
-                                :class="{'btn-success': !isLastStep, 'btn-warning': isLastStep}"
-                            >
-                                <chevron-right class="arrow-icon chevron-right" fill="black"></chevron-right>
-                            </a>
-                            <label id="slider-button-label" for="slider-button">
-                                {{ isLastStep ? 'RESULTS' : 'NEXT' }}
-                            </label>
                         </div>
                     </div>
                 </div>
@@ -104,8 +95,8 @@ export default {
     },
     data() {
         const labelStyle = {
-            fontWeight: 600,
-            fontSize: '1.5rem'
+            fontWeight: 500,
+            fontSize: '1.2rem'
         };
         return {
             marks1: {
@@ -119,16 +110,7 @@ export default {
                 '7': '7',
                 '8': '8',
                 '9': '9',
-                '10': {
-                    label: '10',
-                    style: {
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(0, 0, 0, 0.16)',
-                        display: this.$device.isMobileOrTablet ? 'none' : 'block'
-                    }
-                }
+                '10': '10'
             },
             labelStyle
         }
@@ -147,7 +129,6 @@ export default {
                 backgroundColor: this.color,
                 opacity: 1,
                 transition: '0.5s all ease-in-out',
-                borderRadius: '5vh'
             }
         }
     }
@@ -199,6 +180,33 @@ $next-button-height: 10vh;
     bottom: $next-button-height; 
 }
 
+.diamond {
+    border: 3px solid black;
+    position: absolute;
+    height: 8rem;
+    width: 8rem;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    text-align: center;
+    top: -3.8rem;
+    left: 40vw;
+
+    span {
+        font-size: 4rem;
+        font-weight: 700;
+        color: black;
+        position: absolute;
+        transform: rotate(-45deg);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .rating-box {
     height: 50vh;
     background: #ebebeb;
@@ -248,7 +256,7 @@ $next-button-height: 10vh;
     left: 35%;
 }
 #slider-button-label {
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.5rem;
     top: 130%;
     left: 47%;
@@ -257,14 +265,6 @@ $next-button-height: 10vh;
 .arrow-icon  {
     width: 100%;
     height: 100%;
-}
-.extra-rail {
-    border-radius: 27px;
-    background-color: #ccc;
-    height: $slider-height;
-    position: absolute;
-    right: 0;
-    left: -25%;
 }
 
 .button-wrapper {
