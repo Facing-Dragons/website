@@ -11,94 +11,109 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 export default {
   ...routerBase,
-  loading: '~/components/Loading.vue',
-  mode: 'spa',
+  loading: "~/components/Loading.vue",
+  mode: "spa",
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
-    title: 'Facing Dragons',
+    title: "Facing Dragons",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'A Gamified Mental Health App' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        hid: "description",
+        name: "description",
+        content: "A Gamified Mental Health App"
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    script: [{
-      src: 'https://apis.google.com/js/api.js'
-    },
-    {
-      src: "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
-    }
-  ],
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: "https://apis.google.com/js/api.js"
+      },
+      {
+        src:
+          "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"
+      }
+    ]
   },
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   /*
-  ** Global CSS
-  */
-  css: [
-    '~/css/fonts.css',
-    '~/css/main.css'
-  ],
+   ** Global CSS
+   */
+  css: ["~/css/fonts.css", "~/css/main.css"],
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    '~/plugins/firebase.js'
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: ["~/plugins/firebase.js"],
   /*
-  ** Nuxt.js dev-modules
-  */
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module'
   ],
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
+    "bootstrap-vue/nuxt",
+    "@nuxtjs/pwa",
     [
-      '@nuxtjs/device',
-      {defaultUserAgent: 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Mobile Safari/537.36'}
+      "nuxt-facebook-pixel-module",
+      {
+        /* module options */
+        pixelId: "533481937059854"
+      }
     ],
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa',
-    ['nuxt-fontawesome', {
-      imports: [{
-          set: '@fortawesome/free-solid-svg-icons',
-          icons: ['fas']
-        },
-        {
-          set: '@fortawesome/free-brands-svg-icons',
-          icons: ['fab']
-        }
-      ]
-    }]
+    [
+      "@nuxtjs/device",
+      {
+        defaultUserAgent:
+          "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.39 Mobile Safari/537.36"
+      }
+    ],
+    [
+      "nuxt-fontawesome",
+      {
+        imports: [
+          {
+            set: "@fortawesome/free-solid-svg-icons",
+            icons: ["fas"]
+          },
+          {
+            set: "@fortawesome/free-brands-svg-icons",
+            icons: ["fab"]
+          }
+        ]
+      }
+    ]
   ],
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
-      const vueLoader = config.module.rules.find(rule => rule.loader === 'vue-loader')
+      const vueLoader = config.module.rules.find(
+        rule => rule.loader === "vue-loader"
+      );
       vueLoader.options.transformAssetUrls = {
-        video: ['src', 'poster'],
-        source: 'src',
-        img: 'src',
-        image: 'xlink:href',
-        'parallaxingImage': 'src',
-        'parallaxing-image': 'src',
-        'b-img': 'src',
-        'b-embed': 'src'
-      }
+        video: ["src", "poster"],
+        source: "src",
+        img: "src",
+        image: "xlink:href",
+        parallaxingImage: "src",
+        "parallaxing-image": "src",
+        "b-img": "src",
+        "b-embed": "src"
+      };
     }
   }
-}
+};
