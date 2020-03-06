@@ -31,14 +31,14 @@
 
                     <div class="title-box d-flex w-100">
                         <h2 
-                            @click="() => {this.value = 4}" 
+                            @click="() => {if(this.value >= 5) {this.handleChange(4)}}" 
                             class="difficulty-title w-50"
                             :class="{'active': value < 5}"
                         >
                             LOW
                         </h2>
                         <h2 
-                            @click="() => {this.value = 10}" 
+                            @click="() => {if(this.value < 5) {this.handleChange(10)}}" 
                             class="difficulty-title w-50"
                             :class="{'active': value >= 5}"
                         >
@@ -46,16 +46,21 @@
                         </h2>
                     </div>
                     <div class="difficulty-description w-100 d-flex flex-column">
-                        <div v-if="value < 5" class="low-desc h-100 d-flex flex-column align-items-center justify-content-center">
-                            <p class="difficulty-description">
-                                {{ lowDescription }}
-                            </p>
-                        </div>
-                        <div v-else class="high-desc h-100 d-flex flex-column align-items-center justify-content-center">
-                            <p class="difficulty-description">
-                                {{ highDescription }}
-                            </p>
-                        </div>
+                        <transition
+                            name="slide-fade"
+                            mode="out-in"
+                        >
+                            <div id="low-desc" key="low-desc" v-if="value < 5" class="low-desc h-100 d-flex flex-column align-items-center justify-content-center">
+                                <p class="difficulty-description">
+                                    {{ lowDescription }}
+                                </p>
+                            </div>
+                            <div id="low-desc" key="low-desc" v-else class="high-desc h-100 d-flex flex-column align-items-center justify-content-center">
+                                <p class="difficulty-description">
+                                    {{ highDescription }}
+                                </p>
+                            </div>
+                        </transition>
                     </div>
                     <div class="main-wrapper d-flex align-items-center">
                         <div class="slider-wrapper">
@@ -147,8 +152,10 @@ export default {
 
 <style lang="scss" scoped>
 $slider-height: 5vh;
-$next-button-height: 10vh;
 $rating-box-border-width: 3px;
+$next-button-height: 8vh;
+$description-box-height: 45vh;
+$title-box-height: 25vh;
 
 .control-col {
     // height: 40vh;
@@ -173,7 +180,7 @@ $rating-box-border-width: 3px;
 }
 
 .title-container {
-    height: 25vh;
+    height: $title-box-height;
 }
 
 .title-box {
@@ -192,7 +199,7 @@ $rating-box-border-width: 3px;
 }
 
 .content-box { 
-    height: 50vh;
+    height: $description-box-height;
     position: fixed;
     left: 0;
     right: 0;
@@ -228,7 +235,7 @@ $rating-box-border-width: 3px;
 }
 
 .rating-box {
-    height: 50vh;
+    height: $description-box-height;
     background: #ebebeb;
     padding: 2rem;
     border-top: $rating-box-border-width solid black;
@@ -255,7 +262,7 @@ $rating-box-border-width: 3px;
     text-align: center;
     padding: 0.5rem;
     margin-top: 5%;
-    height: 70%;
+    height: 80%;
     overflow: auto;
 }
 
@@ -274,33 +281,6 @@ $rating-box-border-width: 3px;
     }
 }
 
-.slider-button-wrapper {
-    width: 15%;
-    position: relative;
-    height: $slider-height;
-}
-
-.slider-button {
-    border-radius: 27px;
-    padding: 0;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    height: $slider-height;
-    position: absolute;
-    right: 0;
-    left: 35%;
-}
-#slider-button-label {
-    font-weight: 500;
-    font-size: 1.5rem;
-    top: 130%;
-    left: 47%;
-    position: absolute;
-}
 .arrow-icon  {
     width: 100%;
     height: 100%;
