@@ -30,6 +30,14 @@ export const mutations = {
     },
     setAllScores(state, newScoreObject) {
         state.gameScores = Object.assign(newScoreObject);
-    }
+    },
     //  We need an action to put the user scores upon !FINISHING! to the database 
+    setPlayerText(state) {
+        // Read the playerTypes.json
+        fetch('../data/db.json')
+          .then(r => r.json())
+          .then(json => {
+            this.db = json
+          })
+    }
 }
