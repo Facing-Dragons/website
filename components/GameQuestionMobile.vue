@@ -189,7 +189,7 @@ $next-button-height: 10vh;
     transform: rotate(45deg);
     text-align: center;
     top: -3.8rem;
-    left: 40vw;
+    left: calc(50vw - 4rem);
 
     span {
         font-size: 4rem;
@@ -224,7 +224,10 @@ $next-button-height: 10vh;
 }
 
 .main-wrapper {
-    position: relative;
+    position: absolute;
+    right: 2rem;
+    left: 2rem;
+    bottom: 4rem;
 }
 
 .slider-wrapper {
