@@ -16,7 +16,7 @@ export const state = () => ({
     isPlayer: true,
 })
 
-
+import playerTypes from 'static/playerTypes';
 export const mutations = {
     setUserInfo(state, newUserInfo) {
         console.log(newUserInfo);
@@ -34,10 +34,10 @@ export const mutations = {
     //  We need an action to put the user scores upon !FINISHING! to the database 
     setPlayerText(state) {
         // Read the playerTypes.json
-        fetch('../data/db.json')
-          .then(r => r.json())
-          .then(json => {
-            this.db = json
-          })
+        let arr = Object.values(state.gameScores);
+        const highestScore = Math.max(...arr);
+        const lowestScore = Math.min(...arr);
+        console.log(`highest is: ${highestScore}`);
+        console.log(`lowest is: ${lowestScore}`);
     }
 }
