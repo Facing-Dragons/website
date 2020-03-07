@@ -34,7 +34,13 @@
                     </div>
                 </div>
                 <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile">
-                    <space-pirate-mobile></space-pirate-mobile>
+                    <!-- <space-pirate-mobile></space-pirate-mobile> -->
+                    <h1>
+                        {{ resultTitle }}
+                    </h1>
+                    <h3>
+                        {{ resultSlogan }}
+                    </h3>
                 </div>
             </div>
             <!-- This won't be shown in mobile devices -->
@@ -43,7 +49,13 @@
                     <results-wheel></results-wheel>
                 </div>
                 <div class="w-100">
-                    <space-pirate-text></space-pirate-text>
+                    <h1>
+                        {{ resultTitle }}
+                    </h1>
+                    <h3>
+                        {{ resultSlogan }}
+                    </h3>
+                    <!-- <space-pirate-text></space-pirate-text> -->
                 </div>
                 <div class="w-100">
                     <results-text></results-text>
@@ -106,10 +118,10 @@ export default {
         }
     },
     computed: {
-        ...mapState([
-            'resultScore',
-            'resultTitle'
-        ])
+        ...mapState({
+            resultSlogan: state => state.quest.resultSlogan,
+            resultTitle: state => state.quest.resultTitle
+        })
     }
 }
 </script>
