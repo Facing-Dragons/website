@@ -73,6 +73,8 @@ import ResultsWheel from '~/components/ResultsWheel'
 import ResultsText from '~/components/ResultsText'
 import SpacePirateText from '~/components/SpacePirateText'
 import SpacePirateMobile from '~/components/SpacePirateMobile'
+import {mapState} from 'vuex'
+
 export default {
     layout: 'quest',
     components: {
@@ -87,20 +89,27 @@ export default {
          * Add the ability to load from the API here, just like in the beginning of the _stage pages
          */
         let {gameScores} = store.state.quest;
+        store.commit('quest/setPlayerText');
         // scores are from 0 to 10 so we map them to 0 to 100
         const wheelSections = [
-            {value: gameScores.missionScore * 10, color: "#ff6800" },
-            {value: gameScores.mindScore * 10, color: "#0059b9"},
-            {value: gameScores.funScore * 10, color: "#f9e777" },
-            {value: gameScores.socialScore * 10, color: "#61a5e3" },
-            {value: gameScores.homeScore * 10, color: "#72655f" },
-            {value: gameScores.loveScore * 10, color: "#c22832" },
-            {value: gameScores.wealthScore * 10, color: "#c5c5c5" },
-            {value: gameScores.vitalityScore * 10, color: "#76b72b" },
+            {value: gameScores.mission * 10, color: "#ff6800" },
+            {value: gameScores.mind * 10, color: "#0059b9"},
+            {value: gameScores.fun * 10, color: "#f9e777" },
+            {value: gameScores.social * 10, color: "#61a5e3" },
+            {value: gameScores.home * 10, color: "#72655f" },
+            {value: gameScores.love * 10, color: "#c22832" },
+            {value: gameScores.wealth * 10, color: "#c5c5c5" },
+            {value: gameScores.vitality * 10, color: "#76b72b" },
         ]
         return {
             wheelSections
         }
+    },
+    computed: {
+        ...mapState([
+            'resultScore',
+            'resultTitle'
+        ])
     }
 }
 </script>

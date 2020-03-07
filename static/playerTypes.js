@@ -1,272 +1,272 @@
 const playerTypes = {
     mission: {
-        missionScore: {
+        mission: {
             title: "",
             text: ""
         },
-        mindScore: {
+        mind: {
             title: "Prophet",
             text: "Tormented by clarity"
         },
-        funScore: {
+        fun: {
             title: "Martyr",
             text: "The path isn't always easy"
         },
-        socialScore: {
+        social: {
             title: "Lone Wolf",
             text: "You'd only get in my way"
         },
-        homeScore: {
+        home: {
             title: "Missionary",
             text: "I follow the true path"
         },
-        loveScore: {
+        love: {
             title: "Commander",
             text: "Foused on the mission"
         },
-        wealthScore: {
+        wealth: {
             title: "Priest",
             text: "Vow of poverty?"
         },
-        vitalityScore: {
+        vitality: {
             title: "Master",
             text: "Stay a while and listen"
         }
     },
     mind: {
-        missionScore: {
+        mission: {
           title: "Illusionist",
           text: "I can imagine many realities"
         },
-        mindScore: {
+        mind: {
           title: "",
           text: ""
         },
-        funScore: {
+        fun: {
           title: "Archivist ",
           text: "Shhhh!"
         },
-        socialScore: {
+        social: {
           title: "Mad scientist",
           text: "Get out of my lab!"
         },
-        homeScore: {
+        home: {
           title: "Wind Mage",
           text: "Captain Very disciplned"
         },
-        loveScore: {
+        love: {
           title: "Guild Master",
           text: "Rich in knowledge"
         },
-        wealthScore: {
+        wealth: {
           title: "Professor",
           text: "Vow of poverty?"
         },
-        vitalityScore: {
+        vitality: {
           title: "Master",
           text: "Doing great upstairs"
         }
     },
     fun: {
-        missionScore: {
+        mission: {
           title: "Chaos mage",
           text: "Chaos Mage I don 't cast spells, they cast me"
         },
-        mindScore: {
+        mind: {
           title: "Assassin",
           text: "Assassin I can 't say I'm bored"
         },
-        funScore: {
+        fun: {
           title: "",
           text: ""
         },
-        socialScore: {
+        social: {
           title: "Duelist",
           text: "Duelist It is fun to win"
         },
-        homeScore: {
+        home: {
           title: "Adventurer",
           text: "Adventurer Where 's next?!"
         },
-        loveScore: {
+        love: {
           title: "Pirate",
           text: "Pirate YARR!!"
         },
-        wealthScore: {
+        wealth: {
           title: "Jester",
           text: "Jester someone buy me a drink!"
         },
-        vitalityScore: {
+        vitality: {
           title: "Lightning",
           text: "Lightning Wizard Glass cannon"
         }
     },
     social: {
-        missionScore: {
+        mission: {
           title: "Court Noble",
           text: "What a lovely dress!"
         },
-        mindScore: {
+        mind: {
           title: "Spy",
           text: "Keep it secret. Keep it safe"
         },
-        funScore: {
+        fun: {
           title: "Politican",
           text: "Says what is needed"
         },
-        socialScore: {
+        social: {
           title: "",
           text: ""
         },
-        homeScore: {
+        home: {
           title: "Socialite",
           text: "Let's go out!"
         },
-        loveScore: {
+        love: {
           title: "Friend",
           text: "I think of you like a brother"
         },
-        wealthScore: {
+        wealth: {
           title: "Bard",
           text: "Toss a coin to your witcher"
         },
-        vitalityScore: {
+        vitality: {
           title: "Inkeeper",
           text: "Busy keeping people fed"
         }
     },
     home: {
-        missionScore: {
+        mission: {
           title: "Villager",
           text: "I do stuff, and live here"
         },
-        mindScore: {
+        mind: {
           title: "Homebody",
           text: "Why leave home?"
         },
-        funScore: {
+        fun: {
           title: "Worker",
           text: "I made this"
         },
-        socialScore: {
+        social: {
           title: "Hermit",
           text: "Ahh, the sound of silence"
         },
-        homeScore: {
+        home: {
           title: "",
           text: ""
         },
-        loveScore: {
+        love: {
           title: "Cat Herder",
           text: "Not really alone, technically"
         },
-        wealthScore: {
+        wealth: {
           title: "Homesteader",
           text: "Home is where you make it"
         },
-        vitalityScore: {
+        vitality: {
           title: "Village Elder",
           text: "I enjoy it here"
         }
     },
     love: {
-        missionScore: {
+        mission: {
           title: "Glade Unicorn",
           text: "Oooo, pretty!"
         },
-        mindScore: {
+        mind: {
           title: "Virtuoso",
           text: "Feelings flow deeply"
         },
-        funScore: {
+        fun: {
           title: "Paladin",
           text: "Serious about love"
         },
-        socialScore: {
+        social: {
           title: "Devotee",
           text: "One before all others"
         },
-        homeScore: {
+        home: {
           title: "Travelling healer",
           text: "I go where I can help most"
         },
-        loveScore: {
+        love: {
           title: "",
           text: ""
         },
-        wealthScore: {
+        wealth: {
           title: "Monk",
           text: "Cares deeply; needs little"
         },
-        vitalityScore: {
+        vitality: {
           title: "Grandma/Grandpa",
           text: "The heart is the strongest muscle"
         }
     },
     wealth: {
-        missionScore: {
+        mission: {
           title: "Heir/Heiress",
           text: "What, me worry?"
         },
-        mindScore: {
+        mind: {
           title: "Dark Lord/Lady",
           text: "Doing great! At least financially…"
         },
-        funScore: {
+        fun: {
           title: "Vault Keeper",
           text: "Look at all this boring treasure!"
         },
-        socialScore: {
+        social: {
           title: "King/Queen of The North",
           text: "Leave my castle at once!"
         },
-        homeScore: {
+        home: {
           title: "Spice Trader",
           text: "My cart is heavy with wares"
         },
-        loveScore: {
+        love: {
           title: "Treasure Golem",
           text: "Yearns for something that money can't buy"
         },
-        wealthScore: {
+        wealth: {
           title: "",
           text: ""
         },
-        vitalityScore: {
+        vitality: {
           title: "Jeweled Skeleton",
           text: "What it lacks in muscle, it makes up for in bling!"
         }
     },
     vitality: {
-        missionScore: {
+        mission: {
           title: "Sellsword",
           text: "Ready for action"
         },
-        mindScore: {
+        mind: {
           title: "Berserker",
           text: "RAAAAA!!!"
         },
-        funScore: {
+        fun: {
           title: "Officer",
           text: "Seriously disciplined"
         },
-        socialScore: {
+        social: {
           title: "Ranger",
           text: "I keep my own council"
         },
-        homeScore: {
+        home: {
           title: "Ronin",
           text: "A wandering samurai with no master"
         },
-        loveScore: {
+        love: {
           title: "Warrior",
           text: "All is fair in love and war"
         },
-        wealthScore: {
+        wealth: {
           title: "Back Alley Brawler",
           text: "Fighting for a break"
         },
-        vitalityScore: {
+        vitality: {
           title: "",
           text: ""
         }

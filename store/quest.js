@@ -1,16 +1,19 @@
 export const state = () => ({
     gameScores: {
-        missionScore: 0,
-        mindScore: 0,
-        funScore: 0,
-        socialScore: 0,
-        homeScore: 0,
-        loveScore: 0,
-        wealthScore: 0,
-        vitalityScore: 0,
+        mission: 0,
+        mind: 0,
+        fun: 0,
+        social: 0,
+        home: 0,
+        love: 0,
+        wealth: 0,
+        vitality: 0,
     },
+    highestScore: '',
+    lowestScore: '',
     resultScore: 0,
-    resultText: "",
+    resultTitle: "",
+    resultSlogan: "",
     userInfo: "",
     isSupport: false,
     isPlayer: true,
@@ -34,10 +37,11 @@ export const mutations = {
     //  We need an action to put the user scores upon !FINISHING! to the database 
     setPlayerText(state) {
         // Read the playerTypes.json
-        let arr = Object.values(state.gameScores);
-        const highestScore = Math.max(...arr);
-        const lowestScore = Math.min(...arr);
-        console.log(`highest is: ${highestScore}`);
-        console.log(`lowest is: ${lowestScore}`);
+        const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
+        const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
+        state.highestScore = highestScore;
+        state.lowestScore = lowestScore;
+        state.resultTitle = playerTypes[highestScore][lowestScore].title;
+        state.resultSlogan = playerTypes[highestScore][lowestScore].text;
     }
 }
