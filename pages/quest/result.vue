@@ -33,8 +33,9 @@
                         <img src="~/assets/img/wheel/HEAD1.png" alt="wheel of life" class="wheel-frame-image">
                     </div>
                 </div>
-                <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile">
+                <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile text-center">
                     <!-- <space-pirate-mobile></space-pirate-mobile> -->
+                    <h4>YOU ARE A </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -48,7 +49,8 @@
                 <div class="w-100">
                     <results-wheel></results-wheel>
                 </div>
-                <div class="w-100">
+                <div class="w-100 character-title">
+                    <h4>YOU ARE A </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -147,11 +149,11 @@ export default {
 
     @media screen and (max-width: 1200px) {
         height: 82vh;
-        top: 10vh;
+        top: 0;
     }
 }
 .title-mobile {
-    margin-bottom: 10vh;
+    margin-bottom: 39vh;
     padding-right: 5vw;
     padding-left: 5vw;
 }
@@ -160,6 +162,18 @@ export default {
     height: 60vmin;
     position: relative;
     top: 0;
+
+    @media screen and (max-width: 1200px) {
+        position: absolute;
+        top: 30vmin;
+        transform: scale(0.8);
+    }
+    @media screen and (max-width: 576px) {
+        position: absolute;
+        top: 43vmin;
+        transform: scale(1);
+    }
+    
 }
 .wheel-image-container {
     position: absolute;
@@ -182,10 +196,55 @@ export default {
     padding-bottom: 20vh;
     margin-top: 20vh;
 }
+
+.character-title {
+    text-align: center;
+    h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    h4 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    @media screen and (min-width: 1500px) {
+        h1 {
+            font-size: 7rem;
+        }
+        h2 {
+            font-size: 5rem;
+        }
+    }
+}
+
 .character-title-mobile {
     height: 20vh;
-    margin-top: 5vh;
+    padding-top: 10vh;
+    word-break: break-word;
+
+    @media screen and (min-width: 577px) {
+        padding-top: 15vh;
+    }
+
+    h1 {
+        font-size: 5.5rem;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+
+    h2 {
+        text-transform: capitalize;
+    }
+    @media screen and (max-width: 576px) {
+        h1 {
+            font-size: 6rem;
+        }
+    }
+
 }
+
 .button-container-mobile {
     position: fixed;
     height: 8vh;
