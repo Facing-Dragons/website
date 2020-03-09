@@ -9,6 +9,7 @@ export const state = () => ({
   dataWriteError: false,
   isVideoVisible: false,
   isTeamsVisible: false,
+  user: {}
 })
 
 export const mutations = {
@@ -25,5 +26,51 @@ export const mutations = {
   },
   setTeamsVisible(state, isTeamsVisible) {
     state.isTeamsVisible = isTeamsVisible;
+  },
+
+
+  // FIREBASE MUTATIONS
+  ON_SUCCESS_MUTATION(state, {
+      authUser,
+      claims
+    }) {
+    
+      state.user.id = authUser.uid;
+      state.user.email = authUser.email;
+
+  },
+  ON_ERROR_MUTATION(state, error) {
+
+  },
+  SET_AUTH_USER(state, {
+    authUser
+  }) {
+    state.authUser = {
+      uid: authUser.uid,
+      email: authUser.email
+    }
   }
 }
+
+
+export const actions = {
+  // firebase actions
+  onSuccessAction({commit}, {
+      authUser,
+      claims
+    }) {
+      // Install servicerWorker if supported on sign-in/sign-up page.
+      if (process.browser && 'serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/firebase-auth-sw.js', {
+          scope: '/'
+        })
+      }
+      commit('SET_AUTH_USER', {
+        authUser
+      })
+  }, 
+  onErrorAction(ctx, error) {
+
+  }
+}
+

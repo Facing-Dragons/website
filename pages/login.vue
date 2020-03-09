@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+// import firebase from 'firebase';
+// import {fireDB} from '~/plugins/firebase';
 
 export default {
     asyncData() {
@@ -42,32 +43,37 @@ export default {
         authenticatedUser: null
       }
     },
-    fetch({ store }) {
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-          store.commit('quest/setUserInfo', user);
-        } else {
-          console.log('no user!');
-        }
-      });
-    },
+    // fetch({ store }) {
+    //   firebase.auth().onAuthStateChanged(function(user) {
+    //     if (user) {
+    //       console.log('---------------------------------------');
+    //       console.log(user);
+    //       console.log('---------------------------------------');
+    //       // store.commit('quest/setUserInfo', user);
+    //     } else {
+    //       console.log('no user!');
+    //     }
+    //   });
+    // },
     mounted() {
-
-      if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+      this.readFromFirestore();
+      if (this.$fireAuth.isSignInWithEmailLink(window.location.href)) {
         // Additional state parameters can also be passed via URL.
         // This can be used to continue the user's intended action before triggering
         // the sign-in operation.
         // Get the email if available. This should be available if the user completes
         // the flow on the same device where they started it.
         var email = window.localStorage.getItem('emailForSignIn');
+        console.log('this is email from local storage :', email);
+        
         if (!email) {
           // User opened the link on a different device. To prevent session fixation
           // attacks, ask the user to provide the associated email again. For example:
           email = window.prompt('Please provide your email for confirmation');
         }
         // The client SDK will parse the code from the link for you.
-          firebase.auth().signInWithEmailLink(email, window.location.href)
-          .then(function(result) {
+          this.$fireAuth.signInWithEmailLink(email, window.location.href)
+          .then((result) => {
             // Clear email from storage.
             console.log(result);
             window.localStorage.removeItem('emailForSignIn');
@@ -77,7 +83,7 @@ export default {
             // result.additionalUserInfo.profile == null
             // You can check if the user is new or existing:
             // result.additionalUserInfo.isNewUser
-
+            this.writeToUser(result.user);
           })
           .catch(function(error) {
             console.log(error);
@@ -92,6 +98,30 @@ export default {
       }
     },
     methods: {
+      async writeToUser(user) {
+        const messageRef = this.$fireStore.collection('users').doc(user.uid)
+        try {
+          await messageRef.set({
+            username: 'Nuxt-Fire with Firestore rocks!',
+            score: 10
+          })
+        } catch (e) {
+          alert(e)
+          return
+        }
+        alert('Success.')
+      },
+      async readFromFirestore() {
+        const messageRef = this.$fireStore.collection('users').doc(this.$store.state.authUser.uid);
+        try {
+          const messageDoc = await messageRef.get()
+          alert(messageDoc.data())
+          console.log(messageDoc.data())
+        } catch (e) {
+        alert(e)
+        return
+        }
+      },
       login() {
         var email = this.form.email;
         var actionCodeSettings = {
@@ -101,7 +131,7 @@ export default {
           // This must be true.
           handleCodeInApp: true,
         };
-        firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+        this.$fireAuth.sendSignInLinkToEmail(email, actionCodeSettings)
         .then(function() {
           // The link was successfully sent. Inform the user.
           // Save the email locally so you don't need to ask the user for it again
