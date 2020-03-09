@@ -9,7 +9,7 @@ export const state = () => ({
   dataWriteError: false,
   isVideoVisible: false,
   isTeamsVisible: false,
-  user: {}
+  user: {},
 })
 
 export const mutations = {
@@ -55,7 +55,7 @@ export const mutations = {
 
 export const actions = {
   // firebase actions
-  onSuccessAction({commit}, {
+  onSuccessAction({commit, dispatch}, {
       authUser,
       claims
     }) {
@@ -68,9 +68,21 @@ export const actions = {
       commit('SET_AUTH_USER', {
         authUser
       })
+      dispatch('getUserData', authUser.uid);
   }, 
   onErrorAction(ctx, error) {
 
+  },
+  async getUserData({commit}, uid) {
+    const ref = this.$fireStore.collection('users').doc(uid);
+    try {
+      const doc = await ref.get();
+      console.log(doc.data());
+      commit('quest/SET_USER_DATA', {...doc.data(), uid});
+    } catch (e) {
+      console.log(e);
+      return
+    }
   }
 }
 

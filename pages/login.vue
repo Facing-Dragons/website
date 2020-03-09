@@ -56,6 +56,8 @@ export default {
     //   });
     // },
     mounted() {
+      console.log('hiiii!!!');
+      
       this.readFromFirestore();
       if (this.$fireAuth.isSignInWithEmailLink(window.location.href)) {
         // Additional state parameters can also be passed via URL.
