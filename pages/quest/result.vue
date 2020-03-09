@@ -35,7 +35,7 @@
                 </div>
                 <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile text-center">
                     <!-- <space-pirate-mobile></space-pirate-mobile> -->
-                    <h4>YOU ARE A </h4>
+                    <h4>YOU ARE THE </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -50,7 +50,7 @@
                     <results-wheel></results-wheel>
                 </div>
                 <div class="w-100 character-title">
-                    <h4>YOU ARE A </h4>
+                    <h4>YOU ARE THE </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -71,11 +71,64 @@
                     </div>
                 </div>
             </div>
+            <b-modal 
+                id="modalPopover" 
+                title="Modal with Popover"
+                v-model="modalShow"
+                hide-header
+                hide-footer 
+            >
+                <div class="social-section">
+                    <social-sharing :url="`https://v2.facingdragons.com/quest/share?uid=${uid}`"
+                        title="Facing Dragons - Life Wheel Quest"
+                        description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                        quote="Vue is a progressive framework for building user interfaces."
+                        hashtags="vuejs,javascript,framework"
+                        twitter-user="vuejs"
+                        inline-template>
+                        <div>
+                                <div class="test">
+                                    <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon> Email
+                                </div>
+                                <network network="facebook">
+                                    <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon> Facebook
+                                </network>
+                                <network network="linkedin">
+                                    <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> LinkedIn
+                                </network>
+                                <network network="pinterest">
+                                    <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon> Pinterest
+                                </network>
+                                <network network="reddit">
+                                    <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon> Reddit
+                                </network>
+                                <network network="skype">
+                                    <font-awesome-icon :icon="['fab', 'skype']"></font-awesome-icon> Skype
+                                </network>
+                                <network network="sms">
+                                    <font-awesome-icon :icon="['fab', 'commenting']-o"></font-awesome-icon> SMS
+                                </network>
+                                <network network="telegram">
+                                    <font-awesome-icon :icon="['fab', 'telegram']"/> Telegram
+                                </network>
+                                <network network="twitter">
+                                    <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon> Twitter
+                                </network>
+                                <network network="vk">
+                                    <font-awesome-icon :icon="['fab', 'vk']"></font-awesome-icon> VKontakte
+                                </network>
+                                <network network="whatsapp">
+                                    <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon> Whatsapp
+                                </network>
+                        </div>
+                        </social-sharing>
+                </div>
+            </b-modal>
             <!-- This will be shown in MOBILE devices -->
             <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
-                <!-- <div class="social-section">
-                    <social-sharing url="https://vuejs.org/"
-                      title="The Progressive JavaScript Framework"
+                <div class="social-section">
+                    <social-sharing :url="`https://v2.facingdragons.com/quest/share?uid=${uid}`"
+                      title="Facing Dragons - Life Wheel Quest"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
                       quote="Vue is a progressive framework for building user interfaces."
                       hashtags="vuejs,javascript,framework"
@@ -83,53 +136,43 @@
                       inline-template>
                         <div>
                             <network network="email">
-                                <i class="fa fa-envelope"></i> Email
+                                <div class="test">
+                                    <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon> Email
+                                </div>
                             </network>
                             <network network="facebook">
-                                <i class="fa fa-facebook"></i> Facebook
-                            </network>
-                            <network network="googleplus">
-                                <i class="fa fa-google-plus"></i> Google +
-                            </network>
-                            <network network="line">
-                                <i class="fa fa-line"></i> Line
+                                <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon> Facebook
                             </network>
                             <network network="linkedin">
-                                <i class="fa fa-linkedin"></i> LinkedIn
-                            </network>
-                            <network network="odnoklassniki">
-                                <i class="fa fa-odnoklassniki"></i> Odnoklassniki
+                                <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> LinkedIn
                             </network>
                             <network network="pinterest">
-                                <i class="fa fa-pinterest"></i> Pinterest
+                                <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon> Pinterest
                             </network>
                             <network network="reddit">
-                                <i class="fa fa-reddit"></i> Reddit
+                                <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon> Reddit
                             </network>
                             <network network="skype">
-                                <i class="fa fa-skype"></i> Skype
+                                <font-awesome-icon :icon="['fab', 'skype']"></font-awesome-icon> Skype
                             </network>
                             <network network="sms">
-                                <i class="fa fa-commenting-o"></i> SMS
+                                <font-awesome-icon :icon="['fab', 'commenting']-o"></font-awesome-icon> SMS
                             </network>
                             <network network="telegram">
-                                <i class="fa fa-telegram"></i> Telegram
+                                <font-awesome-icon :icon="['fab', 'telegram']"/> Telegram
                             </network>
                             <network network="twitter">
-                                <i class="fa fa-twitter"></i> Twitter
+                                <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon> Twitter
                             </network>
                             <network network="vk">
-                                <i class="fa fa-vk"></i> VKontakte
+                                <font-awesome-icon :icon="['fab', 'vk']"></font-awesome-icon> VKontakte
                             </network>
-                            <network network="weibo">
-                                <i class="fa fa-weibo"></i> Weibo
-                            </network> 
                             <network network="whatsapp">
-                                <i class="fa fa-whatsapp"></i> Whatsapp
+                                <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon> Whatsapp
                             </network>
                         </div>
                         </social-sharing>
-                </div> -->
+                </div>
                 <div class="w-100">
                     <results-text></results-text>
                 </div>
@@ -157,6 +200,21 @@ export default {
         SpacePirateMobile,
         SocialSharing
     },
+    data() {
+        const networkItemStyle = {
+            width: '20',
+            height: 'auto',
+            padding: '1rem',
+            fontSize: '2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }
+        return {
+            modalShow: false,
+            networkItemStyle
+        }
+    },  
     async asyncData({store}) {
         /**
          * Add the ability to load from the API here, just like in the beginning of the _stage pages
@@ -183,10 +241,7 @@ export default {
         ...mapState({
             resultSlogan: state => state.quest.resultSlogan,
             resultTitle: state => state.quest.resultTitle,
-            uid: state => {
-                store.commit('quest/setPlayerText');
-                return state.quest.user.uid
-            },
+            uid: state => state.authUser.uid,
             wheelSections: state => {
                 return [
                     {value: state.quest.gameScores.mission * 10, color: "#ff6800" },
@@ -203,6 +258,7 @@ export default {
     },
     methods: {
         handleShare() {
+            this.modalShow = true;
             this.$store.dispatch('quest/allowSharing');
         }
     }
@@ -238,6 +294,23 @@ export default {
     padding-right: 5vw;
     padding-left: 5vw;
 }
+
+.social-section {
+    bottom: 0;
+    padding: 4rem;
+
+}
+
+.test {
+        width: 20%;
+        height: auto;
+        padding: 1rem;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 .p {
     width: 60vmin;
     height: 60vmin;
@@ -279,11 +352,15 @@ export default {
 }
 
 .character-title {
+    margin-top: 2rem;
     text-align: center;
     h1 {
-        font-size: 3.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
         margin: 0;
+    }
+    h2 {
+        font-size: 1.2rem;
     }
     h4 {
         font-size: 1rem;
@@ -292,10 +369,10 @@ export default {
 
     @media screen and (min-width: 1500px) {
         h1 {
-            font-size: 7rem;
+            font-size: 5rem;
         }
         h2 {
-            font-size: 5rem;
+            font-size: 3rem;
         }
     }
 }
@@ -310,7 +387,7 @@ export default {
     }
 
     h1 {
-        font-size: 5.5rem;
+        font-size: 3.5rem;
         font-weight: 700;
         text-transform: capitalize;
     }
@@ -320,7 +397,7 @@ export default {
     }
     @media screen and (max-width: 576px) {
         h1 {
-            font-size: 6rem;
+            font-size: 2.5rem;
         }
     }
 
