@@ -1,7 +1,8 @@
 <template>
 <!-- This is the welcome page of the quest to tell the players what they're doing and stuff -->
     <div class="main-container">
-        <game-question
+        <!-- <game-question
+          v-if="$device.isDesktopOrTablet"
           v-bind="currentProperties"
           :is-last-step="currentStepIndex === 7"
           @change="handleChange"
@@ -13,10 +14,9 @@
             >
                 <component :is="currentTextComponent"></component>
             </transition>
-        </game-question>
+        </game-question> -->
         <!-- This is just for mobile phones -->
-        <!-- <game-question-mobile
-          v-else
+        <game-question-mobile
           v-bind="currentProperties"
           :is-last-step="currentStepIndex === 7"
           @change="handleChange"
@@ -28,7 +28,7 @@
             >
                 <component :is="currentTextComponent"></component>
             </transition>
-        </game-question-mobile> -->
+        </game-question-mobile>
     </div>
 </template>
 
@@ -240,7 +240,7 @@ export default {
   .main-container {
     height: 100vh;
     overflow: hidden;
-    background: #ebebeb;
+    background: white;
   }
 
   .line {

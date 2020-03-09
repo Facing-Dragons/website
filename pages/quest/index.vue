@@ -10,12 +10,6 @@
                 3-5 Minutes
               </span>
             </div>
-            <!-- <div class="card-badge rounded-bottom bg-danger" id="reward-badge">
-              <font-awesome-icon icon="gift"/>
-              <span>
-                Player Class Reveal
-              </span>
-            </div> -->
             <div class="quest-card-title mb-4">
               <wheel-text></wheel-text>
             </div>
@@ -23,7 +17,7 @@
               <p v-html="questText">
               </p>
             </div>
-            <b-button to="/quest/wheel?step=0" class="card-button rounded">
+            <b-button :to="$device.isMobileOrTablet ? '/quest/wheelMobile?step=0' : '/quest/wheel?step=0'" class="card-button rounded">
               Start!
             </b-button>
           </b-card>
