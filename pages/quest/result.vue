@@ -73,7 +73,7 @@
             </div>
             <!-- This will be shown in MOBILE devices -->
             <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
-                <div class="social-section">
+                <!-- <div class="social-section">
                     <social-sharing url="https://vuejs.org/"
                       title="The Progressive JavaScript Framework"
                       description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
@@ -129,7 +129,7 @@
                             </network>
                         </div>
                         </social-sharing>
-                </div>
+                </div> -->
                 <div class="w-100">
                     <results-text></results-text>
                 </div>

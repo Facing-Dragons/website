@@ -73,9 +73,9 @@
             </div>
             <!-- This will be shown in MOBILE devices -->
             <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
-                <div class="w-100">
+                <!-- <div class="w-100">
                     <h1>FACING DRAGONS</h1>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
