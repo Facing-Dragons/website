@@ -65,7 +65,7 @@
                         <button class="rounded custom-button p-2 mr-2">
                             SHARE
                         </button>
-                        <button class="rounded custom-button">
+                        <button @click="() => $router.replace('/quest')" class="rounded custom-button">
                             PLAY AGAIN!
                         </button>
                     </div>
