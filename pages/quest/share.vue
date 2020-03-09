@@ -2,11 +2,11 @@
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <!-- MOBILE BUTTONS -->
         <div v-if="$device.isMobileOrTablet" class="d-flex d-xl-none button-container-mobile">
-            <button @click="handleShare" class="rounded-top custom-button w-50 p-2">
+            <button class="rounded-top custom-button w-50 p-2">
                 SHARE
             </button>
             <button @click="() => $router.replace('/quest')" class="rounded-top custom-button w-50">
-                PLAY AGAIN!
+                PLAY! 
             </button>
         </div>
         <!-- END OF MOBILE BUTTONS -->
@@ -35,7 +35,7 @@
                 </div>
                 <div v-if="$device.isMobileOrTablet" class="w-100 d-block d-xl-none character-title-mobile text-center">
                     <!-- <space-pirate-mobile></space-pirate-mobile> -->
-                    <h4>YOU ARE A </h4>
+                    <h4>I AM A </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -50,7 +50,7 @@
                     <results-wheel></results-wheel>
                 </div>
                 <div class="w-100 character-title">
-                    <h4>YOU ARE A </h4>
+                    <h4>I AM A </h4>
                     <h1>
                         {{ resultTitle }}
                     </h1>
@@ -62,76 +62,19 @@
                 <div class="w-100">
                     <results-text></results-text>
                     <div class="button-container d-flex justify-content-between">
-                        <button @click="handleShare" class="rounded custom-button p-2 mr-2">
+                        <button class="rounded custom-button p-2 mr-2">
                             SHARE
                         </button>
                         <button @click="() => $router.replace('/quest')" class="rounded custom-button">
-                            PLAY AGAIN!
+                            PLAY!
                         </button>
                     </div>
                 </div>
             </div>
             <!-- This will be shown in MOBILE devices -->
             <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
-                <div class="social-section">
-                    <social-sharing url="https://vuejs.org/"
-                      title="The Progressive JavaScript Framework"
-                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                      quote="Vue is a progressive framework for building user interfaces."
-                      hashtags="vuejs,javascript,framework"
-                      twitter-user="vuejs"
-                      inline-template>
-                        <div>
-                            <network network="email">
-                                <i class="fa fa-envelope"></i> Email
-                            </network>
-                            <network network="facebook">
-                                <i class="fa fa-facebook"></i> Facebook
-                            </network>
-                            <network network="googleplus">
-                                <i class="fa fa-google-plus"></i> Google +
-                            </network>
-                            <network network="line">
-                                <i class="fa fa-line"></i> Line
-                            </network>
-                            <network network="linkedin">
-                                <i class="fa fa-linkedin"></i> LinkedIn
-                            </network>
-                            <network network="odnoklassniki">
-                                <i class="fa fa-odnoklassniki"></i> Odnoklassniki
-                            </network>
-                            <network network="pinterest">
-                                <i class="fa fa-pinterest"></i> Pinterest
-                            </network>
-                            <network network="reddit">
-                                <i class="fa fa-reddit"></i> Reddit
-                            </network>
-                            <network network="skype">
-                                <i class="fa fa-skype"></i> Skype
-                            </network>
-                            <network network="sms">
-                                <i class="fa fa-commenting-o"></i> SMS
-                            </network>
-                            <network network="telegram">
-                                <i class="fa fa-telegram"></i> Telegram
-                            </network>
-                            <network network="twitter">
-                                <i class="fa fa-twitter"></i> Twitter
-                            </network>
-                            <network network="vk">
-                                <i class="fa fa-vk"></i> VKontakte
-                            </network>
-                            <network network="weibo">
-                                <i class="fa fa-weibo"></i> Weibo
-                            </network> 
-                            <network network="whatsapp">
-                                <i class="fa fa-whatsapp"></i> Whatsapp
-                            </network>
-                        </div>
-                        </social-sharing>
-                </div>
                 <div class="w-100">
-                    <results-text></results-text>
+                    <h1>FACING DRAGONS</h1>
                 </div>
             </div>
         </div>
@@ -157,52 +100,28 @@ export default {
         SpacePirateMobile,
         SocialSharing
     },
-    async asyncData({store}) {
-        /**
-         * Add the ability to load from the API here, just like in the beginning of the _stage pages
-         */
-        let {gameScores} = store.state.quest;
-        if(store.state.user.uid)
-            store.commit('quest/setPlayerText');
-        // scores are from 0 to 10 so we map them to 0 to 100
-        // const wheelSections = [
-        //     {value: gameScores.mission * 10, color: "#ff6800" },
-        //     {value: gameScores.mind * 10, color: "#0059b9"},
-        //     {value: gameScores.fun * 10, color: "#f9e777" },
-        //     {value: gameScores.social * 10, color: "#61a5e3" },
-        //     {value: gameScores.home * 10, color: "#72655f" },
-        //     {value: gameScores.love * 10, color: "#c22832" },
-        //     {value: gameScores.wealth * 10, color: "#c5c5c5" },
-        //     {value: gameScores.vitality * 10, color: "#76b72b" },
-        // ]
-        // return {
-        //     wheelSections
-        // }
+    async asyncData({store, query}) {
+        store.dispatch('quest/getUserResults', query.uid);
     },
     computed: {
         ...mapState({
-            resultSlogan: state => state.quest.resultSlogan,
-            resultTitle: state => state.quest.resultTitle,
-            uid: state => state.quest.user.uid,
+            resultSlogan: state => state.quest.shared.resultSlogan,
+            resultTitle: state => state.quest.shared.resultTitle,
+            uid: state => state.quest.shared.user.uid,
             wheelSections: state => {
                 return [
-                    {value: state.quest.gameScores.mission * 10, color: "#ff6800" },
-                    {value: state.quest.gameScores.mind * 10, color: "#0059b9"},
-                    {value: state.quest.gameScores.fun * 10, color: "#f9e777" },
-                    {value: state.quest.gameScores.social * 10, color: "#61a5e3" },
-                    {value: state.quest.gameScores.home * 10, color: "#72655f" },
-                    {value: state.quest.gameScores.love * 10, color: "#c22832" },
-                    {value: state.quest.gameScores.wealth * 10, color: "#c5c5c5" },
-                    {value: state.quest.gameScores.vitality * 10, color: "#76b72b" },
+                    {value: state.quest.shared.gameScores.mission * 10, color: "#ff6800" },
+                    {value: state.quest.shared.gameScores.mind * 10, color: "#0059b9"},
+                    {value: state.quest.shared.gameScores.fun * 10, color: "#f9e777" },
+                    {value: state.quest.shared.gameScores.social * 10, color: "#61a5e3" },
+                    {value: state.quest.shared.gameScores.home * 10, color: "#72655f" },
+                    {value: state.quest.shared.gameScores.love * 10, color: "#c22832" },
+                    {value: state.quest.shared.gameScores.wealth * 10, color: "#c5c5c5" },
+                    {value: state.quest.shared.gameScores.vitality * 10, color: "#76b72b" },
                 ];
             }
         })
     },
-    methods: {
-        handleShare() {
-            this.$store.dispatch('quest/allowSharing');
-        }
-    }
 }
 </script>
 

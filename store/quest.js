@@ -15,6 +15,12 @@ export const state = () => ({
     resultTitle: "",
     resultSlogan: "",
     user: {},
+    shared: {
+      gameScores: {},
+      resultTitle: "",
+      resultSlogan: "",
+      user: {uid: ''},
+    },
     isSupport: false,
     isPlayer: true,
 })
@@ -80,5 +86,55 @@ export const mutations = {
               vitality: 0,
             };
         state.user.uid = userData.uid;
+    },
+    SET_SHARED_USER_DATA(state, userData) {
+        console.log(userData);
+        state.shared.gameScores = userData.gameScores;
+        state.shared.resultTitle = userData.resultTitle;
+        state.shared.resultSlogan = userData.resultSlogan;
+        if(!userData.gameScores) 
+            state.shared.gameScores =  {
+              mission: 0,
+              mind: 0,
+              fun: 0,
+              social: 0,
+              home: 0,
+              love: 0,
+              wealth: 0,
+              vitality: 0,
+            };
+        state.shared.user.uid = userData.uid;
     }
+}
+
+export const actions = {
+  async getUserResults({commit, state}, uid) {
+    console.log(uid);
+    
+    const ref = this.$fireStore.collection('users').doc(uid);
+    try {
+      const doc = await ref.get();
+      console.log(doc.data());
+      commit('SET_SHARED_USER_DATA', {
+        ...doc.data(),
+        uid
+      });
+    } catch (e) {
+      console.log(e);
+      return
+    }
+  },
+  async allowSharing({commit, state}) {
+    if(state.user.uid) {
+      const doc = this.$fireStore.collection('users').doc(state.user.uid);
+      try {
+        await doc.update({
+          shared: true,
+        })
+      } catch (e) {
+        console.log(e)
+        return
+      }
+    }
+  }
 }
