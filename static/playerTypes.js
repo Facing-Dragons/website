@@ -52,29 +52,29 @@ const playerTypes = {
         },
         home: {
           title: "Wind Mage",
-          text: "Captain Very disciplned"
+          text: "The wind calls my name"
         },
         love: {
+          title: "Guard Captain ",
+          text: "Very disciplned"
+        },
+        wealth: {
           title: "Guild Master",
           text: "Rich in knowledge"
         },
-        wealth: {
-          title: "Professor",
-          text: "Vow of poverty?"
-        },
         vitality: {
-          title: "Master",
+          title: "Professor",
           text: "Doing great upstairs"
         }
     },
     fun: {
         mission: {
           title: "Chaos mage",
-          text: "Chaos Mage I don 't cast spells, they cast me"
+          text: "I don 't cast spells, they cast me"
         },
         mind: {
           title: "Assassin",
-          text: "Assassin I can 't say I'm bored"
+          text: "I can 't say I'm bored"
         },
         fun: {
           title: "",
@@ -82,23 +82,23 @@ const playerTypes = {
         },
         social: {
           title: "Duelist",
-          text: "Duelist It is fun to win"
+          text: "It is fun to win"
         },
         home: {
           title: "Adventurer",
-          text: "Adventurer Where 's next?!"
+          text: "Where 's next?!"
         },
         love: {
           title: "Pirate",
-          text: "Pirate YARR!!"
+          text: "YARR!!"
         },
         wealth: {
           title: "Jester",
-          text: "Jester someone buy me a drink!"
+          text: "someone buy me a drink!"
         },
         vitality: {
-          title: "Lightning",
-          text: "Lightning Wizard Glass cannon"
+          title: "Lightning Wizard",
+          text: "Glass cannon"
         }
     },
     social: {
