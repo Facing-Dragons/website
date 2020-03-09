@@ -56,12 +56,43 @@
                 @click="() => handleClick(index)"
               >
                 <div class="new-slide-content text-center d-flex flex-column h-100 align-items-center">
-                  <b-img
+                  <picture height="200px" v-if="!$device.isIos">
+                    <source 
+                      height="200px"
+                      :id="`${member.name}-member-image`"
+                      type="image/png"
+                      :srcset="`${require(`~/assets/img/team/${member.image}@0,25x.jpg`)} 480w,
+                              ${require(`~/assets/img/team/${member.image}@0,5x.jpg`)} 960w,
+                              ${require(`~/assets/img/team/${member.image}@0,75x.jpg`)} 1440w,
+                              ${require(`~/assets/img/team/${member.image}.jpg`)} 1920w`" 
+                      sizes="(max-width: 1920px) 200px, (max-width: 640px) 200px, (max-width: 480px) 200px, (max-width: 320px) 200px"
+                      class="rounded-circle"
+                    >
+                    <img 
+                      height="200px"
+                      :id="`${member.name}-member-image`"
+                      :src="`~/assets/img/team/${member.image}.jpg`"
+                      :srcset="`${require(`~/assets/img/team/${member.image}@0,25x.jpg`)} 480w,
+                              ${require(`~/assets/img/team/${member.image}@0,5x.jpg`)} 960w,
+                              ${require(`~/assets/img/team/${member.image}@0,75x.jpg`)} 1440w,
+                              ${require(`~/assets/img/team/${member.image}.jpg`)} 1920w`" 
+                      sizes="(max-width: 1920px) 200px, (max-width: 640px) 200px, (max-width: 480px) 200px, (max-width: 320px) 200px"
+                      class="rounded-circle"
+                    >
+                  </picture>
+                  <img 
+                    v-else
+                    :src="`${require(`~/assets/img/team/${member.image}@0,5x.jpg`)}`"
+                    class="rounded-circle"
+                    height="200px"
+                    :id="`${member.name}-member-image`"
+                  >
+                  <!-- <b-img
                     height="200px"
                     rounded="circle"
                     :src="require(`~/assets/img/team/${member.image}`)"
-                  >
-                  </b-img>
+                  > -->
+                  <!-- </b-img> -->
                   <div class="member-texts mt-4">
                     <h3 class="name mb-1">
                       {{ member.name }}
@@ -96,9 +127,9 @@ export default {
                 unlock their purpose and empowers the next generation of leaders.<br>
                 <strong>Favourite Video Game</strong>: Deja Vu <br>
                 <strong>Fun Fact</strong>: Lived in a tipi in the woods.`,
-                image: "brodie.jpg",
+                image: "brodie",
                 icon: "brodie.png",
-                backgroundImage: "manager_pattern.jpg",
+                backgroundImage: "manager_pattern",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -134,7 +165,7 @@ export default {
                   over 120lbs since I was 20 years old. <br>
                   Oh I also have a 3 year old boy, and a baby girl scheduled 
                   to start public beta in August`,
-                image: "dov.png",
+                image: "dov",
                 icon: "dov.png",
                 backgroundImage: "dov_pattern.png",
                 socialMedia: [
@@ -164,7 +195,7 @@ export default {
                 <Strong>Favourite Dragon</strong>: Amora, the Love Dragon. <br>
                 <Strong>Unique Facts</Strong>: Owns a small car and a large cat, was once a martial arts 
                 lion dancer, and is just starting to learn archery!`,
-                image: "cil.jpg",
+                image: "cil",
                 icon: "cil.png",
                 backgroundImage: "cil_pattern.png",
                 socialMedia: [
@@ -195,9 +226,9 @@ export default {
                 <strong>Favorite Dragon</strong>: Enthuz - The Play Dragon <br>
                 <strong>Unique Facts</strong>: Osama's games won many awards including the 2017 Excellence in Design award 
                 in the International Mobile Game Awards - MENA`,
-                image: "osama.jpg",
+                image: "osama",
                 icon: "osama.png",
-                backgroundImage: "gamer2_pattern.jpg",
+                backgroundImage: "gamer2_pattern",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -220,9 +251,9 @@ export default {
                 name: "Mohammad Rajabi Seraji",
                 role: "Senior UI/UX Developer",
                 description: `He's a mystery man, you should visit his website to know more about him. It's enough to know that he's quite a snow man! :D `,
-                image: "moh.jpg",
+                image: "moh",
                 icon: "moh.png",
-                backgroundImage: "programmer2_pattern.jpg",
+                backgroundImage: "02.25.2020 - facing dragons-2",
                 socialMedia: [
                     {
                         name: "Facebook",
@@ -251,7 +282,7 @@ export default {
                   <strong>Favourite Dragon</strong>: Currently Mentano, the Mind Dragon
                   <strong>Unique Facts</strong>: Alyssa has two rescue dogs, an unhealthy obsession with spreadsheets, 
                   and drinks too much coffee.`,
-                image: "alyssa.jpg",
+                image: "alyssa",
                 icon: "alyssa.png",
                 backgroundImage: "alyssa_pattern.png",
                 socialMedia: [
