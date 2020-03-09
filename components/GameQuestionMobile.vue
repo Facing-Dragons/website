@@ -1,6 +1,6 @@
 <template>
     <div class="container main-quest-container h-100">
-        <div class="row">
+        <div class="quest-title-box">
             <div class="col-12 justify-content-center">
                 <div class="title-container">
                     <slot></slot>
@@ -154,7 +154,7 @@ export default {
 $slider-height: 5vh;
 $rating-box-border-width: 3px;
 $next-button-height: 8vh;
-$description-box-height: 45vh;
+$description-box-height: 35vh;
 $title-box-height: 25vh;
 
 .control-col {
@@ -165,12 +165,23 @@ $title-box-height: 25vh;
 .main-quest-container {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 760px) {
     .main-quest-container {
         width: auto;
     }
+}
+
+.quest-title-box {
+    position: fixed;
+    top: 4vh;
+    height: calc(43vh - 8.5rem);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .quest-title {
@@ -180,7 +191,9 @@ $title-box-height: 25vh;
 }
 
 .title-container {
-    height: $title-box-height;
+    // height: $title-box-height;
+    width: 100%;
+    height: auto;
 }
 
 .title-box {
@@ -258,11 +271,11 @@ $title-box-height: 25vh;
 
 .difficulty-description {
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     text-align: center;
     padding: 0.5rem;
     margin-top: 5%;
-    height: 80%;
+    height: 67%;
     overflow: auto;
 }
 
@@ -270,7 +283,7 @@ $title-box-height: 25vh;
     position: absolute;
     right: 2rem;
     left: 2rem;
-    bottom: 4rem;
+    bottom: 12%;
 }
 
 .slider-wrapper {
