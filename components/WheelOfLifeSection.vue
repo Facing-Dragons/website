@@ -58,7 +58,6 @@ export default {
 <style lang="scss" scoped>
 image {
     mix-blend-mode: soft-light;
-    opacity: 100%;
 }
 .main {
     width: 100%;

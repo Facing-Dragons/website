@@ -76,49 +76,49 @@
                 title="Modal with Popover"
                 v-model="modalShow"
                 hide-header
-                hide-footer 
+                hide-footer
+                centered 
             >
+                <div class="w-100 text-center">
+                    <h3>
+                        Choose your favourite social media platforms! 
+                    </h3>
+                </div>
                 <div class="social-section">
                     <social-sharing :url="`https://v2.facingdragons.com/quest/share?uid=${uid}`"
                         title="Facing Dragons - Life Wheel Quest"
-                        description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                        quote="Vue is a progressive framework for building user interfaces."
-                        hashtags="vuejs,javascript,framework"
-                        twitter-user="vuejs"
+                        :description="sharingDescription"
+                        :quote="sharingDescription"
+                        hashtags="facingdragons,game,young_adults,mixed_reality"
+                        twitter-user="FacingDragons"
                         inline-template>
-                        <div>
-                                <div class="test">
-                                    <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon> Email
-                                </div>
-                                <network network="facebook">
-                                    <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon> Facebook
+                        <div class="d-flex justify-content-center align-items-center flex-wrap">
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="email">
+                                    <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon> 
                                 </network>
-                                <network network="linkedin">
-                                    <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> LinkedIn
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="facebook">
+                                    <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon> 
                                 </network>
-                                <network network="pinterest">
-                                    <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon> Pinterest
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="linkedin">
+                                    <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> 
                                 </network>
-                                <network network="reddit">
-                                    <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon> Reddit
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="pinterest">
+                                    <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon> 
                                 </network>
-                                <network network="skype">
-                                    <font-awesome-icon :icon="['fab', 'skype']"></font-awesome-icon> Skype
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="reddit">
+                                    <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon> 
                                 </network>
-                                <network network="sms">
-                                    <font-awesome-icon :icon="['fab', 'commenting']-o"></font-awesome-icon> SMS
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="skype">
+                                    <font-awesome-icon :icon="['fab', 'skype']"></font-awesome-icon> 
                                 </network>
-                                <network network="telegram">
-                                    <font-awesome-icon :icon="['fab', 'telegram']"/> Telegram
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="telegram">
+                                    <font-awesome-icon :icon="['fab', 'telegram']"/>
                                 </network>
-                                <network network="twitter">
-                                    <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon> Twitter
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="twitter">
+                                    <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon> 
                                 </network>
-                                <network network="vk">
-                                    <font-awesome-icon :icon="['fab', 'vk']"></font-awesome-icon> VKontakte
-                                </network>
-                                <network network="whatsapp">
-                                    <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon> Whatsapp
+                                <network :style="{cursor: 'pointer', display: 'block', margin: '0.5rem', fontSize: '2.5rem'}" network="whatsapp">
+                                    <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon> 
                                 </network>
                         </div>
                         </social-sharing>
@@ -126,53 +126,6 @@
             </b-modal>
             <!-- This will be shown in MOBILE devices -->
             <div v-if="$device.isMobileOrTablet" class="col-12 d-flex d-xl-none flex-column justify-content-around results-text-mobile">
-                <div class="social-section">
-                    <social-sharing :url="`https://v2.facingdragons.com/quest/share?uid=${uid}`"
-                      title="Facing Dragons - Life Wheel Quest"
-                      description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                      quote="Vue is a progressive framework for building user interfaces."
-                      hashtags="vuejs,javascript,framework"
-                      twitter-user="vuejs"
-                      inline-template>
-                        <div>
-                            <network network="email">
-                                <div class="test">
-                                    <font-awesome-icon :icon="['fas', 'envelope']"></font-awesome-icon> Email
-                                </div>
-                            </network>
-                            <network network="facebook">
-                                <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon> Facebook
-                            </network>
-                            <network network="linkedin">
-                                <font-awesome-icon :icon="['fab', 'linkedin']"></font-awesome-icon> LinkedIn
-                            </network>
-                            <network network="pinterest">
-                                <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon> Pinterest
-                            </network>
-                            <network network="reddit">
-                                <font-awesome-icon :icon="['fab', 'reddit']"></font-awesome-icon> Reddit
-                            </network>
-                            <network network="skype">
-                                <font-awesome-icon :icon="['fab', 'skype']"></font-awesome-icon> Skype
-                            </network>
-                            <network network="sms">
-                                <font-awesome-icon :icon="['fab', 'commenting']-o"></font-awesome-icon> SMS
-                            </network>
-                            <network network="telegram">
-                                <font-awesome-icon :icon="['fab', 'telegram']"/> Telegram
-                            </network>
-                            <network network="twitter">
-                                <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon> Twitter
-                            </network>
-                            <network network="vk">
-                                <font-awesome-icon :icon="['fab', 'vk']"></font-awesome-icon> VKontakte
-                            </network>
-                            <network network="whatsapp">
-                                <font-awesome-icon :icon="['fab', 'whatsapp']"></font-awesome-icon> Whatsapp
-                            </network>
-                        </div>
-                        </social-sharing>
-                </div>
                 <div class="w-100">
                     <results-text></results-text>
                 </div>
@@ -242,6 +195,7 @@ export default {
             resultSlogan: state => state.quest.resultSlogan,
             resultTitle: state => state.quest.resultTitle,
             uid: state => state.authUser.uid,
+            isSupport: state => state.isSupport,
             wheelSections: state => {
                 return [
                     {value: state.quest.gameScores.mission * 10, color: "#ff6800" },
@@ -254,7 +208,13 @@ export default {
                     {value: state.quest.gameScores.vitality * 10, color: "#76b72b" },
                 ];
             }
-        })
+        }),
+        sharingDescription() {
+            if(this.isSupport)
+                return 'I’m excited to share this new “Life Wheel” quest with you! This is a useful self-reflection and life fulfillment tool being used by coaches, counselors, and clinicians in an innovative new app to support clients and students.'
+            else 
+                return `This is the best personality test I’ve ever taken. It's like a game! Take the “Life Wheel” quest from Facing Dragons today to discover your levels of fulfillment in the 8 Key Areas of Life.`
+        }
     },
     methods: {
         handleShare() {
@@ -298,6 +258,7 @@ export default {
 .social-section {
     bottom: 0;
     padding: 4rem;
+    padding-top: 1rem;
 
 }
 

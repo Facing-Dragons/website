@@ -87,6 +87,7 @@ export const mutations = {
         state.gameScores = userData.gameScores;
         state.resultTitle = userData.resultTitle;
         state.resultSlogan = userData.resultSlogan;
+        state.isSupport = (userData.isSupport === 'true' ? true : false); 
         if(!userData.gameScores) 
             state.gameScores =  {
               mission: 0,

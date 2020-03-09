@@ -17,14 +17,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "Facing Dragons",
+    title: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "A Gamified Mental Health App"
+        content: "A mental health game and clinical support tool to empower the next generation of leaders."
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
