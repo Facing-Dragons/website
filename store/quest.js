@@ -51,11 +51,24 @@ export const mutations = {
     //  We need an action to put the user scores upon !FINISHING! to the database 
     async setPlayerText(state) {
         // Read the playerTypes.json
+        const adjectives = {
+          mission: 'Ambitious',
+          mind: 'Mindful',
+          fun: 'Playful',
+          social: 'Friendly',
+          home: 'Cozy',
+          love: 'Loving',
+          wealth: 'Rich',
+          vitality: 'Healthy',
+        };
+        const sortedArray = Object.entries(state.gameScores).sort((a, b) => a[1] - b[1]);
+        const secondHighest = adjectives[sortedArray[6][0]];
+        console.log(sortedArray);
         const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
         const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
         state.highestScore = highestScore;
         state.lowestScore = lowestScore;
-        state.resultTitle = playerTypes[highestScore][lowestScore].title;
+        state.resultTitle = `${secondHighest} ${playerTypes[highestScore][lowestScore].title}`;
         state.resultSlogan = playerTypes[highestScore][lowestScore].text;
 
         const doc = this.$fireStore.collection('users').doc(state.user.uid);
