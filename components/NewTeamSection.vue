@@ -151,20 +151,17 @@ export default {
             { 
                 name: "Dov “Rallos” Schafer",
                 role: "Co-founder/Design Director",
-                description: `Dov is a PhD candidate in Educational Technology at Simon Fraser University 
-                  in British Columba. He is studying peoples’ intrinsic motivation to play video games and 
-                  how to create mixed reality games that support positive personal growth. Dov is a lifelong 
-                  game enthusiast with a deep knowledge of design and mechanics.<br>
+                description: `Dov is a PhD candidate in Educational Technology at Simon Fraser University in British Columba. He is studying peoples’ intrinsic motivation to play video games and how to create mixed-reality games that support positive personal growth. Dov is a lifelong game enthusiast with a deep knowledge of design and mechanics.<br>
 
-                  <Strong>Favorite Game</Strong>: EverQuest Classic; WoW up until WOTLK; I used to be in the top guild in the 
+                  <Strong>Favourite Game</Strong>: EverQuest Classic; WoW up until WOTLK; I used to be in the top guild in the 
                   world in both EQ and WOW (nerd alert) Also I love boardgames like Star Realms, Dune, 
                   Mageknight… <br>
-                  <Strong>Favorite Dragon</strong>: They are like babies to me… don’t make me choose just one. Ok fine, 
+                  <Strong>Favourite Dragon</strong>: They are like babies to me… don’t make me choose just one. Ok fine, 
                   Helios – I like that he can see the future. <br>
-                  <strong>Fun Facts</strong>:  Dov means Bear in hebrew. I have a culinary degree, and I have lost 
+                  <strong>Fun Facts</strong>:  Dov means Bear in Hebrew. I have a culinary degree, and I have lost 
                   over 120lbs since I was 20 years old. <br>
-                  Oh I also have a 3 year old boy, and a baby girl scheduled 
-                  to start public beta in August`,
+                  Oh, I also have a 3-year-old boy, and a baby girl scheduled 
+                  to start public beta in August.`,
                 image: "dov",
                 icon: "dov.png",
                 backgroundImage: "dov_pattern.png",
@@ -194,7 +191,7 @@ export default {
                 health wellness among gamers and game-makers alike. <br>
                 <Strong>Favourite Dragon</strong>: Amora, the Love Dragon. <br>
                 <Strong>Unique Facts</Strong>: Owns a small car and a large cat, was once a martial arts 
-                lion dancer, and is just starting to learn archery!`,
+                lion dancer and is just starting to learn archery!`,
                 image: "cil",
                 icon: "cil.png",
                 backgroundImage: "cil_pattern.png",
@@ -250,7 +247,7 @@ export default {
             { 
                 name: "Mohammad Rajabi Seraji",
                 role: "Senior UI/UX Developer",
-                description: `He's a mystery man, you should visit his website to know more about him. It's enough to know that he's quite a snow man! :D `,
+                description: `He's a mystery man, you should visit his website to know more about him. It's enough to know that he's quite a snowman! :D `,
                 image: "moh",
                 icon: "moh.png",
                 backgroundImage: "02.25.2020 - facing dragons-2",
