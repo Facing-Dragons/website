@@ -1,7 +1,22 @@
 <template>
-    <div id="contact" class="container-fluid footer-container py-5 d-flex flex-column justify-content-center align-items-center">
+    <div id="contact" class="container footer-container p-5 justify-content-center align-items-center">
+        <section-title 
+            v-b-visible="handleTitleVisible"
+            class="pt-5 sponsors-section-title"
+            right
+            title-text="Contact"
+            text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
+            line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
+        ></section-title>
+        <!-- <div class="input-box w-100 p-2">
+            <b-form-textarea
+                id="textarea-rows"
+                placeholder="Tall textarea"
+                rows="8"
+            ></b-form-textarea>
+        </div> -->
         <div 
-            class="icon-set p-2 d-flex flex-wrap justify-content-center align-items-center"
+            class="icon-set p-3 d-flex w-100 flex-wrap justify-content-center align-items-center"
         >
             <a 
                 v-for="info in mediaInfo"
@@ -17,7 +32,7 @@
                 </div>
             </a>
         </div>
-        <div class="facing-dragons">
+        <div class="facing-dragons text-center">
             Facing Dragons
         </div>
         <div class="copyright text-center">
@@ -28,7 +43,11 @@
 </template>
 
 <script>
+import SectionTitle from '~/components/SectionTitle';
 export default {
+    components: {
+        SectionTitle
+    },
     data() {
         const mediaInfo = [
             {
@@ -84,15 +103,15 @@ export default {
     }
 
     .icon-container {
-        width: 3rem;
-        height: 3rem; 
+        width: 5.5rem;
+        height: 5.5rem; 
         background-color: #2b2b2b;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
 
     .footer-container {
