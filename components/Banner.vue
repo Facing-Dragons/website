@@ -351,18 +351,27 @@ export default {
       isSupport: {
         type: Boolean,
         default: false
+      },
+      showModal: {
+        type: Boolean, 
+        default: false
       }
     },
     data() {
       return {
-        isPlayerModalOpen: false,
+        isPlayerModalOpen: this.showModal,
         isWorkerModalOpen: false,
         form: {email: ''},
-        isGuidianShown: false,
+        isGuidianShown: this.showModal,
         isSupportShown: true,
         isButtonInNav: false,
         isWriteSuccessful: false,
         isWriting: false,
+      }
+    },
+    watch: {
+      showModal(newVal) {
+        this.isPlayerModalOpen = newVal;
       }
     },
     computed: {

@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="main-container">
     <banner-background></banner-background>
-    <Banner></Banner>
+    <Banner :show-modal="showModal"></Banner>
     <div class="black-background"></div>
     <about-game @videoVisible="handleVisible"></about-game>
     <!-- <GameDescription></GameDescription> -->
@@ -35,6 +35,22 @@ export default {
     Sponsors,
     Footer,
     BannerBackground
+  },
+  asyncData({query}) {
+    let showModal = false;
+    if(query.p && query.p === "1") { // if user is unauthorized
+      showModal = true;
+    }
+    return {
+      showModal
+    }
+  },
+  watchQuery (newQuery, oldQuery) {
+    // Only execute component methods if the old query string contained `bar`
+    // and the new query string contains `foo`
+    if(newQuery.p && newQuery.p === "1") {
+      this.showModal = true;
+    }
   },
   data() {
     return {

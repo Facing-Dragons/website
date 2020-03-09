@@ -48,6 +48,7 @@ import MissionText from '~/components/svg/MissionText';
 import {mapState} from 'vuex';
 
 export default {
+  middleware: 'auth',
   layout: 'quest',
   components: {
     GameQuestion,

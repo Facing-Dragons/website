@@ -31,6 +31,7 @@
 import {mapState} from 'vuex';
 import WheelText from '~/components/WheelText'
 export default {
+  middleware: 'auth',
   components: {
     WheelText
   },

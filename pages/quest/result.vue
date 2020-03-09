@@ -144,6 +144,7 @@ import SocialSharing from 'vue-social-sharing'
 import {mapState} from 'vuex'
 
 export default {
+    middleware: 'auth',
     layout: 'quest',
     components: {
         WheelOfLifeSection,
