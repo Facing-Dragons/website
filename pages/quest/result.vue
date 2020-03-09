@@ -40,7 +40,7 @@
                         {{ resultTitle }}
                     </h1>
                     <h3>
-                        {{ resultSlogan }}
+                        “{{ resultSlogan }}”
                     </h3>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         {{ resultTitle }}
                     </h1>
                     <h3>
-                        {{ resultSlogan }}
+                        “{{ resultSlogan }}”
                     </h3>
                     <!-- <space-pirate-text></space-pirate-text> -->
                 </div>
@@ -359,7 +359,7 @@ export default {
         font-weight: 700;
         margin: 0;
     }
-    h2 {
+    h3 {
         font-size: 1.2rem;
     }
     h4 {
