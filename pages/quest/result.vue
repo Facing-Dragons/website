@@ -103,28 +103,49 @@ export default {
          * Add the ability to load from the API here, just like in the beginning of the _stage pages
          */
         let {gameScores} = store.state.quest;
-        store.commit('quest/setPlayerText');
+        if(store.state.user.uid)
+            store.commit('quest/setPlayerText');
         // scores are from 0 to 10 so we map them to 0 to 100
-        const wheelSections = [
-            {value: gameScores.mission * 10, color: "#ff6800" },
-            {value: gameScores.mind * 10, color: "#0059b9"},
-            {value: gameScores.fun * 10, color: "#f9e777" },
-            {value: gameScores.social * 10, color: "#61a5e3" },
-            {value: gameScores.home * 10, color: "#72655f" },
-            {value: gameScores.love * 10, color: "#c22832" },
-            {value: gameScores.wealth * 10, color: "#c5c5c5" },
-            {value: gameScores.vitality * 10, color: "#76b72b" },
-        ]
-        return {
-            wheelSections
-        }
+        // const wheelSections = [
+        //     {value: gameScores.mission * 10, color: "#ff6800" },
+        //     {value: gameScores.mind * 10, color: "#0059b9"},
+        //     {value: gameScores.fun * 10, color: "#f9e777" },
+        //     {value: gameScores.social * 10, color: "#61a5e3" },
+        //     {value: gameScores.home * 10, color: "#72655f" },
+        //     {value: gameScores.love * 10, color: "#c22832" },
+        //     {value: gameScores.wealth * 10, color: "#c5c5c5" },
+        //     {value: gameScores.vitality * 10, color: "#76b72b" },
+        // ]
+        // return {
+        //     wheelSections
+        // }
     },
     computed: {
         ...mapState({
             resultSlogan: state => state.quest.resultSlogan,
-            resultTitle: state => state.quest.resultTitle
+            resultTitle: state => state.quest.resultTitle,
+            uid: state => state.quest.user.uid,
+            wheelSections: state => {
+                return [
+                    {value: state.quest.gameScores.mission * 10, color: "#ff6800" },
+                    {value: state.quest.gameScores.mind * 10, color: "#0059b9"},
+                    {value: state.quest.gameScores.fun * 10, color: "#f9e777" },
+                    {value: state.quest.gameScores.social * 10, color: "#61a5e3" },
+                    {value: state.quest.gameScores.home * 10, color: "#72655f" },
+                    {value: state.quest.gameScores.love * 10, color: "#c22832" },
+                    {value: state.quest.gameScores.wealth * 10, color: "#c5c5c5" },
+                    {value: state.quest.gameScores.vitality * 10, color: "#76b72b" },
+                ];
+            }
         })
-    }
+    },
+    // watch: {
+    //     uid(newVal, oldVal) {
+    //         console.log(newVal);
+    //         if(newVal !== '')
+    //             this.$store.commit('quest/setPlayerText');
+    //     }
+    // }
 }
 </script>
 
