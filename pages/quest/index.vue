@@ -28,8 +28,106 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
+import WheelText from '~/components/WheelText'
 export default {
-  layout: 'quest'
+  components: {
+    WheelText
+  },
+  computed: {
+    ...mapState({
+      isSupport: state => state.quest.isSupport, 
+      isPlayer: state => state.quest.isPlayer
+    }),
+    questText() {
+      if (this.isSupport) {
+        return `You are about to see the Life Wheel quest. This introduces players to a useful self-reflection and life fulfillment report cycle. Take note of how you might find this type of information about your clients useful in your practice. <br><br> Give it a try and see how easy and fun it is to engage with!`;
+      } else {
+        return `Welcome! You are about to start your first quest in the Facing Dragons world. You will be asked to honestly consider how you feel in eight key areas of your life. You will be rewarded by unveiling your player class at the end. <br><br>
+        Trust your instincts! Are you ready to begin?`
+      }
+    }
+  },
+  // fetch({ store }) {
+    //   firebase.auth().onAuthStateChanged(function(user) {
+    //     if (user) {
+    //       console.log('---------------------------------------');
+    //       console.log(user);
+    //       console.log('---------------------------------------');
+    //       // store.commit('quest/setUserInfo', user);
+    //     } else {
+    //       console.log('no user!');
+    //     }
+    //   });
+    // },
+  mounted() {
+      if (this.$fireAuth.isSignInWithEmailLink(window.location.href)) {
+        // Additional state parameters can also be passed via URL.
+        // This can be used to continue the user's intended action before triggering
+        // the sign-in operation.
+        // Get the email if available. This should be available if the user completes
+        // the flow on the same device where they started it.
+        var email = window.localStorage.getItem('emailForSignIn');
+        console.log('this is email from local storage :', email);
+        
+        if (!email) {
+          // User opened the link on a different device. To prevent session fixation
+          // attacks, ask the user to provide the associated email again. For example:
+          email = window.prompt('Please provide your email for confirmation');
+        }
+        // The client SDK will parse the code from the link for you.
+          this.$fireAuth.signInWithEmailLink(email, window.location.href)
+          .then((result) => {
+            // Clear email from storage.
+            console.log(result);
+            window.localStorage.removeItem('emailForSignIn');
+            // store.commit('quest/setUserInfo', result.users);
+            // You can access the new user via result.user
+            // Additional user info profile not available via:
+            // result.additionalUserInfo.profile == null
+            // You can check if the user is new or existing:
+            // result.additionalUserInfo.isNewUser
+            console.log(this.$route.query);
+            
+            const userData = {
+              ...result.user,
+              isSupport: this.$route.query.support || false
+            }
+            this.writeToUser(userData);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+    },
+    // layout: 'quest',
+    methods: {
+    async writeToUser(userData) {
+      const messageRef = this.$fireStore.collection('users').doc(userData.uid)
+      try {
+        await messageRef.set({
+          email: userData.email,
+          isSupport: userData.isSupport,
+          gameScores: {
+            mission: 0,
+            mind: 0,
+            fun: 0,
+            social: 0,
+            home: 0,
+            love: 0,
+            wealth: 0,
+            vitality: 0,
+          },
+          resultTitle: "",
+          resultSlogan: "",
+        })
+      } catch (e) {
+        console.log(e);
+        return
+      }
+      console.log('success');
+    },
+  },
 }
 </script>
 
@@ -113,28 +211,3 @@ export default {
 }
 
 </style>
-
-<script>
-import {mapState} from 'vuex';
-import WheelText from '~/components/WheelText'
-export default {
-  components: {
-    WheelText
-  },
-  computed: {
-    ...mapState({
-      isSupport: state => state.quest.isSupport, 
-      isPlayer: state => state.quest.isPlayer
-    }),
-    questText() {
-      if (this.isSupport) {
-        return `You are about to see the Life Wheel quest. This introduces players to a useful self-reflection and life fulfillment report cycle. Take note of how you might find this type of information about your clients useful in your practice. <br><br> Give it a try and see how easy and fun it is to engage with!`;
-      } else {
-        return `Welcome! You are about to start your first quest in the Facing Dragons world. You will be asked to honestly consider how you feel in eight key areas of your life. You will be rewarded by unveiling your player class at the end. <br><br>
-        Trust your instincts! Are you ready to begin?`
-      }
-    }
-  }
-  
-}
-</script>

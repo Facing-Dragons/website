@@ -14,7 +14,7 @@ export const state = () => ({
     resultScore: 0,
     resultTitle: "",
     resultSlogan: "",
-    userInfo: "",
+    user: {},
     isSupport: false,
     isPlayer: true,
 })
@@ -25,11 +25,19 @@ export const mutations = {
         console.log(newUserInfo);
         state.userInfo = newUserInfo;
     },
-    setGameScore(state, {index, newScore}) {
-        console.log(index);
-        console.log(newScore);
-        var newKey = Object.keys(state.gameScores)[index];
-        state.gameScores[newKey] = newScore;
+    async setGameScore(state, {id, newScore}) {
+        state.gameScores[id] = newScore;
+
+        // to be moved to action
+        const doc = this.$fireStore.collection('users').doc(state.user.uid);
+        try {
+          await doc.set({
+            gameScores: state.gameScores
+          })
+        } catch (e) {
+          console.log(e)
+          return
+        }
     },
     setAllScores(state, newScoreObject) {
         state.gameScores = Object.assign(newScoreObject);
@@ -43,5 +51,10 @@ export const mutations = {
         state.lowestScore = lowestScore;
         state.resultTitle = playerTypes[highestScore][lowestScore].title;
         state.resultSlogan = playerTypes[highestScore][lowestScore].text;
+    },
+    SET_USER_DATA(state, userData) {
+        console.log(userData);
+        state.gameScores = userData.gameScores;
+        state.user.uid = userData.uid;
     }
 }

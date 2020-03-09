@@ -70,118 +70,88 @@ export default {
   created() {
     // screen.orientation.lock('portrait');
   },
-  async mounted() {
-    //  Here we need a call to the API in order to load the user scores 
-    //  Then submit them to the store
-
-
-    //   const 
-    // if(!this.$store.state.email && this.$route.query.id) {
-    //   const userID = this.$route.query.id;
-      // console.log(userID);
-      
-    //   const ref = fireDb.collection("users").doc(userID);
-
-    //   let snap
-    //   try {
-    //     snap = await ref.get()
-    //     console.log(snap.data().email);
-    //     this.$store.commit('setEmail', snap.data().email);
-    //   } catch (e) {
-    //     // TODO: error handling
-    //     console.error(e)
-    //   }
-    // }
-  },
   async asyncData({query, store}) {
-    /**
-     * 
-     * REPLACE RANDOM READING WITH FIREDB READING
-     * 
-     */
-    var randomGameScores = {
-        mission: Math.floor(Math.random() * 10),
-        mind: Math.floor(Math.random() * 10),
-        fun: Math.floor(Math.random() * 10),
-        social: Math.floor(Math.random() * 10),
-        home: Math.floor(Math.random() * 10),
-        love: Math.floor(Math.random() * 10),
-        wealth: Math.floor(Math.random() * 10),
-        vitality: Math.floor(Math.random() * 10),
-    };
-    store.commit('quest/setAllScores', randomGameScores);
+    
 
     const gameQuestions = [
       {
+        id: 'mission',
         title: 'Mission',
         titleComponent: 'MissionText',
         text: 'How fulfilled are you in knowing and living your mission, work that is meaningful to you?',
         lowDescription: 'Struggling to figure out what to do with your life, under pressure to find a meaningful career path, stressed out working a job you hate',
         highDescription: 'Enjoying work so much it doesn’t feel like work, making a difference or positive impact in the world, fully engaged in meaningful and satisfying work.',
-        value: randomGameScores.mission,
+        value: store.state.quest.gameScores.mission,
         color: "#ff6800"
       },
       {
+        id: 'mind',
         title: 'Mind',
         titleComponent: 'MindText',
         text: `How fulfilled are you in your mental and emotional health?`,
         lowDescription: 'High stress, low resilience, unhealthy beliefs and focus, depressed, anxious, low self-esteem, low confidence.',
         highDescription: 'Low stress, high resilience, healthy beliefs and focus, clear-minded, at peace, confident, centered, grounded.',
-        value: randomGameScores.mind,
+        value: store.state.quest.gameScores.mind,
         color: "#0059b9"
       },
       {
+        id: 'fun',
         title: 'Fun',
         titleComponent: 'FunText',
         text: 'How fulfilled are you in having fun, being playful, and enjoying the lighter side of yourself and your life?',
         lowDescription: 'Not having fun, feeling miserable and stuck, too serious, all work and no play.',
         highDescription: 'Having fun, feeling relaxed and enjoying your life, smiling and laughing a lot, engaged in extracurricular activities, hobbies and recreation, feeling playful and happy, good work/life balance.',
-        value: randomGameScores.fun,
+        value: store.state.quest.gameScores.fun,
         color: "#f9e777"
       },
       {
+        id: 'social',
         title: 'Social',
         titleComponent: 'SocialText',
         text: 'How are you doing at staying in touch and feeling connected with the people who mean the most to you?',
         lowDescription: 'Not feeling connected to the people around you, feeling isolated, lonely, struggling to make and maintain friendships, feeling betrayed, low trust in others.',
         highDescription: 'Feeling connected to the people around you, enjoying a rich, satisfying social life with people you trust and enjoy spending time with.',
-        value: randomGameScores.social,
+        value: store.state.quest.gameScores.social,
         color: "#61a5e3"
       },
       {
+        id: 'home',
         title: 'Home',
         titleComponent: 'HomeText',
         text: 'How fulfilled are you with your home and the current state of your physical surroundings?',
         lowDescription: 'You don’t like your home, don’t have a home, home is a mess, don’t feel like your surroundings are a true reflection of who you are.',
         highDescription: 'You enjoy your home and the world around you, home is comfortable, safe, clean and organized. Your surroundings are a true reflection of who you are.',
-        value: randomGameScores.home,
+        value: store.state.quest.gameScores.home,
         color: "#72655f"
       },
       {
+        id: 'love',
         title: 'Love',
         titleComponent: 'LoveText',
         text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
         lowDescription: 'Given up on love or finding love, feeling hurt from a break-up or relationship, struggling to feel, express and receive love.',
         highDescription: 'In love, feeling content with current relationship situation, enjoying feeling, expressing and receiving love.',
-        value: randomGameScores.love,
+        value: store.state.quest.gameScores.love,
         color: "#c22832"
       },
       {
+        id: 'wealth',
         title: 'Wealth',
         titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
         lowDescription: 'Money is an obstacle, stressed about money, in debt with no foreseeable way out, not sticking to a budget, getting by on credit cards, bills piling up, spending more than you make.',
         highDescription: 'Money is a tool, feeling affluent, in control of your finances, making more than you spend, saving for the future, making smart investments, working with a budget.',
-        value: randomGameScores.wealth,
+        value: store.state.quest.gameScores.wealth,
         color: "#FFD700"
       },
       {
+        id: 'vitality',
         title: 'Vitality',
         titleComponent: 'VitalityText',
         text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
         lowDescription: 'Low energy, little movement, poor food and drink choices, feeling weak, lethargic, and unhealthy.',
         highDescription: 'Lots of energy and movement, healthy food and drink choices, feeling strong and energized.',
-        value: randomGameScores.vitality,
+        value: store.state.quest.gameScores.vitality,
         color: "#76b72b"
       }
     ]
@@ -193,14 +163,14 @@ export default {
   methods: {
     handlePrev() {
       if (this.currentStepIndex > 0) {
-        this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.$store.commit('quest/setGameScore', {id: this.gameQuestions[this.currentStepIndex].id, newScore: this.gameQuestions[this.currentStepIndex].value});
         this.currentStepIndex--;
         this.$router.push(`?step=${this.currentStepIndex}`);
       }
     },
     handleNext() {
       if (this.currentStepIndex < 7) {
-        this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+        this.$store.commit('quest/setGameScore', {id: this.gameQuestions[this.currentStepIndex].id, newScore: this.gameQuestions[this.currentStepIndex].value});
         this.currentStepIndex++;
         this.$router.push(`?step=${this.currentStepIndex}`);
       } else { // current-index is 7
@@ -209,7 +179,7 @@ export default {
     },
     handleResults() {
       // Set the score for the last stage first
-      this.$store.commit('quest/setGameScore', {index: this.currentStepIndex, newScore: this.gameQuestions[this.currentStepIndex].value});
+      this.$store.commit('quest/setGameScore', {id: this.gameQuestions[this.currentStepIndex].id, newScore: this.gameQuestions[this.currentStepIndex].value});
       this.$router.push('/quest/result');
     },
     handleChange(newVal) {
