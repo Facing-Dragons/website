@@ -44,16 +44,13 @@ export default {
   // },
   methods: {
     onActivate(target) {
-      console.log('Received event: "bv::scrollspy::activate" for target ', target);
       this.currentActiveSection = target;
     },
     handleVisible(isVisible) {
       this.isVideoVisible = isVisible;
-      console.log(isVisible);
       
     },
     handleScroll () {
-      // console.log(window.scrollY/window.innerHeight);
       // this is basically how much of the window is remaining from 0 to 1 ... 1 is all remaining to scroll
       // and 0 zero means we reached to the end of the page
       this.currentWindowY = 1 - (window.scrollY / window.innerHeight);
@@ -67,7 +64,7 @@ export default {
   },
   watch: {
     isVideoVisible(newVal) {
-      console.log(newVal);
+      // console.log(newVal);
     }
   },
   computed: {

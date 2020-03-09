@@ -162,7 +162,7 @@ export default {
          * Add the ability to load from the API here, just like in the beginning of the _stage pages
          */
         let {gameScores} = store.state.quest;
-        if(store.state.user.uid)
+        if(store.state.quest.user.uid)
             store.commit('quest/setPlayerText');
         // scores are from 0 to 10 so we map them to 0 to 100
         // const wheelSections = [
@@ -183,7 +183,10 @@ export default {
         ...mapState({
             resultSlogan: state => state.quest.resultSlogan,
             resultTitle: state => state.quest.resultTitle,
-            uid: state => state.quest.user.uid,
+            uid: state => {
+                store.commit('quest/setPlayerText');
+                return state.quest.user.uid
+            },
             wheelSections: state => {
                 return [
                     {value: state.quest.gameScores.mission * 10, color: "#ff6800" },

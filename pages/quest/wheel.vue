@@ -45,7 +45,6 @@ import WealthText from '~/components/svg/WealthText';
 import HomeText from '~/components/svg/HomeText';
 import SocialText from '~/components/svg/SocialText';
 import MissionText from '~/components/svg/MissionText';
-import {fireDb} from '~/plugins/firebase.js'
 import {mapState} from 'vuex';
 
 export default {

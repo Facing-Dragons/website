@@ -77,7 +77,7 @@ export const actions = {
     const ref = this.$fireStore.collection('users').doc(uid);
     try {
       const doc = await ref.get();
-      console.log(doc.data());
+      // console.log(doc.data());
       commit('quest/SET_USER_DATA', {...doc.data(), uid});
     } catch (e) {
       console.log(e);

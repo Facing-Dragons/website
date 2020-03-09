@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     handleOrientation() {
-      console.log(window.orientation);
+      // console.log(window.orientation);
       if(window.orientation !== 0) {
         this.isPortrait = false;
       } else 

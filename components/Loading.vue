@@ -14,12 +14,10 @@ export default {
   methods: {
     start () {
       this.loading = true
-      console.log(this.loading);
       
     },
     finish () {
       this.loading = false
-      console.log(this.loading);
       
     }
   }

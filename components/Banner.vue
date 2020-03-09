@@ -69,7 +69,7 @@
                         type="submit"
                         class="ml-2" 
                         variant="success" 
-                        @click="writeEmail"
+                        @click="() => writeEmail(false)"
                         :disabled="form.email === '' || !emailState || isWriting"
                       >
                           Submit
@@ -137,7 +137,7 @@
                         type="submit"
                         class="ml-2" 
                         variant="success" 
-                        @click="writeEmail"
+                        @click="() => writeEmail(false)"
                         :disabled="form.email === '' || !emailState || isWriting"
                       >
                           Submit
@@ -416,7 +416,6 @@ export default {
         })
         .catch((error) => {
           // Some error occurred, you can inspect the code: error.code
-          console.log(error);
           this.isWriteSuccessful = false;
           this.isWriting = false;
         });

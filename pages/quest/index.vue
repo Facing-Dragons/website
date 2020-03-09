@@ -68,7 +68,7 @@ export default {
         // Get the email if available. This should be available if the user completes
         // the flow on the same device where they started it.
         var email = window.localStorage.getItem('emailForSignIn');
-        console.log('this is email from local storage :', email);
+        // console.log('this is email from local storage :', email);
         
         if (!email) {
           // User opened the link on a different device. To prevent session fixation
@@ -79,7 +79,7 @@ export default {
           this.$fireAuth.signInWithEmailLink(email, window.location.href)
           .then((result) => {
             // Clear email from storage.
-            console.log(result);
+            // console.log(result);
             window.localStorage.removeItem('emailForSignIn');
             // store.commit('quest/setUserInfo', result.users);
             // You can access the new user via result.user
@@ -87,7 +87,7 @@ export default {
             // result.additionalUserInfo.profile == null
             // You can check if the user is new or existing:
             // result.additionalUserInfo.isNewUser
-            console.log(this.$route.query);
+            // console.log(this.$route.query);
             
             const userData = {
               ...result.user,
@@ -125,7 +125,7 @@ export default {
         console.log(e);
         return
       }
-      console.log('success');
+      // console.log('success');
     },
   },
 }

@@ -28,7 +28,7 @@ export const state = () => ({
 import playerTypes from 'static/playerTypes';
 export const mutations = {
     setUserInfo(state, newUserInfo) {
-        console.log(newUserInfo);
+        // console.log(newUserInfo);
         state.userInfo = newUserInfo;
     },
     async setGameScore(state, {id, newScore}) {
@@ -70,7 +70,7 @@ export const mutations = {
         }
     },
     SET_USER_DATA(state, userData) {
-        console.log(userData);
+        // console.log(userData);
         state.gameScores = userData.gameScores;
         state.resultTitle = userData.resultTitle;
         state.resultSlogan = userData.resultSlogan;
@@ -88,7 +88,7 @@ export const mutations = {
         state.user.uid = userData.uid;
     },
     SET_SHARED_USER_DATA(state, userData) {
-        console.log(userData);
+        // console.log(userData);
         state.shared.gameScores = userData.gameScores;
         state.shared.resultTitle = userData.resultTitle;
         state.shared.resultSlogan = userData.resultSlogan;
@@ -109,12 +109,12 @@ export const mutations = {
 
 export const actions = {
   async getUserResults({commit, state}, uid) {
-    console.log(uid);
+    // console.log(uid);
     
     const ref = this.$fireStore.collection('users').doc(uid);
     try {
       const doc = await ref.get();
-      console.log(doc.data());
+      // console.log(doc.data());
       commit('SET_SHARED_USER_DATA', {
         ...doc.data(),
         uid
