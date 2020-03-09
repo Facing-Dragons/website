@@ -209,6 +209,10 @@ $title-box-height: 25vh;
     font-weight: 500;
     text-align: center;
     color: #1e1e1e;
+
+    @media screen and (min-width: 960px) {
+        font-size: 1.8rem;
+    }
 }
 
 .content-box { 
@@ -277,6 +281,9 @@ $title-box-height: 25vh;
     margin-top: 5%;
     height: 67%;
     overflow: auto;
+    @media screen and (min-width: 960px) {
+        font-size: 1.8rem;
+    }
 }
 
 .main-wrapper {
