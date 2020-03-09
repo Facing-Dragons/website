@@ -7,7 +7,7 @@
             <g mask="url(#mask0)">
                 <circle cx="250" cy="250" :r="mainRadius" :fill="mainColor"/>
             </g>
-            <image mask="url(#mask0)"  height="100%" width="100%" xlink:href="~/assets/img/wheel/Layer 17.png" />
+            <image mask="url(#mask0)"  height="100%" width="100%" xlink:href="~/assets/img/wheel/Layer17.png" />
         </svg>
     </div>
 </template>
@@ -58,7 +58,7 @@ export default {
 <style lang="scss" scoped>
 image {
     mix-blend-mode: soft-light;
-    opacity: 80%;
+    opacity: 100%;
 }
 .main {
     width: 100%;
