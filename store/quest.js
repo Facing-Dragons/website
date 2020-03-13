@@ -34,16 +34,21 @@ export const mutations = {
     async setGameScore(state, {id, newScore}) {
         state.gameScores[id] = newScore;
 
+        /**
+         * instead of commiting it to the database upon each next/prev ... we save it in the store 
+         * Then at the end and before getting the results, we move to the database and auth
+         */
+
         // to be moved to action
-        const doc = this.$fireStore.collection('users').doc(state.user.uid);
-        try {
-          await doc.update({
-            gameScores: state.gameScores
-          })
-        } catch (e) {
-          console.log(e)
-          return
-        }
+        // const doc = this.$fireStore.collection('users').doc(state.user.uid);
+        // try {
+        //   await doc.update({
+        //     gameScores: state.gameScores
+        //   })
+        // } catch (e) {
+        //   console.log(e)
+        //   return
+        // }
     },
     setAllScores(state, newScoreObject) {
         state.gameScores = Object.assign(newScoreObject);
@@ -71,16 +76,21 @@ export const mutations = {
         state.resultTitle = `${secondHighest} ${playerTypes[highestScore][lowestScore].title}`;
         state.resultSlogan = playerTypes[highestScore][lowestScore].text;
 
-        const doc = this.$fireStore.collection('users').doc(state.user.uid);
-        try {
-          await doc.update({
-            resultTitle: state.resultTitle,
-            resultSlogan: state.resultSlogan
-          })
-        } catch (e) {
-          console.log(e)
-          return
-        }
+
+        /**
+         * we need to postpone this to the loading of the results page
+         */
+        
+        // const doc = this.$fireStore.collection('users').doc(state.user.uid);
+        // try {
+        //   await doc.update({
+        //     resultTitle: state.resultTitle,
+        //     resultSlogan: state.resultSlogan
+        //   })
+        // } catch (e) {
+        //   console.log(e)
+        //   return
+        // }
     },
     SET_USER_DATA(state, userData) {
         // console.log(userData);
