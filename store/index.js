@@ -71,7 +71,7 @@ export const actions = {
       dispatch('getUserData', authUser.uid);
   }, 
   onErrorAction(ctx, error) {
-
+    console.log(error);
   },
   async getUserData({commit}, uid) {
     const ref = this.$fireStore.collection('users').doc(uid);

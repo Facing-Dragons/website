@@ -75,8 +75,6 @@ export const mutations = {
         state.lowestScore = lowestScore;
         state.resultTitle = `${secondHighest} ${playerTypes[highestScore][lowestScore].title}`;
         state.resultSlogan = playerTypes[highestScore][lowestScore].text;
-
-
         /**
          * we need to postpone this to the loading of the results page
          */
@@ -128,10 +126,26 @@ export const mutations = {
               vitality: 0,
             };
         state.shared.user.uid = userData.uid;
+    },
+    SET_USER_EMAIL(state, email) {
+      state.user.email = email;
     }
 }
 
 export const actions = {
+  async getUser ({commit, state}) {
+    this.$fireAuth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user);
+
+        // User is signed in.
+      } else {
+        // No user is signed in.
+        console.log('no user')
+        // return redirect('/quest/access');
+      }
+    });
+  },
   async getUserResults({commit, state}, uid) {
     // console.log(uid);
     
@@ -160,5 +174,38 @@ export const actions = {
         return
       }
     }
-  }
+  },
+  async uploadUserResults({commit, state}) {
+     const doc = this.$fireStore.collection('users').doc(state.user.uid);
+     try {
+       await doc.set({
+         gameScores: state.gameScores,
+         resultTitle: state.resultTitle,
+         resultSlogan: state.resultSlogan,
+       }, {
+         merge: true
+       })
+     } catch (e) {
+       console.log(e)
+       return
+     }
+  },
+  async updateUserEmail({commit, state}, {newEmail, newIsSupport}) {
+    console.log(newEmail);
+    console.log(newIsSupport);
+    
+    state.user.email = newEmail;
+    state.user.isSupport = newIsSupport;
+     const doc = this.$fireStore.collection('users').doc(state.user.uid);
+     try {
+       await doc.update({
+         email: newEmail,
+         isSupport: newIsSupport
+       })
+     } catch (e) {
+       console.log(e)
+       return
+     }
+  },
+
 }

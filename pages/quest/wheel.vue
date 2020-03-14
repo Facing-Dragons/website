@@ -180,6 +180,7 @@ export default {
       // Set the score for the last stage first
       this.$store.commit('quest/setGameScore', {id: this.gameQuestions[this.currentStepIndex].id, newScore: this.gameQuestions[this.currentStepIndex].value});
       this.$store.commit('quest/setPlayerText');
+      this.$store.dispatch('quest/uploadUserResults');
       this.$router.push('/quest/result');
     },
     handleChange(newVal) {

@@ -176,20 +176,6 @@ export default {
         let {gameScores} = store.state.quest;
         if(store.state.quest.user.uid)
             store.commit('quest/setPlayerText');
-        // scores are from 0 to 10 so we map them to 0 to 100
-        // const wheelSections = [
-        //     {value: gameScores.mission * 10, color: "#ff6800" },
-        //     {value: gameScores.mind * 10, color: "#0059b9"},
-        //     {value: gameScores.fun * 10, color: "#f9e777" },
-        //     {value: gameScores.social * 10, color: "#61a5e3" },
-        //     {value: gameScores.home * 10, color: "#72655f" },
-        //     {value: gameScores.love * 10, color: "#c22832" },
-        //     {value: gameScores.wealth * 10, color: "#c5c5c5" },
-        //     {value: gameScores.vitality * 10, color: "#76b72b" },
-        // ]
-        // return {
-        //     wheelSections
-        // }
     },
     computed: {
         ...mapState({

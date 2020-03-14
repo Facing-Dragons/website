@@ -2,10 +2,10 @@
     <div class="container-fluid bg-light d-flex flex-column justify-content-center">
         <!-- MOBILE BUTTONS -->
         <div v-if="$device.isMobileOrTablet" class="d-flex d-xl-none button-container-mobile">
-            <button class="rounded-top custom-button w-50 p-2">
+            <!-- <button class="rounded-top custom-button w-50 p-2">
                 SHARE
-            </button>
-            <button @click="() => $router.replace('/quest')" class="rounded-top custom-button w-50">
+            </button> -->
+            <button @click="() => $router.replace('/quest')" class="rounded-top custom-button w-100">
                 PLAY! 
             </button>
         </div>
@@ -62,9 +62,9 @@
                 <div class="w-100">
                     <results-text></results-text>
                     <div class="button-container d-flex justify-content-between">
-                        <button class="rounded custom-button p-2 mr-2">
+                        <!-- <button class="rounded custom-button p-2 mr-2">
                             SHARE
-                        </button>
+                        </button> -->
                         <button @click="() => $router.replace('/quest')" class="rounded custom-button">
                             PLAY!
                         </button>
@@ -259,7 +259,7 @@ export default {
   color: #303030;
   border: none;
   outline: none;
-  width: 48%;
+  width: 100%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .custom-button:hover {
