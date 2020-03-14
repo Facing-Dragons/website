@@ -83,7 +83,6 @@ export default {
             initialize: {
               // onSuccessMutation: 'ON_SUCCESS_MUTATION',
               onSuccessAction: 'onSuccessAction',
-              onErrorMutation: 'ON_ERROR_MUTATION',
               onErrorAction: 'onErrorAction',
               ssr: false // default
             }
