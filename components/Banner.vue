@@ -339,6 +339,7 @@ import BannerTextSection from '~/components/BannerTextFirst'
 import BannerTextUnlock from '~/components/BannerTextUnlock'
 import TitleDesc from '~/components/TitleDesc'
 import AnimatingArrowDown from '~/components/AnimatingArrowDown'
+import {mapState} from 'vuex';
 
 export default {
     components: {
@@ -390,7 +391,10 @@ export default {
         } else {
           return 'Please Enter a Valid Email Address'
         }
-      }
+      },
+      ...mapState({
+        authUser: state => state.authUser
+      })
     },
     watch: {
       isPlayerModalOpen: function (newVal, oldVal) {
@@ -407,7 +411,7 @@ export default {
         var actionCodeSettings = {
           // URL you want to redirect back to. The domain (www.example.com) for this
           // URL must be whitelisted in the Firebase Console.
-          url: `https://v2.facingdragons.com/quest?support=${isSupport}`,
+          url: `http://localhost:3000/quest?support=${isSupport}`,
           // This must be true.
           handleCodeInApp: true,
         };
@@ -437,10 +441,20 @@ export default {
         }, 2000);
       },
       handleStartQuest: function () {
-        this.isPlayerModalOpen = true;
+        console.log(this.authUser);
+        if(this.authUser) {
+          this.$router.push('/quest');
+        } else {
+          this.isPlayerModalOpen = true;
+        }
       },
       handleWorkerQuest: function () {
-        this.isWorkerModalOpen = true;
+        console.log(this.authUser);
+        if(this.authUser) {
+          this.$router.push('/quest');
+        } else {
+          this.isWorkerModalOpen = true;
+        }
       },
       handleOverlayClick: function () {
         this.isPlayerModalOpen = false;
