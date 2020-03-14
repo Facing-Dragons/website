@@ -21,34 +21,11 @@
                     </div>
                 </transition>
                 <b-card v-if="!$device.isMobile" class="msg-container d-none d-md-flex flex-column justify-content-center p-2">
-                  <h2 class="overlay-card-text">
-                    Get Your First Quest!
-                  </h2>
-                  <!-- Begin Mailchimp Signup Form -->
-                  <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                  <div id="mc_embed_signup">
-                  <form style="padding: 0" action="https://facingdragons.us16.list-manage.com/subscribe/post?u=73bd4d1cff787d311b6fbc928&amp;id=d87acb66fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                      <div id="mc_embed_signup_scroll">
-                    
-                  <div class="mc-field-group">
-                    <input type="email" value="" name="EMAIL" placeholder="Email Address" class="required email" id="mce-EMAIL">
-                  </div>
-                  <div class="mc-field-group input-group d-none">
-                      <strong>Type </strong>
-                      <ul><li><input type="radio" value="1" name="group[6339]" id="mce-group[6339]-6339-0" checked><label for="mce-group[6339]-6339-0">Players</label></li>
-                  <li><input type="radio" value="2" name="group[6339]" id="mce-group[6339]-6339-1"><label for="mce-group[6339]-6339-1">SupportWorkers</label></li>
-                  </ul>
-                  </div>
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                      <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73bd4d1cff787d311b6fbc928_d87acb66fd" tabindex="-1" value=""></div>
-                      <div class="clear"><input type="submit" value="Subscribe" @click="handleSubscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                      </div>
-                  </form>
-                  </div> --> 
-                  <b-form>
+                  <div v-if="!isWriteSuccessful" class="quest-question">
+                    <h2 class="overlay-card-text">
+                      Get Your First Quest!
+                    </h2>
+                    <b-form>
                       <b-form-group
                         id="input-email-group"
                         :state="emailState"
@@ -75,7 +52,10 @@
                           Submit
                       </b-button>
                     </div> 
-
+                  </div>
+                  <div v-else class="quest-email-message">
+                    Great Choice! Check your email to get your quest now! 
+                  </div>
                 </b-card>
                 <b-card v-else no-body class="msg-container-mobile w-100 d-flex d-md-none p-2 pt-4">
                   <transition name="popup">
@@ -92,30 +72,6 @@
                     <h2 class="overlay-card-text">
                       Get Your First Quest!
                     </h2>
-                    <!-- Begin Mailchimp Signup Form -->
-                  <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                  <div id="mc_embed_signup">
-                  <form style="padding: 0" action="https://facingdragons.us16.list-manage.com/subscribe/post?u=73bd4d1cff787d311b6fbc928&amp;id=d87acb66fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                      <div id="mc_embed_signup_scroll">
-                    
-                  <div class="mc-field-group">
-                    <input type="email" value="" name="EMAIL" placeholder="Email Address" class="required email" id="mce-EMAIL">
-                  </div>
-                  <div class="mc-field-group input-group d-none">
-                      <strong>Type </strong>
-                      <ul><li><input type="radio" value="1" name="group[6339]" id="mce-group[6339]-6339-0" checked><label for="mce-group[6339]-6339-0">Players</label></li>
-                  <li><input type="radio" value="2" name="group[6339]" id="mce-group[6339]-6339-1"><label for="mce-group[6339]-6339-1">SupportWorkers</label></li>
-                  </ul>
-                  </div>
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                      <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73bd4d1cff787d311b6fbc928_d87acb66fd" tabindex="-1" value=""></div>
-                      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" @click="handleSubscribe" id="mc-embedded-subscribe" class="button"></div>
-                      </div>
-                  </form>
-                  </div> --> 
                     <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -145,7 +101,7 @@
                     </div> 
                   </div>
                   <div v-else class="quest-email-message quest-question-mobile w-50">
-                    Great Choice! You'll get your first quest in 48 hours.
+                    Great Choice! Check your email to get your first quest now! 
                   </div>
                 </b-card>
               </div>
@@ -170,32 +126,8 @@
                     </div>
                 </transition>
                 <b-card v-if="!$device.isMobile" class="msg-container d-none d-md-flex d-flex flex-column justify-content-center p-2">
-                  <div v-if="!isWriteSuccessful" class="quest-question">
+                  <div v-if="!isWriteSuccessfulSupport" class="quest-question">
                     <h2 class="overlay-card-text">Subscribe to learn more!</h2>
-                    <!-- Begin Mailchimp Signup Form -->
-                      <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                      <div id="mc_embed_signup">
-                      <form style="padding: 0" action="https://facingdragons.us16.list-manage.com/subscribe/post?u=73bd4d1cff787d311b6fbc928&amp;id=d87acb66fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                          <div id="mc_embed_signup_scroll">
-                        
-                      <div class="mc-field-group">
-                        <input type="email" value="" name="EMAIL" placeholder="Email Address" class="required email" id="mce-EMAIL">
-                      </div>
-                      <div class="mc-field-group input-group d-none">
-                          <strong>Type </strong>
-                          <ul><li><input type="radio" value="1" name="group[6339]" id="mce-group[6339]-6339-0"><label for="mce-group[6339]-6339-0">Players</label></li>
-                      <li><input type="radio" value="2" name="group[6339]" id="mce-group[6339]-6339-1" checked><label for="mce-group[6339]-6339-1">SupportWorkers</label></li>
-                      </ul>
-                      </div>
-                        <div id="mce-responses" class="clear">
-                          <div class="response" id="mce-error-response" style="display:none"></div>
-                          <div class="response" id="mce-success-response" style="display:none"></div> -->
-                        <!-- </div>    real people should not fill this in and expect good things - do not remove this or risk form bot signups
-                          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73bd4d1cff787d311b6fbc928_d87acb66fd" tabindex="-1" value=""></div>
-                          <div class="clear"><input type="submit" @click="handleSubscribe" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button submit-button"></div>
-                          </div>
-                      </form>
-                      </div> -->
                     <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -237,34 +169,10 @@
                         >
                     </div>
                   </transition>
-                  <div v-if="!isWriteSuccessful" class="quest-question-mobile w-50">
+                  <div v-if="!isWriteSuccessfulSupport" class="quest-question-mobile w-50">
                     <h2 class="overlay-card-text">
                       Subscribe to learn more.
                     </h2>
-                    <!-- Begin Mailchimp Signup Form -->
-                  <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-                  <div id="mc_embed_signup">
-                  <form style="padding: 0" action="https://facingdragons.us16.list-manage.com/subscribe/post?u=73bd4d1cff787d311b6fbc928&amp;id=d87acb66fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                      <div id="mc_embed_signup_scroll">
-                    
-                  <div class="mc-field-group">
-                    <input type="email" value="" name="EMAIL" placeholder="Email Address" class="required email" id="mce-EMAIL">
-                  </div>
-                  <div class="mc-field-group input-group d-none">
-                      <strong>Type </strong>
-                      <ul><li><input type="radio" value="1" name="group[6339]" id="mce-group[6339]-6339-0"><label for="mce-group[6339]-6339-0">Players</label></li>
-                  <li><input type="radio" value="2" name="group[6339]" id="mce-group[6339]-6339-1" checked><label for="mce-group[6339]-6339-1">SupportWorkers</label></li>
-                  </ul>
-                  </div>
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style="display:none"></div>
-                      <div class="response" id="mce-success-response" style="display:none"></div> -->
-                    <!-- </div>    real people should not fill this in and expect good things - do not remove this or risk form bot signups
-                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_73bd4d1cff787d311b6fbc928_d87acb66fd" tabindex="-1" value=""></div>
-                      <div class="clear"><input type="submit" value="Subscribe" name="subscribe" @click="handleSubscribe" id="mc-embedded-subscribe" class="button"></div>
-                      </div>
-                  </form>
-                  </div> -->
                   <b-form>
                       <b-form-group
                         id="input-email-group"
@@ -368,6 +276,8 @@ export default {
         isButtonInNav: false,
         isWriteSuccessful: false,
         isWriting: false,
+        isWriteSuccessfulSupport: false,
+        isWriting: false,
       }
     },
     watch: {
@@ -424,12 +334,18 @@ export default {
           // if they open the link on the same device.
           
           window.localStorage.setItem('emailForSignIn', email);
-          this.isWriteSuccessful = true;
+          if (isSupport)
+            this.isWriteSuccessfulSupport = true;
+          else 
+            this.isWriteSuccessful = true;
           this.isWriting = false;
         })
         .catch((error) => {
           // Some error occurred, you can inspect the code: error.code
-          this.isWriteSuccessful = false;
+          if (isSupport)
+            this.isWriteSuccessfulSupport = false;
+          else 
+            this.isWriteSuccessful = false;
           this.isWriting = false;
         });
       },
