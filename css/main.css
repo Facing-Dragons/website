@@ -97,3 +97,7 @@ html {
     height: 1.75rem;
     width: 1.75rem;
   }
+
+  .card {
+    transition: all .3s ease-in-out;
+  }
