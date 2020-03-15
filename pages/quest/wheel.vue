@@ -13,22 +13,6 @@
             >
                 <component :is="currentTextComponent"></component>
             </transition>
-        </game-question>
-        <!-- This is just for mobile phones -->
-        <!-- <game-question-mobile
-          v-else
-          v-bind="currentProperties"
-          :is-last-step="currentStepIndex === 7"
-          @change="handleChange"
-          @next="handleNext"
-        >
-            <transition
-                name="slide-fade"
-                mode="out-in"
-            >
-                <component :is="currentTextComponent"></component>
-            </transition>
-        </game-question-mobile> -->
     </div>
 </template>
 

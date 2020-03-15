@@ -1,21 +1,6 @@
 <template>
 <!-- This is the welcome page of the quest to tell the players what they're doing and stuff -->
     <div class="main-container">
-        <!-- <game-question
-          v-if="$device.isDesktopOrTablet"
-          v-bind="currentProperties"
-          :is-last-step="currentStepIndex === 7"
-          @change="handleChange"
-          @next="handleNext"
-        >
-            <transition
-                name="slide-fade"
-                mode="out-in"
-            >
-                <component :is="currentTextComponent"></component>
-            </transition>
-        </game-question> -->
-        <!-- This is just for mobile phones -->
         <game-question-mobile
           v-bind="currentProperties"
           :is-last-step="currentStepIndex === 7"
@@ -179,6 +164,7 @@ export default {
       // Set the score for the last stage first
       this.$store.commit('quest/setGameScore', {id: this.gameQuestions[this.currentStepIndex].id, newScore: this.gameQuestions[this.currentStepIndex].value});
       this.$store.commit('quest/setPlayerText');
+      this.$store.dispatch('quest/uploadUserResults');
       this.$router.push('/quest/result');
     },
     handleChange(newVal) {
