@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="main-container" v-if="shouldShowContainer">
         <transition name="popup">
             <div v-if="isGuidianShown" class="guidian-container-mobile">
                 <img 
@@ -62,9 +62,12 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
+    middleware: 'noAuth',
     data() {
         return {
+            shouldShowContainer: true,
             isGuidianShown: false,
             isSupport: false,
             isWriteSuccessful: false,
@@ -73,7 +76,56 @@ export default {
             }
         }
     },
+    asyncData({store}) {
+        store.dispatch('quest/getUser');
+    },
     mounted() {
+        if (this.$fireAuth.isSignInWithEmailLink(window.location.href)) {
+            this.shouldShowContainer = false;
+            // Additional state parameters can also be passed via URL.
+            // This can be used to continue the user's intended action before triggering
+            // the sign-in operation.
+            // Get the email if available. This should be available if the user completes
+            // the flow on the same device where they started it.
+            var email = window.localStorage.getItem('emailForSignIn');
+            // console.log('this is email from local storage :', email);
+            
+            if (!email) {
+            // User opened the link on a different device. To prevent session fixation
+            // attacks, ask the user to provide the associated email again. For example:
+            email = window.prompt('Please provide your email for confirmation');
+            }
+            var credential = this.$fireAuthObj.EmailAuthProvider.credentialWithLink(email, window.location.href);
+
+            console.log(credential);
+            this.$fireAuth.currentUser.linkWithCredential(credential).then((usercred) => {
+                    var user = usercred.user;
+                    console.log("Anonymous account successfully upgraded", user);
+                    this.$store.commit('quest/SET_USER_EMAIL', user.email);
+                    this.$store.commit('SET_AUTH_USER', {authUser: {uid: user.uid, email: user.email}});
+                    window.location.reload(true);
+                }, (error) => {
+                console.log("Error upgrading anonymous account", error);
+                this.$fireAuth.signInWithEmailLink(email, window.location.href)
+                .then((result) => {
+                    // Clear email from storage.
+                    // console.log(result);
+                    window.localStorage.removeItem('emailForSignIn');
+                    // store.commit('quest/setUserInfo', result.users);
+                    // You can access the new user via result.user
+                    // Additional user info profile not available via:
+                    // result.additionalUserInfo.profile == null
+                    // You can check if the user is new or existing:
+                    // result.additionalUserInfo.isNewUser
+                    // console.log(this.$route.query);
+                    
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+            });
+        }
+
         if(!this.$device.isMobileOrTablet) {
             this.$router.replace('/quest/access')
         }
@@ -84,6 +136,8 @@ export default {
     },
     methods: {
         async writeEmail(isSupport=false) {
+
+        this.$store.dispatch("quest/updateUserEmail", {newEmail: this.form.email, newIsSupport: this.isSupport});
         // const isSupportWorker = this.$route.path === '/support'
         var email = this.form.email;
         var actionCodeSettings = {
