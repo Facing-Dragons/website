@@ -106,6 +106,7 @@ export default {
   position: relative;
   overflow-x: hidden;
   width: 100%;
+  padding-bottom: 7rem;
 }
 
 </style>
