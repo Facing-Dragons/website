@@ -208,6 +208,10 @@ export default {
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
+
+        .title {
+            font-size: 1.3rem;
+        }
     }
 
     .go-left-enter-active, .go-left-leave-active {
