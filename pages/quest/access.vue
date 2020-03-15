@@ -152,7 +152,7 @@ export default {
         var actionCodeSettings = {
           // URL you want to redirect back to. The domain (www.example.com) for this
           // URL must be whitelisted in the Firebase Console.
-          url: `http://localhost:3000/quest/access?support=${isSupport}`,
+          url: `https://v2.facingdragons.com/quest/access?support=${isSupport}`,
           // This must be true.
           handleCodeInApp: true,
         };
