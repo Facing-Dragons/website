@@ -78,8 +78,8 @@ export default {
         title: 'Mission',
         titleComponent: 'MissionText',
         text: 'How fulfilled are you in knowing and living your mission, work that is meaningful to you?',
-        lowDescription: 'Low means Struggling to figure out what to do with your life, under pressure to find a meaningful career path, stressed out working a job you hate',
-        highDescription: 'High means Enjoying work so much it doesn’t feel like work, making a difference or positive impact in the world, fully engaged in meaningful and satisfying work.',
+        lowDescription: 'Struggling to figure out what to do with your life or working a job that is not fulfilling.',
+        highDescription: 'Fully engaged in meaningful and satisfying work. Making a positive impact in the world.',
         value: store.state.quest.gameScores.mission,
         color: "#ff6800"
       },
@@ -88,8 +88,8 @@ export default {
         title: 'Mind',
         titleComponent: 'MindText',
         text: `How fulfilled are you in your mental and emotional health?`,
-        lowDescription: 'Low means High stress, low resilience, unhealthy beliefs and focus, depressed, anxious, low self-esteem, low confidence.',
-        highDescription: 'High means Low stress, high resilience, healthy beliefs and focus, clear-minded, at peace, confident, centered, grounded.',
+        lowDescription: 'Stressed out, unhealthy beliefs and/or focus, depressed, anxious, low self-esteem, low confidence.',
+        highDescription: 'High resilience, healthy focus, clear-minded, at peace, confident, centered, grounded.',
         value: store.state.quest.gameScores.mind,
         color: "#0059b9"
       },
@@ -98,8 +98,8 @@ export default {
         title: 'Fun',
         titleComponent: 'FunText',
         text: 'How fulfilled are you in having fun, being playful, and enjoying the lighter side of yourself and your life?',
-        lowDescription: 'Low means Not having fun, feeling miserable and stuck, too serious, all work and no play.',
-        highDescription: 'High means Having fun, feeling relaxed and enjoying your life, smiling and laughing a lot, engaged in extracurricular activities, hobbies and recreation, feeling playful and happy, good work/life balance.',
+        lowDescription: 'Not having fun, feeling miserable and stuck, too serious, all work and no play.',
+        highDescription: 'Enjoying your life, smiling and laughing, hobbies and recreation, feeling playful, work/life balance.',
         value: store.state.quest.gameScores.fun,
         color: "#f9e777"
       },
@@ -108,8 +108,8 @@ export default {
         title: 'Social',
         titleComponent: 'SocialText',
         text: 'How are you doing at staying in touch and feeling connected with the people who mean the most to you?',
-        lowDescription: 'Low means Not feeling connected to the people around you, feeling isolated, lonely, struggling to make and maintain friendships, feeling betrayed, low trust in others.',
-        highDescription: 'High means Feeling connected to the people around you, enjoying a rich, satisfying social life with people you trust and enjoy spending time with.',
+        lowDescription: 'Feeling isolated, lonely, struggling to make and maintain friendships, low trust in others.',
+        highDescription: 'Enjoying a rich, satisfying social life with people you trust and enjoy spending time with.',
         value: store.state.quest.gameScores.social,
         color: "#61a5e3"
       },
@@ -118,8 +118,8 @@ export default {
         title: 'Home',
         titleComponent: 'HomeText',
         text: 'How fulfilled are you with your home and the current state of your physical surroundings?',
-        lowDescription: 'Low means You don’t like your home, don’t have a home, home is a mess, don’t feel like your surroundings are a true reflection of who you are.',
-        highDescription: 'High means You enjoy your home and the world around you, home is comfortable, safe, clean and organized. Your surroundings are a true reflection of who you are.',
+        lowDescription: 'Home problems, mess/clutter, home getting in the way of your well-being in other areas.',
+        highDescription: 'Home life is comfortable, safe, clean. Your home is a source of happiness.',
         value: store.state.quest.gameScores.home,
         color: "#72655f"
       },
@@ -128,8 +128,8 @@ export default {
         title: 'Love',
         titleComponent: 'LoveText',
         text: 'How fulfilled are you in experiencing feelings of intimacy, love for self and others, and actively living with love?',
-        lowDescription: 'Low means Given up on love or finding love, feeling hurt from a break-up or relationship, struggling to feel, express and receive love.',
-        highDescription: 'High means In love, feeling content with current relationship situation, enjoying feeling, expressing and receiving love.',
+        lowDescription: 'Avoiding love, feeling hurt, struggling to feel, or receive love. Lacking loving relationships.',
+        highDescription: 'In love / feeling content with relationships, enjoying feeling, expressing and receiving love.',
         value: store.state.quest.gameScores.love,
         color: "#c22832"
       },
@@ -138,8 +138,8 @@ export default {
         title: 'Wealth',
         titleComponent: 'WealthText',
         text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
-        lowDescription: 'Low means Money is an obstacle, stressed about money, in debt with no foreseeable way out, not sticking to a budget, getting by on credit cards, bills piling up, spending more than you make.',
-        highDescription: 'High means Money is a tool, feeling affluent, in control of your finances, making more than you spend, saving for the future, making smart investments, working with a budget.',
+        lowDescription: 'Money is an obstacle, stressed about money, spending more than you make, too much debt.',
+        highDescription: "Money isn't an obstacle, in control of your finances, saving for the future, working with a budget.",
         value: store.state.quest.gameScores.wealth,
         color: "#FFD700"
       },
@@ -148,8 +148,8 @@ export default {
         title: 'Vitality',
         titleComponent: 'VitalityText',
         text: 'How fulfilled are you in your physical health and well-being, and having the energy to do the things you want?',
-        lowDescription: 'Low means Low energy, little movement, poor food and drink choices, feeling weak, lethargic, and unhealthy.',
-        highDescription: 'High means Lots of energy and movement, healthy food and drink choices, feeling strong and energized.',
+        lowDescription: 'Low energy, little movement, poor food and drink choices, feeling weak, lethargic, and unhealthy.',
+        highDescription: 'Lots of energy, healthy food and drink choices, feeling strong and energized.',
         value: store.state.quest.gameScores.vitality,
         color: "#76b72b"
       }
@@ -203,7 +203,17 @@ export default {
     currentTextComponent() {
       return this.gameQuestions[this.currentStepIndex].titleComponent;
     },
-  }
+    ...mapState({
+      gameScores: state => state.quest.gameScores
+    })
+  },
+  // watch: {
+  //   gameScores(newVal, oldVal) {
+  //     const id = this.gameQuestions[this.currentStepIndex].id;
+  //     if(newVal[id] !== )
+
+  //   }
+  // }
 }
 </script>
 

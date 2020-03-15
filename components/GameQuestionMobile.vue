@@ -154,7 +154,7 @@ export default {
 $slider-height: 5vh;
 $rating-box-border-width: 3px;
 $next-button-height: 8vh;
-$description-box-height: 35vh;
+$description-box-height: 39vh;
 $title-box-height: 25vh;
 
 .control-col {
@@ -182,6 +182,7 @@ $title-box-height: 25vh;
     right: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .quest-title {
