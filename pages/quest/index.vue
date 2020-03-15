@@ -59,17 +59,32 @@ export default {
   fetch({store, app}) {
     console.log(store.state.authUser);
     console.log(app.$fireAuth);
-    
-    if(!store.state.authUser || !store.state.authUser.email) {
-      app.$fireAuth.signInAnonymously().catch(function(error) {
+
+    app.$fireAuth.onAuthStateChanged(function(user) {
+      if (user) {
+        console.log(user);
+      } else {
+        app.$fireAuth.signInAnonymously().catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
         console.log(error);
         
-      });
-    }
+        });
+      }
+    });
+    
+    // if(!store.state.authUser || !store.state.authUser.email) {
+    //   app.$fireAuth.signInAnonymously().catch(function(error) {
+    //     // Handle Errors here.
+    //     var errorCode = error.code;
+    //     var errorMessage = error.message;
+    //     // ...
+    //     console.log(error);
+        
+    //   });
+    // }
   },
   mounted() {
     // console.log(this.$store.state.authUser.email);

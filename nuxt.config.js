@@ -11,6 +11,9 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 
 export default {
   ...routerBase,
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
   loading: "~/components/Loading.vue",
   mode: "spa",
   /*
