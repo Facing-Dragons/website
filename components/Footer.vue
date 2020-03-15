@@ -8,13 +8,9 @@
             text-gradient="linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);"
             line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
         ></section-title>
-        <!-- <div class="input-box w-100 p-2">
-            <b-form-textarea
-                id="textarea-rows"
-                placeholder="Tall textarea"
-                rows="8"
-            ></b-form-textarea>
-        </div> -->
+        <div class="email-text">
+            FIND US AT <a href="mailto:info@facingdragons.com">INFO@FACINGDRAGONS.COM</a>
+        </div>
         <div 
             class="icon-set p-3 d-flex w-100 flex-wrap justify-content-center align-items-center"
         >
@@ -121,6 +117,25 @@ export default {
     .facing-dragons {
         color: #ebebeb;
         font-size: 1.5rem;
+    }
+
+    .email-text {
+        font-size: 1.7rem;
+        font-weight: 600;
+        word-break: break-all;
+        text-align: center;
+        width: 100%;
+        color: white;
+    }
+
+    .email-text a {
+        transition: all .3s ease-in-out;
+        color: #f77f00;
+    }
+
+    .email-text a:hover {
+        text-decoration: none;
+        color: #bb6203;
     }
 
     .copyright {
