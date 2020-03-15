@@ -11,6 +11,7 @@
     "generate": "nuxt generate",
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://v2.facingdragons.com nuxt build",
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://v2.facingdragons.com nuxt generate",
+    "generate:firebase": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://facingdragonstest.web.app/ nuxt generate",
     "build:staging": "cross-env DEPLOY_ENV=STAGING nuxt build",
     "generate:staging": "cross-env DEPLOY_ENV=STAGING nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",

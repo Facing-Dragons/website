@@ -12,9 +12,14 @@
         <transition name="popup">
         <div v-if="isGuidianShown" class="text-box" :class="{'text-box-ios': $device.isIos}">
             <p>
-                Would you like to share your email with me so that I can show you how you did on the quest?
+                {{
+                    isWriteSuccessful ? 
+                    'Please check your email!' :
+                    'Would you like to share your email with me so that I can show you how you did on the quest?'
+                }}
             </p>
             <b-form-checkbox
+                v-if="!isWriteSuccessful"
                 id="is-support"
                 class="mt-5 mb-2 control-label"
                 v-model="isSupport"
@@ -23,7 +28,7 @@
             >
                 I AM A SUPPORT WORKER
             </b-form-checkbox>
-            <b-form>
+            <b-form v-if="!isWriteSuccessful">
                 <b-form-group
                 id="input-email-group"
                 :state="emailState"
@@ -62,6 +67,7 @@ export default {
         return {
             isGuidianShown: false,
             isSupport: false,
+            isWriteSuccessful: false,
             form: {
                 email: ""
             }
