@@ -85,7 +85,7 @@
                     </h3>
                 </div>
                 <div class="social-section">
-                    <social-sharing :url="`${process.env.baseUrl}/quest/share?uid=${uid}`"
+                    <social-sharing :url="`http://localhost:3000/quest/share?uid=${uid}`"
                         title="Facing Dragons - Life Wheel Quest"
                         :description="sharingDescription"
                         :quote="sharingDescription"

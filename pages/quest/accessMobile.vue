@@ -83,7 +83,7 @@ export default {
         var actionCodeSettings = {
           // URL you want to redirect back to. The domain (www.example.com) for this
           // URL must be whitelisted in the Firebase Console.
-          url: `${process.env.baseUrl}/quest/result?support=${isSupport}`,
+          url: `${process.env.baseUrl}/quest/access?support=${isSupport}`,
           // This must be true.
           handleCodeInApp: true,
         };

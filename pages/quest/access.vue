@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="main-container" v-show="shouldShowContainer">
         <img src="~/assets/img/logo_white.png" class="background-img" alt="Facing dragons Logo">
         <div class="container">
             <div class="row">
@@ -17,9 +17,13 @@
                 <div class="col-6 justify-content-center align-items-center d-flex">
                     <div v-if="isGuidianShown" class="text-box rounded">
                     <p>
-                        Would you like to share your email with me so that I can show you how you did on the quest?
+                        {{
+                            isWriteSuccessful ? 
+                            'Please check your email!' :
+                            'Would you like to share your email with me so that I can show you how you did on the quest?'
+                        }}
                     </p>
-                    <div class="w-100">
+                    <div v-if="!isWriteSuccessful" class="w-100">
 
                         <b-form-checkbox
                             id="is-support"
@@ -73,6 +77,8 @@ export default {
     data() {
         return {
             isGuidianShown: false,
+            shouldShowContainer: true,
+            isWriteSuccessful: false,
             isSupport: false,
             form: {
                 email: ""
@@ -84,6 +90,7 @@ export default {
     },
     mounted() {
         if (this.$fireAuth.isSignInWithEmailLink(window.location.href)) {
+            this.shouldShowContainer = false;
             // Additional state parameters can also be passed via URL.
             // This can be used to continue the user's intended action before triggering
             // the sign-in operation.
@@ -152,7 +159,7 @@ export default {
         var actionCodeSettings = {
           // URL you want to redirect back to. The domain (www.example.com) for this
           // URL must be whitelisted in the Firebase Console.
-          url: `${process.env.baseUrl}/quest/result?support=${isSupport}`,
+          url: `${process.env.baseUrl}/quest/access?support=${isSupport}`,
           // This must be true.
           handleCodeInApp: true,
         };

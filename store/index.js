@@ -80,7 +80,7 @@ export const actions = {
       // console.log(doc.data());
       commit('quest/SET_USER_DATA', {...doc.data(), uid});
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return
     }
   }
