@@ -1,7 +1,6 @@
 <template>
     <div id="contact" class="container footer-container p-5 justify-content-center align-items-center">
         <section-title 
-            v-b-visible="handleTitleVisible"
             class="pt-5 sponsors-section-title"
             right
             title-text="Contact"
