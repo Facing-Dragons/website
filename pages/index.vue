@@ -4,7 +4,6 @@
     <Banner :show-modal="showModal"></Banner>
     <div class="black-background"></div>
     <about-game @videoVisible="handleVisible"></about-game>
-    <!-- <GameDescription></GameDescription> -->
     <NewTeamSection></NewTeamSection>
     <VlogSection></VlogSection>
     <Sponsors></Sponsors>

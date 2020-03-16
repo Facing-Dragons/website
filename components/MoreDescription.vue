@@ -6,15 +6,33 @@
             <!-- <div class="d-none d-md-flex col-md-1">
                 <div class="fancy-vertical-line"></div>
             </div> -->
-            <div class="col-12 px-0 px-md-1 d-flex flex-column">
+            <div v-if="propBased" class="col-12 py-2">
+                <h3 class="text-3-title" id="game">
+                    Heroes
+                </h3>
+                <p class="text-3" v-html="externalMessages[0]"></p>
+            </div>
+            <div v-if="propBased" class="col-12 col-md-6 px-0 px-md-1 pt-2 order-md-6">
+                <img class="main-image" :src="`${require(`~/assets/img/tory.png`)}`" alt="">
+            </div>
+            <div  v-if="propBased" class="col-12 col-md-6 pl-2 order-md-1">
+                <p class="text-3" v-html="externalMessages[1]"></p>
+            </div>
+
+
+            <div v-if="!propBased" class="col-12 px-0 px-md-1 d-flex flex-column">
                 <h3 class="text-3-title" id="game">
                     The Game
                 </h3>
                 <p class="text-3">
-                    {{ messages[1][0] }}
+                    {{
+                        messages[1][0] 
+                    }}
                 </p>
                 <p class="text-3 mt-2">
-                    {{ messages[1][1] }}
+                    {{
+                        messages[1][1]
+                    }}
                 </p>
             </div>
         </div>
@@ -23,6 +41,18 @@
 
 <script>
 export default {
+    props: {
+        externalMessages: {
+            type: [Object, Array],
+            default: []
+        },
+        title: String,
+        propBased: {
+            type: Boolean,
+            default: false
+        },
+        img: String,
+    },
     data() {
          const messages = [
             [
@@ -64,6 +94,10 @@ export default {
 </script>
 
 <style scoped>
+.main-image {
+    width: 100%;
+    height: auto;
+}
 .text-3 {
     font-size: 1.2rem;
     font-weight: 400;

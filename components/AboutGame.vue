@@ -34,6 +34,16 @@
                     </div>
                 </div>
             </div>
+            <div id="heroes" class="game-description container" v-b-visible="heroesVisibleHandler">
+                <more-description
+                    key="heroes-desc"
+                    id="heroes-desc"
+                    propBased
+                    title="Heroes"
+                    :external-messages="heroesMessages"
+                    img="tory.png"
+                ></more-description>
+            </div>
             <game-description id="game-description-parent" v-b-visible="supportVisibleHandler"></game-description>
             <div id="gd" class="game-description container" v-b-visible="gameVisibleHandler">
                 <more-description></more-description>
@@ -85,11 +95,18 @@ export default {
                 desc: "Access your personal archives to see your private journal, goal progression, quest log, game-generated mood tracker, and personality test results."
             },
         ];
+        const heroesMessages = [
+            'Heroes are inspiring people who have faced their own dragons and achieved something epic. They are here to inspire you and give unique quests based on the challenges that they faced on their rise to greatness. Visit the Hall of Heroes where their origin stories are revealed. Each month after launch we will reveal a new Hero that will be featured in the game. They range from celebrities to everyday people from all walks of life, who have teamed up with Facing Dragons to support the mission and make a difference. <br> <strong>You could even become the next Hero! Become a Hero alongside Tory Lanez, Bibiano Fernandes and Steph Jeavons!</strong> ',
+            `Tory Lanez went from homeless to debuting at #1 on Billboard, rising to become a multi-platinum hip hop recording artist. He is a two-time Juno Award winner and is nominated for a third in 2020. <br> 
+            His journey to the top is one of courage and a never-quit attitude. Tory and his dad, Sonstar, are launching their book 360 Phenomenon later this year. Their mission aligns perfectly with ours and we are excited to team up with them.`
+        ]
         return {
             gameFeatures,
+            heroesMessages,
             featureAnimation: '',
             supportAnimation: '',
-            gameAnimation: ''
+            gameAnimation: '',
+            heroesAnimation: ''
         }
     },
     mounted() {
@@ -103,6 +120,15 @@ export default {
             delay: anime.stagger(400)
         });
         this.featureAnimation = featureAnimation;
+        var heroesAnimation = anime({
+            targets: '#heroes',
+            translateY: ['10vh', 0],
+            opacity: [0, 1],
+            easing: 'easeInOutSine',
+            autoplay: false,
+            duration: 600,
+        });
+        this.heroesAnimation = heroesAnimation;
         var supportAnimation = anime({
             targets: '#game-description-parent',
             translateY: ['10vh', 0],
@@ -138,6 +164,10 @@ export default {
         gameVisibleHandler(isVisible) {
             if(isVisible && !this.gameAnimation.began)
                 this.gameAnimation.play();
+        },
+        heroesVisibleHandler(isVisible) {
+            if(isVisible && !this.heroesAnimation.began)
+                this.heroesAnimation.play();
         }
     }
 }
