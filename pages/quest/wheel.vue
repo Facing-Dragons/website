@@ -13,6 +13,7 @@
             >
                 <component :is="currentTextComponent"></component>
             </transition>
+        </game-question>
     </div>
 </template>
 
