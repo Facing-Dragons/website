@@ -6,7 +6,7 @@
             <!-- <div class="d-none d-md-flex col-md-1">
                 <div class="fancy-vertical-line"></div>
             </div> -->
-            <div v-if="propBased" class="col-12 py-2">
+            <div v-if="propBased" class="col-12 py-2 px-0">
                 <h3 class="text-3-title" id="game">
                     Heroes
                 </h3>
@@ -15,7 +15,7 @@
             <div v-if="propBased" class="col-12 col-md-6 px-0 px-md-1 pt-2 order-md-6">
                 <img class="main-image" :src="`${require(`~/assets/img/tory.png`)}`" alt="">
             </div>
-            <div  v-if="propBased" class="col-12 col-md-6 pl-2 order-md-1">
+            <div  v-if="propBased" class="col-12 col-md-6 px-0 pr-md-2 order-md-1 mt-3 mt-md-0">
                 <p class="text-3" v-html="externalMessages[1]"></p>
             </div>
 
