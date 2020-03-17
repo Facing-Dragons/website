@@ -1,7 +1,10 @@
 <template>
   <div class="background-container">
-    <div v-if="!$device.isMobile" class="ribbon-container d-none d-md-block">
-      <kickstarter-ribbon></kickstarter-ribbon>
+    <div v-if="$device.isDesktop" class="ribbon-container d-none d-md-flex" @click="clickKickstarter">
+      <img class="rounded-left" src="~assets/img/KS_banner_02.png" alt="Kickstarter logo">
+    </div>
+    <div v-if="$device.isDesktop" class="ribbon-container-2 d-none d-md-flex" @click="clickKickstarter">
+      <img class="rounded-left" src="~assets/img/KS_banner_01.png" alt="Kickstarter logo">
     </div>
     <div
      v-else
@@ -146,6 +149,9 @@ export default {
         this.scrollAnimation.seek(this.scrollAnimation.duration * (window.scrollY / window.innerHeight));
         this.dragonAnimation.seek(this.dragonAnimation.duration * (window.scrollY / window.innerHeight));
       }
+    },
+    clickKickstarter() {
+      window.open('http://kck.st/3b45UZO', '_blank');
     }
   },
   mounted() {
@@ -229,11 +235,23 @@ $largest-foreground-height: 1402px;
   @return calc(80vh*(1920/1402));
 }
 
-.ribbon-container {
+.ribbon-container, .ribbon-container-2 {
+  cursor: pointer;
+  height: 50vh;
+  display: flex;
   position: absolute;
   z-index: 10;
-  top: 5rem;
+  top: 7rem;
   right: 0;
+
+  img {
+    height: 100%;
+  }
+}
+
+.ribbon-container-2 {
+  height: 10vh;
+  top: 80vh;
 }
 
 .ribbon-container-mobile {
