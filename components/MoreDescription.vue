@@ -12,10 +12,10 @@
                 </h3>
                 <p class="text-3" v-html="externalMessages[0]"></p>
             </div>
-            <div v-if="propBased" class="col-12 col-md-6 px-0 px-md-1 pt-2 order-md-6">
+            <div v-if="propBased" class="col-12 col-md-4 px-0 px-md-1 pt-2 order-md-6">
                 <img class="main-image" :src="`${require(`~/assets/img/tory.png`)}`" alt="">
             </div>
-            <div  v-if="propBased" class="col-12 col-md-6 px-0 pr-md-2 order-md-1 mt-3 mt-md-0">
+            <div  v-if="propBased" class="col-12 col-md-8 px-0 pr-md-2 order-md-1 mt-3 mt-md-0 d-block d-md-flex align-items-center">
                 <p class="text-3" v-html="externalMessages[1]"></p>
             </div>
 
