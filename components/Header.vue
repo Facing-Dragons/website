@@ -124,7 +124,6 @@ export default {
         border-top-right-radius: 0;
     }
 
-
     .quest-button span {
         font-weight: 500;
         font-size: 1.2rem;

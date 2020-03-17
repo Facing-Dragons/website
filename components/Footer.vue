@@ -8,7 +8,7 @@
             line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
         ></section-title>
         <div class="email-text">
-            FIND US AT <a href="mailto:info@facingdragons.com">INFO@FACINGDRAGONS.COM</a>
+            FIND US AT <a href="mailto:contact@facingdragons.com">CONTACT@FACINGDRAGONS.COM</a>
         </div>
         <div 
             class="icon-set p-3 d-flex w-100 flex-wrap justify-content-center align-items-center"

@@ -1,5 +1,8 @@
 <template>
   <div class="background-container">
+    <!-- <div class="ribbon-container">
+      <kickstarter-ribbon></kickstarter-ribbon>
+    </div> -->
     <picture v-if="!$device.isIos" id="dark-mountain">
         <source 
           type="image/png"
@@ -112,7 +115,11 @@
 
 <script>
 import anime from 'animejs/lib/anime.es.js';
+import KickstarterRibbon from '~/components/svg/KickstarterRibbon';
 export default {
+  components: {
+    KickstarterRibbon
+  },
   data() {
     return {
       scrollAnimation: "",
@@ -211,6 +218,13 @@ $largest-foreground-height: 1402px;
 
 @function foregroundWidthTablet() {
   @return calc(80vh*(1920/1402));
+}
+
+.ribbon-container {
+  position: absolute;
+  z-index: 10;
+  top: 5rem;
+  right: 0;
 }
 
 .background-container {
