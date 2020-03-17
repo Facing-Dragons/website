@@ -1,8 +1,17 @@
 <template>
   <div class="background-container">
-    <!-- <div class="ribbon-container">
+    <div v-if="!$device.isMobile" class="ribbon-container d-none d-md-block">
       <kickstarter-ribbon></kickstarter-ribbon>
-    </div> -->
+    </div>
+    <div
+     v-else
+     class="ribbon-container-mobile"
+     @click="handleKickstarterClick"
+    >
+      <span>
+        SUPPORT FACING DRAGONS ON KICKSTARTER
+      </span>
+    </div>
     <picture v-if="!$device.isIos" id="dark-mountain">
         <source 
           type="image/png"
@@ -225,6 +234,26 @@ $largest-foreground-height: 1402px;
   z-index: 10;
   top: 5rem;
   right: 0;
+}
+
+.ribbon-container-mobile {
+  position: absolute;
+  z-index: 10;
+  top: 75vh;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5vh;
+  background-color: #2CDF72;
+
+  & span {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
 }
 
 .background-container {
