@@ -12,15 +12,15 @@
                 </h3>
                 <p class="text-3" v-html="externalMessages[0]"></p>
             </div>
-            <div v-if="propBased" class="col-12 col-md-4 px-0 px-md-1 pt-2 order-md-6">
+            <div v-if="propBased" class="col-12 col-xl-4 px-0 px-xl-1 pt-2 order-xl-6 main-image-container">
                 <img class="main-image" :src="`${require(`~/assets/img/tory.png`)}`" alt="">
             </div>
-            <div  v-if="propBased" class="col-12 col-md-8 px-0 pr-md-2 order-md-1 mt-3 mt-md-0 d-block d-md-flex align-items-center">
+            <div  v-if="propBased" class="col-12 col-xl-8 px-0 pr-xl-2 order-xl-1 mt-3 mt-xl-0 d-block d-xl-flex align-items-center">
                 <p class="text-3" v-html="externalMessages[1]"></p>
             </div>
 
 
-            <div v-if="!propBased" class="col-12 px-0 px-md-1 d-flex flex-column">
+            <div v-if="!propBased" class="col-12 px-0 px-xl-1 d-flex flex-column">
                 <h3 class="text-3-title" id="game">
                     The Game
                 </h3>
@@ -97,6 +97,16 @@ export default {
 .main-image {
     width: 100%;
     height: auto;
+}
+@media screen and (max-width: 1200px) {
+    .main-image {
+        max-height: 60vh;
+        width: auto;
+    }
+    .main-image-container {
+        display: flex;
+        justify-content: center;
+    }
 }
 .text-3 {
     font-size: 1.2rem;
