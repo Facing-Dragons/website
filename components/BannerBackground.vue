@@ -1,19 +1,10 @@
 <template>
   <div class="background-container">
-    <div v-if="$device.isDesktop" class="ribbon-container d-none d-md-flex" @click="clickKickstarter">
+    <div v-if="$device.isDesktop" class="ribbon-container d-none d-xl-flex" @click="clickKickstarter">
       <img class="rounded-left" src="~assets/img/KS_banner_02.png" alt="Kickstarter logo">
     </div>
-    <div v-if="$device.isDesktop" class="ribbon-container-2 d-none d-md-flex" @click="clickKickstarter">
+    <div v-if="$device.isDesktop" class="ribbon-container-2 d-none d-xl-flex" @click="clickKickstarter">
       <img class="rounded-left" src="~assets/img/KS_banner_01.png" alt="Kickstarter logo">
-    </div>
-    <div
-     v-else
-     class="ribbon-container-mobile"
-     @click="handleKickstarterClick"
-    >
-      <span>
-        SUPPORT FACING DRAGONS ON KICKSTARTER
-      </span>
     </div>
     <picture v-if="!$device.isIos" id="dark-mountain">
         <source 
@@ -135,7 +126,8 @@ export default {
   data() {
     return {
       scrollAnimation: "",
-      dragonAnimation: ""
+      dragonAnimation: "",
+      kickstarterModalShow: true,
     }
   },
   created() {
@@ -252,26 +244,6 @@ $largest-foreground-height: 1402px;
 .ribbon-container-2 {
   height: 10vh;
   top: 80vh;
-}
-
-.ribbon-container-mobile {
-  position: absolute;
-  z-index: 10;
-  top: 75vh;
-  right: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 5vh;
-  background-color: #2CDF72;
-
-  & span {
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.3rem;
-  }
 }
 
 .background-container {
