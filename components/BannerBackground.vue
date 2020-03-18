@@ -1,6 +1,6 @@
 <template>
   <div class="background-container">
-    <div v-if="$device.isDesktop" class="ribbon-container d-none d-xl-flex" @click="clickKickstarter">
+    <div v-if="$device.isDesktopOrTablet" class="ribbon-container d-none d-md-flex" @click="clickKickstarter">
       <img class="rounded-left" src="~assets/img/KS_banner_02.png" alt="Kickstarter logo">
     </div>
     <div v-if="$device.isDesktop" class="ribbon-container-2 d-none d-xl-flex" @click="clickKickstarter">
@@ -229,21 +229,32 @@ $largest-foreground-height: 1402px;
 
 .ribbon-container, .ribbon-container-2 {
   cursor: pointer;
-  height: 50vh;
+  max-height: 50vh;
+  width: 5vw;
   display: flex;
   position: absolute;
   z-index: 10;
-  top: 7rem;
+  top: 15vh;
   right: 0;
 
   img {
-    height: 100%;
+    // height: 100%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    width: 10vw;
+    top: 60vh;
   }
 }
 
 .ribbon-container-2 {
-  height: 10vh;
+  // height: 10vh;
   top: 80vh;
+
+  @media screen and (max-width: 1200px) {
+    top: 95vh;
+  }
 }
 
 .background-container {
