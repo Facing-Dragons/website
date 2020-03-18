@@ -54,7 +54,7 @@
                     </div> 
                   </div>
                   <div v-else class="quest-email-message">
-                    Great Choice! Check your email to get your quest now! 
+                    Please check your email for your first quest! 
                   </div>
                 </b-card>
                 <b-card v-else no-body class="msg-container-mobile w-100 d-flex d-md-none p-2 pt-4">
@@ -101,7 +101,7 @@
                     </div> 
                   </div>
                   <div v-else class="quest-email-message quest-question-mobile w-50">
-                    Great Choice! Check your email to get your first quest now! 
+                    Please check your email for your first quest! 
                   </div>
                 </b-card>
               </div>
@@ -155,7 +155,7 @@
                     </div>
                   </div>
                   <div v-else class="quest-email-message">
-                    Thank you for your interest! We will keep in touch.
+                    Please check your email for your first quest!
                   </div>
                 </b-card>
                 <b-card v-else no-body class="msg-container-mobile w-100 d-flex d-md-none p-2 pt-4">
@@ -200,7 +200,7 @@
                     </div>
                   </div>
                   <div v-else class="quest-email-message quest-question-mobile w-50">
-                    Thank you for your interest! We will keep in touch.
+                    Please check your email for your first quest!
                   </div>
                 </b-card>
               </div>
