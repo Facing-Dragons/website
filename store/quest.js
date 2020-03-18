@@ -170,6 +170,8 @@ export const actions = {
       try {
         await doc.update({
           shared: true,
+          timestamp: new Date(),
+          serverTimestamp: '' || this.$fireStoreObj.FieldValue.serverTimestamp()
         })
       } catch (e) {
         console.log(e)
@@ -181,9 +183,11 @@ export const actions = {
      const doc = this.$fireStore.collection('users').doc(state.user.uid);
      try {
        await doc.set({
-         gameScores: state.gameScores,
-         resultTitle: state.resultTitle,
-         resultSlogan: state.resultSlogan,
+        gameScores: state.gameScores,
+        resultTitle: state.resultTitle,
+        resultSlogan: state.resultSlogan,
+        timestamp: new Date(),
+        serverTimestamp: '' || this.$fireStoreObj.FieldValue.serverTimestamp()
        }, {
          merge: true
        })
@@ -202,7 +206,8 @@ export const actions = {
      try {
        await doc.update({
          email: newEmail,
-         isSupport: newIsSupport
+         isSupport: newIsSupport,
+         serverTimestamp: '' || this.$fireStoreObj.FieldValue.serverTimestamp()
        })
      } catch (e) {
        console.log(e)

@@ -128,6 +128,8 @@ export default {
           },
           resultTitle: "",
           resultSlogan: "",
+          timestamp: new Date(),
+          serverTimestamp: '' || this.$fireStoreObj.FieldValue.serverTimestamp()
         })
       } catch (e) {
         console.log(e);
