@@ -103,7 +103,7 @@ export default {
                     console.log("Anonymous account successfully upgraded", user);
                     this.$store.commit('quest/SET_USER_EMAIL', user.email);
                     this.$store.commit('SET_AUTH_USER', {authUser: {uid: user.uid, email: user.email}});
-                    window.location.reload(true);
+                    setTimeout(() => window.location.reload(true));
                 }, (error) => {
                 console.log("Error upgrading anonymous account", error);
                 this.$fireAuth.signInWithEmailLink(email, window.location.href)

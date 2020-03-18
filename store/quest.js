@@ -69,8 +69,10 @@ export const mutations = {
         const sortedArray = Object.entries(state.gameScores).sort((a, b) => a[1] - b[1]);
         const secondHighest = adjectives[sortedArray[6][0]];
         console.log(sortedArray);
-        const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
-        const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
+        // const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
+        // const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
+        const highestScore = sortedArray[7][0];
+        const lowestScore = sortedArray[0][0];
         state.highestScore = highestScore;
         state.lowestScore = lowestScore;
         state.resultTitle = `${secondHighest} ${playerTypes[highestScore][lowestScore].title}`;
