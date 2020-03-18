@@ -122,9 +122,9 @@ export default {
         id: 'wealth',
         title: 'Wealth',
         titleComponent: 'WealthText',
-        text: ' How are you doing at having enough money to do what you want, enjoying financial security, and having the skills and mindset to grow your wealth?',
-        lowDescription: 'Money is an obstacle, stressed about money, spending more than you make, too much debt.',
-        highDescription: "Money isn't an obstacle, in control of your finances, saving for the future, working with a budget.",
+        text: 'How are you doing at feeling wealthy, having enough money to do what you want, being financially secure, and harnessing the skills, mindset, and actions to grow and enjoy your wealth?',
+        lowDescription: 'Money is an obstacle. You never seem to have enough. You’re stressed about money, spending more than you make, and in debt.',
+        highDescription: "Money is easy and you enjoy it. You are in control of your finances, saving for the future, working with a budget and feel rich in all areas of your life.",
         value: store.state.quest.gameScores.wealth,
         color: "#FFD700"
       },
