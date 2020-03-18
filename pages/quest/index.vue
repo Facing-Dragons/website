@@ -74,17 +74,6 @@ export default {
         });
       }
     });
-    
-    // if(!store.state.authUser || !store.state.authUser.email) {
-    //   app.$fireAuth.signInAnonymously().catch(function(error) {
-    //     // Handle Errors here.
-    //     var errorCode = error.code;
-    //     var errorMessage = error.message;
-    //     // ...
-    //     console.log(error);
-        
-    //   });
-    // }
   },
   mounted() {
     // console.log(this.$store.state.authUser.email);

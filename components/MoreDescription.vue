@@ -44,7 +44,7 @@ export default {
     props: {
         externalMessages: {
             type: [Object, Array],
-            default: []
+            default: () => {}
         },
         title: String,
         propBased: {
