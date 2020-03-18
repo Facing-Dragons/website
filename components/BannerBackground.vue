@@ -251,6 +251,7 @@ $largest-foreground-height: 1402px;
 .ribbon-container-2 {
   // height: 10vh;
   top: 80vh;
+  position: fixed;
 
   @media screen and (max-width: 1200px) {
     top: 95vh;

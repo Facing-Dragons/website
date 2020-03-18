@@ -44,7 +44,7 @@
         </b-navbar-brand>
         
         <transition v-if="$device.isMobile" name="fade-from-up">
-            <img height="30px" @click="() => {kickstarterModalShow = true}" class="k-logo-nav ml-auto d-block d-md-none" src="~/assets/img/kickstarter-logo-k-green.png" alt="Kickstarter Logo">
+            <img id="k-logo" height="30px" @click="handleLogoClick" class="k-logo-nav ml-auto d-block d-md-none" src="~/assets/img/kickstarter-logo-k-green.png" alt="Kickstarter Logo">
         </transition>
         <b-navbar-toggle v-if="headerType !== 'quest'" target="main-collapse"></b-navbar-toggle>
         <b-collapse v-if="headerType !== 'quest'" id="main-collapse" is-nav>
@@ -95,8 +95,6 @@ export default {
         if (process.browser) {
             window.addEventListener('scroll', this.onScrollHandler)
         }
-    },
-    mounted() {
         setTimeout(() => {
             this.kickstarterModalShow = true;
         }, 4000);
@@ -105,6 +103,9 @@ export default {
         ...mapState(['isTeamsVisible']),
     },
     methods: {
+        handleLogoClick() {
+            this.kickstarterModalShow = true;
+        },
         onScrollHandler() {
             if(window.scrollY > 400)
                 this.isTitleShown = false;
