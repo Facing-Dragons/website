@@ -8,7 +8,7 @@
             line-gradient="linear-gradient(to right, black 0%, #f9d423 100%)"
         ></section-title>
         <div class="email-text">
-            FIND US AT <a href="mailto:contact@facingdragons.com">CONTACT@FACINGDRAGONS.COM</a>
+            <a href="mailto:contact@facingdragons.com">CONTACT@FACINGDRAGONS.COM</a>
         </div>
         <div 
             class="icon-set p-3 d-flex w-100 flex-wrap justify-content-center align-items-center"
@@ -125,6 +125,19 @@ export default {
         text-align: center;
         width: 100%;
         color: white;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .email-text {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .email-text {
+            font-size: 1.2rem;
+        }
     }
 
     .email-text a {
