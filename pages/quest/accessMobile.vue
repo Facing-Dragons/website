@@ -98,32 +98,35 @@ export default {
             var credential = this.$fireAuthObj.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
             console.log(credential);
-            this.$fireAuth.currentUser.linkWithCredential(credential).then((usercred) => {
+            if(this.$fireAuth.currentUser) {
+                this.$fireAuth.currentUser.linkWithCredential(credential).then((usercred) => {
                     var user = usercred.user;
                     console.log("Anonymous account successfully upgraded", user);
                     this.$store.commit('quest/SET_USER_EMAIL', user.email);
                     this.$store.commit('SET_AUTH_USER', {authUser: {uid: user.uid, email: user.email}});
                     setTimeout(() => window.location.reload(true));
                 }, (error) => {
-                console.log("Error upgrading anonymous account", error);
+                    console.log("Error upgrading anonymous account", error);
+                    this.$fireAuth.signInWithEmailLink(email, window.location.href)
+                    .then((result) => {
+                        window.localStorage.removeItem('emailForSignIn');
+                        this.$router.replace('/quest');
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+                });
+            } else {
+                console.log("No users signed in!");
                 this.$fireAuth.signInWithEmailLink(email, window.location.href)
                 .then((result) => {
-                    // Clear email from storage.
-                    // console.log(result);
                     window.localStorage.removeItem('emailForSignIn');
-                    // store.commit('quest/setUserInfo', result.users);
-                    // You can access the new user via result.user
-                    // Additional user info profile not available via:
-                    // result.additionalUserInfo.profile == null
-                    // You can check if the user is new or existing:
-                    // result.additionalUserInfo.isNewUser
-                    // console.log(this.$route.query);
-                    
+                    this.$router.replace('/quest');
                 })
                 .catch(function(error) {
                     console.log(error);
                 });
-            });
+            }
         }
 
         if(!this.$device.isMobileOrTablet) {
