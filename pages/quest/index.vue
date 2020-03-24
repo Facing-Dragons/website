@@ -31,6 +31,19 @@
 import {mapState} from 'vuex';
 import WheelText from '~/components/WheelText'
 export default {
+  head () {
+    return {
+      title: "Facing Dragons: Life Wheel Quest",
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        { hid: 'description', name: 'description', content: 'You are about to start your first quest in the Facing Dragons world. You will be asked to honestly consider how you feel in eight key areas of your life. You will be rewarded by unveiling your player class at the end. Trust your instincts!' },
+        { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}/quest` },
+        { hid: 'og:title', property: 'og:title', content: "Facing Dragons: Life Wheel Quest" },
+        { hid: 'og:description', property: 'og:description', content: "You are about to start your first quest in the Facing Dragons world. You will be asked to honestly consider how you feel in eight key areas of your life. You will be rewarded by unveiling your player class at the end. Trust your instincts!" },
+        { hid: 'og:image', property: 'og:image', content: `${process.env.baseUrl}/wheel.png` },
+      ]
+    }
+  },
   components: {
     WheelText
   },

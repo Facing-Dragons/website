@@ -28,7 +28,23 @@ export default {
         hid: "description",
         name: "description",
         content: "A mental health game and clinical support tool to empower the next generation of leaders."
-      }
+      }, {
+        hid: 'og:url',
+        property: 'og:url',
+        content: process.env.BASE_URL || 'http://localhost:3000'
+      }, {
+        hid: 'og:title',
+        property: 'og:title',
+        content: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose"
+      }, {
+        hid: 'og:description',
+        property: 'og:description',
+        content: "A mental health game and clinical support tool to empower the next generation of leaders."
+      }, {
+        hid: 'og:image',
+        property: 'og:image',
+        content: `${process.env.BASE_URL || 'http://localhost:3000'}/favicon.ico`
+      },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [
@@ -71,10 +87,10 @@ export default {
         meta: {
           name: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
           ogSiteName: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
-          ogTitle: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
-          ogDescription: "A mental health game and clinical support tool to empower the next generation of leaders.",
-          ogHost: process.env.BASE_URL || 'http://localhost:3000',
-          ogImage: "/favicon.ico",
+          // ogTitle: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
+          // ogDescription: "A mental health game and clinical support tool to empower the next generation of leaders.",
+          // ogHost: process.env.BASE_URL || 'http://localhost:3000',
+          // ogImage: "/favicon.ico",
           twitterCard: "summary",
           twitterSite: "@FacingDragons"
         }
