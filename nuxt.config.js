@@ -65,7 +65,21 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
-    "@nuxtjs/pwa",
+    [
+      "@nuxtjs/pwa",
+      {
+        meta: {
+          name: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
+          ogSiteName: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
+          ogTitle: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
+          ogDescription: "A mental health game and clinical support tool to empower the next generation of leaders.",
+          ogHost: process.env.BASE_URL || 'http://localhost:3000',
+          ogImage: "~/static/favicon.ico",
+          twitterCard: "summary",
+          twitterSite: "@FacingDragons"
+        }
+      }
+    ],
     [
       "@nuxtjs/firebase",
       {
