@@ -66,8 +66,16 @@ export const mutations = {
           wealth: 'Rich',
           vitality: 'Healthy',
         };
-        const sortedArray = Object.entries(state.gameScores).sort((a, b) => a[1] - b[1]);
+        const entries = Object.entries(state.gameScores);
+        const sortedArray = entries.sort((a, b) => a[1] - b[1]);
         const secondHighest = adjectives[sortedArray[6][0]];
+        const hasBelowSeven = entries.some(el => el[1] < 7);
+        const hasBelowEight = entries.some(el => el[1] < 8);
+        const hasBelowNine = entries.some(el => el[1] < 9);
+        const hasBelowTen = entries.some(el => el[1] < 10);
+        const NotHaveAllZero = entries.some(el => el[1] > 0);
+        const HasAboveThree = entries.some(el => el[1] > 3);
+        const HasButFive = entries.some(el => el[1] !== 5);
         console.log(sortedArray);
         // const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
         // const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
@@ -77,6 +85,30 @@ export const mutations = {
         state.lowestScore = lowestScore;
         state.resultTitle = `${secondHighest} ${playerTypes[highestScore][lowestScore].title}`;
         state.resultSlogan = playerTypes[highestScore][lowestScore].text;
+
+        if (!hasBelowTen) {
+          state.resultTitle = 'ERROR';
+          state.resultSlogan = 'ERROR: YOUR LIFE IS TOO PERFECT'
+        } else if (!hasBelowNine) {
+          state.resultTitle = 'Hero of Ages';
+          state.resultSlogan = 'I am the chosen one'
+        } else if (!hasBelowEight) {
+          state.resultTitle = 'Dragon Rider';
+          state.resultSlogan = 'Nothing can stop me!'
+        } else if (!hasBelowSeven) {
+          state.resultTitle = 'Optimist';
+          state.resultSlogan = 'Life is pretty great!'
+        } else if (!NotHaveAllZero) {
+          state.resultTitle = 'Black Ooze';
+          state.resultSlogan = 'Blrgrgllgllll…'
+        } else if (!HasButFive) {
+          state.resultTitle = 'No. 5';
+          state.resultSlogan = 'NUMBER 5 IS ALIVE'
+        } else if (!HasAboveThree) {
+          state.resultTitle = 'Pessimist';
+          state.resultSlogan = 'This quiz sucks! Life sucks!'
+        }
+        
         /**
          * we need to postpone this to the loading of the results page
          */
