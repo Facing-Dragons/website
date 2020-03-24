@@ -46,6 +46,14 @@ export default {
     data() {
         const videos = [
             {
+                id: 'S9JdRh9r4YM',
+                url: 'https://www.youtube.com/embed/S9JdRh9r4YM?rel=0'
+            },
+            {
+                id: 'MRA9iJuIBok',
+                url: 'https://www.youtube.com/embed/MRA9iJuIBok?rel=0'
+            },
+            {
                 id: 'er66ouHPTJU',
                 url: 'https://www.youtube.com/embed/er66ouHPTJU?rel=0'
             },
@@ -60,14 +68,6 @@ export default {
             {
                 id: 'BNW4z6UiBKg',
                 url: 'https://www.youtube.com/embed/BNW4z6UiBKg?rel=0'
-            },
-            {
-                id: 'Ov6EVYghHDI',
-                url: 'https://www.youtube.com/embed/Ov6EVYghHDI?rel=0'
-            },
-            {
-                id: 'DYVWN5TNnMA',
-                url: 'https://www.youtube.com/embed/DYVWN5TNnMA?rel=0'
             },
 
         ]
