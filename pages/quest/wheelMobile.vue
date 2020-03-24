@@ -190,7 +190,20 @@ export default {
     ...mapState({
       gameScores: state => state.quest.gameScores
     })
-  }
+  },
+  head () {
+    return {
+      title: `Facing Dragons: Life Wheel Quest - ${this.currentProperties.title}`,
+      meta: [
+          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+          { hid: 'description', name: 'description', content: this.currentProperties.text },
+          { hid: 'og:url', property: 'og:url', content: window.location.href },
+          { hid: 'og:title', property: 'og:title', content: `Facing Dragons: Life Wheel Quest - ${this.currentProperties.title}` },
+          { hid: 'og:description', property: 'og:description', content: this.currentProperties.text },
+          { hid: 'og:image', property: 'og:image', content: `${process.env.baseUrl}/wheel.png` },
+      ]
+    }
+  },
 }
 </script>
 
