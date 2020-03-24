@@ -357,7 +357,7 @@ export default {
         }, 2000);
       },
       handleStartQuest: function () {
-        console.log(this.authUser);
+        // console.log(this.authUser);
         if(this.authUser) {
           this.$router.push('/quest');
         } else {
@@ -365,7 +365,7 @@ export default {
         }
       },
       handleWorkerQuest: function () {
-        console.log(this.authUser);
+        // console.log(this.authUser);
         if(this.authUser) {
           this.$router.push('/quest');
         } else {

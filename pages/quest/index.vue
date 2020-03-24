@@ -64,14 +64,14 @@ export default {
   },
   watch: {
     authUser(newVal) {
-      console.log('This is the ', newVal);
+      // console.log('This is the ', newVal);
       
     }
    
   },
   fetch({store, app}) {
-    console.log(store.state.authUser);
-    console.log(app.$fireAuth);
+    // console.log(store.state.authUser);
+    // console.log(app.$fireAuth);
 
     app.$fireAuth.onAuthStateChanged(function(user) {
       if (user) {

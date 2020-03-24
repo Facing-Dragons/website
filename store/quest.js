@@ -76,7 +76,7 @@ export const mutations = {
         const NotHaveAllZero = entries.some(el => el[1] > 0);
         const HasAboveThree = entries.some(el => el[1] > 3);
         const HasButFive = entries.some(el => el[1] !== 5);
-        console.log(sortedArray);
+        // console.log(sortedArray);
         // const highestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] > state.gameScores[b] ? a : b);
         // const lowestScore = Object.keys(state.gameScores).reduce((a, b) => state.gameScores[a] < state.gameScores[b] ? a : b);
         const highestScore = sortedArray[7][0];
@@ -229,8 +229,8 @@ export const actions = {
      }
   },
   async updateUserEmail({commit, state}, {newEmail, newIsSupport}) {
-    console.log(newEmail);
-    console.log(newIsSupport);
+    // console.log(newEmail);
+    // console.log(newIsSupport);
     
     state.user.email = newEmail;
     state.user.isSupport = newIsSupport;

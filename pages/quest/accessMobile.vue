@@ -97,11 +97,11 @@ export default {
             }
             var credential = this.$fireAuthObj.EmailAuthProvider.credentialWithLink(email, window.location.href);
 
-            console.log(credential);
+            // console.log(credential);
             if(this.$fireAuth.currentUser) {
                 this.$fireAuth.currentUser.linkWithCredential(credential).then((usercred) => {
                     var user = usercred.user;
-                    console.log("Anonymous account successfully upgraded", user);
+                    // console.log("Anonymous account successfully upgraded", user);
                     this.$store.commit('quest/SET_USER_EMAIL', user.email);
                     this.$store.commit('SET_AUTH_USER', {authUser: {uid: user.uid, email: user.email}});
                     setTimeout(() => window.location.reload(true));
