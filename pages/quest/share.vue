@@ -122,6 +122,19 @@ export default {
             }
         })
     },
+    head () {
+        return {
+        title: "Facing Dragons: Life Wheel Quest",
+        meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+            { hid: 'description', name: 'description', content: 'I’m excited to share this new “Life Wheel” quest with you! This is a useful self-reflection and life fulfillment tool being used by coaches, counselors, and clinicians in an innovative new app to support clients and students.' },
+            { hid: 'og:url', property: 'og:url', content: window.location.href },
+            { hid: 'og:title', property: 'og:title', content: "Facing Dragons: Life Wheel Quest" },
+            { hid: 'og:description', property: 'og:description', content: 'I’m excited to share this new “Life Wheel” quest with you! This is a useful self-reflection and life fulfillment tool being used by coaches, counselors, and clinicians in an innovative new app to support clients and students.' },
+            { hid: 'og:image', property: 'og:image', content: `${process.env.baseUrl}/wheel.png` },
+        ]
+        }
+    },
 }
 </script>
 

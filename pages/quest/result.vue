@@ -146,6 +146,19 @@ import {mapState} from 'vuex'
 export default {
     middleware: 'auth',
     layout: 'quest',
+    head () {
+        return {
+        title: "Facing Dragons: Life Wheel Quest Results",
+        meta: [
+            // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+            { hid: 'description', name: 'description', content: this.sharingDescription },
+            { hid: 'og:url', property: 'og:url', content: `${process.env.baseUrl}/quest/result` },
+            { hid: 'og:title', property: 'og:title', content: "Facing Dragons: Life Wheel Quest Results" },
+            { hid: 'og:description', property: 'og:description', content: this.sharingDescription },
+            { hid: 'og:image', property: 'og:image', content: `${process.env.baseUrl}/wheel.png` },
+        ]
+        }
+    },
     components: {
         WheelOfLifeSection,
         ResultsWheel,
