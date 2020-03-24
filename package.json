@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "generate:firebase": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://new.facingdragons.com/ nuxt generate",
+    "generate:firebase": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://new.facingdragons.com nuxt generate",
     "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://v2.facingdragons.com nuxt build",
     "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES BASE_URL=https://v2.facingdragons.com nuxt generate",
     "build:staging": "cross-env DEPLOY_ENV=STAGING nuxt build",

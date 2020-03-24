@@ -74,7 +74,7 @@ export default {
           ogTitle: "Facing Dragons: A Mixed-Reality Game to Unlock Your Purpose",
           ogDescription: "A mental health game and clinical support tool to empower the next generation of leaders.",
           ogHost: process.env.BASE_URL || 'http://localhost:3000',
-          ogImage: "favicon.ico",
+          ogImage: "/favicon.ico",
           twitterCard: "summary",
           twitterSite: "@FacingDragons"
         }
