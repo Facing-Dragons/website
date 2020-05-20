@@ -1,11 +1,11 @@
 <template>
   <div class="background-container">
-    <div v-if="$device.isDesktopOrTablet" class="ribbon-container d-none d-md-flex" @click="clickKickstarter">
+    <!-- <div v-if="$device.isDesktopOrTablet" class="ribbon-container d-none d-md-flex" @click="clickKickstarter">
       <img class="rounded-left" src="~assets/img/KS_banner_02.png" alt="Kickstarter logo">
     </div>
     <div v-if="$device.isDesktop" class="ribbon-container-2 d-none d-xl-flex" @click="clickKickstarter">
       <img class="rounded-left" src="~assets/img/KS_banner_01.png" alt="Kickstarter logo">
-    </div>
+    </div> -->
     <picture v-if="!$device.isIos" id="dark-mountain">
         <source 
           type="image/png"
